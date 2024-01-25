@@ -107,16 +107,16 @@
 
 <ul>
 <li><strong>path</strong>: 路由path 【必传】。<br>
-建议是一个url。path内支持使用正则表达式（为了匹配效率，正则必须包含反双斜杠\），允许多个path对应同一个Activity(Fragment)。</li>
+建议是一个url，不能包含参数。path内支持使用正则表达式（为了匹配效率，正则必须包含反双斜杠\），允许多个path对应同一个Activity(Fragment)。</li>
 <li><strong>action</strong>:  自定义事件【可选】。
 一般用来打开目标页面后做一个执行动作，例如自定义页面弹出广告弹窗。更多介绍，请查看文档<code>ActionManager</code>：<a href="https://therouter.cn/docs/2022/08/25/01">https://therouter.cn/docs/2022/08/25/01</a><br></li>
 <li><strong>description</strong>:  页面描述【可选】。
 会被记录到路由表中，方便后期排查的时候知道每个path或Activity是什么业务</li>
 <li><strong>params</strong>:  页面参数【可选】。
-自动写入intent中，允许写在路由表中动态下发修改默认值，或通过路由跳转时代码传入。</li>
+自动写入intent中，允许写在路由表中动态下发修改默认值，或通过路由跳转时代码传入。其中单数位为Key，双数位为Value，例如下方代码示例，等价于<code>http://therouter.com/home?hello=world&amp;a=b</code><br></li>
 </ul>
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Route</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"http://therouter.com/home"</span><span class="o">,</span> <span class="n">action</span> <span class="o">=</span> <span class="s">"action://scheme.com"</span><span class="o">,</span>
-        <span class="n">description</span> <span class="o">=</span> <span class="s">"第二个页面"</span><span class="o">,</span> <span class="n">params</span> <span class="o">=</span> <span class="o">{</span><span class="s">"hello"</span><span class="o">,</span> <span class="s">"world"</span><span class="o">})</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="s">"第二个页面"</span><span class="o">,</span> <span class="n">params</span> <span class="o">=</span> <span class="o">{</span><span class="s">"hello"</span><span class="o">,</span> <span class="s">"world"</span><span class="o">,</span> <span class="s">"a"</span><span class="o">,</span> <span class="s">"b"</span><span class="o">})</span>
 <span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="o">{</span>
 <span class="o">}</span>
 </code></pre></div>
@@ -152,7 +152,7 @@
 
 <ul>
 <li>如果编译期没有这个文件，会生成一份默认路由表放在这个目录内；如果有，会将路由表合并</li>
-<li>路由表生成时可配置是否启用检查路由合法性，判断目标页面是否存在，(warning/error)级别</li>
+<li>路由表生成时可配置是否启用检查路由合法性，判断目标页面是否存在，(warning/error/delete)级别 </li>
 </ul></li>
 <li>运行时线上动态下发的路由表
 
@@ -219,15 +219,14 @@
 可在<code>local.properties</code>配置编译期属性（warning输出日志，error直接报错）  </p>
 
 <ul>
-<li>路由表中声明了不存在的<code>Activity</code>检查 <code>CHECK_ROUTE_MAP=warning</code> warning/error可选</li>
+<li>路由表中声明了不存在的<code>Activity</code>检查 <code>CHECK_ROUTE_MAP=warning</code>(warning/error/delete)可选<br></li>
+<li>1.2.0 版本新增改进<br>
+
+<ul>
+<li>编译期参数配置支持写在 <code>gradle.properties</code>了 </li>
+<li> 每次构建删除本地<code>assets/therouter/routeMap.json</code>，需要配置 <code>CHECK_ROUTE_MAP=delete</code><br></li>
+</ul></li>
 </ul>
-
-<h5><code>1.2.0</code>版本新增改进</h5>
-
-<ol>
-<li>编译期参数配置支持写在 <code>gradle.properties</code>了</li>
-<li>每次构建删除本地<code>assets/therouter/routeMap.json</code>，需要配置 <code>CHECK_ROUTE_MAP=delete</code></li>
-</ol>
 
 <h3>2.0 页面跳转使用方式</h3>
 
@@ -645,7 +644,7 @@
   </div>
 
   <div class="copyright text center">
-    <p>&copy; Copyright 2023, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
+    <p>&copy; Copyright 2024, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
   </div>
 </footer>
 </html>

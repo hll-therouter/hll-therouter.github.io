@@ -99,7 +99,7 @@
 <li>plugin 加了吗？plugin 必须加且只能加在 app 模块里。<br></li>
 <li>kapt加了吗？kapt不能只加最底层，所有用了注解的模块都要加。<br></li>
 <li>router、plugin、kapt，三个依赖的版本号必须一致。<br></li>
-<li>在这里查看JDK信息：<code>Preferences-&gt; Build Tools-&gt; Gradle-&gt; Gradle JDK</code>。不能用AS自带的jdk，会有兼容问题，请在 Oracle 官网下载：<a href="https://www.oracle.com/hk/java/technologies/downloads/#java17">Java 17</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java11">Java 11</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java8">Java 8</a>。</li>
+<li>在这里查看JDK信息：<code>Preferences-&gt; Build Tools-&gt; Gradle-&gt; Gradle JDK</code>。不能用AS自带的jdk，KSP会有兼容问题，请在 Oracle 官网下载：<a href="https://www.oracle.com/hk/java/technologies/downloads/#java17">Java 17</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java11">Java 11</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java8">Java 8</a>。</li>
 <li>尝试更新至最新rc版本查看是否修复。<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">版本列表</a></li>
 </ol>
 
@@ -262,6 +262,15 @@ TheRouter 也支持这样的使用场景：  </p>
 
 <hr>
 
+<h4>Q15：我为什么总是拉不到TheRouter的依赖</h4>
+
+<p>TheRouter 的依赖全部上传在 <code>mavenCentral</code>，请检查你的仓库声明中是否有声明。另外，请不要使用阿里云的镜像仓库，否则也会造成拉不到依赖的情况。   </p>
+<div class="highlight"><pre><code class="language-" data-lang="">repositories {
+    mavenCentral()
+}
+</code></pre></div>
+<hr>
+
 	</div>
   
   
@@ -407,7 +416,7 @@ TheRouter 也支持这样的使用场景：  </p>
   </div>
 
   <div class="copyright text center">
-    <p>&copy; Copyright 2023, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
+    <p>&copy; Copyright 2024, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
   </div>
 </footer>
 </html>
