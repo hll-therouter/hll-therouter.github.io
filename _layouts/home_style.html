@@ -2,10 +2,10 @@
 <html lang="en">
 
   {% include head.html %}
-  {% include header.html %}
   {% include script.html %}
-
+  
   <body>
+    {% include header.html %}
     <div style="position: relative; width: 100%;">
         <img src="{{ site.url }}/assets/img/logo/huolala.jpg" class="blur" width="100%">
         <span class="home-title">移动端模块化解决方案</span>
@@ -189,7 +189,7 @@
         </div>   
     </section>
     <!-- End #services-section -->
+    {% include footer.html %}
   </body>
 
-  {% include footer.html %}
 </html>

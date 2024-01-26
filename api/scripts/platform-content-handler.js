@@ -25,30 +25,7 @@ window.addEventListener('load', () => {
     handleAnchor()
     initHidingLeftNavigation()
     topNavbarOffset = document.getElementById('navigation-wrapper')
-    darkModeSwitch()
 })
-
-const darkModeSwitch = () => {
-    const localStorageKey = "dokka-dark-mode"
-    const storage = localStorage.getItem(localStorageKey)
-    const savedDarkMode = storage ? JSON.parse(storage) : false
-    const element = document.getElementById("theme-toggle-button")
-    initPlayground(savedDarkMode ? samplesDarkThemeName : samplesLightThemeName)
-
-    element.addEventListener('click', () => {
-        const enabledClasses = document.getElementsByTagName("html")[0].classList
-        enabledClasses.toggle("theme-dark")
-
-        //if previously we had saved dark theme then we set it to light as this is what we save in local storage
-        const darkModeEnabled = enabledClasses.contains("theme-dark")
-        if (darkModeEnabled) {
-            initPlayground(samplesDarkThemeName)
-        } else {
-            initPlayground(samplesLightThemeName)
-        }
-        localStorage.setItem(localStorageKey, JSON.stringify(darkModeEnabled))
-    })
-}
 
 const initPlayground = (theme) => {
     if (!samplesAreEnabled()) return
@@ -81,14 +58,6 @@ const samplesAreEnabled = () => {
 
 
 const initHidingLeftNavigation = () => {
-    document.getElementById("leftToggler").onclick = function (event) {
-        //Events need to be prevented from bubbling since they will trigger next handler
-        event.preventDefault();
-        event.stopPropagation();
-        event.stopImmediatePropagation();
-        document.getElementById("leftColumn").classList.toggle("open");
-    }
-
     document.getElementById("main").onclick = () => {
         document.getElementById("leftColumn").classList.remove("open");
     }

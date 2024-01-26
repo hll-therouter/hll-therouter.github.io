@@ -2,10 +2,10 @@
 <html lang="en">
 
   {% include head.html %}
-  {% include header.html %}
   {% include script.html %}
-
+  
   <body>
+    {% include header.html %}
   	{% if page.title %}
   		<h2 class="blog-title" align="center">{{ page.title }}</h2>
       <br>

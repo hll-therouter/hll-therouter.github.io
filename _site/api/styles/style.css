@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300i,400,700);
+
 @import url('https://rsms.me/inter/inter.css');
 @import url('jetbrains-mono.css');
 
@@ -19,7 +19,6 @@
 
     --horizontal-spacing-for-content: 16px;
     --mobile-horizontal-spacing-for-content: 8px;
-    --bottom-spacing: 0px;
     --color-scrollbar: rgba(39, 40, 44, 0.40);
     --color-scrollbar-track: var(--default-gray);
     --default-white: #fff;
@@ -73,25 +72,7 @@ html {
     color: var(--default-font-color);
 }
 
-html ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-html ::-webkit-scrollbar-track {
-    background-color: var(--color-scrollbar-track);
-}
-
-html ::-webkit-scrollbar-thumb {
-    width: 8px;
-    border-radius: 6px;
-    background: rgba(39, 40, 44, 0.40);
-    background: var(--color-scrollbar);
-}
-
-
 .api-main-content {
-    padding-bottom: 0;
     z-index: 0;
     max-width: var(--max-width);
     width: 100%;
@@ -131,15 +112,6 @@ html ::-webkit-scrollbar-thumb {
     color: #fff;
 }
 
-#searchBar {
-    margin-left: 16px;
-    display: inline-flex;
-    align-content: center;
-    align-items: center;
-    width: 36px;
-    height: 36px;
-}
-
 .breadcrumbs, .breadcrumbs a, .breadcrumbs a:hover {
     margin-top: var(--breadcrumb-margin);
     color: var(--breadcrumb-font-color);
@@ -163,7 +135,7 @@ html ::-webkit-scrollbar-thumb {
 
 .section-tab, .platform-hinted > .platform-bookmarks-row > .platform-bookmark {
     margin: 0 8px;
-    padding: 11px 3px;
+    padding: 0px 0px;
     cursor: pointer;
     outline: none;
     font-size: var(--default-font-size);
@@ -277,6 +249,7 @@ html ::-webkit-scrollbar-thumb {
 }
 
 #sideMenu {
+    padding-top: 22px;
     overflow-y: auto;
     font-size: 12px;
     font-weight: 400;
@@ -465,9 +438,8 @@ code.paragraph {
 
 .sideMenuPart > .overview .navButtonContent::before {
     content: '';
-
-    -webkit-mask: url("../images/arrow_down.svg") no-repeat 50% 50%;
-    mask: url("../images/arrow_down.svg") no-repeat 50% 50%;
+    -webkit-mask: url("/api/images/arrow_down.svg") no-repeat 50% 50%;
+    mask: url("/api/images/arrow_down.svg") no-repeat 50% 50%;
     -webkit-mask-size: cover;
     mask-size: cover;
     background-color: var(--default-font-color);
@@ -514,7 +486,7 @@ body, table {
 table {
     width: 100%;
     border-collapse: collapse;
-    padding: 0px;
+    padding: 5px;
 }
 
 tbody > tr {
@@ -572,18 +544,13 @@ h3 {
 }
 
 .UnderCoverText table {
-    margin: 0px 0 0px 0;
+    margin: 8px 0 8px 0;
     word-break: break-word;
 }
 
 
 a {
     text-decoration: none;
-}
-
-#main a:hover {
-    border-bottom-color: unset;
-    color: inherit
 }
 
 a small {
@@ -595,7 +562,7 @@ a small {
 blockquote {
     border-left: 1px solid #e5e5e5;
     margin: 0;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 0px;
     font-style: italic;
 }
 
@@ -734,7 +701,7 @@ td.content {
 }
 
 .main-subrow .anchor-icon {
-    padding: 0 8px;
+    padding: 0 0px;
     opacity: 0;
     transition: 0.2s 0.5s;
 }
@@ -845,7 +812,7 @@ td.content {
 }
 
 .with-platform-tags ~ .main-subrow {
-    padding-top: 8px;
+    padding-top: 0px;
 }
 
 .cover .with-platform-tabs {
@@ -1044,27 +1011,6 @@ div.runnablesample {
 
 .d-flex {
     display: flex;
-}
-
-#theme-toggle {
-    content: url("../images/theme-toggle.svg");
-}
-
-#theme-toggle-button {
-    width: 36px;
-    height: 36px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 24px;
-    margin-left: 16px;
-    background-color: inherit;
-    border: none;
-    cursor: pointer;
-}
-
-#theme-toggle-button:hover {
-    background: var(--white-10);
 }
 
 .filtered-message {
