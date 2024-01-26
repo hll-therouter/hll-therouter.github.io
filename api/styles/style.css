@@ -205,7 +205,7 @@ html {
 }
 
 .divergent-group {
-    background-color: var(--background-color);
+    background-color: #F8FAFF;
     padding: 16px 0 8px 0;
     margin-bottom: 2px;
 }
@@ -475,7 +475,7 @@ body {
 
 body, table {
     font-family: var(--default-font-family);
-    background: var(--background-color);
+    background: #F8FAFF;
     font-style: normal;
     font-weight: normal;
     font-size: var(--default-font-size);
@@ -736,7 +736,7 @@ td.content {
 
 .platform-hinted > .platform-bookmarks-row > .platform-bookmark {
     min-width: 64px;
-    border: 2px solid var(--background-color);
+    border: 2px solid #F8FAFF;
     background: inherit;
     outline: none;
     flex: none;
@@ -762,34 +762,34 @@ td.content {
 
 .platform-hinted > .platform-bookmarks-row > .platform-bookmark.jvm-like[data-active=''],
 .platform-hinted > .platform-bookmarks-row > .platform-bookmark.jvm-like:hover {
-    border: 2px solid var(--background-color);
+    border: 2px solid #F8FAFF;
     border-bottom: 2px solid #4DBB5F;
 
-    background: var(--background-color);
+    background: #F8FAFF;
 }
 
 .platform-hinted > .platform-bookmarks-row > .platform-bookmark.js-like[data-active=''],
 .platform-hinted > .platform-bookmarks-row > .platform-bookmark.js-like:hover {
-    border: 2px solid var(--background-color);
+    border: 2px solid #F8FAFF;
     border-bottom: 2px solid #FED236;
 
-    background: var(--background-color);
+    background: #F8FAFF;
 }
 
 .platform-hinted > .platform-bookmarks-row > .platform-bookmark.native-like[data-active=''],
 .platform-hinted > .platform-bookmarks-row > .platform-bookmark.native-like:hover {
-    border: 2px solid var(--background-color);
+    border: 2px solid #F8FAFF;
     border-bottom: 2px solid #CD74F6;
 
-    background: var(--background-color);
+    background: #F8FAFF;
 }
 
 .platform-hinted > .platform-bookmarks-row > .platform-bookmark.common-like[data-active=''],
 .platform-hinted > .platform-bookmarks-row > .platform-bookmark.common-like:hover {
-    border: 2px solid var(--background-color);
+    border: 2px solid #F8FAFF;
     border-bottom: 2px solid #A6AFBA;
 
-    background: var(--background-color);
+    background: #F8FAFF;
 }
 
 .platform-hinted > .content:not([data-active]),
@@ -857,7 +857,7 @@ td.content {
     flex-direction: column;
     border-bottom: 1px solid var(--border-color);
     padding: 0px 0 0px 0;
-    background-color: var(--background-color);
+    background-color: #F8FAFF;
 }
 
 .table-row:last-of-type {
@@ -1055,7 +1055,7 @@ div.runnablesample {
         transition: margin .2s ease-out;
         margin-right: 16px;
 
-        color: var(--background-color);
+        color: #F8FAFF;
     }
 
     #leftToggler .icon-toggler:hover {
