@@ -142,12 +142,17 @@ $dokka.location:com.therouter.router.interceptor/AutowiredParser///PointingToDec
 $dokka.location:com.therouter.router.interceptor/AutowiredParser/parse/#kotlin.String?#kotlin.Any?#com.therouter.router.AutowiredItem?/PointingToDeclaration/router/com.therouter.router.interceptor/-autowired-parser/parse.html
 $dokka.location:com.therouter.router.interceptor/InterceptorCallback///PointingToDeclaration/router/com.therouter.router.interceptor/-interceptor-callback/index.html
 $dokka.location:com.therouter.router.interceptor/InterceptorCallback/onContinue/#com.therouter.router.RouteItem/PointingToDeclaration/router/com.therouter.router.interceptor/-interceptor-callback/on-continue.html
+$dokka.location:com.therouter.router.interceptor/MatchInterceptor///PointingToDeclaration/router/com.therouter.router.interceptor/-match-interceptor/index.html
+$dokka.location:com.therouter.router.interceptor/MatchInterceptor/MatchInterceptor/#/PointingToDeclaration/router/com.therouter.router.interceptor/-match-interceptor/-match-interceptor.html
+$dokka.location:com.therouter.router.interceptor/MatchInterceptor/priority/#/PointingToDeclaration/router/com.therouter.router.interceptor/-match-interceptor/priority.html
+$dokka.location:com.therouter.router.interceptor/MatchInterceptor/replace/#kotlin.String?/PointingToDeclaration/router/com.therouter.router.interceptor/-match-interceptor/replace.html
+$dokka.location:com.therouter.router.interceptor/MatchInterceptor/watch/#kotlin.String?/PointingToDeclaration/router/com.therouter.router.interceptor/-match-interceptor/watch.html
 $dokka.location:com.therouter.router.interceptor/NavigationCallback///PointingToDeclaration/router/com.therouter.router.interceptor/-navigation-callback/index.html
 $dokka.location:com.therouter.router.interceptor/NavigationCallback/NavigationCallback/#/PointingToDeclaration/router/com.therouter.router.interceptor/-navigation-callback/-navigation-callback.html
 $dokka.location:com.therouter.router.interceptor/NavigationCallback/onActivityCreated/#com.therouter.router.Navigator#android.app.Activity/PointingToDeclaration/router/com.therouter.router.interceptor/-navigation-callback/on-activity-created.html
 $dokka.location:com.therouter.router.interceptor/NavigationCallback/onArrival/#com.therouter.router.Navigator/PointingToDeclaration/router/com.therouter.router.interceptor/-navigation-callback/on-arrival.html
 $dokka.location:com.therouter.router.interceptor/NavigationCallback/onFound/#com.therouter.router.Navigator/PointingToDeclaration/router/com.therouter.router.interceptor/-navigation-callback/on-found.html
-$dokka.location:com.therouter.router.interceptor/NavigationCallback/onLost/#com.therouter.router.Navigator/PointingToDeclaration/router/com.therouter.router.interceptor/-navigation-callback/on-lost.html
+$dokka.location:com.therouter.router.interceptor/NavigationCallback/onLost/#com.therouter.router.Navigator#kotlin.Int/PointingToDeclaration/router/com.therouter.router.interceptor/-navigation-callback/on-lost.html
 $dokka.location:com.therouter.router.interceptor/NavigatorParamsFixHandle///PointingToDeclaration/router/com.therouter.router.interceptor/-navigator-params-fix-handle/index.html
 $dokka.location:com.therouter.router.interceptor/NavigatorParamsFixHandle/fix/#kotlin.String#kotlin.String/PointingToDeclaration/router/com.therouter.router.interceptor/-navigator-params-fix-handle/fix.html
 $dokka.location:com.therouter.router.interceptor/NavigatorPathFixHandle///PointingToDeclaration/router/com.therouter.router.interceptor/-navigator-path-fix-handle/index.html
@@ -238,6 +243,7 @@ $dokka.location:com.therouter.router/Navigator/getUrlWithParams/#/PointingToDecl
 $dokka.location:com.therouter.router/Navigator/getUrlWithParams/#com.therouter.router.interceptor.NavigatorParamsFixHandle/PointingToDeclaration/router/com.therouter.router/-navigator/get-url-with-params.html
 $dokka.location:com.therouter.router/Navigator/getUrlWithParams/#kotlin.Function2[kotlin.String,kotlin.String,kotlin.String]/PointingToDeclaration/router/com.therouter.router/-navigator/get-url-with-params.html
 $dokka.location:com.therouter.router/Navigator/intent/#/PointingToDeclaration/router/com.therouter.router/-navigator/intent.html
+$dokka.location:com.therouter.router/Navigator/kvPair/#/PointingToDeclaration/router/com.therouter.router/-navigator/kv-pair.html
 $dokka.location:com.therouter.router/Navigator/navigation/#android.content.Context?#androidx.fragment.app.Fragment?#kotlin.Int#com.therouter.router.interceptor.NavigationCallback?/PointingToDeclaration/router/com.therouter.router/-navigator/navigation.html
 $dokka.location:com.therouter.router/Navigator/navigation/#android.content.Context?#com.therouter.router.interceptor.NavigationCallback?/PointingToDeclaration/router/com.therouter.router/-navigator/navigation.html
 $dokka.location:com.therouter.router/Navigator/navigation/#android.content.Context?#kotlin.Int#com.therouter.router.interceptor.NavigationCallback?/PointingToDeclaration/router/com.therouter.router/-navigator/navigation.html
@@ -245,6 +251,7 @@ $dokka.location:com.therouter.router/Navigator/navigation/#androidx.fragment.app
 $dokka.location:com.therouter.router/Navigator/navigation/#androidx.fragment.app.Fragment?#kotlin.Int#com.therouter.router.interceptor.NavigationCallback?/PointingToDeclaration/router/com.therouter.router/-navigator/navigation.html
 $dokka.location:com.therouter.router/Navigator/optObject/#kotlin.String/PointingToDeclaration/router/com.therouter.router/-navigator/opt-object.html
 $dokka.location:com.therouter.router/Navigator/originalUrl/#/PointingToDeclaration/router/com.therouter.router/-navigator/original-url.html
+$dokka.location:com.therouter.router/Navigator/pathFixOriginalUrl/#/PointingToDeclaration/router/com.therouter.router/-navigator/path-fix-original-url.html
 $dokka.location:com.therouter.router/Navigator/pending/#/PointingToDeclaration/router/com.therouter.router/-navigator/pending.html
 $dokka.location:com.therouter.router/Navigator/setClipData/#android.content.ClipData?/PointingToDeclaration/router/com.therouter.router/-navigator/set-clip-data.html
 $dokka.location:com.therouter.router/Navigator/setData/#android.net.Uri?/PointingToDeclaration/router/com.therouter.router/-navigator/set-data.html
