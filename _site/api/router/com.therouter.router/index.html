@@ -1,31 +1,103 @@
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
-    <title>com.therouter.router</title>
-<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
-const savedDarkMode = storage ? JSON.parse(storage) : false
-if(savedDarkMode === true){
-    document.getElementsByTagName("html")[0].classList.add("theme-dark")
-}</script>
-<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script><link href="../../styles/style.css" rel="Stylesheet"><link href="../../styles/jetbrains-mono.css" rel="Stylesheet"><link href="../../styles/main.css" rel="Stylesheet"><link href="../../styles/prism.css" rel="Stylesheet"><link href="../../styles/logo-styles.css" rel="Stylesheet"><script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script><script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script><script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script><script type="text/javascript" src="../../scripts/main.js" async="async"></script><script type="text/javascript" src="../../scripts/prism.js" async="async"></script>  </head>
-  <body>
-    <div class="navigation-wrapper" id="navigation-wrapper">
-      <div id="leftToggler"><span class="icon-toggler"></span></div>
-      <div class="library-name"><a href="../../index.html">router</a></div>
-      <div></div>
-      <div class="pull-right d-flex"><button id="theme-toggle-button"><span id="theme-toggle"></span></button>
-        <div id="searchBar"></div>
-      </div>
-    </div>
-    <div id="container">
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- meta data & title -->
+  <meta charset="utf-8">
+  <title>TheRouter - 移动端模块化解决方案</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。">
+  <meta name="author" content="TheRouter">
+  <meta name="keyword"
+      content="android,kotlin,arouter,TheRouter">
+
+  <meta name="keywords"
+      content="android,kotlin,arouter,therouter,studio,优质开发技术">
+
+  <script>var pathToRoot = "/api/";</script>
+  <script type="text/javascript" src="http://localhost:4000/api/scripts/sourceset_dependencies.js" async="async"></script>
+  <link href="http://localhost:4000/api/styles/style.css" rel="Stylesheet">
+  <link href="http://localhost:4000/api/styles/jetbrains-mono.css" rel="Stylesheet">
+  <link href="http://localhost:4000/api/styles/main.css" rel="Stylesheet">
+  <link href="http://localhost:4000/api/styles/prism.css" rel="Stylesheet">
+  <link href="http://localhost:4000/api/styles/logo-styles.css" rel="Stylesheet">
+  <script type="text/javascript" src="http://localhost:4000/api/scripts/clipboard.js" async="async"></script>
+  <script type="text/javascript" src="http://localhost:4000/api/scripts/navigation-loader.js" async="async"></script>
+  <script type="text/javascript" src="http://localhost:4000/api/scripts/platform-content-handler.js" async="async"></script>
+  <script type="text/javascript" src="http://localhost:4000/api/scripts/main.js" async="async"></script>
+  <script type="text/javascript" src="http://localhost:4000/api/scripts/prism.js" async="async"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/animate.min.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css">
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/kymjs1.css">
+  <link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/prism.css">
+
+  <script type="text/javascript" src="http://localhost:4000/js/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</head>
+<script type="text/javascript" src="http://localhost:4000/js/jquery-1.10.2.min.js"></script>
+<script src="http://localhost:4000/js/wow.min.js"></script>
+<script>
+  new WOW().init();
+</script>
+
+<body>
+  <div class="container">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <img src="http://localhost:4000/assets/img/logo/logo4.png" width="170px">
+    </a>
+
+    <ul class="nav nav-pills">
+      
+      <li class="nav-item">
+        
+          <a href="/" class="nav-link header-color" aria-current="page">首页</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/doc" class="nav-link header-color">Android</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/ios" class="nav-link header-color">iOS</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/docs/2022/08/24/01" class="nav-link header-color">社区</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/api" class="nav-link active header-color">API文档</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/about" class="nav-link header-color">关于</a>
+         
+      </li>
+      <li class="nav-item"><a href="https://github.com/HuolalaTech/hll-wp-therouter-android" class="nav-link header-color">GitHub</a></li>
+    </ul>
+  </header>
+</div>
+
+
+<!-- End Header -->
+  <div id="container">
       <div id="leftColumn">
         <div id="sideMenu"></div>
       </div>
       <div id="main"><script type="text/javascript" src="../../scripts/main.js"></script>
-        <div class="main-content" id="content" pageIds="router::com.therouter.router////PointingToDeclaration//1367601898">
+        <div class="api-main-content" id="content" pageIds="router::com.therouter.router////PointingToDeclaration//1367601898">
           <div class="breadcrumbs"><a href="../../index.html">router</a>/<a href="index.html">com.therouter.router</a></div>
           <div class="cover ">
-            <h1 class="cover"><span><span>Package</span></span> <span>com.</span><wbr></wbr><span>therouter.</span><wbr></wbr><span>router</span></h1>
+            <h1 class="cover"><span><span>Package</span></span> <span>com.</span><wbr></wbr><span>therouter.</span><wbr></wbr><span>TheRouter API 文档</span></h1>
           </div>
           <div class="tabbedcontent">
             <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
@@ -35,7 +107,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-autowired/index.html"><span><span>Autowired</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1297292602%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -48,7 +120,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-autowired-item/index.html"><span>Autowired</span><wbr></wbr><span><span>Item</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1950478221%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -61,7 +133,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-i-router-map-a-p-t/index.html"><span>IRouter</span><wbr></wbr><span>Map</span><wbr></wbr><span><span>APT</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-750107653%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -74,7 +146,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-navigator/index.html"><span><span>Navigator</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1858099839%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -87,7 +159,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-on-route-map-changed-listener/index.html"><span>On</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>Changed</span><wbr></wbr><span><span>Listener</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1274706976%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -100,7 +172,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-pending-navigator/index.html"><span>Pending</span><wbr></wbr><span><span>Navigator</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="367633740%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -113,7 +185,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-regexp-keyed-map/index.html"><span>Regexp</span><wbr></wbr><span>Keyed</span><wbr></wbr><span><span>Map</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1945885445%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -126,7 +198,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-route/index.html"><span><span>Route</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1829990733%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -139,7 +211,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-route-item/index.html"><span>Route</span><wbr></wbr><span><span>Item</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2073822074%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -152,7 +224,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-router-map-init-task/index.html"><span>Router</span><wbr></wbr><span>Map</span><wbr></wbr><span>Init</span><wbr></wbr><span><span>Task</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-385794098%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -165,7 +237,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-routes/index.html"><span><span>Routes</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="814019970%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -180,7 +252,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="add-navigator-path-fix-handle.html"><span>add</span><wbr></wbr><span>Navigator</span><wbr></wbr><span>Path</span><wbr></wbr><span>Fix</span><wbr></wbr><span><span>Handle</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2126714225%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -193,7 +265,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="add-path-replace-interceptor.html"><span>add</span><wbr></wbr><span>Path</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-692718353%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -206,7 +278,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="add-route-item.html"><span>add</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Item</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="852259168%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -219,7 +291,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="add-route-map.html"><span>add</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1647879650%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -232,7 +304,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="add-router-replace-interceptor.html"><span>add</span><wbr></wbr><span>Router</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-915958609%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -245,7 +317,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="async-init-route-map.html"><span>async</span><wbr></wbr><span>Init</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-489529112%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -258,7 +330,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="default-navigation-callback.html"><span>default</span><wbr></wbr><span>Navigation</span><wbr></wbr><span><span>Callback</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="765164436%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -271,7 +343,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="found-path-from-intent.html"><span>found</span><wbr></wbr><span>Path</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Intent</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1407423670%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -284,7 +356,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="get-file-list-from-assets.html"><span>get</span><wbr></wbr><span>File</span><wbr></wbr><span>List</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Assets</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-276494024%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -297,7 +369,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="get-stream-from-assets.html"><span>get</span><wbr></wbr><span>Stream</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Assets</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1019039746%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -310,7 +382,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="get-string-from-assets.html"><span>get</span><wbr></wbr><span>String</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Assets</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-435091926%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -323,7 +395,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="get-url-with-params.html"><span>get</span><wbr></wbr><span>Url</span><wbr></wbr><span>With</span><wbr></wbr><span><span>Params</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2015595184%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -336,7 +408,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="init-route-map.html"><span>init</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2053078288%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -349,7 +421,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="match-route-map.html"><span>match</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="442665230%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -362,7 +434,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="match-route-map-for-class-name.html"><span>match</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>For</span><wbr></wbr><span>Class</span><wbr></wbr><span><span>Name</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-268147884%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -375,7 +447,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="remove-navigator-path-fix-handle.html"><span>remove</span><wbr></wbr><span>Navigator</span><wbr></wbr><span>Path</span><wbr></wbr><span>Fix</span><wbr></wbr><span><span>Handle</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-753366074%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -388,7 +460,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="remove-path-replace-interceptor.html"><span>remove</span><wbr></wbr><span>Path</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="680629798%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -401,7 +473,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="remove-router-replace-interceptor.html"><span>remove</span><wbr></wbr><span>Router</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1785609626%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -414,7 +486,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="send-pending-navigator.html"><span>send</span><wbr></wbr><span>Pending</span><wbr></wbr><span><span>Navigator</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-641849877%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -427,7 +499,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="set-on-route-map-changed-listener.html"><span>set</span><wbr></wbr><span>On</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>Changed</span><wbr></wbr><span><span>Listener</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1673274474%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -440,7 +512,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="set-route-map-init-task.html"><span>set</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>Init</span><wbr></wbr><span><span>Task</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="246720779%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -453,7 +525,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="set-router-interceptor.html"><span>set</span><wbr></wbr><span>Router</span><wbr></wbr><span><span>Interceptor</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1132985850%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -466,7 +538,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="to-navigator.html"><span>to</span><wbr></wbr><span><span>Navigator</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1390374461%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -481,7 +553,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="gson.html">gson</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1263709608%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -494,7 +566,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-k-e-y_-a-c-t-i-o-n.html">KEY_ACTION</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1710126307%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -507,7 +579,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-k-e-y_-a-n-i-m_-i-n.html">KEY_ANIM_IN</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="862055156%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -520,7 +592,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-k-e-y_-a-n-i-m_-o-u-t.html">KEY_ANIM_OUT</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1828508909%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -533,7 +605,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-k-e-y_-b-u-n-d-l-e.html">KEY_BUNDLE</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1385350737%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -546,7 +618,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-k-e-y_-d-e-s-c-r-i-p-t-i-o-n.html">KEY_DESCRIPTION</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="315646027%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -559,7 +631,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-k-e-y_-i-n-t-e-n-t_-f-l-a-g-s.html">KEY_INTENT_FLAGS</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1791702641%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -572,7 +644,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-k-e-y_-o-b-j-e-c-t_-a-c-t-i-v-i-t-y.html">KEY_OBJECT_ACTIVITY</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1672203896%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -585,7 +657,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-k-e-y_-o-b-j-e-c-t_-n-a-v-i-g-a-t-o-r.html">KEY_OBJECT_NAVIGATOR</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-810839108%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -598,7 +670,7 @@ if(savedDarkMode === true){
                 <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
                   <div class="main-subrow keyValue ">
                     <div class=""><span class="inline-flex"><a href="-k-e-y_-p-a-t-h.html">KEY_PATH</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-252339826%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
                         </span></span></div>
                     <div>
                       <div class="title">
@@ -611,9 +683,43 @@ if(savedDarkMode === true){
             </div>
           </div>
         </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span></div>
+        
       </div>
     </div>
-  </body>
-</html>
+  
 
+
+
+
+
+  <!-- Footer -->
+<footer> 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3><i class="bi bi-link-45deg bi-footer"></i> 友情链接</h3>
+        <p><a href="https://www.huolala.cn/"> 货拉拉</a></p>
+        <p><a href="https://www.huolala.cn/house_move.html"> 无忧搬家</a></p>
+        <p><a href="https://www.xiaolachuxing.com/"> 小拉出行</a></p>
+      </div>
+      <div class="col-md-4">
+        <h3><i class="bi bi-slack bi-footer"></i> 社区</h3>
+        <p><a href="https://kymjs.com/therouter/wx/"> 官方微信群</a></p>
+        <p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android"> GitHub </a></p>
+        <p><a href="https://juejin.cn/user/1768489241815070/posts"> 技术博客 </a></p> 
+      </div>
+      <div class="col-md-4">
+        <h3><i class="bi bi-postcard-heart bi-footer"></i> 关于</h3>
+        <p><a href="https://juejin.cn/user/1768489241815070/posts"> 货拉拉移动技术团队</a></p>
+        <p><a href="https://kymjs.com"> 开源实验室</a></p>
+      </div>    
+    </div>
+  </div>
+
+  <div class="copyright text center">
+    <p>&copy; Copyright 2024, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
+  </div>
+</footer>
+</body>
+
+</html>
