@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-29T12:53:51+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">TheRouterSwift iOS 路由介绍</title><link href="http://localhost:4000/docs/2023/09/26/01" rel="alternate" type="text/html" title="TheRouterSwift iOS 路由介绍" /><published>2023-09-26T00:00:00+08:00</published><updated>2023-09-26T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/09/26/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/09/26/01">&lt;h2&gt;背景&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-04-26T14:22:00+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">TheRouterSwift iOS 路由介绍</title><link href="http://localhost:4000/docs/2023/09/26/01" rel="alternate" type="text/html" title="TheRouterSwift iOS 路由介绍" /><published>2023-09-26T00:00:00+08:00</published><updated>2023-09-26T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/09/26/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/09/26/01">&lt;h2&gt;背景&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;随着社区对支持Swift的需求日益增多，Swift5.0二进制库也具有更好的稳定性和兼容性表现，货拉拉技术团队根据社区反馈及内部讨论，决定开源内部业务使用的Swift版本路由组件，与2023年8月份已发布的Objective-C版本路由组件组成一个完整解决方案。&lt;/li&gt;
@@ -855,6 +855,12 @@ TheRouter 也支持这样的使用场景：  &lt;/p&gt;
     mavenCentral()
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;hr&gt;
+
+&lt;h4&gt;Q16：编译报错 &lt;code&gt;API &amp;#39;android.registerTransform&amp;#39; is removed&lt;/code&gt;&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/121&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/121&lt;/a&gt;&lt;/p&gt;
+
 &lt;hr&gt;</content><author><name></name></author><category term="框架简介" /><summary type="html">如无法解决你的问题，建议登记应用，获取优先技术支持 https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57</summary></entry><entry><title type="html">TheRouter 使用 KSP 处理注解</title><link href="http://localhost:4000/docs/2023/05/15/01" rel="alternate" type="text/html" title="TheRouter 使用 KSP 处理注解" /><published>2023-05-15T00:00:00+08:00</published><updated>2023-05-15T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/05/15/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/05/15/01">&lt;p&gt;TheRouter 在&lt;code&gt;1.1.4-rc2&lt;/code&gt;开始，已经将&lt;code&gt;KSP&lt;/code&gt;能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 &lt;code&gt;KSP&lt;/code&gt;。  &lt;/p&gt;
 
 &lt;h3&gt;什么是KSP&lt;/h3&gt;
