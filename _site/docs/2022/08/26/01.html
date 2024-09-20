@@ -158,6 +158,8 @@
 </code></pre></div>
 <h3>编译期配置</h3>
 
+<p>*<em>从 <code>1.2.3-rc1</code>版本开始，编译器配置已经迁移到<code>build.gradle</code>中，具体请查看：<a href="https://therouter.cn/docs/2024/07/22/01">1.2.3版本编译改动</a> *</em>  </p>
+
 <ol>
 <li><code>@FlowTask</code>的<code>dependsOn</code>参数声明了一个不存在的任务，通常情况下是由于任务名书写错误，建议设置为<code>error</code>，尽早在编译期发现问题。
 可在<code>local.properties</code>配置编译期属性（warning输出日志，error直接报错）</li>
@@ -200,6 +202,8 @@
 	</div>
   
   
+  
+    
   
     
   
