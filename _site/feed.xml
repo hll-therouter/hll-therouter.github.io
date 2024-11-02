@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-09-20T09:33:42+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">1.2.3版本编译改动</title><link href="http://localhost:4000/docs/2024/07/22/01" rel="alternate" type="text/html" title="1.2.3版本编译改动" /><published>2024-07-22T00:00:00+08:00</published><updated>2024-07-22T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/07/22/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/07/22/01">&lt;h2&gt;背景&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-02T14:05:58+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">为 TheRouter 的 AGP8 编译加个速</title><link href="http://localhost:4000/docs/2024/10/31/01" rel="alternate" type="text/html" title="为 TheRouter 的 AGP8 编译加个速" /><published>2024-10-31T00:00:00+08:00</published><updated>2024-10-31T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/10/31/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/10/31/01">&lt;p&gt;内容请见： &lt;/p&gt;
+
+&lt;p&gt;《为 TheRouter 的 AGP8 编译加个速》&lt;br&gt;
+&lt;a href=&quot;https://kymjs.com/code/2024/10/31/01/&quot;&gt;https://kymjs.com/code/2024/10/31/01/&lt;/a&gt;&lt;/p&gt;</content><author><name>张涛</name></author><category term="原理与项目实践讲解" /><summary type="html">内容请见：</summary></entry><entry><title type="html">1.2.3版本编译改动</title><link href="http://localhost:4000/docs/2024/07/22/01" rel="alternate" type="text/html" title="1.2.3版本编译改动" /><published>2024-07-22T00:00:00+08:00</published><updated>2024-07-22T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/07/22/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/07/22/01">&lt;h2&gt;背景&lt;/h2&gt;
 
 &lt;p&gt;从&lt;code&gt;1.2.3-rc1&lt;/code&gt;版本开始，我们对&lt;code&gt;TheRouter&lt;/code&gt;编译过程做了大量优化，同时适配了&lt;code&gt;Gradle&lt;/code&gt;的&lt;code&gt;4.x-8.x&lt;/code&gt;全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。   &lt;/p&gt;
 
@@ -1207,69 +1210,4 @@ Github: &lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android
     &lt;span class=&quot;n&quot;&gt;maven&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'https://s01.oss.sonatype.org/content/groups/staging/'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;查看最新公测版本：&lt;a href=&quot;https://s01.oss.sonatype.org/content/groups/staging/cn/therouter/&quot;&gt;https://s01.oss.sonatype.org&lt;/a&gt;  &lt;/p&gt;</content><author><name></name></author><category term="版本介绍" /><summary type="html">TheRouter 的版本规划分为三种，分别是 稳定版、预览版(含 beta 版)、公测版。</summary></entry><entry><title type="html">TheRouter 一键迁移工具</title><link href="http://localhost:4000/docs/2022/09/05/01" rel="alternate" type="text/html" title="TheRouter 一键迁移工具" /><published>2022-09-05T00:00:00+08:00</published><updated>2022-09-05T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/09/05/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/09/05/01">&lt;p&gt;&lt;code&gt;TheRouter&lt;/code&gt;提供了图形化界面的迁移工具，可以一键从其他路由迁移到&lt;code&gt;TheRouter&lt;/code&gt;。&lt;br&gt;
-全新迁移工具已集成到 AndroidStudio 开发插件中，可直接在AS插件市场下载，相关介绍请访问： &lt;a href=&quot;https://therouter.cn/docs/2022/09/29/01&quot;&gt;https://therouter.cn/docs/2022/09/29/01&lt;/a&gt;  &lt;/p&gt;
-
-&lt;p&gt;旧版本图形界面可使用：1.1.1 (2022-10-09更新)&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Mac OS 迁移工具下载：&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Mac.zip&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Mac.zip&lt;/a&gt; &lt;/li&gt;
-&lt;li&gt;Windows 迁移工具下载：&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Windows.zip&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Windows.zip&lt;/a&gt;&lt;br&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/image/TheRouterTransfer.png&quot; class=&quot;blog-img&quot;/&gt;&lt;/p&gt;
-
-&lt;h3&gt;注意事项&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;issue中有用户反馈：使用&lt;code&gt;Windows&lt;/code&gt;系统迁移时，会发生乱码情况。犹豫迁移工具对文件的读写均采用&lt;code&gt;UTF-8&lt;/code&gt;编码，所以建议在迁移之前先将工程编码设置为&lt;code&gt;UTF-8&lt;/code&gt;。Android Studio支持修改工程编码：&lt;code&gt;Setting -&amp;gt; Editor -&amp;gt; File Encodings&lt;/code&gt; 修改&lt;code&gt;Global Encoding&lt;/code&gt;和&lt;code&gt;Project Encoding&lt;/code&gt;为 &lt;code&gt;UTF-8&lt;/code&gt;&lt;br&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/image/encode.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
-
-&lt;h3&gt;需要手动修改的部分&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;ARouter 的 Provider.init 部分，建议改为懒加载方式，在服务方法被调用时自己主动调用init方法。    &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;如果使用了 ARouter 拦截器部分，需要自己手动处理拦截器的逻辑，ARouter的拦截器全部可以用 TheRouter 的拦截器替换，具体逻辑请参考：TheRouter页面跳转：【&lt;a href=&quot;https://therouter.cn/docs/2022/08/28/01&quot;&gt;第三部分&lt;/a&gt;】自定义处理器。    &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;ARouter 封装了大量 Bundle 传参的操作，例如&lt;code&gt;withBooleanArray()&lt;/code&gt;这种。我们认为这样的封装是冗余的。如果你使用到了对应方法，在TheRouter内可以直接通过对Bundle对象调用对应的方法。例如：    &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// ARouter &lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;ARouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getInstance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withByteArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withStringArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// TheRouter&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fillParams&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;putByteArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;putStringArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;with(bundle)&lt;/code&gt;的实现区别。在 ARouter 中，with 操作是一个集合性操作，如果此时 bundle 中的 key 与 &lt;code&gt;withString(key, value)&lt;/code&gt; 中的 key 重复，会发生后者覆盖前者的情况。&lt;br&gt;
-在&lt;code&gt;TheRouter&lt;/code&gt;中，with 操作是传入一个额外的对象，不会发生覆盖，但在落地页获取时需要通过 &lt;code&gt;@Autowired&lt;/code&gt; 注解获取。&lt;br&gt;
-如果你希望&lt;code&gt;with(bundle)&lt;/code&gt;能直接通过intent获取，可以使用如下代码。  &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;ARouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;with&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yourBundle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;navigate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;fillParams&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;putAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yourBundle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;》》》   &lt;/p&gt;
-
-&lt;p&gt;暂未发现其他需要手动修改部分&lt;/p&gt;
-
-&lt;h3&gt;迁移建议&lt;/h3&gt;
-
-&lt;p&gt;为防止在迁移完成后，写代码过程中，导包引用错误的情况。&lt;br&gt;
-建议手动检查一遍&lt;code&gt;ARouter&lt;/code&gt;的引用是否全部删除，并在各模块&lt;code&gt;build.gradle&lt;/code&gt;中配置如下代码，过滤掉相关引用。&lt;br&gt;
-这样如果发生引用错误问题，会在编译期报错，提前发现问题。   &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;configurations {
-    all*.exclude group: 'com.alibaba', module: 'arouter-api'
-    all*.exclude group: 'com.alibaba', module: 'arouter-annotation'
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><author><name></name></author><category term="迁移工具" /><summary type="html">TheRouter提供了图形化界面的迁移工具，可以一键从其他路由迁移到TheRouter。 全新迁移工具已集成到 AndroidStudio 开发插件中，可直接在AS插件市场下载，相关介绍请访问： https://therouter.cn/docs/2022/09/29/01 旧版本图形界面可使用：1.1.1 (2022-10-09更新)</summary></entry></feed>
+&lt;p&gt;查看最新公测版本：&lt;a href=&quot;https://s01.oss.sonatype.org/content/groups/staging/cn/therouter/&quot;&gt;https://s01.oss.sonatype.org&lt;/a&gt;  &lt;/p&gt;</content><author><name></name></author><category term="版本介绍" /><summary type="html">TheRouter 的版本规划分为三种，分别是 稳定版、预览版(含 beta 版)、公测版。</summary></entry></feed>
