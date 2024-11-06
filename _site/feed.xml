@@ -1,166 +1,190 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-02T14:05:58+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">为 TheRouter 的 AGP8 编译加个速</title><link href="http://localhost:4000/docs/2024/10/31/01" rel="alternate" type="text/html" title="为 TheRouter 的 AGP8 编译加个速" /><published>2024-10-31T00:00:00+08:00</published><updated>2024-10-31T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/10/31/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/10/31/01">&lt;p&gt;内容请见： &lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-06T14:23:26+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">为 TheRouter 的 AGP8 编译加个速</title><link href="http://localhost:4000/docs/2024/10/31/01" rel="alternate" type="text/html" title="为 TheRouter 的 AGP8 编译加个速" /><published>2024-10-31T00:00:00+08:00</published><updated>2024-10-31T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/10/31/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/10/31/01"><![CDATA[<p>内容请见：</p>
 
-&lt;p&gt;《为 TheRouter 的 AGP8 编译加个速》&lt;br&gt;
-&lt;a href=&quot;https://kymjs.com/code/2024/10/31/01/&quot;&gt;https://kymjs.com/code/2024/10/31/01/&lt;/a&gt;&lt;/p&gt;</content><author><name>张涛</name></author><category term="原理与项目实践讲解" /><summary type="html">内容请见：</summary></entry><entry><title type="html">1.2.3版本编译改动</title><link href="http://localhost:4000/docs/2024/07/22/01" rel="alternate" type="text/html" title="1.2.3版本编译改动" /><published>2024-07-22T00:00:00+08:00</published><updated>2024-07-22T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/07/22/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/07/22/01">&lt;h2&gt;背景&lt;/h2&gt;
+<p>《为 TheRouter 的 AGP8 编译加个速》<br />
+<a href="https://kymjs.com/code/2024/10/31/01/">https://kymjs.com/code/2024/10/31/01/</a></p>]]></content><author><name>张涛</name></author><category term="session" /><category term="原理与项目实践讲解" /><summary type="html"><![CDATA[AGP8 的变更应该很多人都知道了，移除了 Transform API，所以很多 class 操作类的插件代码都需要改了。]]></summary></entry><entry><title type="html">1.2.3版本编译改动</title><link href="http://localhost:4000/docs/2024/07/22/01" rel="alternate" type="text/html" title="1.2.3版本编译改动" /><published>2024-07-22T00:00:00+08:00</published><updated>2024-07-22T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/07/22/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/07/22/01"><![CDATA[<h2 id="背景">背景</h2>
+<p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，我们对<code class="language-plaintext highlighter-rouge">TheRouter</code>编译过程做了大量优化，同时适配了<code class="language-plaintext highlighter-rouge">Gradle</code>的<code class="language-plaintext highlighter-rouge">4.x-8.x</code>全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。</p>
 
-&lt;p&gt;从&lt;code&gt;1.2.3-rc1&lt;/code&gt;版本开始，我们对&lt;code&gt;TheRouter&lt;/code&gt;编译过程做了大量优化，同时适配了&lt;code&gt;Gradle&lt;/code&gt;的&lt;code&gt;4.x-8.x&lt;/code&gt;全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。   &lt;/p&gt;
+<p><br /><br /></p>
 
-&lt;p&gt;&lt;br&gt;&lt;br&gt;  &lt;/p&gt;
+<h2 id="改动一编译期选项">改动一：编译期选项</h2>
 
-&lt;h2&gt;改动一：编译期选项&lt;/h2&gt;
+<p>老版本的<code class="language-plaintext highlighter-rouge">TheRouter</code>提供了不少编译期选项，可以通过手动在<code class="language-plaintext highlighter-rouge">local.properties</code>或<code class="language-plaintext highlighter-rouge">gradle.properties</code>文件中配置。从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，这些配置全部迁移到了app module的 <code class="language-plaintext highlighter-rouge">build.gradle</code> 内。你可以使用如下方式配置编译选项：</p>
 
-&lt;p&gt;老版本的&lt;code&gt;TheRouter&lt;/code&gt;提供了不少编译期选项，可以通过手动在&lt;code&gt;local.properties&lt;/code&gt;或&lt;code&gt;gradle.properties&lt;/code&gt;文件中配置。从&lt;code&gt;1.2.3-rc1&lt;/code&gt;版本开始，这些配置全部迁移到了app module的 &lt;code&gt;build.gradle&lt;/code&gt; 内。你可以使用如下方式配置编译选项：   &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;// 必须是app module内，引入 therouter 插件的 build.gradle 文件内
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 必须是app module内，引入 therouter 插件的 build.gradle 文件内
 // 与android{}闭包同级，做编译配置
 TheRouter {
     // 是否开启调试模式，默认不开启
     debug = false;
     // 编译期检查路由表合法性，可选参数 warning(仅告警)/error(编译期抛异常)/delete(每次根据注解重新生成路由表)，不配置则不校验
-    checkRouteMap = &quot;&quot;;
+    checkRouteMap = "";
     // 检查 FlowTask 是否有循环引用，可选参数 warning(仅打印日志)/error(编译期抛异常)，不配置则不校验
-    checkFlowDepend = &quot;&quot;;
+    checkFlowDepend = "";
     // 图形化输出当前的 FlowTask 依赖图，不配则不输出
     showFlowDepend = true;
 }
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+</code></pre></div></div>
 
-&lt;h2&gt;改动二：编译缓存&lt;/h2&gt;
+<p><br /><br /></p>
 
-&lt;p&gt;从&lt;code&gt;1.2.3-rc1&lt;/code&gt;版本开始，所有编译均采用增量编译，且不再依赖&lt;code&gt;Gradle&lt;/code&gt;的增量配置，所有增量均由框架内部实现，每次编译时会校验编译&lt;code&gt;jar&lt;/code&gt;包与缓存数据是否一致，如果不一致才会去扫描有变更的&lt;code&gt;jar&lt;/code&gt;包。因此，才能做到编译速度大幅提升。&lt;br&gt;
-缓存路径在：/app/build/therouter目录下。&lt;/p&gt;
+<h2 id="改动二编译缓存">改动二：编译缓存</h2>
 
-&lt;p&gt;&lt;strong&gt;注：编译缓存仅在&lt;code&gt;debug&lt;/code&gt;模式才会启用，你需要在 &lt;code&gt;build.gradle&lt;/code&gt; 中开启调试模式（见步骤一）&lt;/strong&gt;&lt;/p&gt;
+<p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，所有编译均采用增量编译，且不再依赖<code class="language-plaintext highlighter-rouge">Gradle</code>的增量配置，所有增量均由框架内部实现，每次编译时会校验编译<code class="language-plaintext highlighter-rouge">jar</code>包与缓存数据是否一致，如果不一致才会去扫描有变更的<code class="language-plaintext highlighter-rouge">jar</code>包。因此，才能做到编译速度大幅提升。 <br />
+缓存路径在：/app/build/therouter目录下。</p>
 
-&lt;p&gt;&lt;br&gt;&lt;br&gt;  &lt;/p&gt;
+<p><strong>注：编译缓存仅在<code class="language-plaintext highlighter-rouge">debug</code>模式才会启用，你需要在 <code class="language-plaintext highlighter-rouge">build.gradle</code> 中开启调试模式（见步骤一）</strong></p>
 
-&lt;h2&gt;改动三：默认服务提供者&lt;/h2&gt;
+<p><br /><br /></p>
 
-&lt;p&gt;老版本的&lt;code&gt;TheRouter&lt;/code&gt;，如果使用了一个不存在&lt;code&gt;ServiceProvider&lt;/code&gt;的&lt;code&gt;Service&lt;/code&gt;接口时，会默认创建一个接口的空实现类来避免空指针。但实际应用起来发现，并不能降低空指针的概率，反倒将原本应该在开发阶段就发现的问题延到了线上才发现。&lt;br&gt;
-从&lt;code&gt;1.2.3-rc1&lt;/code&gt;开始，如果没有声明&lt;code&gt;@ServiceProvider&lt;/code&gt;的接口，调用&lt;code&gt;TheRouter.get()&lt;/code&gt;时，将会直接返回&lt;code&gt;null&lt;/code&gt;。   &lt;/p&gt;
+<h2 id="改动三默认服务提供者">改动三：默认服务提供者</h2>
 
-&lt;p&gt;&lt;br&gt;&lt;br&gt;  &lt;/p&gt;
+<p>老版本的<code class="language-plaintext highlighter-rouge">TheRouter</code>，如果使用了一个不存在<code class="language-plaintext highlighter-rouge">ServiceProvider</code>的<code class="language-plaintext highlighter-rouge">Service</code>接口时，会默认创建一个接口的空实现类来避免空指针。但实际应用起来发现，并不能降低空指针的概率，反倒将原本应该在开发阶段就发现的问题延到了线上才发现。 <br />
+从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>开始，如果没有声明<code class="language-plaintext highlighter-rouge">@ServiceProvider</code>的接口，调用<code class="language-plaintext highlighter-rouge">TheRouter.get()</code>时，将会直接返回<code class="language-plaintext highlighter-rouge">null</code>。</p>
 
-&lt;h2&gt;改动四：优化 KSP 编译速度&lt;/h2&gt;
+<p><br /><br /></p>
 
-&lt;p&gt;从&lt;code&gt;1.2.3-rc1&lt;/code&gt;版本开始，使用&lt;code&gt;KSP&lt;/code&gt;处理注解也支持增量编译了。二次编译时，不会再次遍历全部类，而是只处理变更文件。&lt;br&gt;
-本优化由 &lt;a href=&quot;https://github.com/hust-twj&quot;&gt;&lt;strong&gt;@hust-twj&lt;/strong&gt;&lt;/a&gt; 提供，详情查看：&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/pull/184&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/pull/184&lt;/a&gt;&lt;/p&gt;
+<h2 id="改动四优化-ksp-编译速度">改动四：优化 KSP 编译速度</h2>
 
-&lt;p&gt;使用前，需要在&lt;code&gt;gradle.properties&lt;/code&gt;内开启 KSP 的增量编译。  &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;ksp.incremental=true
+<p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，使用<code class="language-plaintext highlighter-rouge">KSP</code>处理注解也支持增量编译了。二次编译时，不会再次遍历全部类，而是只处理变更文件。 <br />
+本优化由 <a href="https://github.com/hust-twj"><strong>@hust-twj</strong></a> 提供，详情查看：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/pull/184">https://github.com/HuolalaTech/hll-wp-therouter-android/pull/184</a></p>
+
+<p>使用前，需要在<code class="language-plaintext highlighter-rouge">gradle.properties</code>内开启 KSP 的增量编译。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ksp.incremental=true
 ksp.incremental.log=true
 ksp.incremental.intermodule=true
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+</code></pre></div></div>
 
-&lt;h2&gt;改动五：不再兼容AGP4&lt;/h2&gt;
+<p><br /><br /></p>
 
-&lt;p&gt;由于使用了&lt;code&gt;1.9.21-1.0.16&lt;/code&gt;版本的KSP（已经是能支持增量编译的最低版本），必须将Kotlin版本也升级到&lt;code&gt;1.9.21&lt;/code&gt;，因此无法再兼容&lt;code&gt;AGP4&lt;/code&gt;的编译。&lt;br&gt;
-推荐你采用项目demo一致的 Gradle 版本号和 AGP 版本号。   &lt;/p&gt;
+<h2 id="改动五不再兼容agp4">改动五：不再兼容AGP4</h2>
 
-&lt;p&gt;Gradle Version：&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/gradle/wrapper/gradle-wrapper.properties&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/gradle/wrapper/gradle-wrapper.properties&lt;/a&gt;&lt;br&gt;
-AGP Version：&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/build.gradle&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/build.gradle&lt;/a&gt;    &lt;/p&gt;
+<p>由于使用了<code class="language-plaintext highlighter-rouge">1.9.21-1.0.16</code>版本的KSP（已经是能支持增量编译的最低版本），必须将Kotlin版本也升级到<code class="language-plaintext highlighter-rouge">1.9.21</code>，因此无法再兼容<code class="language-plaintext highlighter-rouge">AGP4</code>的编译。   <br />
+推荐你采用项目demo一致的 Gradle 版本号和 AGP 版本号。</p>
 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;</content><author><name></name></author><category term="框架简介" /><summary type="html">背景 从1.2.3-rc1版本开始，我们对TheRouter编译过程做了大量优化，同时适配了Gradle的4.x-8.x全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。</summary></entry><entry><title type="html">TheRouterSwift iOS 路由介绍</title><link href="http://localhost:4000/docs/2023/09/26/01" rel="alternate" type="text/html" title="TheRouterSwift iOS 路由介绍" /><published>2023-09-26T00:00:00+08:00</published><updated>2023-09-26T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/09/26/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/09/26/01">&lt;h2&gt;背景&lt;/h2&gt;
+<p>Gradle Version：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/gradle/wrapper/gradle-wrapper.properties">https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/gradle/wrapper/gradle-wrapper.properties</a> <br />
+AGP Version：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/build.gradle">https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/build.gradle</a></p>
 
-&lt;ol&gt;
-&lt;li&gt;随着社区对支持Swift的需求日益增多，Swift5.0二进制库也具有更好的稳定性和兼容性表现，货拉拉技术团队根据社区反馈及内部讨论，决定开源内部业务使用的Swift版本路由组件，与2023年8月份已发布的Objective-C版本路由组件组成一个完整解决方案。&lt;/li&gt;
-&lt;li&gt;TheRouter开源团队将把重心放在维护和升级Swift版本的TheRouter上。同时也会持续支持Objective-C版本的易用性，并欢迎社区贡献。&lt;/li&gt;
-&lt;li&gt;对于使用Objective-C版本TheRouter的用户，建议将版本固定为1.0.0版以确保稳定性。
-## Features
-TheRouter一个用于模块间解耦和通信，基于Swift协议进行动态懒加载注册路由与打开路由的工具。同时支持通过Service-Protocol寻找对应的模块，并用 protocol进行依赖注入和模块通信。
+<p><br /></p>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;1. 页面导航跳转能力&lt;/strong&gt;：支持常规vc或Storyboard的push/present/popToTaget/windowNavRoot/modalDismissBeforePush跳转能力；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;2. 路由自动注册能力&lt;/strong&gt;：懒加载方式动态注册路由，仅当第一次调用OpenURL时进行动态注册；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;3. 路由映射文件导出&lt;/strong&gt;：支持将工程中的路由映射关系导出为文档，支持JSON、Plist格式，方便开发者进行双端的汇总比对、记录等；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;4. 服务自动注册能力&lt;/strong&gt;：动态注册服务，使用runtime方式自动注入；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;5. 硬编码消除&lt;/strong&gt;：将注册的path转为静态字符串常量供业务使用；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;6. 动态化能力&lt;/strong&gt;：支持添加重定向，移除重定向、动态添加路由、动态移除路由、拦截器、错误path修复等；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;7. 链式编程&lt;/strong&gt;：支持链式编程方式拼接URL与参数；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;8. 适配Objective-C&lt;/strong&gt;：OC类可以在Swift中使用继承的方式遵循协议来进行动态注册；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;9. 服务调用&lt;/strong&gt;：支持本地服务调用与远端服务调用；&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
+<h2 id="改动六agp8-编译提速">改动六：AGP8 编译提速</h2>
 
-&lt;p&gt;&lt;img src=&quot;https://z1.ax1x.com/2023/09/26/pPHS4UO.png&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p>老版本的 TheRouter 采用了 Gradle 标准 API，在插件内会将所有的 jar 和 class 聚合成一个，造成编译速度非常慢。</p>
 
-&lt;h1&gt;背景&lt;/h1&gt;
+<p>新版本采用了一个全新的方案，在标准 API 的基础上，最大幅度降低了编译耗时，但是首次编译或每次新增删除模块的时候，都需要重写构建一次。</p>
 
-&lt;p&gt;随着项目需求的日益增加，开发人员的不断增加，带来了很多问题：&lt;/p&gt;
+<p>详细方案请见：  <a href="https://kymjs.com/code/2024/10/31/01/">https://kymjs.com/code/2024/10/31/01/</a></p>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;模块划分不清晰，任何开发人员随意调用并修改其他模块的代码实现以满足自己的业务需求。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;维护困难，同一组件的不同服务，散落在工程各个地方，不利于统一维护修改替换。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;模块负责人无法清晰，导致同一功能多人维护，造成冲突。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<p><br /></p>]]></content><author><name></name></author><category term="docs" /><category term="框架简介" /><summary type="html"><![CDATA[从`1.2.3-rc1`版本开始，我们对`TheRouter`编译过程做了大量优化，同时适配了`Gradle`的`4.x-8.x`全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。]]></summary></entry><entry><title type="html">TheRouterSwift iOS 路由介绍</title><link href="http://localhost:4000/docs/2023/09/26/01" rel="alternate" type="text/html" title="TheRouterSwift iOS 路由介绍" /><published>2023-09-26T00:00:00+08:00</published><updated>2023-09-26T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/09/26/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/09/26/01"><![CDATA[<h2 id="背景">背景</h2>
+<ol>
+  <li>随着社区对支持Swift的需求日益增多，Swift5.0二进制库也具有更好的稳定性和兼容性表现，货拉拉技术团队根据社区反馈及内部讨论，决定开源内部业务使用的Swift版本路由组件，与2023年8月份已发布的Objective-C版本路由组件组成一个完整解决方案。</li>
+  <li>TheRouter开源团队将把重心放在维护和升级Swift版本的TheRouter上。同时也会持续支持Objective-C版本的易用性，并欢迎社区贡献。</li>
+  <li>对于使用Objective-C版本TheRouter的用户，建议将版本固定为1.0.0版以确保稳定性。
+    <h2 id="features">Features</h2>
+    <p>TheRouter一个用于模块间解耦和通信，基于Swift协议进行动态懒加载注册路由与打开路由的工具。同时支持通过Service-Protocol寻找对应的模块，并用 protocol进行依赖注入和模块通信。</p>
+    <ul>
+      <li><strong>1. 页面导航跳转能力</strong>：支持常规vc或Storyboard的push/present/popToTaget/windowNavRoot/modalDismissBeforePush跳转能力；</li>
+      <li><strong>2. 路由自动注册能力</strong>：懒加载方式动态注册路由，仅当第一次调用OpenURL时进行动态注册；</li>
+      <li><strong>3. 路由映射文件导出</strong>：支持将工程中的路由映射关系导出为文档，支持JSON、Plist格式，方便开发者进行双端的汇总比对、记录等；</li>
+      <li><strong>4. 服务自动注册能力</strong>：动态注册服务，使用runtime方式自动注入；</li>
+      <li><strong>5. 硬编码消除</strong>：将注册的path转为静态字符串常量供业务使用；</li>
+      <li><strong>6. 动态化能力</strong>：支持添加重定向，移除重定向、动态添加路由、动态移除路由、拦截器、错误path修复等；</li>
+      <li><strong>7. 链式编程</strong>：支持链式编程方式拼接URL与参数；</li>
+      <li><strong>8. 适配Objective-C</strong>：OC类可以在Swift中使用继承的方式遵循协议来进行动态注册；</li>
+      <li><strong>9. 服务调用</strong>：支持本地服务调用与远端服务调用；</li>
+    </ul>
+  </li>
+</ol>
 
-&lt;p&gt;另外件拆分完之后都上升到远端，那么它们之间本地的代码是没办法相互依赖的，所以就需要通过一种工具，然后去实现透传服务的能力。我们需要一个中间件去处理这些问题。路由即是将耦合进行转移，通过增加中间层映射关系，解决业务之间的依赖关系。&lt;/p&gt;
+<p><img src="https://z1.ax1x.com/2023/09/26/pPHS4UO.png" class="blog-img" /></p>
 
-&lt;h2&gt;一个成熟的路由该是什么样子&lt;/h2&gt;
+<h1 id="背景-1">背景</h1>
+<p>随着项目需求的日益增加，开发人员的不断增加，带来了很多问题：</p>
 
-&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt;  业务组件化之后，组件化需要将整个项目的各个模块进行解耦，升级远端之后，界面之间的跳转怎么解决？&lt;strong&gt;路由 Api&lt;/strong&gt;&lt;/p&gt;
+<ul>
+  <li>
+    <p>模块划分不清晰，任何开发人员随意调用并修改其他模块的代码实现以满足自己的业务需求。</p>
+  </li>
+  <li>
+    <p>维护困难，同一组件的不同服务，散落在工程各个地方，不利于统一维护修改替换。</p>
+  </li>
+  <li>
+    <p>模块负责人无法清晰，导致同一功能多人维护，造成冲突。</p>
+  </li>
+</ul>
 
-&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt;  动态注册路由，无需手动注册。服务的动态注册，无需手动注册。&lt;/p&gt;
+<p>另外件拆分完之后都上升到远端，那么它们之间本地的代码是没办法相互依赖的，所以就需要通过一种工具，然后去实现透传服务的能力。我们需要一个中间件去处理这些问题。路由即是将耦合进行转移，通过增加中间层映射关系，解决业务之间的依赖关系。</p>
 
-&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt;  端上跳转统一问题怎么解决？&lt;strong&gt;使用统一 URL 映射方式处理&lt;/strong&gt;&lt;/p&gt;
+<h2 id="一个成熟的路由该是什么样子">一个成熟的路由该是什么样子</h2>
 
-&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt;  业务跳转中出现问题，如何修改跳转逻辑？服务如何降级? &lt;strong&gt;远端下发配置，修改跳转 URL&lt;/strong&gt;&lt;/p&gt;
+<p><strong>1.</strong>  业务组件化之后，组件化需要将整个项目的各个模块进行解耦，升级远端之后，界面之间的跳转怎么解决？<strong>路由 Api</strong></p>
 
-&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt;  业务服务异常，界面改为 h5 界面。&lt;strong&gt;重定向&lt;/strong&gt;&lt;/p&gt;
+<p><strong>2.</strong>  动态注册路由，无需手动注册。服务的动态注册，无需手动注册。</p>
 
-&lt;p&gt;&lt;strong&gt;6.&lt;/strong&gt;  App 跳转出现问题如何跳转到同一个本地的 error 界面？&lt;strong&gt;统一失败处理&lt;/strong&gt;&lt;/p&gt;
+<p><strong>3.</strong>  端上跳转统一问题怎么解决？<strong>使用统一 URL 映射方式处理</strong></p>
 
-&lt;p&gt;&lt;strong&gt;7.&lt;/strong&gt;  如何在跳转前增加强制的业务逻辑处理，比如业务调整，必须先执行某些操作，才能进入。&lt;strong&gt;重定向&lt;/strong&gt;&lt;/p&gt;
+<p><strong>4.</strong>  业务跳转中出现问题，如何修改跳转逻辑？服务如何降级? <strong>远端下发配置，修改跳转 URL</strong></p>
 
-&lt;p&gt;&lt;strong&gt;8.&lt;/strong&gt;  业务中有很多需要前置跳转，比如先登录才能去订单列表，如何实现。&lt;strong&gt;拦截器&lt;/strong&gt;&lt;/p&gt;
+<p><strong>5.</strong>  业务服务异常，界面改为 h5 界面。<strong>重定向</strong></p>
 
-&lt;p&gt;&lt;strong&gt;9.&lt;/strong&gt;  如何测试各个跳转业务是否正常。 &lt;strong&gt;路由 Path 校验&lt;/strong&gt;&lt;/p&gt;
+<p><strong>6.</strong>  App 跳转出现问题如何跳转到同一个本地的 error 界面？<strong>统一失败处理</strong></p>
 
-&lt;p&gt;&lt;strong&gt;10.&lt;/strong&gt; 如何把最频繁的业务跳转前置，减少查询次数？&lt;strong&gt;增加优先级 priority&lt;/strong&gt;&lt;/p&gt;
+<p><strong>7.</strong>  如何在跳转前增加强制的业务逻辑处理，比如业务调整，必须先执行某些操作，才能进入。<strong>重定向</strong></p>
 
-&lt;p&gt;&lt;strong&gt;11.&lt;/strong&gt; 本地服务通过路由调用，远端服务通过路由调用 &lt;strong&gt;支持服务调用&lt;/strong&gt;&lt;/p&gt;
+<p><strong>8.</strong>  业务中有很多需要前置跳转，比如先登录才能去订单列表，如何实现。<strong>拦截器</strong></p>
 
-&lt;h2&gt;整体设计思路&lt;/h2&gt;
+<p><strong>9.</strong>  如何测试各个跳转业务是否正常。 <strong>路由 Path 校验</strong></p>
 
-&lt;p&gt;为了和Android端保持一致，使用了URL，class注册的方式实现。通过URL匹配方式查询数组中保存的模版信息，找到执行获取对应实例，执行跳转操作。&lt;/p&gt;
+<p><strong>10.</strong> 如何把最频繁的业务跳转前置，减少查询次数？<strong>增加优先级 priority</strong></p>
 
-&lt;p&gt;&lt;img src=&quot;https://z1.ax1x.com/2023/09/26/pP7zc0f.png&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p><strong>11.</strong> 本地服务通过路由调用，远端服务通过路由调用 <strong>支持服务调用</strong></p>
 
-&lt;h2&gt;使用介绍预览&lt;/h2&gt;
+<h2 id="整体设计思路">整体设计思路</h2>
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/image/therouter_ios1.gif&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p>为了和Android端保持一致，使用了URL，class注册的方式实现。通过URL匹配方式查询数组中保存的模版信息，找到执行获取对应实例，执行跳转操作。</p>
 
-&lt;h2&gt;如何集成使用&lt;/h2&gt;
+<p><img src="https://z1.ax1x.com/2023/09/26/pP7zc0f.png" class="blog-img" /></p>
 
-&lt;h3&gt;CocoaPods&lt;/h3&gt;
+<h2 id="使用介绍预览">使用介绍预览</h2>
 
-&lt;p&gt;Add the following entry in your Podfile:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;   pod 'TheRouter', '1.1.0'
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Swift限制版本&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt; Swift5.0 or above
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;TheRouter 使用方式&lt;/h2&gt;
+<p><img src="/assets/img/image/therouter_ios1.gif" class="blog-img" /></p>
 
-&lt;ol&gt;
-&lt;li&gt; ### 注册&lt;/li&gt;
-&lt;/ol&gt;
+<h2 id="如何集成使用">如何集成使用</h2>
 
-&lt;p&gt;鉴于已经实现了自动注册能力，开发者无需自己添加路由，只需要进行如下操作即可&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;/// 实现TheRouterable协议
+<h3 id="cocoapods">CocoaPods</h3>
+
+<p>Add the following entry in your Podfile:</p>
+
+<pre><code class="language-clike">   pod 'TheRouter', '1.1.0'
+</code></pre>
+
+<h2 id="swift限制版本">Swift限制版本</h2>
+
+<pre><code class="language-clike"> Swift5.0 or above
+</code></pre>
+
+<h2 id="therouter-使用方式">TheRouter 使用方式</h2>
+
+<ol>
+  <li>
+    <h3 id="注册">注册</h3>
+  </li>
+</ol>
+
+<p>鉴于已经实现了自动注册能力，开发者无需自己添加路由，只需要进行如下操作即可</p>
+
+<pre><code class="language-clike">/// 实现TheRouterable协议
 extension TheRouterController: TheRouterable {
-
+    
     static var patternString: [String] {
-        [&quot;scheme://router/demo&quot;]
+        ["scheme://router/demo"]
     }
-
-    static func registerAction(info: [String : Any]) -&amp;gt; Any {
+    
+    static func registerAction(info: [String : Any]) -&gt; Any {
         debugPrint(info)
-
+        
         let vc =  TheRouterController()
-        vc.qrResultCallBack = info[&quot;clouse&quot;] as? QrScanResultCallBack
+        vc.qrResultCallBack = info["clouse"] as? QrScanResultCallBack
         vc.resultLabel.text = info.description
         return vc
     }
@@ -170,7 +194,7 @@ extension TheRouterController: TheRouterable {
 // 路由懒加载注册
 TheRouter.lazyRegisterRouterHandle { url, userInfo in
     TheRouterManager.injectRouterServiceConfig(webRouterUrl, serivceHost)
-    return TheRouterManager.addGloableRouter([&quot;.The&quot;], url, userInfo)
+    return TheRouterManager.addGloableRouter([".The"], url, userInfo)
 }
 
 // 动态注册服务
@@ -178,43 +202,47 @@ TheRouterManager.registerServices()
 
 // 日志回调，可以监控线上路由运行情况
 TheRouter.logcat { url, logType, errorMsg in
-    debugPrint(&quot;TheRouter: logMsg- \(url) \(logType.rawValue) \(errorMsg)&quot;)
+    debugPrint("TheRouter: logMsg- \(url) \(logType.rawValue) \(errorMsg)")
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;OC 注解的形式&lt;/h4&gt;
+</code></pre>
 
-&lt;p&gt;这里列举了OC使用注解的方式，Swift因为其缺乏动态性，是不支持注解的。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;//使用注解
-@page(@&quot;home/main&quot;)
+<h4 id="oc-注解的形式">OC 注解的形式</h4>
+
+<p>这里列举了OC使用注解的方式，Swift因为其缺乏动态性，是不支持注解的。</p>
+
+<pre><code class="language-clike">//使用注解
+@page(@"home/main")
 - (UIViewController *)homePage{
     // Do stuff...
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Swift 注册形式&lt;/h4&gt;
+</code></pre>
 
-&lt;p&gt;Swift 中，我们都知道 Swift 是不支持注解的，那么 Swift 动态注册路由该怎么解决呢，我们使用 runtime 遍历工程里的方式找到遵循了路由协议的类进行自动注册。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;public class func registerRouterMap(_ registerClassPrifxArray: [String], _ urlPath: String, _ userInfo: [String: Any]) -&amp;gt; Any? {
+<h4 id="swift-注册形式">Swift 注册形式</h4>
 
+<p>Swift 中，我们都知道 Swift 是不支持注解的，那么 Swift 动态注册路由该怎么解决呢，我们使用 runtime 遍历工程里的方式找到遵循了路由协议的类进行自动注册。</p>
+
+<pre><code class="language-clike">public class func registerRouterMap(_ registerClassPrifxArray: [String], _ urlPath: String, _ userInfo: [String: Any]) -&gt; Any? {
+        
         let expectedClassCount = objc_getClassList(nil, 0)
-        let allClasses = UnsafeMutablePointer&amp;lt;AnyClass&amp;gt;.allocate(capacity: Int(expectedClassCount))
-        let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer&amp;lt;AnyClass&amp;gt;(allClasses)
+        let allClasses = UnsafeMutablePointer&lt;AnyClass&gt;.allocate(capacity: Int(expectedClassCount))
+        let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer&lt;AnyClass&gt;(allClasses)
         let actualClassCount: Int32 = objc_getClassList(autoreleasingAllClasses, expectedClassCount)
-
+        
         var resultXLClass = [AnyClass]()
-        for i in 0 ..&amp;lt; actualClassCount {
-
+        for i in 0 ..&lt; actualClassCount {
+            
             let currentClass: AnyClass = allClasses[Int(i)]
             let fullClassName: String = NSStringFromClass(currentClass.self)
-
+            
             for value in registerClassPrifxArray {
                 if (fullClassName.containsSubString(substring: value))  {
                     if currentClass is UIViewController.Type {
                         resultXLClass.append(currentClass)
                     }
-
+                    
     #if DEBUG
                     if let clss = currentClass as? CustomRouterInfo.Type {
-                        assert(clss.patternString.hasPrefix(&quot;scheme://&quot;), &quot;URL非scheme://开头，请重新确认&quot;)
+                        assert(clss.patternString.hasPrefix("scheme://"), "URL非scheme://开头，请重新确认")
                         apiArray.append(clss.patternString)
                         classMapArray.append(clss.routerClass)
                     }
@@ -222,19 +250,19 @@ TheRouter.logcat { url, logType, errorMsg in
                 }
             }
         }
-
-        for i in 0 ..&amp;lt; resultXLClass.count {
+        
+        for i in 0 ..&lt; resultXLClass.count {
             let currentClass: AnyClass = resultXLClass[i]
             if let cls = currentClass as? TheRouterable.Type {
                 let fullName: String = NSStringFromClass(currentClass.self)
-
-                for s in 0 ..&amp;lt; cls.patternString.count {
-
+               
+                for s in 0 ..&lt; cls.patternString.count {
+                    
                     if fullName.hasPrefix(NSKVONotifyingPrefix) {
-                        let range = fullName.index(fullName.startIndex, offsetBy: NSKVONotifyingPrefix.count)..&amp;lt;fullName.endIndex
+                        let range = fullName.index(fullName.startIndex, offsetBy: NSKVONotifyingPrefix.count)..&lt;fullName.endIndex
                         let subString = fullName[range]
-                        pagePathMap[cls.patternString[s]] = &quot;\(subString)&quot;
-                        TheRouter.addRouterItem(cls.patternString[s], classString: &quot;\(subString)&quot;)
+                        pagePathMap[cls.patternString[s]] = "\(subString)"
+                        TheRouter.addRouterItem(cls.patternString[s], classString: "\(subString)")
                     } else {
                         pagePathMap[cls.patternString[s]] = fullName
                         TheRouter.addRouterItem(cls.patternString[s], classString: fullName)
@@ -242,7 +270,7 @@ TheRouter.logcat { url, logType, errorMsg in
                 }
             }
         }
-
+        
 #if DEBUG
         debugPrint(pagePathMap)
         routerForceRecheck()
@@ -250,14 +278,16 @@ TheRouter.logcat { url, logType, errorMsg in
         TheRouter.routerLoadStatus(true)
         return TheRouter.openURL(urlPath, userInfo: userInfo)
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;为了避免无效遍历，我们通过传入 registerClassPrifxArray 指定我们遍历包含这些前缀的类即可。一旦是 UIViewController.Type 类型就进行存储，然后再进行校验是否遵循 TheRouterable 协议，遵循则自动注册。无需手动注册。&lt;/p&gt;
+</code></pre>
 
-&lt;h4&gt;路由注册的懒加载&lt;/h4&gt;
+<p>为了避免无效遍历，我们通过传入 registerClassPrifxArray 指定我们遍历包含这些前缀的类即可。一旦是 UIViewController.Type 类型就进行存储，然后再进行校验是否遵循 TheRouterable 协议，遵循则自动注册。无需手动注册。</p>
 
-&lt;p&gt;采用动态注册有一个不好的情况就是在启动时就去动态注册，在 TheRouter 中注册的时机被延后了，放在了 App 第一次通过 TheRouter.openUrl()时进行注册，会判断路由是否加载完毕，未加载完毕进行加载，然后打开路由。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;@discardableResult
-public class func openURL(_ urlString: String, userInfo: [String: Any] = [String: Any](), handler: complateHandler = nil) -&amp;gt; Any? {
+<h4 id="路由注册的懒加载">路由注册的懒加载</h4>
+
+<p>采用动态注册有一个不好的情况就是在启动时就去动态注册，在 TheRouter 中注册的时机被延后了，放在了 App 第一次通过 TheRouter.openUrl()时进行注册，会判断路由是否加载完毕，未加载完毕进行加载，然后打开路由。</p>
+
+<pre><code class="language-clike">@discardableResult
+public class func openURL(_ urlString: String, userInfo: [String: Any] = [String: Any](), handler: complateHandler = nil) -&gt; Any? {
     if urlString.isEmpty {
         return nil
     }
@@ -270,7 +300,7 @@ public class func openURL(_ urlString: String, userInfo: [String: Any] = [String
 
 // MARK: - Public method
 @discardableResult
-public class func openURL(_ uriTuple: (String, [String: Any]), handler: complateHandler = nil) -&amp;gt; Any? {
+public class func openURL(_ uriTuple: (String, [String: Any]), handler: complateHandler = nil) -&gt; Any? {
     if !shareInstance.isLoaded {
         return shareInstance.lazyRegisterHandleBlock?(uriTuple.0, uriTuple.1)
     } else {
@@ -278,7 +308,7 @@ public class func openURL(_ uriTuple: (String, [String: Any]), handler: complate
     }
 }
 
-public class func openCacheRouter(_ uriTuple: (String, [String: Any]), handler: complateHandler = nil) -&amp;gt; Any? {
+public class func openCacheRouter(_ uriTuple: (String, [String: Any]), handler: complateHandler = nil) -&gt; Any? {
 
     if uriTuple.0.isEmpty {
         return nil
@@ -290,11 +320,13 @@ public class func openCacheRouter(_ uriTuple: (String, [String: Any]), handler: 
         return routerJump(uriTuple)
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;如何让 OC 类也享受到 Swift 路由&lt;/h4&gt;
+</code></pre>
 
-&lt;p&gt;这是一个 OC 类的界面，实现路由的跳转需要继承 OC 类，并实现 TheRouterAble 协议即可&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;@interface TheRouterBController : UIViewController
+<h4 id="如何让-oc-类也享受到-swift-路由">如何让 OC 类也享受到 Swift 路由</h4>
+
+<p>这是一个 OC 类的界面，实现路由的跳转需要继承 OC 类，并实现 TheRouterAble 协议即可</p>
+
+<pre><code class="language-clike">@interface TheRouterBController : UIViewController
 @property (nonatomic, strong) UILabel *desLabel;
 @end
 
@@ -315,70 +347,80 @@ public class func openCacheRouter(_ uriTuple: (String, [String: Any]), handler: 
 public class TheRouterControllerB: TheRouterBController, TheRouterable {
 
     public static var patternString: [String] {
-        [&quot;scheme://router/demo2&quot;,
-         &quot;scheme://router/demo2-Android&quot;]
+        ["scheme://router/demo2",
+         "scheme://router/demo2-Android"]
     }
-
+    
     public static var descriptions: String {
-        &quot;TheRouterControllerDemo&quot;
+        "TheRouterControllerDemo"
     }
 
-    public static func registerAction(info: [String : Any]) -&amp;gt; Any {
+    public static func registerAction(info: [String : Any]) -&gt; Any {
         let vc =  TheRouterBController()
         vc.desLabel.text = info.description
         return vc
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;同时支持手动单个注册&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;// 模型模式
-TheRouter.addRouterItem(RouteItem(path: &quot;scheme://router/demo?&amp;amp;desc=简单注册,直接调用TheRouter.addRouterItem()注册即可&quot;, className: &quot;TheRouter_Example.TheRouterController&quot;, desc: &quot;简单注册,直接调用TheRouter&quot;, params: [&quot;key1&quot;: 1]))
+</code></pre>
+
+<h4 id="同时支持手动单个注册">同时支持手动单个注册</h4>
+
+<pre><code class="language-clike">// 模型模式
+TheRouter.addRouterItem(RouteItem(path: "scheme://router/demo?&amp;desc=简单注册,直接调用TheRouter.addRouterItem()注册即可", className: "TheRouter_Example.TheRouterController", desc: "简单注册,直接调用TheRouter", params: ["key1": 1]))
 // 字典模式
-TheRouter.addRouterItem([&quot;scheme://router/demo?&amp;amp;desc=简单注册,直接调用TheRouter.addRouterItem()注册即可&quot;: &quot;TheRouter_Example.TheRouterController&quot;])
+TheRouter.addRouterItem(["scheme://router/demo?&amp;desc=简单注册,直接调用TheRouter.addRouterItem()注册即可": "TheRouter_Example.TheRouterController"])
 // 常量参数模式
-TheRouter.addRouterItem(&quot;scheme://router/demo?&amp;amp;desc=简单注册&quot;, classString: &quot;TheRouter_Example.TheRouterController&quot;)
+TheRouter.addRouterItem("scheme://router/demo?&amp;desc=简单注册", classString: "TheRouter_Example.TheRouterController")
 // 协议模式， TheRouterApi实现了 CustomRouterInfo协议
 TheRouter.addRouterItem(TheRouterApi.patternString, classString: TheRouterApi.routerClass)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;同时支持手动批量注册&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;TheRouter.addRouterItem([&quot;scheme://router/demo&quot;: &quot;TheRouter_Example.TheRouterController&quot;,
-                    &quot;scheme://router/demo1&quot;: &quot;TheRouter_Example.TheRouterControllerA&quot;])
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;移除&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;TheRouter.removeRouter(TheRouterViewCApi.patternString)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;打开&lt;/h3&gt;
+</code></pre>
 
-&lt;p&gt;声明了不同的方法，主要用于明显的区分，内部统一调用 openURL&lt;/p&gt;
+<h4 id="同时支持手动批量注册">同时支持手动批量注册</h4>
 
-&lt;p&gt;便利构造器链式打开路由&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;let model = TheRouterModel.init(name: &quot;AKyS&quot;, age: 18)
-TheRouterBuilder.build(&quot;scheme://router/demo&quot;)
-    .withInt(key: &quot;intValue&quot;, value: 2)
-    .withString(key: &quot;stringValue&quot;, value: &quot;2222&quot;)
-    .withFloat(key: &quot;floatValue&quot;, value: 3.1415)
-    .withBool(key: &quot;boolValue&quot;, value: false)
-    .withDouble(key: &quot;doubleValue&quot;, value: 2.0)
-    .withAny(key: &quot;any&quot;, value: model)
+<pre><code class="language-clike">TheRouter.addRouterItem(["scheme://router/demo": "TheRouter_Example.TheRouterController",
+                    "scheme://router/demo1": "TheRouter_Example.TheRouterControllerA"])
+</code></pre>
+
+<h3 id="移除">移除</h3>
+
+<pre><code class="language-clike">TheRouter.removeRouter(TheRouterViewCApi.patternString)
+</code></pre>
+
+<h3 id="打开">打开</h3>
+
+<p>声明了不同的方法，主要用于明显的区分，内部统一调用 openURL</p>
+
+<p>便利构造器链式打开路由</p>
+
+<pre><code class="language-clike">let model = TheRouterModel.init(name: "AKyS", age: 18)
+TheRouterBuilder.build("scheme://router/demo")
+    .withInt(key: "intValue", value: 2)
+    .withString(key: "stringValue", value: "2222")
+    .withFloat(key: "floatValue", value: 3.1415)
+    .withBool(key: "boolValue", value: false)
+    .withDouble(key: "doubleValue", value: 2.0)
+    .withAny(key: "any", value: model)
     .navigation()
+    
+TheRouterBuilder.build("scheme://router/demo")
+	.withInt(key: "intValue", value: 2)
+	.withString(key: "stringValue", value: "sdsd")
+	.withFloat(key: "floatValue", value: 3.1415)
+	.withBool(key: "boolValue", value: false)
+	.withDouble(key: "doubleValue", value: 2.0)
+	.withAny(key: "any", value: model)
+	.navigation { params, instance in
+	    
+	}
+    
+</code></pre>
 
-TheRouterBuilder.build(&quot;scheme://router/demo&quot;)
-    .withInt(key: &quot;intValue&quot;, value: 2)
-    .withString(key: &quot;stringValue&quot;, value: &quot;sdsd&quot;)
-    .withFloat(key: &quot;floatValue&quot;, value: 3.1415)
-    .withBool(key: &quot;boolValue&quot;, value: false)
-    .withDouble(key: &quot;doubleValue&quot;, value: 2.0)
-    .withAny(key: &quot;any&quot;, value: model)
-    .navigation { params, instance in
+<p>打开路由常用方式</p>
 
-    }
+<pre><code class="language-clike">public class TheRouterApi: CustomRouterInfo {
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;打开路由常用方式&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;public class TheRouterApi: CustomRouterInfo {
-
-    public static var patternString = &quot;scheme://router/demo&quot;
-    public static var routerClass = &quot;TheRouter_Example.TheRouterController&quot;
+    public static var patternString = "scheme://router/demo"
+    public static var routerClass = "TheRouter_Example.TheRouterController"
     public var params: [String: Any] { return [:] }
     public var jumpType: LAJumpType = .push
 
@@ -387,8 +429,8 @@ TheRouterBuilder.build(&quot;scheme://router/demo&quot;)
 
 public class TheRouterAApi: CustomRouterInfo {
 
-    public static var patternString = &quot;scheme://router/demo1&quot;
-    public static var routerClass = &quot;TheRouter_Example.TheRouterControllerA&quot;
+    public static var patternString = "scheme://router/demo1"
+    public static var routerClass = "TheRouter_Example.TheRouterControllerA"
     public var params: [String: Any] { return [:] }
     public var jumpType: LAJumpType = .push
 
@@ -396,40 +438,50 @@ public class TheRouterAApi: CustomRouterInfo {
 }
 
 TheRouter.openURL(TheRouterCApi.init().requiredURL)
-TheRouter.openWebURL(&quot;https://xxxxxxxx&quot;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;
+TheRouter.openWebURL("https://xxxxxxxx")
+</code></pre>
+
+<pre><code class="language-clike">
 @discardableResult
-public class func openWebURL(_ uriTuple: (String, [String: Any])) -&amp;gt; Any? {
+public class func openWebURL(_ uriTuple: (String, [String: Any])) -&gt; Any? {
     return TheRouter.openURL(uriTuple)
 }
 
 @discardableResult
 public class func openWebURL(_ urlString: String,
-                             userInfo: [String: Any] = [String: Any]()) -&amp;gt; Any? {
+                             userInfo: [String: Any] = [String: Any]()) -&gt; Any? {
     TheRouter.openURL((urlString, userInfo))
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;元祖形式传入路由与追加参数&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;TheRouter.openURL((&quot;scheme://router/demo1?id=2&amp;amp;value=3&amp;amp;name=AKyS&amp;amp;desc=直接调用TheRouter.addRouterItem()注册即可，支持单个注册，批量注册，动态注册，懒加载动态注册&quot;, [&quot;descs&quot;: &quot;追加参数&quot;]))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;参数传递方式&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;let clouse = { (qrResult: String, qrStatus: Bool) in
-    print(&quot;\(qrResult) \(qrStatus)&quot;)
-    self.view.makeToast(&quot;\(qrResult) \(qrStatus)&quot;)
+</code></pre>
+
+<p>元祖形式传入路由与追加参数</p>
+
+<pre><code class="language-clike">TheRouter.openURL(("scheme://router/demo1?id=2&amp;value=3&amp;name=AKyS&amp;desc=直接调用TheRouter.addRouterItem()注册即可，支持单个注册，批量注册，动态注册，懒加载动态注册", ["descs": "追加参数"]))
+</code></pre>
+
+<p>参数传递方式</p>
+
+<pre><code class="language-clike">let clouse = { (qrResult: String, qrStatus: Bool) in
+    print("\(qrResult) \(qrStatus)")
+    self.view.makeToast("\(qrResult) \(qrStatus)")
 }
-let model = TheRouterModel.init(name: &quot;AKyS&quot;, age: 18)
-TheRouter.openURL((&quot;scheme://router/demo?id=2&amp;amp;value=3&amp;amp;name=AKyS&quot;, [&quot;model&quot;: model, &quot;clouse&quot;: clouse]))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;全局失败映射&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;TheRouter.globalOpenFailedHandler { info in
+let model = TheRouterModel.init(name: "AKyS", age: 18)
+TheRouter.openURL(("scheme://router/demo?id=2&amp;value=3&amp;name=AKyS", ["model": model, "clouse": clouse]))
+</code></pre>
+
+<h3 id="全局失败映射">全局失败映射</h3>
+
+<pre><code class="language-clike">TheRouter.globalOpenFailedHandler { info in
    debugPrint(info)
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;拦截&lt;/h3&gt;
+</code></pre>
 
-&lt;p&gt;比如在未登录情况下统一拦截：跳转消息列表之前先去登录，登录成功之后跳转到消息列表等。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;let login = TheRouterLoginApi.templateString
- TheRouter.addRouterInterceptor([login], priority: 0) { (info) -&amp;gt; Bool in
+<h3 id="拦截">拦截</h3>
+
+<p>比如在未登录情况下统一拦截：跳转消息列表之前先去登录，登录成功之后跳转到消息列表等。</p>
+
+<pre><code class="language-clike">let login = TheRouterLoginApi.templateString
+ TheRouter.addRouterInterceptor([login], priority: 0) { (info) -&gt; Bool in
        if LALoginManger.shared.isLogin {
              return true
        } else {
@@ -437,203 +489,227 @@ TheRouter.openURL((&quot;scheme://router/demo?id=2&amp;amp;value=3&amp;amp;name=
              return false
        }
  }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;登录成功之后删除拦截器即可。&lt;/p&gt;
+</code></pre>
 
-&lt;h3&gt;路由 Path 与类正确安全校验&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;// MARK: - 客户端强制校验，是否匹配
+<p>登录成功之后删除拦截器即可。</p>
+
+<h3 id="路由-path-与类正确安全校验">路由 Path 与类正确安全校验</h3>
+
+<pre><code class="language-clike">// MARK: - 客户端强制校验，是否匹配
 public static func routerForceRecheck() {
     let patternArray = Set(pagePathMap.keys)
     let apiPathArray = Set(apiArray)
     let diffArray = patternArray.symmetricDifference(apiPathArray)
-    debugPrint(&quot;URL差集：\(diffArray)&quot;)
-    debugPrint(&quot;pagePathMap：\(pagePathMap)&quot;)
-    assert(diffArray.count == 0, &quot;URL 拼写错误，请确认差集中的url是否匹配&quot;)
+    debugPrint("URL差集：\(diffArray)")
+    debugPrint("pagePathMap：\(pagePathMap)")
+    assert(diffArray.count == 0, "URL 拼写错误，请确认差集中的url是否匹配")
 
     let patternValueArray = Set(pagePathMap.values)
     let classPathArray = Set(classMapArray)
     let diffClassesArray = patternValueArray.symmetricDifference(classPathArray)
-    debugPrint(&quot;classes差集：\(diffClassesArray)&quot;)
-    assert(diffClassesArray.count == 0, &quot;classes 拼写错误，请确认差集中的class是否匹配&quot;)
+    debugPrint("classes差集：\(diffClassesArray)")
+    assert(diffClassesArray.count == 0, "classes 拼写错误，请确认差集中的class是否匹配")
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;踩坑路由注册-KVO&lt;/h3&gt;
+</code></pre>
 
-&lt;p&gt;在进行 classes 本地校验时遇到了类名不匹配问题。&lt;/p&gt;
+<h3 id="踩坑路由注册-kvo">踩坑路由注册-KVO</h3>
 
-&lt;p&gt;排查原因： 是因为为了避免路由在启动时就注册，影响启动速度，采用了懒加载的方式即第一次打开路由界面的时候才先进行注册然后跳转。但是在我们动态注册之前，某个类因为添加了 KVO (Key-Value Observing 键值监听)，这个类在遍历时 className 修改为了 NSKVONotifying_xxx。需要我们进行特殊处理，如下&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;/// 对于KVO监听，动态创建子类，需要特殊处理
-public let NSKVONotifyingPrefix = &quot;NSKVONotifying_&quot;
+<p>在进行 classes 本地校验时遇到了类名不匹配问题。</p>
+
+<p>排查原因： 是因为为了避免路由在启动时就注册，影响启动速度，采用了懒加载的方式即第一次打开路由界面的时候才先进行注册然后跳转。但是在我们动态注册之前，某个类因为添加了 KVO (Key-Value Observing 键值监听)，这个类在遍历时 className 修改为了 NSKVONotifying_xxx。需要我们进行特殊处理，如下</p>
+
+<pre><code class="language-clike">/// 对于KVO监听，动态创建子类，需要特殊处理
+public let NSKVONotifyingPrefix = "NSKVONotifying_"
 
 if fullName.hasPrefix(NSKVONotifyingPrefix) {
-    let range = fullName.index(fullName.startIndex, offsetBy: NSKVONotifyingPrefix.count)..&amp;lt;fullName.endIndex
+    let range = fullName.index(fullName.startIndex, offsetBy: NSKVONotifyingPrefix.count)..&lt;fullName.endIndex
     let subString = fullName[range]
-    pagePathMap[cls.patternString[s]] = &quot;\(subString)&quot;
-    TheRouter.addRouterItem(cls.patternString[s], classString: &quot;\(subString)&quot;)
+    pagePathMap[cls.patternString[s]] = "\(subString)"
+    TheRouter.addRouterItem(cls.patternString[s], classString: "\(subString)")
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;动态调用路由&lt;/h2&gt;
+</code></pre>
 
-&lt;p&gt;在之上的路由能力下，我们希望 App 能够支持动态增加路由，删除路由，重定向路由、通过路由调起本地服务、远端通过路由调起 App 服务能力，随即进行了动态化的扩展。&lt;/p&gt;
+<h2 id="动态调用路由">动态调用路由</h2>
 
-&lt;h3&gt;重定向功能&lt;/h3&gt;
+<p>在之上的路由能力下，我们希望 App 能够支持动态增加路由，删除路由，重定向路由、通过路由调起本地服务、远端通过路由调起 App 服务能力，随即进行了动态化的扩展。</p>
 
-&lt;p&gt;定义路由下发模型数据结构&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;public struct TheRouterInfo {
+<h3 id="重定向功能">重定向功能</h3>
+<p>定义路由下发模型数据结构</p>
+
+<pre><code class="language-clike">public struct TheRouterInfo {
     public init() {}
-
-    public var targetPath: String = &quot;&quot;
-    public var orginPath: String = &quot;&quot;
+    
+    public var targetPath: String = ""
+    public var orginPath: String = ""
     // 1: 表示替换或者修复客户端代码path错误 2: 新增路由path 3:删除路由
     public var routerType: TheRouterReloadMapEnum = .none 
-    public var path: String = &quot;&quot; // 新的路由地址
-    public var className: String = &quot;&quot; // 路由地址对应的界面
+    public var path: String = "" // 新的路由地址
+    public var className: String = "" // 路由地址对应的界面
     public var params: [String: Any] = [:]
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;通过远端下发重定向数据，原本跳转到白色界面的业务逻辑改为跳转到黄色界面&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;let relocationMap = [&quot;routerType&quot;: 1, &quot;targetPath&quot;: &quot;scheme://router/demo1&quot;, &quot;orginPath&quot;: &quot;scheme://router/demo&quot;] as NSDictionary
-TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
-TheRouter.openURL(&quot;scheme://router/demo?desc=跳转白色界面被重定向到了黄色界面&quot;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;重定向恢复&lt;/h3&gt;
+</code></pre>
 
-&lt;p&gt;在业务中，通常会进行业务调整，那么重定向之后需要恢复的话，就需要移除重定向&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;let relocationMap = [&quot;routerType&quot;: 4, &quot;targetPath&quot;: &quot;scheme://router/demo&quot;, &quot;orginPath&quot;: &quot;scheme://router/demo&quot;] as NSDictionary
-TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
-TheRouter.openURL(&quot;scheme://router/demo?desc=跳转白色界面被重定向到了黄色界面之后，根据下发数据又恢复到跳转白色界面&quot;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;路由 Path 动态修复&lt;/h3&gt;
+<p>通过远端下发重定向数据，原本跳转到白色界面的业务逻辑改为跳转到黄色界面</p>
 
-&lt;p&gt;在实际开发中，开发人员因为马虎写错了路由 Path，上线之后无法进行正常的业务跳转，此时就需要通过远端下发路由进行匹配跳转了。scheme://router/demo3 是正确 path,但是本地写错的路由 path 为 scheme://router/demo33，那么需要新增一个 path 进行映射。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;let relocationMap = [&quot;routerType&quot;: 2, &quot;className&quot;: &quot;TheRouter_Example.TheRouterControllerC&quot;, &quot;path&quot;: &quot;scheme://router/demo33&quot;] as NSDictionary
+<pre><code class="language-clike">let relocationMap = ["routerType": 1, "targetPath": "scheme://router/demo1", "orginPath": "scheme://router/demo"] as NSDictionary
+TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
+TheRouter.openURL("scheme://router/demo?desc=跳转白色界面被重定向到了黄色界面")
+</code></pre>
+
+<h3 id="重定向恢复">重定向恢复</h3>
+
+<p>在业务中，通常会进行业务调整，那么重定向之后需要恢复的话，就需要移除重定向</p>
+
+<pre><code class="language-clike">let relocationMap = ["routerType": 4, "targetPath": "scheme://router/demo", "orginPath": "scheme://router/demo"] as NSDictionary
+TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
+TheRouter.openURL("scheme://router/demo?desc=跳转白色界面被重定向到了黄色界面之后，根据下发数据又恢复到跳转白色界面")
+</code></pre>
+
+<h3 id="路由-path-动态修复">路由 Path 动态修复</h3>
+
+<p>在实际开发中，开发人员因为马虎写错了路由 Path，上线之后无法进行正常的业务跳转，此时就需要通过远端下发路由进行匹配跳转了。scheme://router/demo3 是正确 path,但是本地写错的路由 path 为 scheme://router/demo33，那么需要新增一个 path 进行映射。</p>
+
+<pre><code class="language-clike">let relocationMap = ["routerType": 2, "className": "TheRouter_Example.TheRouterControllerC", "path": "scheme://router/demo33"] as NSDictionary
 TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
 let value = TheRouterCApi.init().requiredURL
 TheRouter.openURL(value)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;路由适配不同的 Android-Path&lt;/h3&gt;
+</code></pre>
 
-&lt;p&gt;在实际开发中，一旦使用 URI 这种方式，牵扯到双端，就可以存在双端不一致的问题，那么如何解决呢，可以通过本地新增多路由 path 解决，也可以通过远端下发新路由解决。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;public class TheRouterControllerB: TheRouterBController, TheRouterable {
+<h3 id="路由适配不同的-android-path">路由适配不同的 Android-Path</h3>
+
+<p>在实际开发中，一旦使用 URI 这种方式，牵扯到双端，就可以存在双端不一致的问题，那么如何解决呢，可以通过本地新增多路由 path 解决，也可以通过远端下发新路由解决。</p>
+
+<pre><code class="language-clike">public class TheRouterControllerB: TheRouterBController, TheRouterable {
 
     public static var patternString: [String] {
-        [&quot;scheme://router/demo2&quot;,
-         &quot;scheme://router/demo2Android&quot;]
+        ["scheme://router/demo2",
+         "scheme://router/demo2Android"]
     }
 
-    public static func registerAction(info: [String : Any]) -&amp;gt; Any {
+    public static func registerAction(info: [String : Any]) -&gt; Any {
         let vc =  TheRouterBController()
         vc.desLabel.text = info.description
         return vc
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;let relocationMap = [&quot;routerType&quot;: 2, &quot;className&quot;: &quot;TheRouter_Example.TheRouterControllerD&quot;, &quot;path&quot;: &quot;scheme://router/demo5&quot;] as NSDictionary
+</code></pre>
+
+<pre><code class="language-clike">let relocationMap = ["routerType": 2, "className": "TheRouter_Example.TheRouterControllerD", "path": "scheme://router/demo5"] as NSDictionary
 TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
-TheRouter.openURL(&quot;scheme://router/demo2Android?desc=demo5是Android一个界面的path,为了双端统一，我们动态增加一个path,这样远端下发时demo5也就能跳转了&quot;)
+TheRouter.openURL("scheme://router/demo2Android?desc=demo5是Android一个界面的path,为了双端统一，我们动态增加一个path,这样远端下发时demo5也就能跳转了")
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;服务的动态注册与调用&lt;/h2&gt;
+</code></pre>
 
-&lt;h3&gt;如何声明服务及实现服务&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;@objc
+<h2 id="服务的动态注册与调用">服务的动态注册与调用</h2>
+
+<h3 id="如何声明服务及实现服务">如何声明服务及实现服务</h3>
+
+<pre><code class="language-clike">@objc
 public protocol AppConfigServiceProtocol: TheRouterServiceProtocol {
     // 打开小程序
     func openMiniProgram(info: [String: Any])
 }
 
 final class ConfigModuleService: NSObject, AppConfigServiceProtocol {
-
+    
     static var seriverName: String {
         String(describing: AppConfigServiceProtocol.self)
     }
-
+    
     func openMiniProgram(info: [String : Any]) {
         if let window = UIApplication.shared.delegate?.window {
-            window?.makeToast(&quot;打开微信小程序&quot;, duration: 1, position: window?.center)
+            window?.makeToast("打开微信小程序", duration: 1, position: window?.center)
         }
     }
 }
 
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;如何使用服务&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;/// 使用方式
+</code></pre>
+<h3 id="如何使用服务">如何使用服务</h3>
+
+<pre><code class="language-clike">/// 使用方式
  if let appConfigService = TheRouter.fetchService(AppConfigServiceProtocol.self){
      appConfigService.openMiniProgram(info: [:])
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;服务使用了runtime动态注册，所以你不用担心服务没有注册的问题。只需像上述案例一样使用即可。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;public class func registerServices() {
+</code></pre>
 
+<p>服务使用了runtime动态注册，所以你不用担心服务没有注册的问题。只需像上述案例一样使用即可。</p>
+
+<pre><code class="language-clike">public class func registerServices() {
+    
     let expectedClassCount = objc_getClassList(nil, 0)
-    let allClasses = UnsafeMutablePointer&amp;lt;AnyClass&amp;gt;.allocate(capacity: Int(expectedClassCount))
-    let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer&amp;lt;AnyClass&amp;gt;(allClasses)
+    let allClasses = UnsafeMutablePointer&lt;AnyClass&gt;.allocate(capacity: Int(expectedClassCount))
+    let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer&lt;AnyClass&gt;(allClasses)
     let actualClassCount: Int32 = objc_getClassList(autoreleasingAllClasses, expectedClassCount)
     var resultXLClass = [AnyClass]()
-    for i in 0 ..&amp;lt; actualClassCount {
-
+    for i in 0 ..&lt; actualClassCount {
+        
         let currentClass: AnyClass = allClasses[Int(i)]
-        if (class_getInstanceMethod(currentClass, NSSelectorFromString(&quot;methodSignatureForSelector:&quot;)) != nil),
-           (class_getInstanceMethod(currentClass, NSSelectorFromString(&quot;doesNotRecognizeSelector:&quot;)) != nil),
+        if (class_getInstanceMethod(currentClass, NSSelectorFromString("methodSignatureForSelector:")) != nil),
+           (class_getInstanceMethod(currentClass, NSSelectorFromString("doesNotRecognizeSelector:")) != nil),
            let cls = currentClass as? TheRouterServiceProtocol.Type {
             print(currentClass)
             resultXLClass.append(cls)
-
+            
             TheRouterServiceManager.default.registerService(named: cls.seriverName, lazyCreator: (cls as! NSObject.Type).init())
         }
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;路由远端调用本地服务：服务接口下发，MQTT,JSBridge&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;let dict = [&quot;ivar1&quot;: [&quot;key&quot;:&quot;value&quot;]]
-let url = &quot;scheme://services?protocol=AppConfigLAServiceProtocol&amp;amp;method=openMiniProgramWithInfo:&amp;amp;resultType=0&quot;
+</code></pre>
+
+<h3 id="路由远端调用本地服务服务接口下发mqttjsbridge">路由远端调用本地服务：服务接口下发，MQTT,JSBridge</h3>
+
+<pre><code class="language-clike">let dict = ["ivar1": ["key":"value"]]
+let url = "scheme://services?protocol=AppConfigLAServiceProtocol&amp;method=openMiniProgramWithInfo:&amp;resultType=0"
 TheRouter.openURL((url, dict))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;是否考虑Swift5.9 Macros？&lt;/h2&gt;
+</code></pre>
 
-&lt;p&gt;从目前的实现方式来看，懒加载加上动态注册，已经解决了注册时的性能问题。即使需要遍历全工程的类，然后处理相关逻辑，也不会超过0.2s。之所以能够通过Class取得path，因为给类声明了静态变量。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clike&quot; data-lang=&quot;clike&quot;&gt;/// 实现TheRouterable协议
+<h2 id="是否考虑swift59-macros">是否考虑Swift5.9 Macros？</h2>
+
+<p>从目前的实现方式来看，懒加载加上动态注册，已经解决了注册时的性能问题。即使需要遍历全工程的类，然后处理相关逻辑，也不会超过0.2s。之所以能够通过Class取得path，因为给类声明了静态变量。</p>
+
+<pre><code class="language-clike">/// 实现TheRouterable协议
 extension TheRouterController: TheRouterable {
-
+    
     static var patternString: [String] {
-        [&quot;scheme://router/demo&quot;]
+        ["scheme://router/demo"]
     }
-
-    static func registerAction(info: [String : Any]) -&amp;gt; Any {
+    
+    static func registerAction(info: [String : Any]) -&gt; Any {
         debugPrint(info)
-
+        
         let vc =  TheRouterController()
-        vc.qrResultCallBack = info[&quot;clouse&quot;] as? QrScanResultCallBack
+        vc.qrResultCallBack = info["clouse"] as? QrScanResultCallBack
         vc.resultLabel.text = info.description
         return vc
     }
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;关于作者&lt;/h2&gt;
+</code></pre>
+<h2 id="关于作者">关于作者</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://juejin.cn/user/1768489241815070&quot;&gt;货拉拉移动端技术团队&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://juejin.cn/user/1768489241815070">货拉拉移动端技术团队</a></p>
 
-&lt;h2&gt;开源协议&lt;/h2&gt;
+<h2 id="开源协议">开源协议</h2>
 
-&lt;p&gt;TheRouter 采用Apache2.0协议，详情参考&lt;a href=&quot;LICENSE&quot;&gt;LICENSE&lt;/a&gt;&lt;/p&gt;
+<p>TheRouter 采用Apache2.0协议，详情参考<a href="LICENSE">LICENSE</a></p>
 
-&lt;h2&gt;交流沟通群&lt;/h2&gt;
+<h2 id="交流沟通群">交流沟通群</h2>
+<p><img src="/assets/wx/wx_ios_group.jpg" class="blog-img" /></p>]]></content><author><name></name></author><category term="docs" /><category term="框架简介" /><summary type="html"><![CDATA[TheRouterSwift是货拉拉TheRouter系列开源框架的Swift版本，为日益增多的Swift开发者提供一高可用路由框架。TheRouterSwift用于模块间解耦和通信，基于Swift协议进行动态懒加载注册路由与打开路由的工具。同时支持通过Service-Protocol寻找对应的模块，并用 protocol进行依赖注入和模块通信。]]></summary></entry><entry><title type="html">TheRouter iOS 路由介绍</title><link href="http://localhost:4000/docs/2023/07/24/01" rel="alternate" type="text/html" title="TheRouter iOS 路由介绍" /><published>2023-07-24T00:00:00+08:00</published><updated>2023-07-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/07/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/07/24/01"><![CDATA[<h2 id="功能介绍">功能介绍</h2>
 
-&lt;p&gt;&lt;img src=&quot;/assets/wx/wx_ios_group.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;</content><author><name></name></author><category term="框架简介" /><summary type="html">背景 随着社区对支持Swift的需求日益增多，Swift5.0二进制库也具有更好的稳定性和兼容性表现，货拉拉技术团队根据社区反馈及内部讨论，决定开源内部业务使用的Swift版本路由组件，与2023年8月份已发布的Objective-C版本路由组件组成一个完整解决方案。 TheRouter开源团队将把重心放在维护和升级Swift版本的TheRouter上。同时也会持续支持Objective-C版本的易用性，并欢迎社区贡献。 对于使用Objective-C版本TheRouter的用户，建议将版本固定为1.0.0版以确保稳定性。 ## Features TheRouter一个用于模块间解耦和通信，基于Swift协议进行动态懒加载注册路由与打开路由的工具。同时支持通过Service-Protocol寻找对应的模块，并用 protocol进行依赖注入和模块通信。 1. 页面导航跳转能力：支持常规vc或Storyboard的push/present/popToTaget/windowNavRoot/modalDismissBeforePush跳转能力； 2. 路由自动注册能力：懒加载方式动态注册路由，仅当第一次调用OpenURL时进行动态注册； 3. 路由映射文件导出：支持将工程中的路由映射关系导出为文档，支持JSON、Plist格式，方便开发者进行双端的汇总比对、记录等； 4. 服务自动注册能力：动态注册服务，使用runtime方式自动注入； 5. 硬编码消除：将注册的path转为静态字符串常量供业务使用； 6. 动态化能力：支持添加重定向，移除重定向、动态添加路由、动态移除路由、拦截器、错误path修复等； 7. 链式编程：支持链式编程方式拼接URL与参数； 8. 适配Objective-C：OC类可以在Swift中使用继承的方式遵循协议来进行动态注册； 9. 服务调用：支持本地服务调用与远端服务调用；</summary></entry><entry><title type="html">TheRouter iOS 路由介绍</title><link href="http://localhost:4000/docs/2023/07/24/01" rel="alternate" type="text/html" title="TheRouter iOS 路由介绍" /><published>2023-07-24T00:00:00+08:00</published><updated>2023-07-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/07/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/07/24/01">&lt;h2&gt;功能介绍&lt;/h2&gt;
+<p>TheRouter 是货拉拉打造的一款同时支持 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android">Android</a> 及 <a href="https://github.com/HuolalaTech/hll-wp-therouter-ios">iOS</a> 的轻量级路由中间件，在iOS端吸取了其他其他语言的特性，支持<a href="https://juejin.cn/post/6999484997782470669">注解</a>功能，极大提升了路由在iOS端的使用体感。摒弃了传统 iOSer 的 target-action 或 protocol 理念，向更广的后台或 Android 应用对齐。</p>
 
-&lt;p&gt;TheRouter 是货拉拉打造的一款同时支持 &lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android&quot;&gt;Android&lt;/a&gt; 及 &lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-ios&quot;&gt;iOS&lt;/a&gt; 的轻量级路由中间件，在iOS端吸取了其他其他语言的特性，支持&lt;a href=&quot;https://juejin.cn/post/6999484997782470669&quot;&gt;注解&lt;/a&gt;功能，极大提升了路由在iOS端的使用体感。摒弃了传统 iOSer 的 target-action 或 protocol 理念，向更广的后台或 Android 应用对齐。&lt;/p&gt;
+<p><code class="language-plaintext highlighter-rouge">TheRouter 核心功能具备四大能力：</code></p>
 
-&lt;p&gt;&lt;code&gt;TheRouter 核心功能具备四大能力：&lt;/code&gt;&lt;/p&gt;
+<ul>
+  <li><strong>页面导航跳转能力</strong>：支持常规 VC 或 Storyboard 的 push/present 跳转能力；</li>
+  <li><strong>自动注册能力</strong>：实现类似 Java 注解功能，在 VC 类或任意方法上标注即可完成路由注册；</li>
+  <li><strong>硬编码消除</strong>：内置脚本会自动将注册的 path 转为静态字符串常量供业务使用；</li>
+  <li><strong>动态化能力</strong>：支持添加重定向、拦截器等等；</li>
+</ul>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;页面导航跳转能力&lt;/strong&gt;：支持常规 VC 或 Storyboard 的 push/present 跳转能力；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;自动注册能力&lt;/strong&gt;：实现类似 Java 注解功能，在 VC 类或任意方法上标注即可完成路由注册；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;硬编码消除&lt;/strong&gt;：内置脚本会自动将注册的 path 转为静态字符串常量供业务使用；&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;动态化能力&lt;/strong&gt;：支持添加重定向、拦截器等等；&lt;/li&gt;
-&lt;/ul&gt;
+<h2 id="模块描述">模块描述</h2>
 
-&lt;h2&gt;模块描述&lt;/h2&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;.
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
 ├── Classes
 │   ├── TheRouter+Annotation.h
 │   ├── TheRouter+Annotation.m  // 路由注解器及Path功能扩展
@@ -641,53 +717,63 @@ extension TheRouterController: TheRouterable {
 │   └── TheRouter.m             // 路由库核心代码（增删改查，重定向/拦截器）
 └── Resources
     └── scan.py                 // 注解扫描及硬编码处理脚本（该脚本只会被引用不会参与编译和打包）
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;使用介绍&lt;/h2&gt;
+</code></pre></div></div>
 
-&lt;h4&gt;Cocoapods 引入&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;pod&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'TheRouter'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;注解使用&lt;/h4&gt;
+<h2 id="使用介绍">使用介绍</h2>
 
-&lt;p&gt;&lt;strong&gt;step1&lt;/strong&gt;&lt;/p&gt;
+<h4 id="cocoapods-引入">Cocoapods 引入</h4>
 
-&lt;p&gt;创建&lt;code&gt;TheRouterAnnotation.plist&lt;/code&gt;文件，必须在MainBundle下。&lt;/p&gt;
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pod</span> <span class="s1">'TheRouter'</span>
+</code></pre></div></div>
 
-&lt;p&gt;&lt;strong&gt;step2&lt;/strong&gt;&lt;/p&gt;
+<h4 id="注解使用">注解使用</h4>
 
-&lt;p&gt;为项目创建一个Aggregate类型的target：&lt;/p&gt;
+<p><strong>step1</strong></p>
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/image/guide1.jpeg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p>创建<code class="language-plaintext highlighter-rouge">TheRouterAnnotation.plist</code>文件，必须在MainBundle下。</p>
 
-&lt;p&gt;&lt;strong&gt;step3&lt;/strong&gt;&lt;/p&gt;
+<p><strong>step2</strong></p>
 
-&lt;p&gt;在新建的target添加脚本：&lt;/p&gt;
+<p>为项目创建一个Aggregate类型的target：</p>
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/image/guide2.jpeg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p><img src="/assets/img/image/guide1.jpeg" class="blog-img" /></p>
 
-&lt;p&gt;图中实例脚本参数含义：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;python3 &lt;span class=&quot;nv&quot;&gt;$SRCROOT&lt;/span&gt;/../TheRouter/Resources/scan.py     &lt;span class=&quot;c&quot;&gt;# 脚本路径&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$SRCROOT&lt;/span&gt;/                                           &lt;span class=&quot;c&quot;&gt;# 参数1：扫描路径,一般为项目根目录&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$SRCROOT&lt;/span&gt;/TheRouter/                                 &lt;span class=&quot;c&quot;&gt;# 参数2：路径定义头文件存放目录 一般为存放至公共模块 &lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$SRCROOT&lt;/span&gt;/TheRouter/TheRouterAnnotation.plist        &lt;span class=&quot;c&quot;&gt;# 参数3：TheRouterAnnotation文件路径&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;step4&lt;/strong&gt;&lt;/p&gt;
+<p><strong>step3</strong></p>
 
-&lt;p&gt;在应用加载完成时注册host，在想要跳转的VC类上添加路由注解或创建对应模块的Service类，在Service中的方法上添加注解即可，例如：&lt;/p&gt;
+<p>在新建的target添加脚本：</p>
 
-&lt;p&gt;注册该项目的host：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-C&quot; data-lang=&quot;C&quot;&gt;[TheRouter.shared registPathAnnotationsWithHost:@&quot;hd://com.therouter.test&quot;];
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;添加vc注解：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-C&quot; data-lang=&quot;C&quot;&gt;TheRouterController(test/vc, TestViewController)
+<p><img src="/assets/img/image/guide2.jpeg" class="blog-img" /></p>
+
+<p>图中实例脚本参数含义：</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nv">$SRCROOT</span>/../TheRouter/Resources/scan.py     <span class="c"># 脚本路径</span>
+<span class="nv">$SRCROOT</span>/                                           <span class="c"># 参数1：扫描路径,一般为项目根目录</span>
+<span class="nv">$SRCROOT</span>/TheRouter/                                 <span class="c"># 参数2：路径定义头文件存放目录 一般为存放至公共模块 </span>
+<span class="nv">$SRCROOT</span>/TheRouter/TheRouterAnnotation.plist        <span class="c"># 参数3：TheRouterAnnotation文件路径</span>
+</code></pre></div></div>
+
+<p><strong>step4</strong></p>
+
+<p>在应用加载完成时注册host，在想要跳转的VC类上添加路由注解或创建对应模块的Service类，在Service中的方法上添加注解即可，例如：</p>
+
+<p>注册该项目的host：</p>
+
+<pre><code class="language-C">[TheRouter.shared registPathAnnotationsWithHost:@"hd://com.therouter.test"];
+</code></pre>
+
+<p>添加vc注解：</p>
+
+<pre><code class="language-C">TheRouterController(test/vc, TestViewController)
 @interface TestViewController : UIViewController
 
 @end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;添加Service注解：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-C&quot; data-lang=&quot;C&quot;&gt;#import &quot;TestService.h&quot;
-#import &quot;TheRouter_Mappings.h&quot;
-#import &amp;lt;TheRouter/TheRouter+Annotation.h&amp;gt;
+</code></pre>
+
+<p>添加Service注解：</p>
+
+<pre><code class="language-C">#import "TestService.h"
+#import "TheRouter_Mappings.h"
+#import &lt;TheRouter/TheRouter+Annotation.h&gt;
 
 @implementation TestService
 
@@ -696,7 +782,7 @@ TheRouterSelector(test/jump, jumpToTestVC, TestService)
 {
     UIViewController *vc = [TheRouter.shared openVCPath:kRouterPathTestVcVC
                                                     cmd:TheRouterOpenCMDPush
-                                             withParams:@{@&quot;title&quot;:@&quot;123&quot;}
+                                             withParams:@{@"title":@"123"}
                                                 hanlder:^(NSString * _Nonnull tag, NSDictionary * _Nullable result) {
         !routerInfo.openCompleteHandler ?: routerInfo.openCompleteHandler(tag, result);
     }];
@@ -705,509 +791,558 @@ TheRouterSelector(test/jump, jumpToTestVC, TestService)
 
 @end
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;step5&lt;/strong&gt;&lt;/p&gt;
+</code></pre>
 
-&lt;p&gt;在每次对路由进行增删改时编译一次创建好的target，会自动向&lt;code&gt;TheRouterAnnotation.plist&lt;/code&gt;文件写入信息，并在指定的目录下生成&lt;code&gt;TheRouter_Mappings.h&lt;/code&gt;文件，将此文件拖入对应模块即可&lt;/p&gt;
+<p><strong>step5</strong></p>
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/image/guide3.jpeg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p>在每次对路由进行增删改时编译一次创建好的target，会自动向<code class="language-plaintext highlighter-rouge">TheRouterAnnotation.plist</code>文件写入信息，并在指定的目录下生成<code class="language-plaintext highlighter-rouge">TheRouter_Mappings.h</code>文件，将此文件拖入对应模块即可</p>
 
-&lt;h4&gt;拦截器和重定向&lt;/h4&gt;
+<p><img src="/assets/img/image/guide3.jpeg" class="blog-img" /></p>
 
-&lt;p&gt;&lt;strong&gt;拦截器：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-C&quot; data-lang=&quot;C&quot;&gt;// 只要访问hd://com.therouter.test或其子路径 (hd://com.therouter.test/xxx) 都会进入该回调
+<h4 id="拦截器和重定向">拦截器和重定向</h4>
+
+<p><strong>拦截器：</strong></p>
+
+<pre><code class="language-C">// 只要访问hd://com.therouter.test或其子路径 (hd://com.therouter.test/xxx) 都会进入该回调
 // 如果返回YES那么对应的路由事件可以正常执行，反之则会被拦截不会执行路由事件
-[TheRouter.shared registInterceptorForURLString:@&quot;hd://com.therouter.test/*&quot; handler:^BOOL(TheRouterInfo * _Nonnull router, id  _Nullable (^ _Nonnull continueHandle)(void)) {
-    NSLog(@&quot;will execute router %@&quot;, router.URLString);
+[TheRouter.shared registInterceptorForURLString:@"hd://com.therouter.test/*" handler:^BOOL(TheRouterInfo * _Nonnull router, id  _Nullable (^ _Nonnull continueHandle)(void)) {
+    NSLog(@"will execute router %@", router.URLString);
     return YES;
 }];
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;重定向：&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-C&quot; data-lang=&quot;C&quot;&gt;// 重定向是指访问 hd://test.com/test 时会走 hd://test.com/test/vc的事件，用来迁移老路径或线上遇到问题时可快速更改至其他页面承接业务
-[TheRouter.shared registRedirect:@&quot;hd://test.com/test&quot; to:@&quot;hd://test.com/test/vc&quot;];
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;执行路由事件&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-C&quot; data-lang=&quot;C&quot;&gt;UIViewController *vc = [TheRouter.shared openVCPath:kRouterPathTestVcVC    // 传入Path
+</code></pre>
+
+<p><strong>重定向：</strong></p>
+
+<pre><code class="language-C">// 重定向是指访问 hd://test.com/test 时会走 hd://test.com/test/vc的事件，用来迁移老路径或线上遇到问题时可快速更改至其他页面承接业务
+[TheRouter.shared registRedirect:@"hd://test.com/test" to:@"hd://test.com/test/vc"];
+</code></pre>
+
+<h4 id="执行路由事件">执行路由事件</h4>
+
+<pre><code class="language-C">UIViewController *vc = [TheRouter.shared openVCPath:kRouterPathTestVcVC    // 传入Path
                                                 cmd:TheRouterOpenCMDPush   // 指定打开命令
-                                         withParams:@{@&quot;title&quot;:@&quot;123&quot;}     // 指定参数，这里支持对kvc赋值
+                                         withParams:@{@"title":@"123"}     // 指定参数，这里支持对kvc赋值
                                             hanlder:^(NSString * _Nonnull tag, NSDictionary * _Nullable result) {
         !routerInfo.openCompleteHandler ?: routerInfo.openCompleteHandler(tag, result);
 }];
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><author><name></name></author><category term="框架简介" /><summary type="html">功能介绍</summary></entry><entry><title type="html">TheRouter 常见问题处理</title><link href="http://localhost:4000/docs/2023/07/21/01" rel="alternate" type="text/html" title="TheRouter 常见问题处理" /><published>2023-07-21T00:00:00+08:00</published><updated>2023-07-21T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/07/21/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/07/21/01">&lt;p&gt;如无法解决你的问题，建议登记应用，获取优先技术支持 &lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57&lt;/a&gt;    &lt;/p&gt;
+</code></pre>]]></content><author><name></name></author><category term="docs" /><category term="框架简介" /><summary type="html"><![CDATA[TheRouter 是货拉拉打造的一款同时支持 Android 及 iOS 的轻量级路由中间件，在iOS端吸取了其他其他语言的特性，支持注解功能，极大提升了路由在iOS端的使用体感。摒弃了传统 iOSer 的 target-action 或 protocol 理念，向更广的后台或 Android 应用对齐。]]></summary></entry><entry><title type="html">TheRouter 常见问题处理</title><link href="http://localhost:4000/docs/2023/07/21/01" rel="alternate" type="text/html" title="TheRouter 常见问题处理" /><published>2023-07-21T00:00:00+08:00</published><updated>2023-07-21T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/07/21/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/07/21/01"><![CDATA[<p>如无法解决你的问题，建议登记应用，获取优先技术支持 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57</a></p>
 
-&lt;h3&gt;问题列表不定期更新中...&lt;/h3&gt;
+<h3 id="问题列表不定期更新中">问题列表不定期更新中…</h3>
 
-&lt;hr&gt;
+<hr />
 
-&lt;h4&gt;Q1: &lt;strong&gt;路由表不生成（或生成的代码有问题编译报错）&lt;/strong&gt;&lt;/h4&gt;
+<h4 id="q1-路由表不生成或生成的代码有问题编译报错">Q1: <strong>路由表不生成（或生成的代码有问题编译报错）</strong></h4>
 
-&lt;p&gt;(注：1.2.0-rc5版本已修复：&lt;code&gt;KSP&lt;/code&gt;与&lt;code&gt;ViewBinding&lt;/code&gt;共用不生成路由表的问题)  &lt;/p&gt;
+<p>(注：1.2.0-rc5版本已修复：<code class="language-plaintext highlighter-rouge">KSP</code>与<code class="language-plaintext highlighter-rouge">ViewBinding</code>共用不生成路由表的问题)</p>
 
-&lt;p&gt;请按照以下步骤排查：   &lt;/p&gt;
+<p>请按照以下步骤排查：</p>
 
-&lt;ol&gt;
-&lt;li&gt;plugin 加了吗？plugin 必须加且只能加在 app 模块里。&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;kapt加了吗？kapt不能只加最底层，所有用了注解的模块都要加。&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;router、plugin、kapt，三个依赖的版本号必须一致。&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;在这里查看JDK信息：&lt;code&gt;Preferences-&amp;gt; Build Tools-&amp;gt; Gradle-&amp;gt; Gradle JDK&lt;/code&gt;。不能用AS自带的jdk，KSP会有兼容问题，请在 Oracle 官网下载：&lt;a href=&quot;https://www.oracle.com/hk/java/technologies/downloads/#java17&quot;&gt;Java 17&lt;/a&gt;、&lt;a href=&quot;https://www.oracle.com/hk/java/technologies/downloads/#java11&quot;&gt;Java 11&lt;/a&gt;、&lt;a href=&quot;https://www.oracle.com/hk/java/technologies/downloads/#java8&quot;&gt;Java 8&lt;/a&gt;。&lt;/li&gt;
-&lt;li&gt;尝试更新至最新rc版本查看是否修复。&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/releases&quot;&gt;版本列表&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
+<ol>
+  <li>plugin 加了吗？plugin 必须加且只能加在 app 模块里。</li>
+  <li>kapt加了吗？kapt不能只加最底层，所有用了注解的模块都要加。</li>
+  <li>router、plugin、kapt，三个依赖的版本号必须一致。</li>
+  <li>在这里查看JDK信息：<code class="language-plaintext highlighter-rouge">Preferences-&gt; Build Tools-&gt; Gradle-&gt; Gradle JDK</code>。不能用AS自带的jdk，KSP会有兼容问题，请在 Oracle 官网下载：<a href="https://www.oracle.com/hk/java/technologies/downloads/#java17">Java 17</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java11">Java 11</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java8">Java 8</a>。</li>
+  <li>尝试更新至最新rc版本查看是否修复。<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">版本列表</a></li>
+</ol>
 
-&lt;hr&gt;
+<hr />
 
-&lt;h4&gt;Q2：&lt;strong&gt;kotlin使用&lt;code&gt;@Autowired&lt;/code&gt;注解编译不通过&lt;/strong&gt;&lt;/h4&gt;
+<h4 id="q2kotlin使用autowired注解编译不通过">Q2：<strong>kotlin使用<code class="language-plaintext highlighter-rouge">@Autowired</code>注解编译不通过</strong></h4>
 
-&lt;p&gt;查看 GitHub Issue：&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/6&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/6&lt;/a&gt;&lt;/p&gt;
+<p>查看 GitHub Issue：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/6">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/6</a></p>
 
-&lt;hr&gt;
+<hr />
 
-&lt;h4&gt;Q3：&lt;strong&gt;使用Gradle 8.X，编译报错&lt;/strong&gt;&lt;/h4&gt;
+<h4 id="q3使用gradle-8x编译报错">Q3：<strong>使用Gradle 8.X，编译报错</strong></h4>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/22&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/22&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/22">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/22</a></p>
 
-&lt;hr&gt;
+<hr />
 
-&lt;h4&gt;Q4：&lt;strong&gt;从 ARouter 迁移 TheRouter 时通过 Bundle 传递的参数不能正确获取&lt;/strong&gt;&lt;/h4&gt;
+<h4 id="q4从-arouter-迁移-therouter-时通过-bundle-传递的参数不能正确获取">Q4：<strong>从 ARouter 迁移 TheRouter 时通过 Bundle 传递的参数不能正确获取</strong></h4>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/29&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/29&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/29">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/29</a></p>
 
-&lt;hr&gt;
+<hr />
 
-&lt;h4&gt;Q5：&lt;strong&gt;多进程如何使用&lt;/strong&gt;&lt;/h4&gt;
+<h4 id="q5多进程如何使用">Q5：<strong>多进程如何使用</strong></h4>
 
-&lt;p&gt;&lt;a href=&quot;https://therouter.cn/docs/2022/09/03/01&quot;&gt;https://therouter.cn/docs/2022/09/03/01&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://therouter.cn/docs/2022/09/03/01">https://therouter.cn/docs/2022/09/03/01</a></p>
 
-&lt;hr&gt;
+<hr />
 
-&lt;h4&gt;Q6：&lt;strong&gt;同一个服务名有多个服务提供方，如何使用&lt;/strong&gt;&lt;/h4&gt;
+<h4 id="q6同一个服务名有多个服务提供方如何使用">Q6：<strong>同一个服务名有多个服务提供方，如何使用</strong></h4>
 
-&lt;p&gt;请查看文档 【1.3 服务提供方】章节的内容：&lt;a href=&quot;https://therouter.cn/docs/2022/08/27/01&quot;&gt;https://therouter.cn/docs/2022/08/27/01&lt;/a&gt;   &lt;/p&gt;
+<p>请查看文档 【1.3 服务提供方】章节的内容：<a href="https://therouter.cn/docs/2022/08/27/01">https://therouter.cn/docs/2022/08/27/01</a></p>
 
-&lt;hr&gt;
+<hr />
 
-&lt;h4&gt;Q7：多进程使用 TheRouter&lt;/h4&gt;
+<h4 id="q7多进程使用-therouter">Q7：多进程使用 TheRouter</h4>
 
-&lt;p&gt;TheRouter 路由支持多进程，但默认只会在主进程执行初始化逻辑。如果使用了多进程，可以先关闭&lt;code&gt;TheRouter&lt;/code&gt;的自动初始化，然后手动在&lt;code&gt;Application&lt;/code&gt;的&lt;code&gt;onCreate()&lt;/code&gt;中执行初始化功能。   &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;attachBaseContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;base:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attachBaseContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;theRouterUseAutoInit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+<p>TheRouter 路由支持多进程，但默认只会在主进程执行初始化逻辑。如果使用了多进程，可以先关闭<code class="language-plaintext highlighter-rouge">TheRouter</code>的自动初始化，然后手动在<code class="language-plaintext highlighter-rouge">Application</code>的<code class="language-plaintext highlighter-rouge">onCreate()</code>中执行初始化功能。</p>
 
-&lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;： &lt;/p&gt;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">override</span> <span class="n">fun</span> <span class="nf">attachBaseContext</span><span class="o">(</span><span class="nl">base:</span> <span class="nc">Context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">attachBaseContext</span><span class="o">(</span><span class="n">base</span><span class="o">)</span>
+    <span class="n">theRouterUseAutoInit</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="o">}</span>
 
-&lt;ul&gt;
-&lt;li&gt;1、多进程&lt;code&gt;ServiceProvider&lt;/code&gt;，TheRouter 支持跨进程获取数据，但获取的数据本身需要支持跨进程，可以理解为&lt;code&gt;TheRouter&lt;/code&gt;本质是个链接两个进程的通道，要将数据从一个进程传递到另一个进程，这个数据本身需要能够被另一个进程接收的到。&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;2、&lt;code&gt;FlowTask&lt;/code&gt;的跨进程依赖暂不支持，预计支持版本在&lt;code&gt;1.2.2&lt;/code&gt;。&lt;br&gt;&lt;/li&gt;
-&lt;li&gt;3、&lt;code&gt;ActionManager&lt;/code&gt;的跨进程响应暂不支持，预计支持版本在&lt;code&gt;1.2.2&lt;/code&gt;。&lt;br&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<span class="n">override</span> <span class="n">fun</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">()</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="k">this</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-&lt;hr&gt;
+<p><strong>注意</strong>：</p>
 
-&lt;h4&gt;Q8：自定义Log输出&lt;/h4&gt;
+<ul>
+  <li>1、多进程<code class="language-plaintext highlighter-rouge">ServiceProvider</code>，TheRouter 支持跨进程获取数据，但获取的数据本身需要支持跨进程，可以理解为<code class="language-plaintext highlighter-rouge">TheRouter</code>本质是个链接两个进程的通道，要将数据从一个进程传递到另一个进程，这个数据本身需要能够被另一个进程接收的到。</li>
+  <li>2、<code class="language-plaintext highlighter-rouge">FlowTask</code>的跨进程依赖暂不支持，预计支持版本在<code class="language-plaintext highlighter-rouge">1.2.2</code>。</li>
+  <li>3、<code class="language-plaintext highlighter-rouge">ActionManager</code>的跨进程响应暂不支持，预计支持版本在<code class="language-plaintext highlighter-rouge">1.2.2</code>。</li>
+</ul>
 
-&lt;p&gt;默认情况下，&lt;code&gt;TheRouter&lt;/code&gt;会在&lt;code&gt;debug&lt;/code&gt;模式下，将&lt;code&gt;log&lt;/code&gt;打印到控制台，在&lt;code&gt;release&lt;/code&gt;模式下不做任何输出。&lt;br&gt;
-如果你希望采集线上日志信息，可以自定义&lt;code&gt;release&lt;/code&gt;场景下的日志输出方式：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 这一步建议放在Application.onCreate()之前，否则可能会在赋值之前就有部分日志已经执行了默认逻辑。&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;logCat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;msg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt;  
-        &lt;span class=&quot;c1&quot;&gt;// 执行上报日志的逻辑&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
+<hr />
 
-&lt;h4&gt;Q9：判断String，是否为路由path&lt;/h4&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// 判断是否为路由落地页path&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isRouterPath&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Boolean&lt;/span&gt;  
+<h4 id="q8自定义log输出">Q8：自定义Log输出</h4>
 
-&lt;span class=&quot;c1&quot;&gt;// 判断是否为 Action&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isRouterAction&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Boolean&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
+<p>默认情况下，<code class="language-plaintext highlighter-rouge">TheRouter</code>会在<code class="language-plaintext highlighter-rouge">debug</code>模式下，将<code class="language-plaintext highlighter-rouge">log</code>打印到控制台，在<code class="language-plaintext highlighter-rouge">release</code>模式下不做任何输出。<br />
+如果你希望采集线上日志信息，可以自定义<code class="language-plaintext highlighter-rouge">release</code>场景下的日志输出方式：</p>
 
-&lt;h4&gt;Q10：导出路由历史记录&lt;/h4&gt;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">override</span> <span class="n">fun</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// 这一步建议放在Application.onCreate()之前，否则可能会在赋值之前就有部分日志已经执行了默认逻辑。</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">logCat</span> <span class="o">=</span> <span class="o">{</span><span class="n">tag</span><span class="o">,</span> <span class="n">msg</span> <span class="o">-&gt;</span>  
+        <span class="c1">// 执行上报日志的逻辑</span>
+    <span class="o">}</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">()</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;如果需要记录用户历史操作信息，用于排查错误时回放，可以直接使用历史记录导出功能：&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// level共8个状态可选&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NONE&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 不导出任何数据&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ACTIVITY&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//仅导出Activity的路由操作&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FRAGMENT&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//仅导出Fragment的路由操作&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PAGE&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 导出 Fragment + Activity的路由操作&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ACTION&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 导出 ActionManager 的操作记录&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SERVICE_PROVIDER&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 导出 ServiceProvider的记录&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FLOW_TASK&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 导出 FlowTaskExecutor 的历史记录&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ALL&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 导出全部记录&lt;/span&gt;
+<hr />
 
-&lt;span class=&quot;c1&quot;&gt;// 8种状态可互相叠加，例如&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;level&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ACTIVITY&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ACTION&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FLOW_TASK&lt;/span&gt;
+<h4 id="q9判断string是否为路由path">Q9：判断String，是否为路由path</h4>
 
-&lt;span class=&quot;nf&quot;&gt;export&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;forEach&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;it&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'\n'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;'\n'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 判断是否为路由落地页path</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">isRouterPath</span><span class="o">(</span><span class="n">path</span><span class="o">)</span> <span class="o">:</span> <span class="nc">Boolean</span>  
 
-&lt;h4&gt;Q11：导入导出 Intent 对象到路由&lt;/h4&gt;
+<span class="c1">// 判断是否为 Action</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">isRouterAction</span><span class="o">(</span><span class="n">path</span><span class="o">)</span> <span class="o">:</span> <span class="nc">Boolean</span>
+</code></pre></div></div>
 
-&lt;p&gt;有一些特殊的业务场景可能必须使用&lt;code&gt;Intent&lt;/code&gt;对象作为参数，例如通知栏点击以后，系统只提供了&lt;code&gt;Intent&lt;/code&gt;参数，或者用于替代&lt;code&gt;startActivityForResult()&lt;/code&gt;的新 API &lt;code&gt;ActivityResultLauncher&lt;/code&gt; 。&lt;br&gt;
-TheRouter 也支持这样的使用场景：  &lt;/p&gt;
+<hr />
 
-&lt;p&gt;导入 Intent：  &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;intent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withXxxxx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;导出 Intent：  &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// 注：导出Intent时，需要url有对应的落地页，否则Intent不会附带withXXX()的参数信息&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;intent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withXxxxx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;createIntent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
+<h4 id="q10导出路由历史记录">Q10：导出路由历史记录</h4>
 
-&lt;h4&gt;Q12：插件化项目集成&lt;/h4&gt;
+<p>如果需要记录用户历史操作信息，用于排查错误时回放，可以直接使用历史记录导出功能：</p>
 
-&lt;p&gt;TheRouter 的路由表是完全动态化的，所以允许动态加载插件路由表。
-现有市面上插件化框架较多，具体可参考使用的插件化方案，当插件被加载时分别调用如下代码&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// 在异步线程执行&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 初始化插件内的依赖注入&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TheRouterServiceProvideInjecter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;trojan&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 初始化插件内的FlowTask&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TheRouterServiceProvideInjecter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addFlowTask&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;digraph&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 初始化插件内的路由表&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TheRouterServiceProvideInjecter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;initDefaultRouteMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// level共8个状态可选</span>
+<span class="n">val</span> <span class="no">NONE</span> <span class="c1">// 不导出任何数据</span>
+<span class="n">val</span> <span class="no">ACTIVITY</span> <span class="c1">//仅导出Activity的路由操作</span>
+<span class="n">val</span> <span class="no">FRAGMENT</span> <span class="c1">//仅导出Fragment的路由操作</span>
+<span class="n">val</span> <span class="no">PAGE</span>  <span class="c1">// 导出 Fragment + Activity的路由操作</span>
+<span class="n">val</span> <span class="no">ACTION</span>  <span class="c1">// 导出 ActionManager 的操作记录</span>
+<span class="n">val</span> <span class="no">SERVICE_PROVIDER</span> <span class="c1">// 导出 ServiceProvider的记录</span>
+<span class="n">val</span> <span class="no">FLOW_TASK</span> <span class="c1">// 导出 FlowTaskExecutor 的历史记录</span>
+<span class="n">val</span> <span class="no">ALL</span> <span class="c1">// 导出全部记录</span>
 
-&lt;h4&gt;Q13：Flutter/RN/WEEX 等混编项目集成&lt;/h4&gt;
+<span class="c1">// 8种状态可互相叠加，例如</span>
+<span class="n">val</span> <span class="n">level</span> <span class="o">=</span> <span class="no">ACTIVITY</span> <span class="o">+</span> <span class="no">ACTION</span> <span class="o">+</span> <span class="no">FLOW_TASK</span>
 
-&lt;p&gt;TheRouter 的路由表是完全动态化的，所以允许动态加载跨平台项目的路由表。&lt;/p&gt;
+<span class="nf">export</span><span class="o">(</span><span class="n">level</span><span class="o">).</span><span class="na">forEach</span> <span class="o">{</span>
+    <span class="n">info</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">it</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="sc">'\n'</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="sc">'\n'</span><span class="o">)</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;可以直接将路由表配置到&lt;code&gt;/assets/RouteMap.json&lt;/code&gt;文件中。&lt;br&gt;
-如果路由表的 &lt;code&gt;url&lt;/code&gt; 是具备规律的，可简单使用正则表达式一次性加载。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;path&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://kymjs.com/flutter/\\S*&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;className&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;com.therouter.FlutterActivity&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;action&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;params&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-      &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;key&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;value&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;......&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;添加其他路由表&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;......&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
+<hr />
 
-&lt;h4&gt;Q14：我的项目使用的Gradle8.x（或AGP8），引入插件失败&lt;/h4&gt;
+<h4 id="q11导入导出-intent-对象到路由">Q11：导入导出 Intent 对象到路由</h4>
 
-&lt;p&gt;请完整查看接入文档&lt;a href=&quot;https://therouter.cn/docs/2022/11/23/01&quot;&gt;https://therouter.cn/docs/2022/11/23/01&lt;/a&gt;，并仔细阅读【第一步：接入classpath】   &lt;/p&gt;
+<p>有一些特殊的业务场景可能必须使用<code class="language-plaintext highlighter-rouge">Intent</code>对象作为参数，例如通知栏点击以后，系统只提供了<code class="language-plaintext highlighter-rouge">Intent</code>参数，或者用于替代<code class="language-plaintext highlighter-rouge">startActivityForResult()</code>的新 API <code class="language-plaintext highlighter-rouge">ActivityResultLauncher</code> 。  <br />
+TheRouter 也支持这样的使用场景：</p>
 
-&lt;hr&gt;
+<p>导入 Intent：</p>
 
-&lt;h4&gt;Q15：我为什么总是拉不到TheRouter的依赖&lt;/h4&gt;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">intent</span><span class="o">).</span><span class="na">withXxxxx</span><span class="o">().</span><span class="na">navigation</span><span class="o">()</span>
+</code></pre></div></div>
 
-&lt;p&gt;TheRouter 的依赖全部上传在 &lt;code&gt;mavenCentral&lt;/code&gt;，请检查你的仓库声明中是否有声明。另外，请不要使用阿里云的镜像仓库，否则也会造成拉不到依赖的情况。   &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;repositories {
+<p>导出 Intent：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 注：导出Intent时，需要url有对应的落地页，否则Intent不会附带withXXX()的参数信息</span>
+<span class="n">val</span> <span class="n">intent</span> <span class="o">=</span> <span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">url</span><span class="o">).</span><span class="na">withXxxxx</span><span class="o">().</span><span class="na">createIntent</span><span class="o">()</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="q12插件化项目集成">Q12：插件化项目集成</h4>
+
+<p>TheRouter 的路由表是完全动态化的，所以允许动态加载插件路由表。
+现有市面上插件化框架较多，具体可参考使用的插件化方案，当插件被加载时分别调用如下代码</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 在异步线程执行</span>
+<span class="n">execute</span> <span class="o">{</span>
+    <span class="c1">// 初始化插件内的依赖注入</span>
+    <span class="nc">TheRouterServiceProvideInjecter</span><span class="o">.</span><span class="na">trojan</span><span class="o">();</span>
+    <span class="c1">// 初始化插件内的FlowTask</span>
+    <span class="nc">TheRouterServiceProvideInjecter</span><span class="o">.</span><span class="na">addFlowTask</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="nc">TheRouter</span><span class="o">.</span><span class="na">digraph</span><span class="o">);</span>
+    <span class="c1">// 初始化插件内的路由表</span>
+    <span class="nc">TheRouterServiceProvideInjecter</span><span class="o">.</span><span class="na">initDefaultRouteMap</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="q13flutterrnweex-等混编项目集成">Q13：Flutter/RN/WEEX 等混编项目集成</h4>
+
+<p>TheRouter 的路由表是完全动态化的，所以允许动态加载跨平台项目的路由表。</p>
+
+<p>可以直接将路由表配置到<code class="language-plaintext highlighter-rouge">/assets/RouteMap.json</code>文件中。<br />
+如果路由表的 <code class="language-plaintext highlighter-rouge">url</code> 是具备规律的，可简单使用正则表达式一次性加载。</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://kymjs.com/flutter/</span><span class="se">\\</span><span class="s2">S*"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"com.therouter.FlutterActivity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"value"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">......</span><span class="w">
+  </span><span class="err">//</span><span class="w"> </span><span class="err">添加其他路由表</span><span class="w">
+  </span><span class="err">......</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<h4 id="q14我的项目使用的gradle8x或agp8引入插件失败">Q14：我的项目使用的Gradle8.x（或AGP8），引入插件失败</h4>
+
+<p>请完整查看接入文档<a href="https://therouter.cn/docs/2022/11/23/01">https://therouter.cn/docs/2022/11/23/01</a>，并仔细阅读【第一步：接入classpath】</p>
+
+<hr />
+
+<h4 id="q15我为什么总是拉不到therouter的依赖">Q15：我为什么总是拉不到TheRouter的依赖</h4>
+
+<p>TheRouter 的依赖全部上传在 <code class="language-plaintext highlighter-rouge">mavenCentral</code>，请检查你的仓库声明中是否有声明。另外，请不要使用阿里云的镜像仓库，否则也会造成拉不到依赖的情况。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>repositories {
     mavenCentral()
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;hr&gt;
+</code></pre></div></div>
 
-&lt;h4&gt;Q16：编译报错 &lt;code&gt;API &amp;#39;android.registerTransform&amp;#39; is removed&lt;/code&gt;&lt;/h4&gt;
+<hr />
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/121&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/issues/121&lt;/a&gt;&lt;/p&gt;
+<h4 id="q16编译报错-api-androidregistertransform-is-removed">Q16：编译报错 <code class="language-plaintext highlighter-rouge">API 'android.registerTransform' is removed</code></h4>
 
-&lt;hr&gt;</content><author><name></name></author><category term="框架简介" /><summary type="html">如无法解决你的问题，建议登记应用，获取优先技术支持 https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57</summary></entry><entry><title type="html">TheRouter 使用 KSP 处理注解</title><link href="http://localhost:4000/docs/2023/05/15/01" rel="alternate" type="text/html" title="TheRouter 使用 KSP 处理注解" /><published>2023-05-15T00:00:00+08:00</published><updated>2023-05-15T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/05/15/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/05/15/01">&lt;p&gt;TheRouter 在&lt;code&gt;1.1.4-rc2&lt;/code&gt;开始，已经将&lt;code&gt;KSP&lt;/code&gt;能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 &lt;code&gt;KSP&lt;/code&gt;。  &lt;/p&gt;
+<p>https://github.com/HuolalaTech/hll-wp-therouter-android/issues/121</p>
 
-&lt;h3&gt;什么是KSP&lt;/h3&gt;
+<hr />]]></content><author><name></name></author><category term="top" /><category term="框架简介" /><summary type="html"><![CDATA[前人踩过的坑，希望后人能跳过去。]]></summary></entry><entry><title type="html">TheRouter 使用 KSP 处理注解</title><link href="http://localhost:4000/docs/2023/05/15/01" rel="alternate" type="text/html" title="TheRouter 使用 KSP 处理注解" /><published>2023-05-15T00:00:00+08:00</published><updated>2023-05-15T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/05/15/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/05/15/01"><![CDATA[<p>TheRouter 在<code class="language-plaintext highlighter-rouge">1.1.4-rc2</code>开始，已经将<code class="language-plaintext highlighter-rouge">KSP</code>能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 <code class="language-plaintext highlighter-rouge">KSP</code>。</p>
 
-&lt;p&gt;KSP全称：Kotlin Symbol Processing。&lt;br&gt;
-借助官网的描述：KSP 提供了一种基于 Kotlin 的轻量级的编译期插件 API，其编译速度最快可以达到 kapt 速度的两倍。    &lt;/p&gt;
+<h3 id="什么是ksp">什么是KSP</h3>
 
-&lt;p&gt;从原理角度讲，&lt;code&gt;Android&lt;/code&gt;项目构建过程中，可用的注解处理器总共有三种：APT、KAPT、KSP。&lt;br&gt;
-APT 比较好理解，就是 JDK 提供的注解处理器，通常在 Gradle 项目中不需要引入什么额外插件，只需要在依赖时使用 &lt;code&gt;annotationProcessor &amp;quot;cn.therouter:apt:x.x.x&lt;/code&gt;，但是他不支持 Kotlin 注解的解析。&lt;br&gt;
-KAPT 最早是 Kotlin 推出的APT，用于兼容 Kotlin 代码的注解，但是他的实现比较简单粗暴，内部实际上是包了一层APT，他编译时首先处理 Kotlin 的注解解析，如果无法解析，再用APT去解析，所以相当于同一个模块，如果是Java、Kotlin混编时，会执行两遍注解解析。&lt;br&gt;
-KSP 是基于语法分析的注解解析，严格来讲，他不仅仅可以用来做注解解析，还可以做一些基于语法分析的事情，比如自定义的代码语法检查，相当于替代了一部分 lint 可以做的事情。正因为基于语法分析来做的，所以性能必然是比 KAPT 高，毕竟编译期一定会先走一遍语法分析。   &lt;/p&gt;
+<p>KSP全称：Kotlin Symbol Processing。<br />
+借助官网的描述：KSP 提供了一种基于 Kotlin 的轻量级的编译期插件 API，其编译速度最快可以达到 kapt 速度的两倍。</p>
 
-&lt;h3&gt;TheRouter 的 KSP 使用&lt;/h3&gt;
+<p>从原理角度讲，<code class="language-plaintext highlighter-rouge">Android</code>项目构建过程中，可用的注解处理器总共有三种：APT、KAPT、KSP。<br />
+APT 比较好理解，就是 JDK 提供的注解处理器，通常在 Gradle 项目中不需要引入什么额外插件，只需要在依赖时使用 <code class="language-plaintext highlighter-rouge">annotationProcessor "cn.therouter:apt:x.x.x</code>，但是他不支持 Kotlin 注解的解析。<br />
+KAPT 最早是 Kotlin 推出的APT，用于兼容 Kotlin 代码的注解，但是他的实现比较简单粗暴，内部实际上是包了一层APT，他编译时首先处理 Kotlin 的注解解析，如果无法解析，再用APT去解析，所以相当于同一个模块，如果是Java、Kotlin混编时，会执行两遍注解解析。<br />
+KSP 是基于语法分析的注解解析，严格来讲，他不仅仅可以用来做注解解析，还可以做一些基于语法分析的事情，比如自定义的代码语法检查，相当于替代了一部分 lint 可以做的事情。正因为基于语法分析来做的，所以性能必然是比 KAPT 高，毕竟编译期一定会先走一遍语法分析。</p>
 
-&lt;h4&gt;第一步&lt;/h4&gt;
+<h3 id="therouter-的-ksp-使用">TheRouter 的 KSP 使用</h3>
 
-&lt;p&gt;在项目中所有使用了注解的模块，对应的&lt;code&gt;build.gradle&lt;/code&gt;文件中都需要加入如下依赖，&lt;strong&gt;所有模块都要添加，不能只添加子模块&lt;/strong&gt;：  &lt;/p&gt;
+<h4 id="第一步">第一步</h4>
 
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt; ，使用&lt;code&gt;KSP&lt;/code&gt;以后，如果之前使用了&lt;code&gt;kapt&lt;/code&gt;需要将原本的&lt;code&gt;kapt&lt;/code&gt;依赖删掉&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Gradle7.x以下版本，这样加入 KSP插件&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;devtools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;ksp&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 删除之前的kapt依赖(如有)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// apply plugin: 'kotlin-kapt' &lt;/span&gt;
+<p>在项目中所有使用了注解的模块，对应的<code class="language-plaintext highlighter-rouge">build.gradle</code>文件中都需要加入如下依赖，<strong>所有模块都要添加，不能只添加子模块</strong>：</p>
 
-&lt;span class=&quot;c1&quot;&gt;// Gradle7.x及以上版本，提供了新的方式，也这样加入 KSP插件&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 当然，也可以继续使用上面那种方式&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plugins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.google.devtools.ksp&quot;&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 删除之前的kapt依赖(如有)&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;//id 'org.jetbrains.kotlin.kapt'&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+<p><strong>注意</strong> ，使用<code class="language-plaintext highlighter-rouge">KSP</code>以后，如果之前使用了<code class="language-plaintext highlighter-rouge">kapt</code>需要将原本的<code class="language-plaintext highlighter-rouge">kapt</code>依赖删掉</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Gradle7.x以下版本，这样加入 KSP插件</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="err">'</span><span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">devtools</span><span class="o">.</span><span class="na">ksp</span><span class="err">'</span>
+<span class="c1">// 删除之前的kapt依赖(如有)</span>
+<span class="c1">// apply plugin: 'kotlin-kapt' </span>
+
+<span class="c1">// Gradle7.x及以上版本，提供了新的方式，也这样加入 KSP插件</span>
+<span class="c1">// 当然，也可以继续使用上面那种方式</span>
+<span class="n">plugins</span> <span class="o">{</span>
+    <span class="n">id</span> <span class="s">"com.google.devtools.ksp"</span>
+    <span class="c1">// 删除之前的kapt依赖(如有)</span>
+    <span class="c1">//id 'org.jetbrains.kotlin.kapt'</span>
+<span class="o">}</span>
 
 
-&lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 从1.1.4-rc2 开始在正式版本支持ksp，此前需要使用beta版本，但用法一致&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ksp&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;cn.therouter:apt:1.1.4-rc4&quot;&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 删除之前的kapt依赖(如有)&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// kapt &quot;cn.therouter:apt:1.1.4-rc4&quot;&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="c1">// 从1.1.4-rc2 开始在正式版本支持ksp，此前需要使用beta版本，但用法一致</span>
+    <span class="n">ksp</span> <span class="s">"cn.therouter:apt:1.1.4-rc4"</span>
+    <span class="c1">// 删除之前的kapt依赖(如有)</span>
+    <span class="c1">// kapt "cn.therouter:apt:1.1.4-rc4"</span>
+<span class="o">}</span>
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;第二步&lt;/h4&gt;
+</code></pre></div></div>
 
-&lt;p&gt;在项目根目录&lt;code&gt;build.gradle&lt;/code&gt;引入 kapt 插件的 classpath : &lt;/p&gt;
+<h4 id="第二步">第二步</h4>
 
-&lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt;，版本号需要在KSP官网&lt;a href=&quot;https://github.com/google/ksp/releases&quot;&gt;https://github.com/google/ksp/releases&lt;/a&gt;，找到跟自己项目中 Kotlin 版本号对应的&lt;code&gt;KSP&lt;/code&gt;插件版本号。例如，我的 Kotlin 版本号是 &lt;code&gt;1.5.31&lt;/code&gt;，所以 KSP 插件的版本号就使用对应的&lt;code&gt;1.5.31-1.0.0&lt;/code&gt;  &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Gradle7.x以下版本，这样加入 &lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;buildscript&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;dependencies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;classpath&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.google.devtools.ksp:symbol-processing-gradle-plugin:xxx-xxx&quot;&lt;/span&gt;  
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+<p>在项目根目录<code class="language-plaintext highlighter-rouge">build.gradle</code>引入 kapt 插件的 classpath :</p>
 
-&lt;span class=&quot;c1&quot;&gt;// Gradle7.x及以上版本，提供了新的方式，也这样加入  &lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// 当然，也可以继续使用上面那种方式&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;plugins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;com.google.devtools.ksp&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xxx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xxx&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+<p><strong>注意</strong>，版本号需要在KSP官网<a href="https://github.com/google/ksp/releases">https://github.com/google/ksp/releases</a>，找到跟自己项目中 Kotlin 版本号对应的<code class="language-plaintext highlighter-rouge">KSP</code>插件版本号。例如，我的 Kotlin 版本号是 <code class="language-plaintext highlighter-rouge">1.5.31</code>，所以 KSP 插件的版本号就使用对应的<code class="language-plaintext highlighter-rouge">1.5.31-1.0.0</code></p>
 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><author><name></name></author><category term="基础能力介绍" /><summary type="html">TheRouter 在1.1.4-rc2开始，已经将KSP能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 KSP。</summary></entry><entry><title type="html">动态路由 TheRouter 的设计与实践</title><link href="http://localhost:4000/docs/2022/12/23/01" rel="alternate" type="text/html" title="动态路由 TheRouter 的设计与实践" /><published>2022-12-23T00:00:00+08:00</published><updated>2022-12-23T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/12/23/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/12/23/01">&lt;p&gt;内容请见： &lt;/p&gt;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Gradle7.x以下版本，这样加入 </span>
+<span class="n">buildscript</span> <span class="o">{</span>
+	<span class="n">dependencies</span> <span class="o">{</span>
+		<span class="n">classpath</span> <span class="s">"com.google.devtools.ksp:symbol-processing-gradle-plugin:xxx-xxx"</span>  
+	<span class="o">}</span>
+<span class="o">}</span>
 
-&lt;p&gt;《动态路由 TheRouter 的设计与实践》&lt;br&gt;
-&lt;a href=&quot;https://kymjs.com/session/2022/11/23/01/&quot;&gt;https://kymjs.com/session/2022/11/23/01/&lt;/a&gt;&lt;/p&gt;</content><author><name>张涛</name></author><category term="原理与项目实践讲解" /><summary type="html">内容请见：</summary></entry><entry><title type="html">从零接入 TheRouter</title><link href="http://localhost:4000/docs/2022/11/23/01" rel="alternate" type="text/html" title="从零接入 TheRouter" /><published>2022-11-23T00:00:00+08:00</published><updated>2022-11-23T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/11/23/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/11/23/01">&lt;p&gt;TheRouter是货拉拉开源的路由框架，针对 Android 平台实现组件化、跨模块调用、动态化等功能的集成框架，基本上算当前最先进的路由库了。&lt;br&gt;
-Github: &lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/&lt;/a&gt;&lt;br&gt;
-官网：&lt;a href=&quot;http://therouter.cn/&quot;&gt;http://therouter.cn/&lt;/a&gt;  &lt;/p&gt;
+<span class="c1">// Gradle7.x及以上版本，提供了新的方式，也这样加入  </span>
+<span class="c1">// 当然，也可以继续使用上面那种方式</span>
+<span class="n">plugins</span> <span class="o">{</span>
+    <span class="n">id</span> <span class="s">"com.google.devtools.ksp"</span> <span class="n">version</span> <span class="err">'</span><span class="n">xxx</span><span class="o">-</span><span class="n">xxx</span><span class="err">'</span> <span class="n">apply</span> <span class="kc">false</span>
+<span class="o">}</span>
 
-&lt;h2&gt;开始之前&lt;/h2&gt;
+</code></pre></div></div>]]></content><author><name></name></author><category term="docs" /><category term="基础能力介绍" /><summary type="html"><![CDATA[TheRouter 在1.1.4-rc2开始，已经将KSP能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 KSP。]]></summary></entry><entry><title type="html">动态路由 TheRouter 的设计与实践</title><link href="http://localhost:4000/docs/2022/12/23/01" rel="alternate" type="text/html" title="动态路由 TheRouter 的设计与实践" /><published>2022-12-23T00:00:00+08:00</published><updated>2022-12-23T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/12/23/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/12/23/01"><![CDATA[<p>内容请见：</p>
 
-&lt;p&gt;如果你的项目之前使用过其他路由，建议使用迁移工具一键迁移： &lt;a href=&quot;https://therouter.cn/docs/2022/09/05/01&quot;&gt;https://therouter.cn/docs/2022/09/05/01&lt;/a&gt;   &lt;/p&gt;
+<p>《动态路由 TheRouter 的设计与实践》<br />
+<a href="https://kymjs.com/session/2022/11/23/01/">https://kymjs.com/session/2022/11/23/01/</a></p>]]></content><author><name>张涛</name></author><category term="session" /><category term="原理与项目实践讲解" /><summary type="html"><![CDATA[详细讲解 TheRouter 框架内部实现原理，以及在完整企业级项目中使用的实践效果。这篇文章是我在 2022【GIAC 全球互联网架构大会】分享时所讲内容的文字版本，修改删减了演讲时的冗余言语，现开放给大家阅读，希望能给买不到票参加分享的 开源实验室 读者带来帮助。]]></summary></entry><entry><title type="html">从零接入 TheRouter</title><link href="http://localhost:4000/docs/2022/11/23/01" rel="alternate" type="text/html" title="从零接入 TheRouter" /><published>2022-11-23T00:00:00+08:00</published><updated>2022-11-23T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/11/23/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/11/23/01"><![CDATA[<p>TheRouter是货拉拉开源的路由框架，针对 Android 平台实现组件化、跨模块调用、动态化等功能的集成框架，基本上算当前最先进的路由库了。 <br />
+Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https://github.com/HuolalaTech/hll-wp-therouter-android/</a> <br />
+官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
 
-&lt;p&gt;如果你的是新项目，请先记住一点：&lt;strong&gt;plugin、apt、router 三个依赖的版本号必须保持一致&lt;/strong&gt;，请继续往下看接入步骤。   &lt;/p&gt;
+<h2 id="开始之前">开始之前</h2>
 
-&lt;h2&gt;查看最新版本&lt;/h2&gt;
+<p>如果你的项目之前使用过其他路由，建议使用迁移工具一键迁移： <a href="https://therouter.cn/docs/2022/09/05/01">https://therouter.cn/docs/2022/09/05/01</a></p>
 
-&lt;p&gt;TheRouter 的版本分为两种，稳定版和 rc版，一般不追求新功能我们就用稳定版就行，可以在官网看到最新的版本号和各种版本的说明：&lt;a href=&quot;https://therouter.cn/docs/2022/09/06/01&quot;&gt;https://therouter.cn/docs/2022/09/06/01&lt;/a&gt;  &lt;/p&gt;
+<p>如果你的是新项目，请先记住一点：<strong>plugin、apt、router 三个依赖的版本号必须保持一致</strong>，请继续往下看接入步骤。</p>
 
-&lt;h2&gt;接入&lt;/h2&gt;
+<h2 id="查看最新版本">查看最新版本</h2>
 
-&lt;p&gt;新建一个&lt;code&gt;Demo&lt;/code&gt;工程，打开&lt;code&gt;Demo&lt;/code&gt;的根目录&lt;code&gt;build.gradle&lt;/code&gt;。&lt;/p&gt;
+<p>TheRouter 的版本分为两种，稳定版和 rc版，一般不追求新功能我们就用稳定版就行，可以在官网看到最新的版本号和各种版本的说明：<a href="https://therouter.cn/docs/2022/09/06/01">https://therouter.cn/docs/2022/09/06/01</a></p>
 
-&lt;h3&gt;第一步：接入classpath&lt;/h3&gt;
+<h2 id="接入">接入</h2>
 
-&lt;h4&gt;8.X 版本 Gradle&lt;/h4&gt;
+<p>新建一个<code class="language-plaintext highlighter-rouge">Demo</code>工程，打开<code class="language-plaintext highlighter-rouge">Demo</code>的根目录<code class="language-plaintext highlighter-rouge">build.gradle</code>。</p>
 
-&lt;p&gt;由于 8.X 版本的 Gradle，必须使用&lt;code&gt;Java 17&lt;/code&gt;的环境了，并且不兼容老&lt;code&gt;JDK&lt;/code&gt;编译的&lt;code&gt;class&lt;/code&gt;，所以对于新版本需要使用专为&lt;code&gt;Java 17&lt;/code&gt;编译的插件。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'cn.therouter.agp8'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1.2.1'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;https://therouter.cn/assets/img/image/1.png&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<h3 id="第一步接入classpath">第一步：接入classpath</h3>
 
-&lt;h4&gt;7.X 版本 Gradle&lt;/h4&gt;
+<h4 id="8x-版本-gradle">8.X 版本 Gradle</h4>
 
-&lt;p&gt;7.X 的 Gradle，&lt;code&gt;classpath&lt;/code&gt;已经改为用&lt;code&gt;plugins&lt;/code&gt;的方式引入，只需要在闭包内加这一句就行了&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'cn.therouter'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1.2.2'&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;https://therouter.cn/assets/img/image/2.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p>由于 8.X 版本的 Gradle，必须使用<code class="language-plaintext highlighter-rouge">Java 17</code>的环境了，并且不兼容老<code class="language-plaintext highlighter-rouge">JDK</code>编译的<code class="language-plaintext highlighter-rouge">class</code>，所以对于新版本需要使用专为<code class="language-plaintext highlighter-rouge">Java 17</code>编译的插件。</p>
 
-&lt;h4&gt;6.x 及之前的老版本 Gradle&lt;/h4&gt;
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter.agp8'</span> <span class="n">version</span> <span class="s1">'1.2.1'</span> <span class="n">apply</span> <span class="kc">false</span>
+</code></pre></div></div>
 
-&lt;p&gt;对于6.x 及之前的  Gradle，需要手动引入&lt;code&gt;classpath&lt;/code&gt;，在 TheRouter 官方 Github 首页也有接入介绍&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;classpath&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cn.therouter:plugin:1.2.2&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;https://therouter.cn/assets/img/image/3.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p><img src="https://therouter.cn/assets/img/image/1.png" class="blog-img" /></p>
 
-&lt;h3&gt;第二步：引入插件&lt;/h3&gt;
+<h4 id="7x-版本-gradle">7.X 版本 Gradle</h4>
 
-&lt;h4&gt;7.X 及以后版本 Gradle&lt;/h4&gt;
+<p>7.X 的 Gradle，<code class="language-plaintext highlighter-rouge">classpath</code>已经改为用<code class="language-plaintext highlighter-rouge">plugins</code>的方式引入，只需要在闭包内加这一句就行了</p>
 
-&lt;p&gt;找到项目里全部的app模块（一般只会有一个，特殊项目会有多个）。也就是整个工程的所有&lt;code&gt;build.gradle&lt;/code&gt;文件里面，只要是有&lt;code&gt;com.android.application&lt;/code&gt;这个的模块，都要加上如下代码&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// 7.X及以上新版本这样写&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'therouter'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;https://therouter.cn/assets/img/image/4.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter'</span> <span class="n">version</span> <span class="s1">'1.2.2'</span> <span class="n">apply</span> <span class="kc">false</span>
+</code></pre></div></div>
 
-&lt;h4&gt;6.x 及之前的老版本 Gradle&lt;/h4&gt;
+<p><img src="https://therouter.cn/assets/img/image/2.jpg" class="blog-img" /></p>
 
-&lt;p&gt;找到项目里全部的app模块（一般只会有一个，特殊项目会有多个）。也就是整个工程的所有&lt;code&gt;build.gradle&lt;/code&gt;文件里面，只要是有&lt;code&gt;com.android.application&lt;/code&gt;这个的模块，都要加上如下代码&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// 6.X及以下老版本这样写&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;plugin:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'therouter'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;https://therouter.cn/assets/img/image/5.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<h4 id="6x-及之前的老版本-gradle">6.x 及之前的老版本 Gradle</h4>
 
-&lt;h3&gt;第三步：引入注解处理器&lt;/h3&gt;
+<p>对于6.x 及之前的  Gradle，需要手动引入<code class="language-plaintext highlighter-rouge">classpath</code>，在 TheRouter 官方 Github 首页也有接入介绍</p>
 
-&lt;p&gt;最新版的 TheRouter 已经支持&lt;code&gt;KSP&lt;/code&gt;解析，如果你都不知道&lt;code&gt;KSP&lt;/code&gt;是什么，那么就继续往下看，使用&lt;code&gt;kapt&lt;/code&gt;吧。如果你希望使用&lt;code&gt;KSP&lt;/code&gt;，可以看文档：&lt;a href=&quot;https://therouter.cn/docs/2023/05/15/01&quot;&gt;使用 KSP 处理注解&lt;/a&gt;。  &lt;/p&gt;
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">classpath</span> <span class="s2">"cn.therouter:plugin:1.2.2"</span>
+</code></pre></div></div>
 
-&lt;p&gt;TheRouter 的注解处理依赖&lt;code&gt;kapt&lt;/code&gt;执行，所以要在项目里面手动引入，否则无法处理注解。  &lt;/p&gt;
+<p><img src="https://therouter.cn/assets/img/image/3.jpg" class="blog-img" /></p>
 
-&lt;p&gt;&lt;strong&gt;注：所有的模块都必须引入kapt，否则就有可能造成某些路由表不生成。&lt;/strong&gt;&lt;br&gt;
-&lt;strong&gt;注：所有APP的模块，如果是需要上线的模块，必须直接或间接在 app 中被依赖，否则最终生成apk会丢失未被依赖的功能。&lt;/strong&gt;  &lt;/p&gt;
+<h3 id="第二步引入插件">第二步：引入插件</h3>
 
-&lt;p&gt;&lt;img src=&quot;https://therouter.cn/assets/img/image/6.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<h4 id="7x-及以后版本-gradle">7.X 及以后版本 Gradle</h4>
 
-&lt;p&gt;如果报找不到kapt，可能是因为没有声明kotlin-kapt的插件，参考&lt;code&gt;步骤二&lt;/code&gt;里面的截图，接入对应的kapt。&lt;br&gt;
-如果是纯Java工程，需要用Java的APT处理，纯Java就不用声明&lt;code&gt;kotlin-kapt&lt;/code&gt;插件了，直接把&lt;code&gt;kapt&lt;/code&gt;改成&lt;code&gt;annotationProcessor&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;&lt;span class=&quot;n&quot;&gt;annotationProcessor&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;cn.therouter:apt:1.2.2&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;第四步：引入路由库&lt;/h3&gt;
+<p>找到项目里全部的app模块（一般只会有一个，特殊项目会有多个）。也就是整个工程的所有<code class="language-plaintext highlighter-rouge">build.gradle</code>文件里面，只要是有<code class="language-plaintext highlighter-rouge">com.android.application</code>这个的模块，都要加上如下代码</p>
 
-&lt;p&gt;在需要使用路由功能的模块的&lt;code&gt;build.gradle&lt;/code&gt;，(不像kapt，这个是可以使用传递依赖的)，加入如下依赖  &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot; data-lang=&quot;&quot;&gt;dependencies {
-    implementation &quot;cn.therouter:router:1.2.2&quot;
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 7.X及以上新版本这样写</span>
+<span class="n">id</span> <span class="s1">'therouter'</span>
+</code></pre></div></div>
+
+<p><img src="https://therouter.cn/assets/img/image/4.jpg" class="blog-img" /></p>
+
+<h4 id="6x-及之前的老版本-gradle-1">6.x 及之前的老版本 Gradle</h4>
+
+<p>找到项目里全部的app模块（一般只会有一个，特殊项目会有多个）。也就是整个工程的所有<code class="language-plaintext highlighter-rouge">build.gradle</code>文件里面，只要是有<code class="language-plaintext highlighter-rouge">com.android.application</code>这个的模块，都要加上如下代码</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 6.X及以下老版本这样写</span>
+<span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'therouter'</span>
+</code></pre></div></div>
+
+<p><img src="https://therouter.cn/assets/img/image/5.jpg" class="blog-img" /></p>
+
+<h3 id="第三步引入注解处理器">第三步：引入注解处理器</h3>
+
+<p>最新版的 TheRouter 已经支持<code class="language-plaintext highlighter-rouge">KSP</code>解析，如果你都不知道<code class="language-plaintext highlighter-rouge">KSP</code>是什么，那么就继续往下看，使用<code class="language-plaintext highlighter-rouge">kapt</code>吧。如果你希望使用<code class="language-plaintext highlighter-rouge">KSP</code>，可以看文档：<a href="https://therouter.cn/docs/2023/05/15/01">使用 KSP 处理注解</a>。</p>
+
+<p>TheRouter 的注解处理依赖<code class="language-plaintext highlighter-rouge">kapt</code>执行，所以要在项目里面手动引入，否则无法处理注解。</p>
+
+<p><strong>注：所有的模块都必须引入kapt，否则就有可能造成某些路由表不生成。</strong><br />
+<strong>注：所有APP的模块，如果是需要上线的模块，必须直接或间接在 app 中被依赖，否则最终生成apk会丢失未被依赖的功能。</strong></p>
+
+<p><img src="https://therouter.cn/assets/img/image/6.jpg" class="blog-img" /></p>
+
+<p>如果报找不到kapt，可能是因为没有声明kotlin-kapt的插件，参考<code class="language-plaintext highlighter-rouge">步骤二</code>里面的截图，接入对应的kapt。<br />
+如果是纯Java工程，需要用Java的APT处理，纯Java就不用声明<code class="language-plaintext highlighter-rouge">kotlin-kapt</code>插件了，直接把<code class="language-plaintext highlighter-rouge">kapt</code>改成<code class="language-plaintext highlighter-rouge">annotationProcessor</code></p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">annotationProcessor</span> <span class="s2">"cn.therouter:apt:1.2.2"</span>
+</code></pre></div></div>
+
+<h3 id="第四步引入路由库">第四步：引入路由库</h3>
+
+<p>在需要使用路由功能的模块的<code class="language-plaintext highlighter-rouge">build.gradle</code>，(不像kapt，这个是可以使用传递依赖的)，加入如下依赖</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies {
+    implementation "cn.therouter:router:1.2.2"
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;使用&lt;/h2&gt;
+</code></pre></div></div>
 
-&lt;h4&gt;1. 声明路由&lt;/h4&gt;
+<h2 id="使用">使用</h2>
 
-&lt;p&gt;给需要跳转的页面加上路由表声明&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@Route&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://therouter.com/home&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HomeActivity&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BaseActivity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;2. 添加参数注入&lt;/h4&gt;
+<h4 id="1-声明路由">1. 声明路由</h4>
 
-&lt;p&gt;这一步如果在base里面写了的话就不用每个Activity都加了。&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@Nullable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;inject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;3. 发起跳转&lt;/h4&gt;
+<p>给需要跳转的页面加上路由表声明</p>
 
-&lt;p&gt;也就是原来使用startActivity()的方法，都可以改成这样使用了&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@Nullable&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;要跳转的目标页Path&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;intValue&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12345678&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;str_123_Value&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;传中文字符串&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withBoolean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;boolValue&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withLong&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;longValue&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;123456789012345L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withChar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;charValue&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'c'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withDouble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;double&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.14159265358972&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;withFloat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;floatValue&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.14159265358972&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;F&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Route</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"http://therouter.com/home"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeActivity</span> <span class="kd">extends</span> <span class="nc">BaseActivity</span> <span class="o">{</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-    &lt;span class=&quot;n&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;如果没有参数，可以什么都不传&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;navigation&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;AGP 8.X 使用&lt;/h2&gt;
+<h4 id="2-添加参数注入">2. 添加参数注入</h4>
 
-&lt;p&gt;&lt;em&gt;从1.2.1开始，beta版本已经全部合入rc版本，无需再特殊关注beta版本进度。&lt;/em&gt;    &lt;/p&gt;
+<p>这一步如果在base里面写了的话就不用每个Activity都加了。</p>
 
-&lt;p&gt;使用时只需注意本文第一步中，classpath引入的不同，需要使用&lt;code&gt;cn.therouter.agp8&lt;/code&gt;引入插件。   &lt;/p&gt;</content><author><name></name></author><category term="入门教程" /><summary type="html">TheRouter是货拉拉开源的路由框架，针对 Android 平台实现组件化、跨模块调用、动态化等功能的集成框架，基本上算当前最先进的路由库了。 Github: https://github.com/HuolalaTech/hll-wp-therouter-android/ 官网：http://therouter.cn/</summary></entry><entry><title type="html">Android Studio 插件，开发必备工具</title><link href="http://localhost:4000/docs/2022/09/29/01" rel="alternate" type="text/html" title="Android Studio 插件，开发必备工具" /><published>2022-09-29T00:00:00+08:00</published><updated>2022-09-29T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/09/29/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/09/29/01">&lt;p&gt;开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。   &lt;/p&gt;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">inject</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-&lt;iframe width=&quot;384px&quot; height=&quot;319px&quot; src=&quot;https://plugins.jetbrains.com/embeddable/card/20047&quot;&gt;&lt;/iframe&gt;
+<h4 id="3-发起跳转">3. 发起跳转</h4>
 
-&lt;h2&gt;下载插件&lt;/h2&gt;
+<p>也就是原来使用startActivity()的方法，都可以改成这样使用了</p>
 
-&lt;ol&gt;
-&lt;li&gt;打开 Android Studio -&amp;gt; Preferences -&amp;gt;  Plugins  -&amp;gt; Marketplace&lt;/li&gt;
-&lt;li&gt;搜索 &lt;code&gt;TheRouter&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;点击下载&lt;/li&gt;
-&lt;li&gt;重启 Android Studio&lt;/li&gt;
-&lt;/ol&gt;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"要跳转的目标页Path"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withInt</span><span class="o">(</span><span class="s">"intValue"</span><span class="o">,</span> <span class="mi">12345678</span><span class="o">)</span> 
+        <span class="o">.</span><span class="na">withString</span><span class="o">(</span><span class="s">"str_123_Value"</span><span class="o">,</span> <span class="s">"传中文字符串"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withBoolean</span><span class="o">(</span><span class="s">"boolValue"</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withLong</span><span class="o">(</span><span class="s">"longValue"</span><span class="o">,</span> <span class="mi">123456789012345L</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withChar</span><span class="o">(</span><span class="s">"charValue"</span><span class="o">,</span> <span class="sc">'c'</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withDouble</span><span class="o">(</span><span class="s">"double"</span><span class="o">,</span> <span class="mf">3.14159265358972</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withFloat</span><span class="o">(</span><span class="s">"floatValue"</span><span class="o">,</span> <span class="mf">3.14159265358972</span><span class="no">F</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">navigation</span><span class="o">();</span>
+        
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"如果没有参数，可以什么都不传"</span><span class="o">).</span><span class="na">navigation</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/image/TheRouterIdeaPlugin.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<h2 id="agp-8x-使用">AGP 8.X 使用</h2>
 
-&lt;h2&gt;一键迁移工具&lt;/h2&gt;
+<p><em>从1.2.1开始，beta版本已经全部合入rc版本，无需再特殊关注beta版本进度。</em></p>
 
-&lt;p&gt;AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无需再次单独下载额外工具使用。&lt;br&gt;
-下载安装最新插件后，在顶部菜栏即可看到&lt;code&gt;TheRouter&lt;/code&gt;菜单，选择对应路由的一键迁移选项即可使用。   &lt;/p&gt;
+<p>使用时只需注意本文第一步中，classpath引入的不同，需要使用<code class="language-plaintext highlighter-rouge">cn.therouter.agp8</code>引入插件。</p>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry><entry><title type="html">Android Studio 插件，开发必备工具</title><link href="http://localhost:4000/docs/2022/09/29/01" rel="alternate" type="text/html" title="Android Studio 插件，开发必备工具" /><published>2022-09-29T00:00:00+08:00</published><updated>2022-09-29T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/09/29/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/09/29/01"><![CDATA[<p>开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。</p>
 
-&lt;p&gt;&lt;strong&gt;注：新版本AndroidStudio不再支持顶部菜单栏展示，需要在Tools菜单中查看&lt;/strong&gt;&lt;/p&gt;
+<iframe width="384px" height="319px" src="https://plugins.jetbrains.com/embeddable/card/20047"></iframe>
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/image/TheRouterIdeaPlugin11.png&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<h2 id="下载插件">下载插件</h2>
 
-&lt;h2&gt;导航快捷跳转&lt;/h2&gt;
+<ol>
+  <li>打开 Android Studio -&gt; Preferences -&gt;  Plugins  -&gt; Marketplace</li>
+  <li>搜索 <code class="language-plaintext highlighter-rouge">TheRouter</code></li>
+  <li>点击下载</li>
+  <li>重启 Android Studio</li>
+</ol>
 
-&lt;p&gt;安装好插件后打开项目，就可以看到，在项目中所有调用了 &lt;code&gt;TheRouter.build(path)&lt;/code&gt; 的地方，&lt;br&gt;
-还有 &lt;code&gt;@Route(path = &amp;quot;xxxxx&amp;quot;)&lt;/code&gt; 注解的位置，&lt;br&gt;
-在左侧侧边栏上都会有一个绿色箭头的图标。    &lt;/p&gt;
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin.jpg" class="blog-img" /></p>
 
-&lt;p&gt;如果把鼠标放在图标上一段时间，就可以看到提示：&lt;br&gt;
-点击以后跳转到使用这个&lt;code&gt;path&lt;/code&gt;的地方，&lt;br&gt;
-或者跳转到&lt;code&gt;path&lt;/code&gt;定义的位置，点击以后就能自动跳转了。&lt;br&gt;
-如下图：  &lt;/p&gt;
+<h2 id="一键迁移工具">一键迁移工具</h2>
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/image/TheRouterIdeaPlugin1.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p>AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无需再次单独下载额外工具使用。  <br />
+下载安装最新插件后，在顶部菜栏即可看到<code class="language-plaintext highlighter-rouge">TheRouter</code>菜单，选择对应路由的一键迁移选项即可使用。</p>
 
-&lt;p&gt;如果在代码中有多个地方都可以跳转到当前落地页，点击箭头后会有一个选择框，&lt;br&gt;
-可以选择跳转到使用当前&lt;code&gt;path&lt;/code&gt;的位置。&lt;br&gt;
-例如这张图：   &lt;/p&gt;
+<p><strong>注：新版本AndroidStudio不再支持顶部菜单栏展示，需要在Tools菜单中查看</strong></p>
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/image/TheRouterIdeaPlugin2.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin11.png" class="blog-img" /></p>
 
-&lt;p&gt;如果当前&lt;code&gt;path&lt;/code&gt;是个没有被声明的，或者是由字符串拼接的，可能会出现无法找到定义位置的情况，此时在侧边栏会出现黄色的警告提示，&lt;br&gt;
-需要开发人工去检查这个&lt;code&gt;path&lt;/code&gt;是不是忘记定义落地页了，还是说手误写错了&lt;code&gt;path&lt;/code&gt;。&lt;br&gt;
-例如这张图：   &lt;/p&gt;
+<h2 id="导航快捷跳转">导航快捷跳转</h2>
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/image/TheRouterIdeaPlugin3.jpg&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p>安装好插件后打开项目，就可以看到，在项目中所有调用了 <code class="language-plaintext highlighter-rouge">TheRouter.build(path)</code> 的地方，<br />
+还有 <code class="language-plaintext highlighter-rouge">@Route(path = "xxxxx")</code> 注解的位置，<br />
+在左侧侧边栏上都会有一个绿色箭头的图标。</p>
 
-&lt;h2&gt;获取最新版本&lt;/h2&gt;
+<p>如果把鼠标放在图标上一段时间，就可以看到提示：<br />
+点击以后跳转到使用这个<code class="language-plaintext highlighter-rouge">path</code>的地方， <br />
+或者跳转到<code class="language-plaintext highlighter-rouge">path</code>定义的位置，点击以后就能自动跳转了。  <br />
+如下图：</p>
 
-&lt;p&gt;再也无需时时刻刻关注 TheRouter 版本更新情况了，只需要手动点击菜单，即可实时知晓当前最新版本号。   &lt;/p&gt;
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin1.jpg" class="blog-img" /></p>
 
-&lt;p&gt;&lt;strong&gt;注：新版本AndroidStudio不再支持顶部菜单栏展示，需要在Tools菜单中查看&lt;/strong&gt;&lt;/p&gt;
+<p>如果在代码中有多个地方都可以跳转到当前落地页，点击箭头后会有一个选择框，<br />
+可以选择跳转到使用当前<code class="language-plaintext highlighter-rouge">path</code>的位置。 <br />
+例如这张图：</p>
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/image/TheRouterIdeaPlugin10.png&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin2.jpg" class="blog-img" /></p>
 
-&lt;p&gt;&lt;img src=&quot;http://localhost:4000/assets/img/image/TheRouterIdeaPlugin12.png&quot; class=&quot;blog-img&quot;&gt;&lt;/p&gt;
+<p>如果当前<code class="language-plaintext highlighter-rouge">path</code>是个没有被声明的，或者是由字符串拼接的，可能会出现无法找到定义位置的情况，此时在侧边栏会出现黄色的警告提示，<br />
+需要开发人工去检查这个<code class="language-plaintext highlighter-rouge">path</code>是不是忘记定义落地页了，还是说手误写错了<code class="language-plaintext highlighter-rouge">path</code>。   <br />
+例如这张图：</p>
 
-&lt;h2&gt;插件开源&lt;/h2&gt;
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin3.jpg" class="blog-img" /></p>
 
-&lt;p&gt;本插件项目已基于 &lt;code&gt;Apache License 2.0&lt;/code&gt; 协议开源，并上架插件市场，欢迎 star 与下载   &lt;/p&gt;
+<h2 id="获取最新版本">获取最新版本</h2>
 
-&lt;p&gt;GitHub：&lt;a href=&quot;https://github.com/kymjs/TheRouterIdeaPlugin&quot;&gt;https://github.com/kymjs/TheRouterIdeaPlugin&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="辅助工具" /><summary type="html">开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。</summary></entry><entry><title type="html">获取和使用最新版的 TheRouter</title><link href="http://localhost:4000/docs/2022/09/06/01" rel="alternate" type="text/html" title="获取和使用最新版的 TheRouter" /><published>2022-09-06T00:00:00+08:00</published><updated>2022-09-06T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/09/06/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/09/06/01">&lt;p&gt;TheRouter 的版本规划分为三种，分别是 &lt;code&gt;稳定版&lt;/code&gt;、&lt;code&gt;预览版&lt;/code&gt;(含 beta 版)、&lt;code&gt;公测版&lt;/code&gt;。&lt;/p&gt;
+<p>再也无需时时刻刻关注 TheRouter 版本更新情况了，只需要手动点击菜单，即可实时知晓当前最新版本号。</p>
 
-&lt;h3&gt;稳定版&lt;/h3&gt;
+<p><strong>注：新版本AndroidStudio不再支持顶部菜单栏展示，需要在Tools菜单中查看</strong></p>
 
-&lt;p&gt;稳定版总是在&lt;code&gt;main&lt;/code&gt;分支打包发布，最新的稳定版本就是&lt;code&gt;main&lt;/code&gt;分支的最新代码。   &lt;/p&gt;
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin10.png" class="blog-img" /></p>
 
-&lt;p&gt;你可以在 GitHub 的 releases 页面找到最新的稳定版本。&lt;br&gt;
-&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/releases&quot;&gt;https://github.com/HuolalaTech/hll-wp-therouter-android/releases&lt;/a&gt;  &lt;/p&gt;
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin12.png" class="blog-img" /></p>
 
-&lt;p&gt;稳定版的版本号格式为&lt;code&gt;x.y.z&lt;/code&gt;，最新的稳定版本会有绿色的&lt;code&gt;Latest&lt;/code&gt;标记。     &lt;/p&gt;
+<h2 id="插件开源">插件开源</h2>
 
-&lt;h3&gt;预览版&lt;/h3&gt;
+<p>本插件项目已基于 <code class="language-plaintext highlighter-rouge">Apache License 2.0</code> 协议开源，并上架插件市场，欢迎 star 与下载</p>
 
-&lt;p&gt;预览版为一段时间的&lt;code&gt;feature&lt;/code&gt;和&lt;code&gt;bugfix&lt;/code&gt;整合，表示即将被合并到&lt;code&gt;main&lt;/code&gt;分支的代码。  &lt;/p&gt;
+<p>GitHub：<a href="https://github.com/kymjs/TheRouterIdeaPlugin">https://github.com/kymjs/TheRouterIdeaPlugin</a></p>]]></content><author><name></name></author><category term="tools" /><category term="辅助工具" /><summary type="html"><![CDATA[开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。]]></summary></entry><entry><title type="html">获取和使用最新版的 TheRouter</title><link href="http://localhost:4000/docs/2022/09/06/01" rel="alternate" type="text/html" title="获取和使用最新版的 TheRouter" /><published>2022-09-06T00:00:00+08:00</published><updated>2022-09-06T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/09/06/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/09/06/01"><![CDATA[<p>TheRouter 的版本规划分为三种，分别是 <code class="language-plaintext highlighter-rouge">稳定版</code>、<code class="language-plaintext highlighter-rouge">预览版</code>(含 beta 版)、<code class="language-plaintext highlighter-rouge">公测版</code>。</p>
 
-&lt;p&gt;最新的预览版会在 &lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/releases&quot;&gt; GitHub 的 releases 页面&lt;/a&gt; 标记为&lt;code&gt;Pre-release&lt;/code&gt;，预览版版本号一般会带有&lt;code&gt;-rc&lt;/code&gt;标记。  &lt;/p&gt;
+<h3 id="稳定版">稳定版</h3>
 
-&lt;p&gt;预览版可以直接在 &lt;code&gt;mavenCentral()&lt;/code&gt; 仓库获取，无需特殊处理。适合追求新功能和特定 bug 修复的开发者使用。  &lt;/p&gt;
+<p>稳定版总是在<code class="language-plaintext highlighter-rouge">main</code>分支打包发布，最新的稳定版本就是<code class="language-plaintext highlighter-rouge">main</code>分支的最新代码。</p>
 
-&lt;h3&gt;beta预览版&lt;/h3&gt;
+<p>你可以在 GitHub 的 releases 页面找到最新的稳定版本。<br />
+<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">https://github.com/HuolalaTech/hll-wp-therouter-android/releases</a></p>
 
-&lt;p&gt;&lt;code&gt;beta&lt;/code&gt;预览版一般指在最近一段时间内不会发布&lt;code&gt;release&lt;/code&gt;，但可供尝鲜用户使用某些特定功能的版本。  &lt;/p&gt;
+<p>稳定版的版本号格式为<code class="language-plaintext highlighter-rouge">x.y.z</code>，最新的稳定版本会有绿色的<code class="language-plaintext highlighter-rouge">Latest</code>标记。</p>
 
-&lt;p&gt;&lt;code&gt;beta&lt;/code&gt;预览版会在 &lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/releases&quot;&gt; GitHub 的 releases 页面&lt;/a&gt; 标记为&lt;code&gt;Pre-release&lt;/code&gt;，预览版版本号一般会带有&lt;code&gt;-beta&lt;/code&gt;标记。  &lt;/p&gt;
+<h3 id="预览版">预览版</h3>
 
-&lt;p&gt;预览版可以直接在&lt;code&gt;mavenCentral()&lt;/code&gt;仓库获取，无需特殊处理。适合追求新功能和特定 bug 修复的开发者使用。  &lt;/p&gt;
+<p>预览版为一段时间的<code class="language-plaintext highlighter-rouge">feature</code>和<code class="language-plaintext highlighter-rouge">bugfix</code>整合，表示即将被合并到<code class="language-plaintext highlighter-rouge">main</code>分支的代码。</p>
 
-&lt;h3&gt;公测版&lt;/h3&gt;
+<p>最新的预览版会在 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases"> GitHub 的 releases 页面</a> 标记为<code class="language-plaintext highlighter-rouge">Pre-release</code>，预览版版本号一般会带有<code class="language-plaintext highlighter-rouge">-rc</code>标记。</p>
 
-&lt;p&gt;公测版为每次新&lt;code&gt;feature&lt;/code&gt;或&lt;code&gt;bugfix&lt;/code&gt;的打包，不会在 &lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android/releases&quot;&gt;releases 页&lt;/a&gt; 单独展示，你可以主动在maven上查看最新的公测版本。   &lt;/p&gt;
+<p>预览版可以直接在 <code class="language-plaintext highlighter-rouge">mavenCentral()</code> 仓库获取，无需特殊处理。适合追求新功能和特定 bug 修复的开发者使用。</p>
 
-&lt;p&gt;公测版版本号一般不会有特殊标记，但需要在&lt;code&gt;build.gradle&lt;/code&gt;中引入公测版仓库。  &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-gradle&quot; data-lang=&quot;gradle&quot;&gt;&lt;span class=&quot;k&quot;&gt;repositories&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;mavenCentral&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;maven&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'https://s01.oss.sonatype.org/content/groups/staging/'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;查看最新公测版本：&lt;a href=&quot;https://s01.oss.sonatype.org/content/groups/staging/cn/therouter/&quot;&gt;https://s01.oss.sonatype.org&lt;/a&gt;  &lt;/p&gt;</content><author><name></name></author><category term="版本介绍" /><summary type="html">TheRouter 的版本规划分为三种，分别是 稳定版、预览版(含 beta 版)、公测版。</summary></entry></feed>
+<h3 id="beta预览版">beta预览版</h3>
+
+<p><code class="language-plaintext highlighter-rouge">beta</code>预览版一般指在最近一段时间内不会发布<code class="language-plaintext highlighter-rouge">release</code>，但可供尝鲜用户使用某些特定功能的版本。</p>
+
+<p><code class="language-plaintext highlighter-rouge">beta</code>预览版会在 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases"> GitHub 的 releases 页面</a> 标记为<code class="language-plaintext highlighter-rouge">Pre-release</code>，预览版版本号一般会带有<code class="language-plaintext highlighter-rouge">-beta</code>标记。</p>
+
+<p>预览版可以直接在<code class="language-plaintext highlighter-rouge">mavenCentral()</code>仓库获取，无需特殊处理。适合追求新功能和特定 bug 修复的开发者使用。</p>
+
+<h3 id="公测版">公测版</h3>
+
+<p>公测版为每次新<code class="language-plaintext highlighter-rouge">feature </code>或<code class="language-plaintext highlighter-rouge">bugfix</code>的打包，不会在 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">releases 页</a> 单独展示，你可以主动在maven上查看最新的公测版本。</p>
+
+<p>公测版版本号一般不会有特殊标记，但需要在<code class="language-plaintext highlighter-rouge">build.gradle</code>中引入公测版仓库。</p>
+
+<div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">repositories</span> <span class="o">{</span>
+    <span class="n">google</span><span class="o">()</span>
+    <span class="n">mavenCentral</span><span class="o">()</span>
+    <span class="n">maven</span> <span class="o">{</span> <span class="n">url</span> <span class="s1">'https://s01.oss.sonatype.org/content/groups/staging/'</span> <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>查看最新公测版本：<a href="https://s01.oss.sonatype.org/content/groups/staging/cn/therouter/">https://s01.oss.sonatype.org</a></p>]]></content><author><name></name></author><category term="news" /><category term="版本介绍" /><summary type="html"><![CDATA[TheRouter 的版本规划分为三种，分别是 `稳定版`、`预览版`、`公测版`。]]></summary></entry></feed>

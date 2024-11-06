@@ -83,45 +83,47 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<p>TheRouter 的版本规划分为三种，分别是 <code>稳定版</code>、<code>预览版</code>(含 beta 版)、<code>公测版</code>。</p>
+		<p>TheRouter 的版本规划分为三种，分别是 <code class="language-plaintext highlighter-rouge">稳定版</code>、<code class="language-plaintext highlighter-rouge">预览版</code>(含 beta 版)、<code class="language-plaintext highlighter-rouge">公测版</code>。</p>
 
-<h3>稳定版</h3>
+<h3 id="稳定版">稳定版</h3>
 
-<p>稳定版总是在<code>main</code>分支打包发布，最新的稳定版本就是<code>main</code>分支的最新代码。   </p>
+<p>稳定版总是在<code class="language-plaintext highlighter-rouge">main</code>分支打包发布，最新的稳定版本就是<code class="language-plaintext highlighter-rouge">main</code>分支的最新代码。</p>
 
-<p>你可以在 GitHub 的 releases 页面找到最新的稳定版本。<br>
-<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">https://github.com/HuolalaTech/hll-wp-therouter-android/releases</a>  </p>
+<p>你可以在 GitHub 的 releases 页面找到最新的稳定版本。<br />
+<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">https://github.com/HuolalaTech/hll-wp-therouter-android/releases</a></p>
 
-<p>稳定版的版本号格式为<code>x.y.z</code>，最新的稳定版本会有绿色的<code>Latest</code>标记。     </p>
+<p>稳定版的版本号格式为<code class="language-plaintext highlighter-rouge">x.y.z</code>，最新的稳定版本会有绿色的<code class="language-plaintext highlighter-rouge">Latest</code>标记。</p>
 
-<h3>预览版</h3>
+<h3 id="预览版">预览版</h3>
 
-<p>预览版为一段时间的<code>feature</code>和<code>bugfix</code>整合，表示即将被合并到<code>main</code>分支的代码。  </p>
+<p>预览版为一段时间的<code class="language-plaintext highlighter-rouge">feature</code>和<code class="language-plaintext highlighter-rouge">bugfix</code>整合，表示即将被合并到<code class="language-plaintext highlighter-rouge">main</code>分支的代码。</p>
 
-<p>最新的预览版会在 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases"> GitHub 的 releases 页面</a> 标记为<code>Pre-release</code>，预览版版本号一般会带有<code>-rc</code>标记。  </p>
+<p>最新的预览版会在 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases"> GitHub 的 releases 页面</a> 标记为<code class="language-plaintext highlighter-rouge">Pre-release</code>，预览版版本号一般会带有<code class="language-plaintext highlighter-rouge">-rc</code>标记。</p>
 
-<p>预览版可以直接在 <code>mavenCentral()</code> 仓库获取，无需特殊处理。适合追求新功能和特定 bug 修复的开发者使用。  </p>
+<p>预览版可以直接在 <code class="language-plaintext highlighter-rouge">mavenCentral()</code> 仓库获取，无需特殊处理。适合追求新功能和特定 bug 修复的开发者使用。</p>
 
-<h3>beta预览版</h3>
+<h3 id="beta预览版">beta预览版</h3>
 
-<p><code>beta</code>预览版一般指在最近一段时间内不会发布<code>release</code>，但可供尝鲜用户使用某些特定功能的版本。  </p>
+<p><code class="language-plaintext highlighter-rouge">beta</code>预览版一般指在最近一段时间内不会发布<code class="language-plaintext highlighter-rouge">release</code>，但可供尝鲜用户使用某些特定功能的版本。</p>
 
-<p><code>beta</code>预览版会在 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases"> GitHub 的 releases 页面</a> 标记为<code>Pre-release</code>，预览版版本号一般会带有<code>-beta</code>标记。  </p>
+<p><code class="language-plaintext highlighter-rouge">beta</code>预览版会在 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases"> GitHub 的 releases 页面</a> 标记为<code class="language-plaintext highlighter-rouge">Pre-release</code>，预览版版本号一般会带有<code class="language-plaintext highlighter-rouge">-beta</code>标记。</p>
 
-<p>预览版可以直接在<code>mavenCentral()</code>仓库获取，无需特殊处理。适合追求新功能和特定 bug 修复的开发者使用。  </p>
+<p>预览版可以直接在<code class="language-plaintext highlighter-rouge">mavenCentral()</code>仓库获取，无需特殊处理。适合追求新功能和特定 bug 修复的开发者使用。</p>
 
-<h3>公测版</h3>
+<h3 id="公测版">公测版</h3>
 
-<p>公测版为每次新<code>feature</code>或<code>bugfix</code>的打包，不会在 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">releases 页</a> 单独展示，你可以主动在maven上查看最新的公测版本。   </p>
+<p>公测版为每次新<code class="language-plaintext highlighter-rouge">feature </code>或<code class="language-plaintext highlighter-rouge">bugfix</code>的打包，不会在 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">releases 页</a> 单独展示，你可以主动在maven上查看最新的公测版本。</p>
 
-<p>公测版版本号一般不会有特殊标记，但需要在<code>build.gradle</code>中引入公测版仓库。  </p>
-<div class="highlight"><pre><code class="language-gradle" data-lang="gradle"><span class="k">repositories</span> <span class="o">{</span>
+<p>公测版版本号一般不会有特殊标记，但需要在<code class="language-plaintext highlighter-rouge">build.gradle</code>中引入公测版仓库。</p>
+
+<div class="language-gradle highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">repositories</span> <span class="o">{</span>
     <span class="n">google</span><span class="o">()</span>
     <span class="n">mavenCentral</span><span class="o">()</span>
     <span class="n">maven</span> <span class="o">{</span> <span class="n">url</span> <span class="s1">'https://s01.oss.sonatype.org/content/groups/staging/'</span> <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>查看最新公测版本：<a href="https://s01.oss.sonatype.org/content/groups/staging/cn/therouter/">https://s01.oss.sonatype.org</a>  </p>
+</code></pre></div></div>
+
+<p>查看最新公测版本：<a href="https://s01.oss.sonatype.org/content/groups/staging/cn/therouter/">https://s01.oss.sonatype.org</a></p>
 
 	</div>
   
@@ -201,8 +203,8 @@
         <div class="card-body">
           <p class="card-text">
             
-              TheRouter提供了图形化界面的迁移工具，可以一键从其他路由迁移到TheRouter。
-全新迁移工具已集成到 AndroidStudio 开发插件中，...
+              TheRouter提供了图形化界面的迁移工具，可以一键从其他路由迁移到TheRouter。 
+全新迁移工具已集成到 AndroidStudio 开发插件中...
             
           </p>
           <div class="d-flex justify-content-between align-items-center">
@@ -211,7 +213,7 @@
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">5 mins</small>
+            <small class="text-muted">6 mins</small>
           </div>
         </div>
       </div>
@@ -243,7 +245,7 @@ Github 项目地址与使用文档详见 https:...
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">27 mins</small>
+            <small class="text-muted">32 mins</small>
           </div>
         </div>
       </div>

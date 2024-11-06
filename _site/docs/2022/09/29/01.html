@@ -83,68 +83,68 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<p>开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。   </p>
+		<p>开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。</p>
 
 <iframe width="384px" height="319px" src="https://plugins.jetbrains.com/embeddable/card/20047"></iframe>
 
-<h2>下载插件</h2>
+<h2 id="下载插件">下载插件</h2>
 
 <ol>
-<li>打开 Android Studio -&gt; Preferences -&gt;  Plugins  -&gt; Marketplace</li>
-<li>搜索 <code>TheRouter</code></li>
-<li>点击下载</li>
-<li>重启 Android Studio</li>
+  <li>打开 Android Studio -&gt; Preferences -&gt;  Plugins  -&gt; Marketplace</li>
+  <li>搜索 <code class="language-plaintext highlighter-rouge">TheRouter</code></li>
+  <li>点击下载</li>
+  <li>重启 Android Studio</li>
 </ol>
 
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin.jpg" class="blog-img"></p>
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin.jpg" class="blog-img" /></p>
 
-<h2>一键迁移工具</h2>
+<h2 id="一键迁移工具">一键迁移工具</h2>
 
-<p>AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无需再次单独下载额外工具使用。<br>
-下载安装最新插件后，在顶部菜栏即可看到<code>TheRouter</code>菜单，选择对应路由的一键迁移选项即可使用。   </p>
-
-<p><strong>注：新版本AndroidStudio不再支持顶部菜单栏展示，需要在Tools菜单中查看</strong></p>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin11.png" class="blog-img"></p>
-
-<h2>导航快捷跳转</h2>
-
-<p>安装好插件后打开项目，就可以看到，在项目中所有调用了 <code>TheRouter.build(path)</code> 的地方，<br>
-还有 <code>@Route(path = &quot;xxxxx&quot;)</code> 注解的位置，<br>
-在左侧侧边栏上都会有一个绿色箭头的图标。    </p>
-
-<p>如果把鼠标放在图标上一段时间，就可以看到提示：<br>
-点击以后跳转到使用这个<code>path</code>的地方，<br>
-或者跳转到<code>path</code>定义的位置，点击以后就能自动跳转了。<br>
-如下图：  </p>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin1.jpg" class="blog-img"></p>
-
-<p>如果在代码中有多个地方都可以跳转到当前落地页，点击箭头后会有一个选择框，<br>
-可以选择跳转到使用当前<code>path</code>的位置。<br>
-例如这张图：   </p>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin2.jpg" class="blog-img"></p>
-
-<p>如果当前<code>path</code>是个没有被声明的，或者是由字符串拼接的，可能会出现无法找到定义位置的情况，此时在侧边栏会出现黄色的警告提示，<br>
-需要开发人工去检查这个<code>path</code>是不是忘记定义落地页了，还是说手误写错了<code>path</code>。<br>
-例如这张图：   </p>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin3.jpg" class="blog-img"></p>
-
-<h2>获取最新版本</h2>
-
-<p>再也无需时时刻刻关注 TheRouter 版本更新情况了，只需要手动点击菜单，即可实时知晓当前最新版本号。   </p>
+<p>AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无需再次单独下载额外工具使用。  <br />
+下载安装最新插件后，在顶部菜栏即可看到<code class="language-plaintext highlighter-rouge">TheRouter</code>菜单，选择对应路由的一键迁移选项即可使用。</p>
 
 <p><strong>注：新版本AndroidStudio不再支持顶部菜单栏展示，需要在Tools菜单中查看</strong></p>
 
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin10.png" class="blog-img"></p>
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin11.png" class="blog-img" /></p>
 
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin12.png" class="blog-img"></p>
+<h2 id="导航快捷跳转">导航快捷跳转</h2>
 
-<h2>插件开源</h2>
+<p>安装好插件后打开项目，就可以看到，在项目中所有调用了 <code class="language-plaintext highlighter-rouge">TheRouter.build(path)</code> 的地方，<br />
+还有 <code class="language-plaintext highlighter-rouge">@Route(path = "xxxxx")</code> 注解的位置，<br />
+在左侧侧边栏上都会有一个绿色箭头的图标。</p>
 
-<p>本插件项目已基于 <code>Apache License 2.0</code> 协议开源，并上架插件市场，欢迎 star 与下载   </p>
+<p>如果把鼠标放在图标上一段时间，就可以看到提示：<br />
+点击以后跳转到使用这个<code class="language-plaintext highlighter-rouge">path</code>的地方， <br />
+或者跳转到<code class="language-plaintext highlighter-rouge">path</code>定义的位置，点击以后就能自动跳转了。  <br />
+如下图：</p>
+
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin1.jpg" class="blog-img" /></p>
+
+<p>如果在代码中有多个地方都可以跳转到当前落地页，点击箭头后会有一个选择框，<br />
+可以选择跳转到使用当前<code class="language-plaintext highlighter-rouge">path</code>的位置。 <br />
+例如这张图：</p>
+
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin2.jpg" class="blog-img" /></p>
+
+<p>如果当前<code class="language-plaintext highlighter-rouge">path</code>是个没有被声明的，或者是由字符串拼接的，可能会出现无法找到定义位置的情况，此时在侧边栏会出现黄色的警告提示，<br />
+需要开发人工去检查这个<code class="language-plaintext highlighter-rouge">path</code>是不是忘记定义落地页了，还是说手误写错了<code class="language-plaintext highlighter-rouge">path</code>。   <br />
+例如这张图：</p>
+
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin3.jpg" class="blog-img" /></p>
+
+<h2 id="获取最新版本">获取最新版本</h2>
+
+<p>再也无需时时刻刻关注 TheRouter 版本更新情况了，只需要手动点击菜单，即可实时知晓当前最新版本号。</p>
+
+<p><strong>注：新版本AndroidStudio不再支持顶部菜单栏展示，需要在Tools菜单中查看</strong></p>
+
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin10.png" class="blog-img" /></p>
+
+<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin12.png" class="blog-img" /></p>
+
+<h2 id="插件开源">插件开源</h2>
+
+<p>本插件项目已基于 <code class="language-plaintext highlighter-rouge">Apache License 2.0</code> 协议开源，并上架插件市场，欢迎 star 与下载</p>
 
 <p>GitHub：<a href="https://github.com/kymjs/TheRouterIdeaPlugin">https://github.com/kymjs/TheRouterIdeaPlugin</a></p>
 
@@ -202,7 +202,7 @@
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">2 mins</small>
+            <small class="text-muted">3 mins</small>
           </div>
         </div>
       </div>
@@ -224,8 +224,8 @@
         <div class="card-body">
           <p class="card-text">
             
-              TheRouter提供了图形化界面的迁移工具，可以一键从其他路由迁移到TheRouter。
-全新迁移工具已集成到 AndroidStudio 开发插件中，...
+              TheRouter提供了图形化界面的迁移工具，可以一键从其他路由迁移到TheRouter。 
+全新迁移工具已集成到 AndroidStudio 开发插件中...
             
           </p>
           <div class="d-flex justify-content-between align-items-center">
@@ -234,7 +234,7 @@
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">5 mins</small>
+            <small class="text-muted">6 mins</small>
           </div>
         </div>
       </div>
@@ -266,7 +266,7 @@ Github 项目地址与使用文档详见 https:...
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">27 mins</small>
+            <small class="text-muted">32 mins</small>
           </div>
         </div>
       </div>

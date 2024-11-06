@@ -83,43 +83,47 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<h2>背景</h2>
-
+		<h2 id="背景">背景</h2>
 <ol>
-<li>随着社区对支持Swift的需求日益增多，Swift5.0二进制库也具有更好的稳定性和兼容性表现，货拉拉技术团队根据社区反馈及内部讨论，决定开源内部业务使用的Swift版本路由组件，与2023年8月份已发布的Objective-C版本路由组件组成一个完整解决方案。</li>
-<li>TheRouter开源团队将把重心放在维护和升级Swift版本的TheRouter上。同时也会持续支持Objective-C版本的易用性，并欢迎社区贡献。</li>
-<li>对于使用Objective-C版本TheRouter的用户，建议将版本固定为1.0.0版以确保稳定性。
-## Features
-TheRouter一个用于模块间解耦和通信，基于Swift协议进行动态懒加载注册路由与打开路由的工具。同时支持通过Service-Protocol寻找对应的模块，并用 protocol进行依赖注入和模块通信。
-
-<ul>
-<li><strong>1. 页面导航跳转能力</strong>：支持常规vc或Storyboard的push/present/popToTaget/windowNavRoot/modalDismissBeforePush跳转能力；</li>
-<li><strong>2. 路由自动注册能力</strong>：懒加载方式动态注册路由，仅当第一次调用OpenURL时进行动态注册；</li>
-<li><strong>3. 路由映射文件导出</strong>：支持将工程中的路由映射关系导出为文档，支持JSON、Plist格式，方便开发者进行双端的汇总比对、记录等；</li>
-<li><strong>4. 服务自动注册能力</strong>：动态注册服务，使用runtime方式自动注入；</li>
-<li><strong>5. 硬编码消除</strong>：将注册的path转为静态字符串常量供业务使用；</li>
-<li><strong>6. 动态化能力</strong>：支持添加重定向，移除重定向、动态添加路由、动态移除路由、拦截器、错误path修复等；</li>
-<li><strong>7. 链式编程</strong>：支持链式编程方式拼接URL与参数；</li>
-<li><strong>8. 适配Objective-C</strong>：OC类可以在Swift中使用继承的方式遵循协议来进行动态注册；</li>
-<li><strong>9. 服务调用</strong>：支持本地服务调用与远端服务调用；</li>
-</ul></li>
+  <li>随着社区对支持Swift的需求日益增多，Swift5.0二进制库也具有更好的稳定性和兼容性表现，货拉拉技术团队根据社区反馈及内部讨论，决定开源内部业务使用的Swift版本路由组件，与2023年8月份已发布的Objective-C版本路由组件组成一个完整解决方案。</li>
+  <li>TheRouter开源团队将把重心放在维护和升级Swift版本的TheRouter上。同时也会持续支持Objective-C版本的易用性，并欢迎社区贡献。</li>
+  <li>对于使用Objective-C版本TheRouter的用户，建议将版本固定为1.0.0版以确保稳定性。
+    <h2 id="features">Features</h2>
+    <p>TheRouter一个用于模块间解耦和通信，基于Swift协议进行动态懒加载注册路由与打开路由的工具。同时支持通过Service-Protocol寻找对应的模块，并用 protocol进行依赖注入和模块通信。</p>
+    <ul>
+      <li><strong>1. 页面导航跳转能力</strong>：支持常规vc或Storyboard的push/present/popToTaget/windowNavRoot/modalDismissBeforePush跳转能力；</li>
+      <li><strong>2. 路由自动注册能力</strong>：懒加载方式动态注册路由，仅当第一次调用OpenURL时进行动态注册；</li>
+      <li><strong>3. 路由映射文件导出</strong>：支持将工程中的路由映射关系导出为文档，支持JSON、Plist格式，方便开发者进行双端的汇总比对、记录等；</li>
+      <li><strong>4. 服务自动注册能力</strong>：动态注册服务，使用runtime方式自动注入；</li>
+      <li><strong>5. 硬编码消除</strong>：将注册的path转为静态字符串常量供业务使用；</li>
+      <li><strong>6. 动态化能力</strong>：支持添加重定向，移除重定向、动态添加路由、动态移除路由、拦截器、错误path修复等；</li>
+      <li><strong>7. 链式编程</strong>：支持链式编程方式拼接URL与参数；</li>
+      <li><strong>8. 适配Objective-C</strong>：OC类可以在Swift中使用继承的方式遵循协议来进行动态注册；</li>
+      <li><strong>9. 服务调用</strong>：支持本地服务调用与远端服务调用；</li>
+    </ul>
+  </li>
 </ol>
 
-<p><img src="https://z1.ax1x.com/2023/09/26/pPHS4UO.png" class="blog-img"></p>
+<p><img src="https://z1.ax1x.com/2023/09/26/pPHS4UO.png" class="blog-img" /></p>
 
-<h1>背景</h1>
-
+<h1 id="背景-1">背景</h1>
 <p>随着项目需求的日益增加，开发人员的不断增加，带来了很多问题：</p>
 
 <ul>
-<li><p>模块划分不清晰，任何开发人员随意调用并修改其他模块的代码实现以满足自己的业务需求。</p></li>
-<li><p>维护困难，同一组件的不同服务，散落在工程各个地方，不利于统一维护修改替换。</p></li>
-<li><p>模块负责人无法清晰，导致同一功能多人维护，造成冲突。</p></li>
+  <li>
+    <p>模块划分不清晰，任何开发人员随意调用并修改其他模块的代码实现以满足自己的业务需求。</p>
+  </li>
+  <li>
+    <p>维护困难，同一组件的不同服务，散落在工程各个地方，不利于统一维护修改替换。</p>
+  </li>
+  <li>
+    <p>模块负责人无法清晰，导致同一功能多人维护，造成冲突。</p>
+  </li>
 </ul>
 
 <p>另外件拆分完之后都上升到远端，那么它们之间本地的代码是没办法相互依赖的，所以就需要通过一种工具，然后去实现透传服务的能力。我们需要一个中间件去处理这些问题。路由即是将耦合进行转移，通过增加中间层映射关系，解决业务之间的依赖关系。</p>
 
-<h2>一个成熟的路由该是什么样子</h2>
+<h2 id="一个成熟的路由该是什么样子">一个成熟的路由该是什么样子</h2>
 
 <p><strong>1.</strong>  业务组件化之后，组件化需要将整个项目的各个模块进行解耦，升级远端之后，界面之间的跳转怎么解决？<strong>路由 Api</strong></p>
 
@@ -143,43 +147,50 @@ TheRouter一个用于模块间解耦和通信，基于Swift协议进行动态懒
 
 <p><strong>11.</strong> 本地服务通过路由调用，远端服务通过路由调用 <strong>支持服务调用</strong></p>
 
-<h2>整体设计思路</h2>
+<h2 id="整体设计思路">整体设计思路</h2>
 
 <p>为了和Android端保持一致，使用了URL，class注册的方式实现。通过URL匹配方式查询数组中保存的模版信息，找到执行获取对应实例，执行跳转操作。</p>
 
-<p><img src="https://z1.ax1x.com/2023/09/26/pP7zc0f.png" class="blog-img"></p>
+<p><img src="https://z1.ax1x.com/2023/09/26/pP7zc0f.png" class="blog-img" /></p>
 
-<h2>使用介绍预览</h2>
+<h2 id="使用介绍预览">使用介绍预览</h2>
 
-<p><img src="/assets/img/image/therouter_ios1.gif" class="blog-img"></p>
+<p><img src="/assets/img/image/therouter_ios1.gif" class="blog-img" /></p>
 
-<h2>如何集成使用</h2>
+<h2 id="如何集成使用">如何集成使用</h2>
 
-<h3>CocoaPods</h3>
+<h3 id="cocoapods">CocoaPods</h3>
 
 <p>Add the following entry in your Podfile:</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">   pod 'TheRouter', '1.1.0'
-</code></pre></div>
-<h2>Swift限制版本</h2>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike"> Swift5.0 or above
-</code></pre></div>
-<h2>TheRouter 使用方式</h2>
+
+<pre><code class="language-clike">   pod 'TheRouter', '1.1.0'
+</code></pre>
+
+<h2 id="swift限制版本">Swift限制版本</h2>
+
+<pre><code class="language-clike"> Swift5.0 or above
+</code></pre>
+
+<h2 id="therouter-使用方式">TheRouter 使用方式</h2>
 
 <ol>
-<li> ### 注册</li>
+  <li>
+    <h3 id="注册">注册</h3>
+  </li>
 </ol>
 
 <p>鉴于已经实现了自动注册能力，开发者无需自己添加路由，只需要进行如下操作即可</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">/// 实现TheRouterable协议
-extension TheRouterController: TheRouterable {
 
+<pre><code class="language-clike">/// 实现TheRouterable协议
+extension TheRouterController: TheRouterable {
+    
     static var patternString: [String] {
         ["scheme://router/demo"]
     }
-
+    
     static func registerAction(info: [String : Any]) -&gt; Any {
         debugPrint(info)
-
+        
         let vc =  TheRouterController()
         vc.qrResultCallBack = info["clouse"] as? QrScanResultCallBack
         vc.resultLabel.text = info.description
@@ -201,38 +212,42 @@ TheRouterManager.registerServices()
 TheRouter.logcat { url, logType, errorMsg in
     debugPrint("TheRouter: logMsg- \(url) \(logType.rawValue) \(errorMsg)")
 }
-</code></pre></div>
-<h4>OC 注解的形式</h4>
+</code></pre>
+
+<h4 id="oc-注解的形式">OC 注解的形式</h4>
 
 <p>这里列举了OC使用注解的方式，Swift因为其缺乏动态性，是不支持注解的。</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">//使用注解
+
+<pre><code class="language-clike">//使用注解
 @page(@"home/main")
 - (UIViewController *)homePage{
     // Do stuff...
 }
-</code></pre></div>
-<h4>Swift 注册形式</h4>
+</code></pre>
+
+<h4 id="swift-注册形式">Swift 注册形式</h4>
 
 <p>Swift 中，我们都知道 Swift 是不支持注解的，那么 Swift 动态注册路由该怎么解决呢，我们使用 runtime 遍历工程里的方式找到遵循了路由协议的类进行自动注册。</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">public class func registerRouterMap(_ registerClassPrifxArray: [String], _ urlPath: String, _ userInfo: [String: Any]) -&gt; Any? {
 
+<pre><code class="language-clike">public class func registerRouterMap(_ registerClassPrifxArray: [String], _ urlPath: String, _ userInfo: [String: Any]) -&gt; Any? {
+        
         let expectedClassCount = objc_getClassList(nil, 0)
         let allClasses = UnsafeMutablePointer&lt;AnyClass&gt;.allocate(capacity: Int(expectedClassCount))
         let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer&lt;AnyClass&gt;(allClasses)
         let actualClassCount: Int32 = objc_getClassList(autoreleasingAllClasses, expectedClassCount)
-
+        
         var resultXLClass = [AnyClass]()
         for i in 0 ..&lt; actualClassCount {
-
+            
             let currentClass: AnyClass = allClasses[Int(i)]
             let fullClassName: String = NSStringFromClass(currentClass.self)
-
+            
             for value in registerClassPrifxArray {
                 if (fullClassName.containsSubString(substring: value))  {
                     if currentClass is UIViewController.Type {
                         resultXLClass.append(currentClass)
                     }
-
+                    
     #if DEBUG
                     if let clss = currentClass as? CustomRouterInfo.Type {
                         assert(clss.patternString.hasPrefix("scheme://"), "URL非scheme://开头，请重新确认")
@@ -243,14 +258,14 @@ TheRouter.logcat { url, logType, errorMsg in
                 }
             }
         }
-
+        
         for i in 0 ..&lt; resultXLClass.count {
             let currentClass: AnyClass = resultXLClass[i]
             if let cls = currentClass as? TheRouterable.Type {
                 let fullName: String = NSStringFromClass(currentClass.self)
-
+               
                 for s in 0 ..&lt; cls.patternString.count {
-
+                    
                     if fullName.hasPrefix(NSKVONotifyingPrefix) {
                         let range = fullName.index(fullName.startIndex, offsetBy: NSKVONotifyingPrefix.count)..&lt;fullName.endIndex
                         let subString = fullName[range]
@@ -263,7 +278,7 @@ TheRouter.logcat { url, logType, errorMsg in
                 }
             }
         }
-
+        
 #if DEBUG
         debugPrint(pagePathMap)
         routerForceRecheck()
@@ -271,13 +286,15 @@ TheRouter.logcat { url, logType, errorMsg in
         TheRouter.routerLoadStatus(true)
         return TheRouter.openURL(urlPath, userInfo: userInfo)
 }
-</code></pre></div>
+</code></pre>
+
 <p>为了避免无效遍历，我们通过传入 registerClassPrifxArray 指定我们遍历包含这些前缀的类即可。一旦是 UIViewController.Type 类型就进行存储，然后再进行校验是否遵循 TheRouterable 协议，遵循则自动注册。无需手动注册。</p>
 
-<h4>路由注册的懒加载</h4>
+<h4 id="路由注册的懒加载">路由注册的懒加载</h4>
 
 <p>采用动态注册有一个不好的情况就是在启动时就去动态注册，在 TheRouter 中注册的时机被延后了，放在了 App 第一次通过 TheRouter.openUrl()时进行注册，会判断路由是否加载完毕，未加载完毕进行加载，然后打开路由。</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">@discardableResult
+
+<pre><code class="language-clike">@discardableResult
 public class func openURL(_ urlString: String, userInfo: [String: Any] = [String: Any](), handler: complateHandler = nil) -&gt; Any? {
     if urlString.isEmpty {
         return nil
@@ -311,11 +328,13 @@ public class func openCacheRouter(_ uriTuple: (String, [String: Any]), handler: 
         return routerJump(uriTuple)
     }
 }
-</code></pre></div>
-<h4>如何让 OC 类也享受到 Swift 路由</h4>
+</code></pre>
+
+<h4 id="如何让-oc-类也享受到-swift-路由">如何让 OC 类也享受到 Swift 路由</h4>
 
 <p>这是一个 OC 类的界面，实现路由的跳转需要继承 OC 类，并实现 TheRouterAble 协议即可</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">@interface TheRouterBController : UIViewController
+
+<pre><code class="language-clike">@interface TheRouterBController : UIViewController
 @property (nonatomic, strong) UILabel *desLabel;
 @end
 
@@ -339,7 +358,7 @@ public class TheRouterControllerB: TheRouterBController, TheRouterable {
         ["scheme://router/demo2",
          "scheme://router/demo2-Android"]
     }
-
+    
     public static var descriptions: String {
         "TheRouterControllerDemo"
     }
@@ -350,9 +369,11 @@ public class TheRouterControllerB: TheRouterBController, TheRouterable {
         return vc
     }
 }
-</code></pre></div>
-<h4>同时支持手动单个注册</h4>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">// 模型模式
+</code></pre>
+
+<h4 id="同时支持手动单个注册">同时支持手动单个注册</h4>
+
+<pre><code class="language-clike">// 模型模式
 TheRouter.addRouterItem(RouteItem(path: "scheme://router/demo?&amp;desc=简单注册,直接调用TheRouter.addRouterItem()注册即可", className: "TheRouter_Example.TheRouterController", desc: "简单注册,直接调用TheRouter", params: ["key1": 1]))
 // 字典模式
 TheRouter.addRouterItem(["scheme://router/demo?&amp;desc=简单注册,直接调用TheRouter.addRouterItem()注册即可": "TheRouter_Example.TheRouterController"])
@@ -360,20 +381,26 @@ TheRouter.addRouterItem(["scheme://router/demo?&amp;desc=简单注册,直接调�
 TheRouter.addRouterItem("scheme://router/demo?&amp;desc=简单注册", classString: "TheRouter_Example.TheRouterController")
 // 协议模式， TheRouterApi实现了 CustomRouterInfo协议
 TheRouter.addRouterItem(TheRouterApi.patternString, classString: TheRouterApi.routerClass)
-</code></pre></div>
-<h4>同时支持手动批量注册</h4>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">TheRouter.addRouterItem(["scheme://router/demo": "TheRouter_Example.TheRouterController",
+</code></pre>
+
+<h4 id="同时支持手动批量注册">同时支持手动批量注册</h4>
+
+<pre><code class="language-clike">TheRouter.addRouterItem(["scheme://router/demo": "TheRouter_Example.TheRouterController",
                     "scheme://router/demo1": "TheRouter_Example.TheRouterControllerA"])
-</code></pre></div>
-<h3>移除</h3>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">TheRouter.removeRouter(TheRouterViewCApi.patternString)
-</code></pre></div>
-<h3>打开</h3>
+</code></pre>
+
+<h3 id="移除">移除</h3>
+
+<pre><code class="language-clike">TheRouter.removeRouter(TheRouterViewCApi.patternString)
+</code></pre>
+
+<h3 id="打开">打开</h3>
 
 <p>声明了不同的方法，主要用于明显的区分，内部统一调用 openURL</p>
 
 <p>便利构造器链式打开路由</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">let model = TheRouterModel.init(name: "AKyS", age: 18)
+
+<pre><code class="language-clike">let model = TheRouterModel.init(name: "AKyS", age: 18)
 TheRouterBuilder.build("scheme://router/demo")
     .withInt(key: "intValue", value: 2)
     .withString(key: "stringValue", value: "2222")
@@ -382,21 +409,23 @@ TheRouterBuilder.build("scheme://router/demo")
     .withDouble(key: "doubleValue", value: 2.0)
     .withAny(key: "any", value: model)
     .navigation()
-
+    
 TheRouterBuilder.build("scheme://router/demo")
-    .withInt(key: "intValue", value: 2)
-    .withString(key: "stringValue", value: "sdsd")
-    .withFloat(key: "floatValue", value: 3.1415)
-    .withBool(key: "boolValue", value: false)
-    .withDouble(key: "doubleValue", value: 2.0)
-    .withAny(key: "any", value: model)
-    .navigation { params, instance in
+	.withInt(key: "intValue", value: 2)
+	.withString(key: "stringValue", value: "sdsd")
+	.withFloat(key: "floatValue", value: 3.1415)
+	.withBool(key: "boolValue", value: false)
+	.withDouble(key: "doubleValue", value: 2.0)
+	.withAny(key: "any", value: model)
+	.navigation { params, instance in
+	    
+	}
+    
+</code></pre>
 
-    }
-
-</code></pre></div>
 <p>打开路由常用方式</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">public class TheRouterApi: CustomRouterInfo {
+
+<pre><code class="language-clike">public class TheRouterApi: CustomRouterInfo {
 
     public static var patternString = "scheme://router/demo"
     public static var routerClass = "TheRouter_Example.TheRouterController"
@@ -418,7 +447,9 @@ public class TheRouterAApi: CustomRouterInfo {
 
 TheRouter.openURL(TheRouterCApi.init().requiredURL)
 TheRouter.openWebURL("https://xxxxxxxx")
-</code></pre></div><div class="highlight"><pre><code class="language-clike" data-lang="clike">
+</code></pre>
+
+<pre><code class="language-clike">
 @discardableResult
 public class func openWebURL(_ uriTuple: (String, [String: Any])) -&gt; Any? {
     return TheRouter.openURL(uriTuple)
@@ -429,27 +460,35 @@ public class func openWebURL(_ urlString: String,
                              userInfo: [String: Any] = [String: Any]()) -&gt; Any? {
     TheRouter.openURL((urlString, userInfo))
 }
-</code></pre></div>
+</code></pre>
+
 <p>元祖形式传入路由与追加参数</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">TheRouter.openURL(("scheme://router/demo1?id=2&amp;value=3&amp;name=AKyS&amp;desc=直接调用TheRouter.addRouterItem()注册即可，支持单个注册，批量注册，动态注册，懒加载动态注册", ["descs": "追加参数"]))
-</code></pre></div>
+
+<pre><code class="language-clike">TheRouter.openURL(("scheme://router/demo1?id=2&amp;value=3&amp;name=AKyS&amp;desc=直接调用TheRouter.addRouterItem()注册即可，支持单个注册，批量注册，动态注册，懒加载动态注册", ["descs": "追加参数"]))
+</code></pre>
+
 <p>参数传递方式</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">let clouse = { (qrResult: String, qrStatus: Bool) in
+
+<pre><code class="language-clike">let clouse = { (qrResult: String, qrStatus: Bool) in
     print("\(qrResult) \(qrStatus)")
     self.view.makeToast("\(qrResult) \(qrStatus)")
 }
 let model = TheRouterModel.init(name: "AKyS", age: 18)
 TheRouter.openURL(("scheme://router/demo?id=2&amp;value=3&amp;name=AKyS", ["model": model, "clouse": clouse]))
-</code></pre></div>
-<h3>全局失败映射</h3>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">TheRouter.globalOpenFailedHandler { info in
+</code></pre>
+
+<h3 id="全局失败映射">全局失败映射</h3>
+
+<pre><code class="language-clike">TheRouter.globalOpenFailedHandler { info in
    debugPrint(info)
 }
-</code></pre></div>
-<h3>拦截</h3>
+</code></pre>
+
+<h3 id="拦截">拦截</h3>
 
 <p>比如在未登录情况下统一拦截：跳转消息列表之前先去登录，登录成功之后跳转到消息列表等。</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">let login = TheRouterLoginApi.templateString
+
+<pre><code class="language-clike">let login = TheRouterLoginApi.templateString
  TheRouter.addRouterInterceptor([login], priority: 0) { (info) -&gt; Bool in
        if LALoginManger.shared.isLogin {
              return true
@@ -458,11 +497,13 @@ TheRouter.openURL(("scheme://router/demo?id=2&amp;value=3&amp;name=AKyS", ["mode
              return false
        }
  }
-</code></pre></div>
+</code></pre>
+
 <p>登录成功之后删除拦截器即可。</p>
 
-<h3>路由 Path 与类正确安全校验</h3>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">// MARK: - 客户端强制校验，是否匹配
+<h3 id="路由-path-与类正确安全校验">路由 Path 与类正确安全校验</h3>
+
+<pre><code class="language-clike">// MARK: - 客户端强制校验，是否匹配
 public static func routerForceRecheck() {
     let patternArray = Set(pagePathMap.keys)
     let apiPathArray = Set(apiArray)
@@ -477,13 +518,15 @@ public static func routerForceRecheck() {
     debugPrint("classes差集：\(diffClassesArray)")
     assert(diffClassesArray.count == 0, "classes 拼写错误，请确认差集中的class是否匹配")
 }
-</code></pre></div>
-<h3>踩坑路由注册-KVO</h3>
+</code></pre>
+
+<h3 id="踩坑路由注册-kvo">踩坑路由注册-KVO</h3>
 
 <p>在进行 classes 本地校验时遇到了类名不匹配问题。</p>
 
 <p>排查原因： 是因为为了避免路由在启动时就注册，影响启动速度，采用了懒加载的方式即第一次打开路由界面的时候才先进行注册然后跳转。但是在我们动态注册之前，某个类因为添加了 KVO (Key-Value Observing 键值监听)，这个类在遍历时 className 修改为了 NSKVONotifying_xxx。需要我们进行特殊处理，如下</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">/// 对于KVO监听，动态创建子类，需要特殊处理
+
+<pre><code class="language-clike">/// 对于KVO监听，动态创建子类，需要特殊处理
 public let NSKVONotifyingPrefix = "NSKVONotifying_"
 
 if fullName.hasPrefix(NSKVONotifyingPrefix) {
@@ -492,17 +535,18 @@ if fullName.hasPrefix(NSKVONotifyingPrefix) {
     pagePathMap[cls.patternString[s]] = "\(subString)"
     TheRouter.addRouterItem(cls.patternString[s], classString: "\(subString)")
 }
-</code></pre></div>
-<h2>动态调用路由</h2>
+</code></pre>
+
+<h2 id="动态调用路由">动态调用路由</h2>
 
 <p>在之上的路由能力下，我们希望 App 能够支持动态增加路由，删除路由，重定向路由、通过路由调起本地服务、远端通过路由调起 App 服务能力，随即进行了动态化的扩展。</p>
 
-<h3>重定向功能</h3>
-
+<h3 id="重定向功能">重定向功能</h3>
 <p>定义路由下发模型数据结构</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">public struct TheRouterInfo {
-    public init() {}
 
+<pre><code class="language-clike">public struct TheRouterInfo {
+    public init() {}
+    
     public var targetPath: String = ""
     public var orginPath: String = ""
     // 1: 表示替换或者修复客户端代码path错误 2: 新增路由path 3:删除路由
@@ -511,31 +555,39 @@ if fullName.hasPrefix(NSKVONotifyingPrefix) {
     public var className: String = "" // 路由地址对应的界面
     public var params: [String: Any] = [:]
 }
-</code></pre></div>
+</code></pre>
+
 <p>通过远端下发重定向数据，原本跳转到白色界面的业务逻辑改为跳转到黄色界面</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">let relocationMap = ["routerType": 1, "targetPath": "scheme://router/demo1", "orginPath": "scheme://router/demo"] as NSDictionary
+
+<pre><code class="language-clike">let relocationMap = ["routerType": 1, "targetPath": "scheme://router/demo1", "orginPath": "scheme://router/demo"] as NSDictionary
 TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
 TheRouter.openURL("scheme://router/demo?desc=跳转白色界面被重定向到了黄色界面")
-</code></pre></div>
-<h3>重定向恢复</h3>
+</code></pre>
+
+<h3 id="重定向恢复">重定向恢复</h3>
 
 <p>在业务中，通常会进行业务调整，那么重定向之后需要恢复的话，就需要移除重定向</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">let relocationMap = ["routerType": 4, "targetPath": "scheme://router/demo", "orginPath": "scheme://router/demo"] as NSDictionary
+
+<pre><code class="language-clike">let relocationMap = ["routerType": 4, "targetPath": "scheme://router/demo", "orginPath": "scheme://router/demo"] as NSDictionary
 TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
 TheRouter.openURL("scheme://router/demo?desc=跳转白色界面被重定向到了黄色界面之后，根据下发数据又恢复到跳转白色界面")
-</code></pre></div>
-<h3>路由 Path 动态修复</h3>
+</code></pre>
+
+<h3 id="路由-path-动态修复">路由 Path 动态修复</h3>
 
 <p>在实际开发中，开发人员因为马虎写错了路由 Path，上线之后无法进行正常的业务跳转，此时就需要通过远端下发路由进行匹配跳转了。scheme://router/demo3 是正确 path,但是本地写错的路由 path 为 scheme://router/demo33，那么需要新增一个 path 进行映射。</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">let relocationMap = ["routerType": 2, "className": "TheRouter_Example.TheRouterControllerC", "path": "scheme://router/demo33"] as NSDictionary
+
+<pre><code class="language-clike">let relocationMap = ["routerType": 2, "className": "TheRouter_Example.TheRouterControllerC", "path": "scheme://router/demo33"] as NSDictionary
 TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
 let value = TheRouterCApi.init().requiredURL
 TheRouter.openURL(value)
-</code></pre></div>
-<h3>路由适配不同的 Android-Path</h3>
+</code></pre>
+
+<h3 id="路由适配不同的-android-path">路由适配不同的 Android-Path</h3>
 
 <p>在实际开发中，一旦使用 URI 这种方式，牵扯到双端，就可以存在双端不一致的问题，那么如何解决呢，可以通过本地新增多路由 path 解决，也可以通过远端下发新路由解决。</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">public class TheRouterControllerB: TheRouterBController, TheRouterable {
+
+<pre><code class="language-clike">public class TheRouterControllerB: TheRouterBController, TheRouterable {
 
     public static var patternString: [String] {
         ["scheme://router/demo2",
@@ -548,26 +600,30 @@ TheRouter.openURL(value)
         return vc
     }
 }
-</code></pre></div><div class="highlight"><pre><code class="language-clike" data-lang="clike">let relocationMap = ["routerType": 2, "className": "TheRouter_Example.TheRouterControllerD", "path": "scheme://router/demo5"] as NSDictionary
+</code></pre>
+
+<pre><code class="language-clike">let relocationMap = ["routerType": 2, "className": "TheRouter_Example.TheRouterControllerD", "path": "scheme://router/demo5"] as NSDictionary
 TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
 TheRouter.openURL("scheme://router/demo2Android?desc=demo5是Android一个界面的path,为了双端统一，我们动态增加一个path,这样远端下发时demo5也就能跳转了")
 
-</code></pre></div>
-<h2>服务的动态注册与调用</h2>
+</code></pre>
 
-<h3>如何声明服务及实现服务</h3>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">@objc
+<h2 id="服务的动态注册与调用">服务的动态注册与调用</h2>
+
+<h3 id="如何声明服务及实现服务">如何声明服务及实现服务</h3>
+
+<pre><code class="language-clike">@objc
 public protocol AppConfigServiceProtocol: TheRouterServiceProtocol {
     // 打开小程序
     func openMiniProgram(info: [String: Any])
 }
 
 final class ConfigModuleService: NSObject, AppConfigServiceProtocol {
-
+    
     static var seriverName: String {
         String(describing: AppConfigServiceProtocol.self)
     }
-
+    
     func openMiniProgram(info: [String : Any]) {
         if let window = UIApplication.shared.delegate?.window {
             window?.makeToast("打开微信小程序", duration: 1, position: window?.center)
@@ -576,71 +632,78 @@ final class ConfigModuleService: NSObject, AppConfigServiceProtocol {
 }
 
 
-</code></pre></div>
-<h3>如何使用服务</h3>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">/// 使用方式
+</code></pre>
+<h3 id="如何使用服务">如何使用服务</h3>
+
+<pre><code class="language-clike">/// 使用方式
  if let appConfigService = TheRouter.fetchService(AppConfigServiceProtocol.self){
      appConfigService.openMiniProgram(info: [:])
 }
-</code></pre></div>
-<p>服务使用了runtime动态注册，所以你不用担心服务没有注册的问题。只需像上述案例一样使用即可。</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">public class func registerServices() {
+</code></pre>
 
+<p>服务使用了runtime动态注册，所以你不用担心服务没有注册的问题。只需像上述案例一样使用即可。</p>
+
+<pre><code class="language-clike">public class func registerServices() {
+    
     let expectedClassCount = objc_getClassList(nil, 0)
     let allClasses = UnsafeMutablePointer&lt;AnyClass&gt;.allocate(capacity: Int(expectedClassCount))
     let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer&lt;AnyClass&gt;(allClasses)
     let actualClassCount: Int32 = objc_getClassList(autoreleasingAllClasses, expectedClassCount)
     var resultXLClass = [AnyClass]()
     for i in 0 ..&lt; actualClassCount {
-
+        
         let currentClass: AnyClass = allClasses[Int(i)]
         if (class_getInstanceMethod(currentClass, NSSelectorFromString("methodSignatureForSelector:")) != nil),
            (class_getInstanceMethod(currentClass, NSSelectorFromString("doesNotRecognizeSelector:")) != nil),
            let cls = currentClass as? TheRouterServiceProtocol.Type {
             print(currentClass)
             resultXLClass.append(cls)
-
+            
             TheRouterServiceManager.default.registerService(named: cls.seriverName, lazyCreator: (cls as! NSObject.Type).init())
         }
     }
 }
-</code></pre></div>
-<h3>路由远端调用本地服务：服务接口下发，MQTT,JSBridge</h3>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">let dict = ["ivar1": ["key":"value"]]
+</code></pre>
+
+<h3 id="路由远端调用本地服务服务接口下发mqttjsbridge">路由远端调用本地服务：服务接口下发，MQTT,JSBridge</h3>
+
+<pre><code class="language-clike">let dict = ["ivar1": ["key":"value"]]
 let url = "scheme://services?protocol=AppConfigLAServiceProtocol&amp;method=openMiniProgramWithInfo:&amp;resultType=0"
 TheRouter.openURL((url, dict))
-</code></pre></div>
-<h2>是否考虑Swift5.9 Macros？</h2>
+</code></pre>
+
+<h2 id="是否考虑swift59-macros">是否考虑Swift5.9 Macros？</h2>
 
 <p>从目前的实现方式来看，懒加载加上动态注册，已经解决了注册时的性能问题。即使需要遍历全工程的类，然后处理相关逻辑，也不会超过0.2s。之所以能够通过Class取得path，因为给类声明了静态变量。</p>
-<div class="highlight"><pre><code class="language-clike" data-lang="clike">/// 实现TheRouterable协议
-extension TheRouterController: TheRouterable {
 
+<pre><code class="language-clike">/// 实现TheRouterable协议
+extension TheRouterController: TheRouterable {
+    
     static var patternString: [String] {
         ["scheme://router/demo"]
     }
-
+    
     static func registerAction(info: [String : Any]) -&gt; Any {
         debugPrint(info)
-
+        
         let vc =  TheRouterController()
         vc.qrResultCallBack = info["clouse"] as? QrScanResultCallBack
         vc.resultLabel.text = info.description
         return vc
     }
 }
-</code></pre></div>
-<h2>关于作者</h2>
+</code></pre>
+<h2 id="关于作者">关于作者</h2>
 
 <p><a href="https://juejin.cn/user/1768489241815070">货拉拉移动端技术团队</a></p>
 
-<h2>开源协议</h2>
+<h2 id="开源协议">开源协议</h2>
 
 <p>TheRouter 采用Apache2.0协议，详情参考<a href="LICENSE">LICENSE</a></p>
 
-<h2>交流沟通群</h2>
+<h2 id="交流沟通群">交流沟通群</h2>
+<p><img src="/assets/wx/wx_ios_group.jpg" class="blog-img" /></p>
 
-<p><img src="/assets/wx/wx_ios_group.jpg" class="blog-img"></p>
 
 	</div>
   
@@ -706,7 +769,7 @@ extension TheRouterController: TheRouterable {
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">2 mins</small>
+            <small class="text-muted">3 mins</small>
           </div>
         </div>
       </div>

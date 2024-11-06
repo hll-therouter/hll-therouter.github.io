@@ -83,16 +83,16 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<h2>背景</h2>
+		<h2 id="背景">背景</h2>
+<p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，我们对<code class="language-plaintext highlighter-rouge">TheRouter</code>编译过程做了大量优化，同时适配了<code class="language-plaintext highlighter-rouge">Gradle</code>的<code class="language-plaintext highlighter-rouge">4.x-8.x</code>全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。</p>
 
-<p>从<code>1.2.3-rc1</code>版本开始，我们对<code>TheRouter</code>编译过程做了大量优化，同时适配了<code>Gradle</code>的<code>4.x-8.x</code>全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。   </p>
+<p><br /><br /></p>
 
-<p><br><br>  </p>
+<h2 id="改动一编译期选项">改动一：编译期选项</h2>
 
-<h2>改动一：编译期选项</h2>
+<p>老版本的<code class="language-plaintext highlighter-rouge">TheRouter</code>提供了不少编译期选项，可以通过手动在<code class="language-plaintext highlighter-rouge">local.properties</code>或<code class="language-plaintext highlighter-rouge">gradle.properties</code>文件中配置。从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，这些配置全部迁移到了app module的 <code class="language-plaintext highlighter-rouge">build.gradle</code> 内。你可以使用如下方式配置编译选项：</p>
 
-<p>老版本的<code>TheRouter</code>提供了不少编译期选项，可以通过手动在<code>local.properties</code>或<code>gradle.properties</code>文件中配置。从<code>1.2.3-rc1</code>版本开始，这些配置全部迁移到了app module的 <code>build.gradle</code> 内。你可以使用如下方式配置编译选项：   </p>
-<div class="highlight"><pre><code class="language-" data-lang="">// 必须是app module内，引入 therouter 插件的 build.gradle 文件内
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 必须是app module内，引入 therouter 插件的 build.gradle 文件内
 // 与android{}闭包同级，做编译配置
 TheRouter {
     // 是否开启调试模式，默认不开启
@@ -105,46 +105,59 @@ TheRouter {
     showFlowDepend = true;
 }
 
-</code></pre></div>
-<p><br><br></p>
+</code></pre></div></div>
 
-<h2>改动二：编译缓存</h2>
+<p><br /><br /></p>
 
-<p>从<code>1.2.3-rc1</code>版本开始，所有编译均采用增量编译，且不再依赖<code>Gradle</code>的增量配置，所有增量均由框架内部实现，每次编译时会校验编译<code>jar</code>包与缓存数据是否一致，如果不一致才会去扫描有变更的<code>jar</code>包。因此，才能做到编译速度大幅提升。<br>
+<h2 id="改动二编译缓存">改动二：编译缓存</h2>
+
+<p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，所有编译均采用增量编译，且不再依赖<code class="language-plaintext highlighter-rouge">Gradle</code>的增量配置，所有增量均由框架内部实现，每次编译时会校验编译<code class="language-plaintext highlighter-rouge">jar</code>包与缓存数据是否一致，如果不一致才会去扫描有变更的<code class="language-plaintext highlighter-rouge">jar</code>包。因此，才能做到编译速度大幅提升。 <br />
 缓存路径在：/app/build/therouter目录下。</p>
 
-<p><strong>注：编译缓存仅在<code>debug</code>模式才会启用，你需要在 <code>build.gradle</code> 中开启调试模式（见步骤一）</strong></p>
+<p><strong>注：编译缓存仅在<code class="language-plaintext highlighter-rouge">debug</code>模式才会启用，你需要在 <code class="language-plaintext highlighter-rouge">build.gradle</code> 中开启调试模式（见步骤一）</strong></p>
 
-<p><br><br>  </p>
+<p><br /><br /></p>
 
-<h2>改动三：默认服务提供者</h2>
+<h2 id="改动三默认服务提供者">改动三：默认服务提供者</h2>
 
-<p>老版本的<code>TheRouter</code>，如果使用了一个不存在<code>ServiceProvider</code>的<code>Service</code>接口时，会默认创建一个接口的空实现类来避免空指针。但实际应用起来发现，并不能降低空指针的概率，反倒将原本应该在开发阶段就发现的问题延到了线上才发现。<br>
-从<code>1.2.3-rc1</code>开始，如果没有声明<code>@ServiceProvider</code>的接口，调用<code>TheRouter.get()</code>时，将会直接返回<code>null</code>。   </p>
+<p>老版本的<code class="language-plaintext highlighter-rouge">TheRouter</code>，如果使用了一个不存在<code class="language-plaintext highlighter-rouge">ServiceProvider</code>的<code class="language-plaintext highlighter-rouge">Service</code>接口时，会默认创建一个接口的空实现类来避免空指针。但实际应用起来发现，并不能降低空指针的概率，反倒将原本应该在开发阶段就发现的问题延到了线上才发现。 <br />
+从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>开始，如果没有声明<code class="language-plaintext highlighter-rouge">@ServiceProvider</code>的接口，调用<code class="language-plaintext highlighter-rouge">TheRouter.get()</code>时，将会直接返回<code class="language-plaintext highlighter-rouge">null</code>。</p>
 
-<p><br><br>  </p>
+<p><br /><br /></p>
 
-<h2>改动四：优化 KSP 编译速度</h2>
+<h2 id="改动四优化-ksp-编译速度">改动四：优化 KSP 编译速度</h2>
 
-<p>从<code>1.2.3-rc1</code>版本开始，使用<code>KSP</code>处理注解也支持增量编译了。二次编译时，不会再次遍历全部类，而是只处理变更文件。<br>
+<p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，使用<code class="language-plaintext highlighter-rouge">KSP</code>处理注解也支持增量编译了。二次编译时，不会再次遍历全部类，而是只处理变更文件。 <br />
 本优化由 <a href="https://github.com/hust-twj"><strong>@hust-twj</strong></a> 提供，详情查看：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/pull/184">https://github.com/HuolalaTech/hll-wp-therouter-android/pull/184</a></p>
 
-<p>使用前，需要在<code>gradle.properties</code>内开启 KSP 的增量编译。  </p>
-<div class="highlight"><pre><code class="language-" data-lang="">ksp.incremental=true
+<p>使用前，需要在<code class="language-plaintext highlighter-rouge">gradle.properties</code>内开启 KSP 的增量编译。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ksp.incremental=true
 ksp.incremental.log=true
 ksp.incremental.intermodule=true
-</code></pre></div>
-<p><br><br></p>
+</code></pre></div></div>
 
-<h2>改动五：不再兼容AGP4</h2>
+<p><br /><br /></p>
 
-<p>由于使用了<code>1.9.21-1.0.16</code>版本的KSP（已经是能支持增量编译的最低版本），必须将Kotlin版本也升级到<code>1.9.21</code>，因此无法再兼容<code>AGP4</code>的编译。<br>
-推荐你采用项目demo一致的 Gradle 版本号和 AGP 版本号。   </p>
+<h2 id="改动五不再兼容agp4">改动五：不再兼容AGP4</h2>
 
-<p>Gradle Version：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/gradle/wrapper/gradle-wrapper.properties">https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/gradle/wrapper/gradle-wrapper.properties</a><br>
-AGP Version：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/build.gradle">https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/build.gradle</a>    </p>
+<p>由于使用了<code class="language-plaintext highlighter-rouge">1.9.21-1.0.16</code>版本的KSP（已经是能支持增量编译的最低版本），必须将Kotlin版本也升级到<code class="language-plaintext highlighter-rouge">1.9.21</code>，因此无法再兼容<code class="language-plaintext highlighter-rouge">AGP4</code>的编译。   <br />
+推荐你采用项目demo一致的 Gradle 版本号和 AGP 版本号。</p>
 
-<p><br></p>
+<p>Gradle Version：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/gradle/wrapper/gradle-wrapper.properties">https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/gradle/wrapper/gradle-wrapper.properties</a> <br />
+AGP Version：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/build.gradle">https://github.com/HuolalaTech/hll-wp-therouter-android/blob/dev/build.gradle</a></p>
+
+<p><br /></p>
+
+<h2 id="改动六agp8-编译提速">改动六：AGP8 编译提速</h2>
+
+<p>老版本的 TheRouter 采用了 Gradle 标准 API，在插件内会将所有的 jar 和 class 聚合成一个，造成编译速度非常慢。</p>
+
+<p>新版本采用了一个全新的方案，在标准 API 的基础上，最大幅度降低了编译耗时，但是首次编译或每次新增删除模块的时候，都需要重写构建一次。</p>
+
+<p>详细方案请见：  <a href="https://kymjs.com/code/2024/10/31/01/">https://kymjs.com/code/2024/10/31/01/</a></p>
+
+<p><br /></p>
 
 	</div>
   

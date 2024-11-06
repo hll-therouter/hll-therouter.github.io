@@ -83,25 +83,26 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<p><img src="/assets/img/image/hll.png" class="blog-img"/></p>
+		<p><img src="/assets/img/image/hll.png" class="blog-img" /></p>
 
-<h3>功能介绍</h3>
+<h3 id="功能介绍">功能介绍</h3>
 
-<p>TheRouter 核心功能具备四大能力：  </p>
+<p>TheRouter 核心功能具备四大能力：</p>
 
 <ul>
-<li> 页面导航跳转能力（<a href="https://therouter.cn/docs/2022/08/28/01">Navigator</a>） 页面跳转能力介绍 </li>
-<li> 跨模块依赖注入能力（<a href="https://therouter.cn/docs/2022/08/27/01">ServiceProvider</a>）跨模块依赖注入 </li>
-<li> 单模块自动初始化能力 （<a href="https://therouter.cn/docs/2022/08/26/01">FlowTaskExecutor</a>）单模块自动初始化能力介绍 </li>
-<li> 动态化能力 (<a href="https://therouter.cn/docs/2022/08/25/01">ActionManager</a>) 动态化能力支持 </li>
+  <li>页面导航跳转能力（<a href="https://therouter.cn/docs/2022/08/28/01">Navigator</a>） 页面跳转能力介绍</li>
+  <li>跨模块依赖注入能力（<a href="https://therouter.cn/docs/2022/08/27/01">ServiceProvider</a>）跨模块依赖注入</li>
+  <li>单模块自动初始化能力 （<a href="https://therouter.cn/docs/2022/08/26/01">FlowTaskExecutor</a>）单模块自动初始化能力介绍</li>
+  <li>动态化能力 (<a href="https://therouter.cn/docs/2022/08/25/01">ActionManager</a>) 动态化能力支持</li>
 </ul>
 
-<h3>一、快速上手</h3>
+<h3 id="一快速上手">一、快速上手</h3>
 
-<h4>1.1 Gradle 引入</h4>
+<h4 id="11-gradle-引入">1.1 Gradle 引入</h4>
 
 <p>最新版本号，请访问：(<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">github/releases</a>)</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 项目根目录 build.gradle 引入</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 项目根目录 build.gradle 引入</span>
 <span class="n">classpath</span> <span class="err">'</span><span class="n">cn</span><span class="o">.</span><span class="na">therouter</span><span class="o">:</span><span class="nl">plugin:</span><span class="mf">1.2</span><span class="o">.</span><span class="mi">2</span><span class="err">'</span>
 
 <span class="c1">// app module 中引入</span>
@@ -110,67 +111,75 @@
 <span class="c1">// 依赖</span>
 <span class="n">kapt</span> <span class="s">"cn.therouter:apt:1.2.2"</span>
 <span class="n">implementation</span> <span class="s">"cn.therouter:router:1.2.2"</span>
-</code></pre></div>
-<h4>1.2 初始化</h4>
+</code></pre></div></div>
 
-<p>框架内部包含自动初始化功能，详见<a href="https://therouter.cn/docs/2022/08/26/01">单模块自动初始化能力</a><br>
-无需任何初始化代码。但推荐你根据业务设置否为<code>Debug</code>环境，用以查看日志信息。<br>
-<code>Application.attachBaseContext()</code> 方法中尽可能早设置当前是否为<code>Debug</code>环境。  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
-<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">attachBaseContext</span><span class="o">(</span><span class="n">Context</span> <span class="n">base</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">TheRouter</span><span class="o">.</span><span class="na">setDebug</span><span class="o">(</span><span class="kc">true</span> <span class="n">or</span> <span class="kc">false</span><span class="o">);</span>
+<h4 id="12-初始化">1.2 初始化</h4>
+
+<p>框架内部包含自动初始化功能，详见<a href="https://therouter.cn/docs/2022/08/26/01">单模块自动初始化能力</a><br />
+无需任何初始化代码。但推荐你根据业务设置否为<code class="language-plaintext highlighter-rouge">Debug</code>环境，用以查看日志信息。<br />
+<code class="language-plaintext highlighter-rouge">Application.attachBaseContext()</code> 方法中尽可能早设置当前是否为<code class="language-plaintext highlighter-rouge">Debug</code>环境。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">attachBaseContext</span><span class="o">(</span><span class="nc">Context</span> <span class="n">base</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">setDebug</span><span class="o">(</span><span class="kc">true</span> <span class="n">or</span> <span class="kc">false</span><span class="o">);</span>
     <span class="kd">super</span><span class="o">.</span><span class="na">attachBaseContext</span><span class="o">(</span><span class="n">base</span><span class="o">);</span>  
 <span class="o">}</span>
-</code></pre></div>
-<h4>1.3 页面参数注入</h4>
+</code></pre></div></div>
 
-<p>在<code>Activity</code> 或 <code>Fragment</code> 的 <code>onCreate()</code>方法中调用，建议直接在<code>BaseActivity(BaseFragment)</code>中做    </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
-<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+<h4 id="13-页面参数注入">1.3 页面参数注入</h4>
+
+<p>在<code class="language-plaintext highlighter-rouge">Activity</code> 或 <code class="language-plaintext highlighter-rouge">Fragment</code> 的 <code class="language-plaintext highlighter-rouge">onCreate()</code>方法中调用，建议直接在<code class="language-plaintext highlighter-rouge">BaseActivity(BaseFragment)</code>中做</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-    <span class="n">TheRouter</span><span class="o">.</span><span class="na">inject</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">inject</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
-<h4>1.4 页面跳转</h4>
+</code></pre></div></div>
 
-<p>关于注解<code>@Route</code>的参数含义，请查看文档：<a href="https://therouter.cn/docs/2022/08/28/01">页面导航跳转能力</a></p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Route</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"http://therouter.com/home"</span><span class="o">,</span> <span class="n">action</span> <span class="o">=</span> <span class="s">"action://scheme.com"</span><span class="o">,</span>
+<h4 id="14-页面跳转">1.4 页面跳转</h4>
+
+<p>关于注解<code class="language-plaintext highlighter-rouge">@Route</code>的参数含义，请查看文档：<a href="https://therouter.cn/docs/2022/08/28/01">页面导航跳转能力</a></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Route</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"http://therouter.com/home"</span><span class="o">,</span> <span class="n">action</span> <span class="o">=</span> <span class="s">"action://scheme.com"</span><span class="o">,</span>
         <span class="n">description</span> <span class="o">=</span> <span class="s">"第二个页面"</span><span class="o">,</span> <span class="n">params</span> <span class="o">=</span> <span class="o">{</span><span class="s">"hello"</span><span class="o">,</span> <span class="s">"world"</span><span class="o">})</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeActivity</span> <span class="kd">extends</span> <span class="n">BaseActivity</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeActivity</span> <span class="kd">extends</span> <span class="nc">BaseActivity</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-        <span class="n">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"要跳转的目标页Path"</span><span class="o">)</span>
+        <span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"要跳转的目标页Path"</span><span class="o">)</span>
             <span class="o">.</span><span class="na">withInt</span><span class="o">(</span><span class="s">"intValue"</span><span class="o">,</span> <span class="mi">12345678</span><span class="o">)</span> <span class="c1">// 传 int 值</span>
             <span class="o">.</span><span class="na">withString</span><span class="o">(</span><span class="s">"str_123_Value"</span><span class="o">,</span> <span class="s">"传中文字符串"</span><span class="o">)</span>
             <span class="o">.</span><span class="na">withBoolean</span><span class="o">(</span><span class="s">"boolValue"</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span> 
             <span class="o">.</span><span class="na">withLong</span><span class="o">(</span><span class="s">"longValue"</span><span class="o">,</span> <span class="mi">123456789012345L</span><span class="o">)</span>
             <span class="o">.</span><span class="na">withChar</span><span class="o">(</span><span class="s">"charValue"</span><span class="o">,</span> <span class="sc">'c'</span><span class="o">)</span> 
             <span class="o">.</span><span class="na">withDouble</span><span class="o">(</span><span class="s">"double"</span><span class="o">,</span> <span class="mf">3.14159265358972</span><span class="o">)</span>
-            <span class="o">.</span><span class="na">withFloat</span><span class="o">(</span><span class="s">"floatValue"</span><span class="o">,</span> <span class="mf">3.14159265358972</span><span class="n">F</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">withFloat</span><span class="o">(</span><span class="s">"floatValue"</span><span class="o">,</span> <span class="mf">3.14159265358972</span><span class="no">F</span><span class="o">)</span>
             <span class="o">.</span><span class="na">navigation</span><span class="o">();</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<h3>二、编译器配置</h3>
+</code></pre></div></div>
 
-<p>可在<code>local.properties</code>配置编译期属性（warning输出日志，error直接报错）<br>
-从 <code>1.2.3-rc1</code>版本开始，编译器配置已经迁移到<code>build.gradle</code>中，具体请查看：<a href="https://therouter.cn/docs/2024/07/22/01">1.2.3版本编译改动</a>  </p>
+<h3 id="二编译器配置">二、编译器配置</h3>
+
+<p>可在<code class="language-plaintext highlighter-rouge">local.properties</code>配置编译期属性（warning输出日志，error直接报错）<br />
+从 <code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，编译器配置已经迁移到<code class="language-plaintext highlighter-rouge">build.gradle</code>中，具体请查看：<a href="https://therouter.cn/docs/2024/07/22/01">1.2.3版本编译改动</a></p>
 
 <ul>
-<li><strong>增量编译开关</strong><br>
-开启增量编译能大幅加快编译速度，但在删除旧代码时，可能需要clean后重新编译，否则会报错。<br>
-<code>THEROUTER_OPEN_INCREMENTAL=true</code> （true/false可选，默认是false）<br></li>
-<li><strong>路由表未知<code>Activity</code>检测</strong><br>
-路由表中如果声明了一个不存在的<code>Activity</code>，通常是因为旧代码删除时忘记清理路由表了，这里可选报错或警告，提供参考。<br>
-<code>CHECK_ROUTE_MAP=warning</code> （warning/error可选，不加则不会执行检测）</li>
-<li><strong>初始化任务未知依赖检查</strong><br>
-<code>@FlowTask</code>的<code>dependsOn</code>参数声明了一个不存在的任务，通常情况下是由于任务名书写错误，建议设置为error，尽早在编译期发现问题。
-<code>CHECK_FLOW_UNKNOW_DEPEND=warning</code> （warning/error可选，不加则不会执行检测）</li>
+  <li><strong>增量编译开关</strong><br />
+开启增量编译能大幅加快编译速度，但在删除旧代码时，可能需要clean后重新编译，否则会报错。<br />
+<code class="language-plaintext highlighter-rouge">THEROUTER_OPEN_INCREMENTAL=true</code> （true/false可选，默认是false）</li>
+  <li><strong>路由表未知<code class="language-plaintext highlighter-rouge">Activity</code>检测</strong><br />
+路由表中如果声明了一个不存在的<code class="language-plaintext highlighter-rouge">Activity</code>，通常是因为旧代码删除时忘记清理路由表了，这里可选报错或警告，提供参考。<br />
+ <code class="language-plaintext highlighter-rouge">CHECK_ROUTE_MAP=warning</code> （warning/error可选，不加则不会执行检测）</li>
+  <li><strong>初始化任务未知依赖检查</strong><br />
+<code class="language-plaintext highlighter-rouge">@FlowTask</code>的<code class="language-plaintext highlighter-rouge">dependsOn</code>参数声明了一个不存在的任务，通常情况下是由于任务名书写错误，建议设置为error，尽早在编译期发现问题。
+<code class="language-plaintext highlighter-rouge">CHECK_FLOW_UNKNOW_DEPEND=warning</code> （warning/error可选，不加则不会执行检测）</li>
 </ul>
 
-<h3>三、混淆配置</h3>
-<div class="highlight"><pre><code class="language-" data-lang=""># 如果使用了 Fragment 路由，需要保证类名不被混淆
+<h3 id="三混淆配置">三、混淆配置</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 如果使用了 Fragment 路由，需要保证类名不被混淆
 # -keep public class * extends android.app.Fragment
 # -keep public class * extends androidx.fragment.app.Fragment
 # -keep public class * extends android.support.v4.app.Fragment
@@ -192,28 +201,30 @@
 -keepclasseswithmembers class * {
     @com.therouter.router.Autowired &lt;fields&gt;;
 }
-</code></pre></div>
-<h3>四、从其他路由迁移至 TheRouter</h3>
+</code></pre></div></div>
 
-<h4>4.1 迁移工具一键迁移</h4>
+<h3 id="四从其他路由迁移至-therouter">四、从其他路由迁移至 TheRouter</h3>
+
+<h4 id="41-迁移工具一键迁移">4.1 迁移工具一键迁移</h4>
 
 <p>可使用迁移工具一键迁移：</p>
 
 <ul>
-<li>Mac OS 迁移工具：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Mac.zip">https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Mac.zip</a></li>
-<li>Windows 迁移工具：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Windows.zip">https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Windows.zip</a></li>
+  <li>Mac OS 迁移工具：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Mac.zip">https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Mac.zip</a></li>
+  <li>Windows 迁移工具：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Windows.zip">https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Windows.zip</a></li>
 </ul>
 
-<p>如果项目中使用了<code>ARouter</code>的<code>IProvider.init()</code>方法，可能需要手动处理初始化逻辑。</p>
+<p>如果项目中使用了<code class="language-plaintext highlighter-rouge">ARouter</code>的<code class="language-plaintext highlighter-rouge">IProvider.init()</code>方法，可能需要手动处理初始化逻辑。</p>
 
 <p>如下图：</p>
 
-<p><img src="/assets/img/image/TheRouterTransfer.png" class="blog-img"/></p>
+<p><img src="/assets/img/image/TheRouterTransfer.png" class="blog-img" /></p>
 
-<h3>五、源码运行与调试</h3>
+<h3 id="五源码运行与调试">五、源码运行与调试</h3>
 
-<h4>5.1 工程模块描述</h4>
-<div class="highlight"><pre><code class="language-" data-lang="">TheRouter
+<h4 id="51-工程模块描述">5.1 工程模块描述</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TheRouter
   ├─app
   │   └──代码使用示例Demo
   ├─business-a
@@ -228,24 +239,26 @@
   │   └──编译期 Gradle 插件源码
   └─router
       └──路由库核心代码
-</code></pre></div>
-<h4>5.2 项目运行</h4>
+</code></pre></div></div>
+
+<h4 id="52-项目运行">5.2 项目运行</h4>
 
 <ol>
-<li>打开<code>local.properties</code>，声明你想要调试的模块
-例如希望源码调试<code>apt</code>模块，则声明<code>apt=true</code>即可</li>
-<li> 同步 Gradle 变更</li>
+  <li>打开<code class="language-plaintext highlighter-rouge">local.properties</code>，声明你想要调试的模块
+ 例如希望源码调试<code class="language-plaintext highlighter-rouge">apt</code>模块，则声明<code class="language-plaintext highlighter-rouge">apt=true</code>即可</li>
+  <li>同步 Gradle 变更</li>
 </ol>
 
-<h4>5.3 plugin 源码调试</h4>
+<h4 id="53-plugin-源码调试">5.3 plugin 源码调试</h4>
 
-<p><code>plugin</code>调试比较特殊，需要修改<code>module</code>名。</p>
+<p><code class="language-plaintext highlighter-rouge">plugin</code>调试比较特殊，需要修改<code class="language-plaintext highlighter-rouge">module</code>名。</p>
 
 <ol>
-<li>修改<code>plugin</code>文件夹名为<code>buildSrc</code>（注意大小写）</li>
-<li>注释根目录<code>build.gradle</code>中的<code>classpath</code>引用（不需要了）</li>
-<li>同步 Gradle 变更</li>
+  <li>修改<code class="language-plaintext highlighter-rouge">plugin</code>文件夹名为<code class="language-plaintext highlighter-rouge">buildSrc</code>（注意大小写）</li>
+  <li>注释根目录<code class="language-plaintext highlighter-rouge">build.gradle</code>中的<code class="language-plaintext highlighter-rouge">classpath</code>引用（不需要了）</li>
+  <li>同步 Gradle 变更</li>
 </ol>
+
 
 	</div>
   
@@ -311,7 +324,7 @@
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">2 mins</small>
+            <small class="text-muted">3 mins</small>
           </div>
         </div>
       </div>

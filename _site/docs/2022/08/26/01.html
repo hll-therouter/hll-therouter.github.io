@@ -84,120 +84,124 @@
 <div class="container">
 	<div class="blog-post">
 		<ul>
-<li>支持单模块独立初始化</li>
-<li>支持懒加载初始化</li>
-<li>独立初始化允许多任务依赖(参考Gradle Task)</li>
-<li>支持编译期循环引用检测</li>
-<li>支持自定义业务初始化时机</li>
+  <li>支持单模块独立初始化</li>
+  <li>支持懒加载初始化</li>
+  <li>独立初始化允许多任务依赖(参考Gradle Task)</li>
+  <li>支持编译期循环引用检测</li>
+  <li>支持自定义业务初始化时机</li>
 </ul>
 
-<p><strong>常用场景</strong>：模块化开发时，可能每个模块都有自己需要初始化的一些代码。以前的做法是把这些代码都在<code>Application</code>里声明，但是这样可能随着业务变动每次都需要修改<code>Application</code>所在模块。<code>TheRouter</code>的单模块自动初始化能力就是为了解决这样的情况，可以只在当前模块声明初始化方法后，将会在业务场景时自动被调用。  </p>
+<p><strong>常用场景</strong>：模块化开发时，可能每个模块都有自己需要初始化的一些代码。以前的做法是把这些代码都在<code class="language-plaintext highlighter-rouge">Application</code>里声明，但是这样可能随着业务变动每次都需要修改<code class="language-plaintext highlighter-rouge">Application</code>所在模块。<code class="language-plaintext highlighter-rouge">TheRouter</code>的单模块自动初始化能力就是为了解决这样的情况，可以只在当前模块声明初始化方法后，将会在业务场景时自动被调用。</p>
 
-<h2>使用介绍</h2>
+<h2 id="使用介绍">使用介绍</h2>
 
-<p>无需担心循环依赖造成的问题，框架会在编译期构建<code>有向无环图</code>，监测循环依赖情况，如果发现会在编译期直接报错。  </p>
+<p>无需担心循环依赖造成的问题，框架会在编译期构建<code class="language-plaintext highlighter-rouge">有向无环图</code>，监测循环依赖情况，如果发现会在编译期直接报错。</p>
 
-<p>所有的<code>Task</code>在同一个进程内只会被调用一次，如果你有<code>Task</code>需要被多次调用，可以使用<code>ActionManager</code>处理，相关文档请见：<a href="https://therouter.cn/docs/2022/08/25/01">https://therouter.cn/docs/2022/08/25/01</a>   </p>
+<p>所有的<code class="language-plaintext highlighter-rouge">Task</code>在同一个进程内只会被调用一次，如果你有<code class="language-plaintext highlighter-rouge">Task</code>需要被多次调用，可以使用<code class="language-plaintext highlighter-rouge">ActionManager</code>处理，相关文档请见：<a href="https://therouter.cn/docs/2022/08/25/01">https://therouter.cn/docs/2022/08/25/01</a></p>
 
-<p>可以在当前模块中，任意类中声明一个任意方法名的方法，给方法添加上<code>@FlowTask</code> 的注解即可。  </p>
+<p>可以在当前模块中，任意类中声明一个任意方法名的方法，给方法添加上<code class="language-plaintext highlighter-rouge">@FlowTask</code> 的注解即可。</p>
 
-<p><code>@FlowTask</code> 注解参数说明：  </p>
+<p><code class="language-plaintext highlighter-rouge">@FlowTask</code> 注解参数说明：</p>
 
 <ul>
-<li><strong>taskName</strong>：当前初始化任务的任务名，必须全局唯一，建议格式为：<code>moduleName_taskName</code></li>
-<li><strong>dependsOn</strong>：参考<code>Gradle</code> Task，任务与任务之间可能会有依赖关系。如果当前任务需要依赖其他任务先初始化，则在这里声明依赖的任务名。可以同时依赖多个任务，用英文逗号分隔，空格可选，会被过滤：dependsOn = &quot;mmkv, config, login&quot;，默认为空，应用启动就被调用。注：<code>dependsOn</code>只能保证<code>task</code>是在依赖任务之后执行，由于内部逻辑都是在异步线程操作，取决于线程切换，并不一定是立刻执行。 </li>
-<li><strong>async</strong>：是否要在异步执行此任务，默认false。<br></li>
+  <li><strong>taskName</strong>：当前初始化任务的任务名，必须全局唯一，建议格式为：<code class="language-plaintext highlighter-rouge">moduleName_taskName</code></li>
+  <li><strong>dependsOn</strong>：参考<code class="language-plaintext highlighter-rouge">Gradle</code> Task，任务与任务之间可能会有依赖关系。如果当前任务需要依赖其他任务先初始化，则在这里声明依赖的任务名。可以同时依赖多个任务，用英文逗号分隔，空格可选，会被过滤：dependsOn = “mmkv, config, login”，默认为空，应用启动就被调用。注：<code class="language-plaintext highlighter-rouge">dependsOn</code>只能保证<code class="language-plaintext highlighter-rouge">task</code>是在依赖任务之后执行，由于内部逻辑都是在异步线程操作，取决于线程切换，并不一定是立刻执行。</li>
+  <li><strong>async</strong>：是否要在异步执行此任务，默认false。</li>
 </ul>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * 将会在异步执行
  */</span>
-<span class="nd">@FlowTask</span><span class="o">(</span><span class="n">taskName</span> <span class="o">=</span> <span class="s">"mmkv_init"</span><span class="o">,</span> <span class="n">dependsOn</span> <span class="o">=</span> <span class="n">TheRouterFlowTask</span><span class="o">.</span><span class="na">THEROUTER_INITIALIZATION</span><span class="o">,</span> <span class="n">async</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"异步=========Application onCreate后执行"</span><span class="o">);</span>
+<span class="nd">@FlowTask</span><span class="o">(</span><span class="n">taskName</span> <span class="o">=</span> <span class="s">"mmkv_init"</span><span class="o">,</span> <span class="n">dependsOn</span> <span class="o">=</span> <span class="nc">TheRouterFlowTask</span><span class="o">.</span><span class="na">THEROUTER_INITIALIZATION</span><span class="o">,</span> <span class="n">async</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"异步=========Application onCreate后执行"</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="nd">@FlowTask</span><span class="o">(</span><span class="n">taskName</span> <span class="o">=</span> <span class="s">"app1"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"main线程=========应用启动就会执行"</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"main线程=========应用启动就会执行"</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="cm">/**
  * 将会在主线程初始化
  */</span>
 <span class="nd">@FlowTask</span><span class="o">(</span><span class="n">taskName</span> <span class="o">=</span> <span class="s">"test"</span><span class="o">,</span> <span class="n">dependsOn</span> <span class="o">=</span> <span class="s">"mmkv,app1"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"main线程=========在app1和mmkv两个任务都执行以后才会被执行"</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"main线程=========在app1和mmkv两个任务都执行以后才会被执行"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
-<h2>内置初始化节点</h2>
+</code></pre></div></div>
+
+<h2 id="内置初始化节点">内置初始化节点</h2>
 
 <p>框架默认支持了部分生命周期类任务，可在使用时直接引用</p>
 
 <ul>
-<li>TheRouterFlowTask.APP_ONCREATE：(已废弃，所有Task默认就是在onCreate()时执行的，预计在1.1.4版本删除)</li>
-<li><strong>TheRouterFlowTask.APP_ONSPLASH</strong>：当应用的首个<code>Activity.onCreate()</code>执行后初始化</li>
-<li><strong>TheRouterFlowTask. BEFORE_THEROUTER _INITIALIZATION</strong>：当应用启动后，在TheRouter初始化之前，执行任务。此任务不能设置异步执行，考虑使用场景比较小众，支持会复杂，不如直接手动初始化路由。(1.1.1-rc2版本新增)<br></li>
-<li><strong>TheRouterFlowTask.THEROUTER_INITIALIZATION</strong>：当TheRouter初始化后，执行相关依赖任务。(1.1.2-rc6版本新增)<br></li>
+  <li>TheRouterFlowTask.APP_ONCREATE：(已废弃，所有Task默认就是在onCreate()时执行的，预计在1.1.4版本删除)</li>
+  <li><strong>TheRouterFlowTask.APP_ONSPLASH</strong>：当应用的首个<code class="language-plaintext highlighter-rouge">Activity.onCreate()</code>执行后初始化</li>
+  <li><strong>TheRouterFlowTask. BEFORE_THEROUTER _INITIALIZATION</strong>：当应用启动后，在TheRouter初始化之前，执行任务。此任务不能设置异步执行，考虑使用场景比较小众，支持会复杂，不如直接手动初始化路由。(1.1.1-rc2版本新增)</li>
+  <li><strong>TheRouterFlowTask.THEROUTER_INITIALIZATION</strong>：当TheRouter初始化后，执行相关依赖任务。(1.1.2-rc6版本新增)</li>
 </ul>
 
-<h3>自定义业务节点初始化</h3>
+<h3 id="自定义业务节点初始化">自定义业务节点初始化</h3>
 
 <p>支持定义业务节点，例如<strong>隐私协议</strong>通过以后才初始化某些方法：</p>
 
-<p>事实上框架默认的两个生命周期任务也是通过这个能力完成的。  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 假设隐私协议任务名为：AgreePrivacyCache</span>
+<p>事实上框架默认的两个生命周期任务也是通过这个能力完成的。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 假设隐私协议任务名为：AgreePrivacyCache</span>
 
 <span class="cm">/**
  * 同意隐私协议后初始化录音SDK
  */</span>
  <span class="nd">@FlowTask</span><span class="o">(</span><span class="n">taskName</span><span class="o">=</span><span class="s">"initRecord"</span><span class="o">,</span> <span class="n">dependsOn</span><span class="o">=</span><span class="s">"AgreePrivacyCache"</span><span class="o">)</span>
- <span class="n">fun</span> <span class="nf">init</span><span class="o">(</span><span class="nl">context:</span><span class="n">Context</span><span class="o">)</span> <span class="o">=</span> <span class="n">initRecordAudioSDK</span><span class="o">()</span>
+ <span class="n">fun</span> <span class="nf">init</span><span class="o">(</span><span class="nl">context:</span><span class="nc">Context</span><span class="o">)</span> <span class="o">=</span> <span class="n">initRecordAudioSDK</span><span class="o">()</span>
 
 <span class="c1">// 当用户同意隐私协议时，调度依赖隐私协议的所有任务执行</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">runTask</span><span class="o">(</span><span class="s">"AgreePrivacyCache"</span><span class="o">)</span>
-</code></pre></div>
-<h3>编译期配置</h3>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">runTask</span><span class="o">(</span><span class="s">"AgreePrivacyCache"</span><span class="o">)</span>
+</code></pre></div></div>
 
-<p>*<em>从 <code>1.2.3-rc1</code>版本开始，编译器配置已经迁移到<code>build.gradle</code>中，具体请查看：<a href="https://therouter.cn/docs/2024/07/22/01">1.2.3版本编译改动</a> *</em>  </p>
+<h3 id="编译期配置">编译期配置</h3>
+
+<p>**从 <code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，编译器配置已经迁移到<code class="language-plaintext highlighter-rouge">build.gradle</code>中，具体请查看：<a href="https://therouter.cn/docs/2024/07/22/01">1.2.3版本编译改动</a> **</p>
 
 <ol>
-<li><code>@FlowTask</code>的<code>dependsOn</code>参数声明了一个不存在的任务，通常情况下是由于任务名书写错误，建议设置为<code>error</code>，尽早在编译期发现问题。
-可在<code>local.properties</code>配置编译期属性（warning输出日志，error直接报错）</li>
+  <li><code class="language-plaintext highlighter-rouge">@FlowTask</code>的<code class="language-plaintext highlighter-rouge">dependsOn</code>参数声明了一个不存在的任务，通常情况下是由于任务名书写错误，建议设置为<code class="language-plaintext highlighter-rouge">error</code>，尽早在编译期发现问题。
+可在<code class="language-plaintext highlighter-rouge">local.properties</code>配置编译期属性（warning输出日志，error直接报错）</li>
 </ol>
 
 <ul>
-<li> <code>CHECK_FLOW_UNKNOW_DEPEND=warning</code> warning/error可选</li>
+  <li><code class="language-plaintext highlighter-rouge">CHECK_FLOW_UNKNOW_DEPEND=warning</code> warning/error可选</li>
 </ul>
 
-<p>2 . 在编译期，如果想知道当前APP中，总共有哪些<code>FlowTask</code>，他们之间的依赖关系是怎样的，可以通过在<code>local.properties</code>配置编译期属性即可。  </p>
+<p>2 . 在编译期，如果想知道当前APP中，总共有哪些<code class="language-plaintext highlighter-rouge">FlowTask</code>，他们之间的依赖关系是怎样的，可以通过在<code class="language-plaintext highlighter-rouge">local.properties</code>配置编译期属性即可。</p>
 
 <ul>
-<li>   <code>SHOW_FLOW_DEPEND=true</code><br></li>
+  <li><code class="language-plaintext highlighter-rouge">SHOW_FLOW_DEPEND=true</code></li>
 </ul>
 
 <p>编译效果如下图所示：</p>
 
-<p><img src="https://s1.ax1x.com/2022/12/05/zyBye1.jpg" class="blog-post" alt="TheRouter FlowTask"> </p>
+<p><img src="https://s1.ax1x.com/2022/12/05/zyBye1.jpg" class="blog-post" alt="TheRouter FlowTask" /></p>
 
-<h2>初始化方法的限制</h2>
+<h2 id="初始化方法的限制">初始化方法的限制</h2>
 
-<p>标注<code>FlowTask</code>的方法需要遵循如下限制：</p>
+<p>标注<code class="language-plaintext highlighter-rouge">FlowTask</code>的方法需要遵循如下限制：</p>
 
 <ul>
-<li>如果是 java，方法必须是 public static 修饰</li>
-<li>如果是 kotlin，建议写成 top level 的函数</li>
-<li>参数有且必须只有<code>Context</code>，入参为<code>Application</code></li>
+  <li>如果是 java，方法必须是 public static 修饰</li>
+  <li>如果是 kotlin，建议写成 top level 的函数</li>
+  <li>参数有且必须只有<code class="language-plaintext highlighter-rouge">Context</code>，入参为<code class="language-plaintext highlighter-rouge">Application</code></li>
 </ul>
 
-<h2>实现原理</h2>
+<h2 id="实现原理">实现原理</h2>
 
-<p>每个加了 <code>@FlowTask</code> 注解的方法，都会在编译期被解析，生成一个对应的 <code>Task</code> 对象，这个对象包含了初始化方法的相关信息，比如：是否异步执行、任务名、是否依赖其他任务先执行。   </p>
+<p>每个加了 <code class="language-plaintext highlighter-rouge">@FlowTask</code> 注解的方法，都会在编译期被解析，生成一个对应的 <code class="language-plaintext highlighter-rouge">Task</code> 对象，这个对象包含了初始化方法的相关信息，比如：是否异步执行、任务名、是否依赖其他任务先执行。</p>
 
-<p>当所有aar都编译完成，生成好全部的 <code>Task</code> 以后，会在主 app 中通过<code>Gradle</code>插件进行聚合，在这时会将所有的 <code>Task</code> 做一次检查，通过构建<code>有向无环图</code>来防止 <code>Task</code> 发生循环引用的情况。  </p>
+<p>当所有aar都编译完成，生成好全部的 <code class="language-plaintext highlighter-rouge">Task</code> 以后，会在主 app 中通过<code class="language-plaintext highlighter-rouge">Gradle</code>插件进行聚合，在这时会将所有的 <code class="language-plaintext highlighter-rouge">Task</code> 做一次检查，通过构建<code class="language-plaintext highlighter-rouge">有向无环图</code>来防止 <code class="language-plaintext highlighter-rouge">Task</code> 发生循环引用的情况。</p>
 
-<p>每次应用启动后，会在路由初始化时，将有向图中的全部<code>Task</code>，按照依赖关系按顺序加载。  </p>
+<p>每次应用启动后，会在路由初始化时，将有向图中的全部<code class="language-plaintext highlighter-rouge">Task</code>，按照依赖关系按顺序加载。</p>
 
-<p><img src="https://x.imgs.ovh/x/2023/09/13/6501587f3cae4.png" class="blog-img"/></p>
+<p><img src="https://x.imgs.ovh/x/2023/09/13/6501587f3cae4.png" class="blog-img" /></p>
 
 	</div>
   

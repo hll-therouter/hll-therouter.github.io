@@ -110,20 +110,20 @@
 
         <font color="#666666"> 
           
-            如无法解决你的问题，建议登记应用，获取优先技术支持 https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57    
+            如无法解决你的问题，建议登记应用，获取优先技术支持 https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57
 
-问题列表不定期更新中...
+问题列表不定期更新中…
 
 
 
 Q1: 路由表不生成（或生成的代码有问题编译报错）
 
-(注：1.2.0-rc5版本已修复：KSP与ViewBinding共用不生成路由表的问题)  
+(注：1.2.0-rc5版本已修复：KSP与ViewBinding共用不生成路由表的问题)
 
-请按照以下步骤排查：   
+请按照以下步骤排查：
 
 
-plugin 加了吗？...
+  plugin 加了吗？plugin 必须...
            
         </font>
       </div>
@@ -212,7 +212,7 @@ plugin 加了吗？...
 
         <font color="#666666"> 
           
-            内容请见： 
+            内容请见：
 
 《为 TheRouter 的 AGP8 编译加个速》
 https://kymjs.com/code/2024/10/31/01/
@@ -249,14 +249,13 @@ https://kymjs.com/code/2024/10/31/01/
         <font color="#666666"> 
           
             背景
+从1.2.3-rc1版本开始，我们对TheRouter编译过程做了大量优化，同时适配了Gradle的4.x-8.x全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。
 
-从1.2.3-rc1版本开始，我们对TheRouter编译过程做了大量优化，同时适配了Gradle的4.x-8.x全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。   
 
-  
 
 改动一：编译期选项
 
-老版本的TheRouter提供了不少编译期选项，可以通过手动在local.properties或gradle.properties文件中配置。从1.2.3-rc1版本开始，这些配置全部迁移到了app modu...
+老版本的TheRouter提供了不少编译期选项，可以通过手动在local.properties或gradle.properties文件中配置。从1.2.3-rc1版本开始，这些配置全部迁移到了app module的 bu...
            
         </font>
       </div>
@@ -298,14 +297,14 @@ https://kymjs.com/code/2024/10/31/01/
 
         <font color="#666666"> 
           
-            TheRouter 在1.1.4-rc2开始，已经将KSP能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 KSP。  
+            TheRouter 在1.1.4-rc2开始，已经将KSP能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 KSP。
 
 什么是KSP
 
 KSP全称：Kotlin Symbol Processing。
-借助官网的描述：KSP 提供了一种基于 Kotlin 的轻量级的编译期插件 API，其编译速度最快可以达到 kapt 速度的两倍。    
+借助官网的描述：KSP 提供了一种基于 Kotlin 的轻量级的编译期插件 API，其编译速度最快可以达到 kapt 速度的两倍。
 
-从原理角度讲，Android项目构建过程中，可用的注解处理器总共有三种：A...
+从原理角度讲，Android项目构建过程中，可用的注解处理器总共有三种：APT、KAP...
            
         </font>
       </div>
@@ -369,9 +368,9 @@ KSP全称：Kotlin Symbol Processing。
 
         <font color="#666666"> 
           
-            TheRouter是货拉拉开源的路由框架，针对 Android 平台实现组件化、跨模块调用、动态化等功能的集成框架，基本上算当前最先进的路由库了。
-Github: https://github.com/HuolalaTech/hll-wp-therouter-android/
-官网：http://therouter.cn/  
+            TheRouter是货拉拉开源的路由框架，针对 Android 平台实现组件化、跨模块调用、动态化等功能的集成框架，基本上算当前最先进的路由库了。 
+Github: https://github.com/HuolalaTech/hll-wp-therouter-android/ 
+官网：http://therouter.cn/
 
 开始之前
 
@@ -407,24 +406,24 @@ Github: https://github.com/HuolalaTech/hll-wp-therouter-android/
 
         <font color="#666666"> 
           
-            开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。   
+            开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。
 
 
 
 下载插件
 
 
-打开 Android Studio -&gt; Preferences -&gt;  Plugins  -&gt; Marketplace
-搜索 TheRouter
-点击下载
-重启 Android Studio
+  打开 Android Studio -&gt; Preferences -&gt;  Plugins  -&gt; Marketplace
+  搜索 TheRouter
+  点击下载
+  重启 Android Studio
 
 
 
 
 一键迁移工具
 
-AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无需再次单独...
+AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无...
            
         </font>
       </div>
@@ -460,12 +459,12 @@ AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无需
 
 稳定版
 
-稳定版总是在main分支打包发布，最新的稳定版本就是main分支的最新代码。   
+稳定版总是在main分支打包发布，最新的稳定版本就是main分支的最新代码。
 
 你可以在 GitHub 的 releases 页面找到最新的稳定版本。
-https://github.com/HuolalaTech/hll-wp-therouter-android/releases  
+https://github.com/HuolalaTech/hll-wp-therouter-android/releases
 
-稳定版的版本号格式为x.y.z，最...
+稳定版的版本号格式为x.y.z，最新的稳定版...
            
         </font>
       </div>
@@ -497,13 +496,13 @@ https://github.com/HuolalaTech/hll-wp-therouter-android/releases
 
         <font color="#666666"> 
           
-            TheRouter提供了图形化界面的迁移工具，可以一键从其他路由迁移到TheRouter。
-全新迁移工具已集成到 AndroidStudio 开发插件中，可直接在AS插件市场下载，相关介绍请访问： https://therouter.cn/docs/2022/09/29/01  
+            TheRouter提供了图形化界面的迁移工具，可以一键从其他路由迁移到TheRouter。 
+全新迁移工具已集成到 AndroidStudio 开发插件中，可直接在AS插件市场下载，相关介绍请访问： https://therouter.cn/docs/2022/09/29/01
 
 旧版本图形界面可使用：1.1.1 (2022-10-09更新)
 
 
-Mac OS 迁移工具下载：https://github.com/HuolalaT...
+  Mac OS 迁移工具下载：https://github.com/Huolala...
            
         </font>
       </div>
@@ -536,14 +535,14 @@ Mac OS 迁移工具下载：https://github.com/HuolalaT...
         <font color="#666666"> 
           
             TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。
-Github 项目地址与使用文档详见 https://github.com/HuolalaTech/hll-wp-therouter-android。    
+Github 项目地址与使用文档详见 https://github.com/HuolalaTech/hll-wp-therouter-android。
 
-TheRouter 核心功能具备如下能力：    
+TheRouter 核心功能具备如下能力：
 
 
-页面导航跳转能力(Navigator)
-跨模块依赖注入能力(ServiceProvider)
-单模块自动初始化能...
+  页面导航跳转能力(Navigator)
+  跨模块依赖注入能力(ServiceProvider)
+  单模块自动初始化能力(...
            
         </font>
       </div>
@@ -575,7 +574,8 @@ TheRouter 核心功能具备如下能力：
 
         <font color="#666666"> 
           
-            文档已迁移，请访问：  https://therouter.cn/docs/2023/07/21/01   
+            文档已迁移，请访问：  https://therouter.cn/docs/2023/07/21/01
+
 
            
         </font>
@@ -612,20 +612,20 @@ TheRouter 核心功能具备如下能力：
 
 功能介绍
 
-TheRouter 核心功能具备四大能力：  
+TheRouter 核心功能具备四大能力：
 
 
- 页面导航跳转能力（Navigator） 页面跳转能力介绍 
- 跨模块依赖注入能力（ServiceProvider）跨模块依赖注入 
- 单模块自动初始化能力 （FlowTaskExecutor）单模块自动初始化能力介绍 
- 动态化能力 (ActionManager) 动态化能力支持 
+  页面导航跳转能力（Navigator） 页面跳转能力介绍
+  跨模块依赖注入能力（ServiceProvider）跨模块依赖注入
+  单模块自动初始化能力 （FlowTaskExecutor）单模块自动初始化能力介绍
+  动态化能力 (ActionManager) 动态化能力支持
 
 
 一、快速上手
 
 1.1 Gradle 引入
 
-最新版本号，请访问：(gith...
+最新版本号，请访问：(github...
            
         </font>
       </div>
@@ -657,21 +657,18 @@ TheRouter 核心功能具备四大能力：
 
         <font color="#666666"> 
           
-            路由可用于处理页面跳转  
+            路由可用于处理页面跳转
 
 
-支持 Activity 和 Fragment
-支持path与页面多对一关系或一对一关系
-页面Path支持正则表达式声明
-支持 json 格式路由表导出
-支持动态下发 json 路由表
-支持任意object跨模块传递（无需序列化，且能保证对象类型）
-支持页面跳转拦截处理
-支持自定义页面参数解析方式（例如将json解析为对象）
-支持使用路由跳转到第三方SDK中的Activity(Fragment)
-
-
-...
+  支持 Activity 和 Fragment
+  支持path与页面多对一关系或一对一关系
+  页面Path支持正则表达式声明
+  支持 json 格式路由表导出
+  支持动态下发 json 路由表
+  支持任意object跨模块传递（无需序列化，且能保证对象类型）
+  支持页面跳转拦截处理
+  支持自定义页面参数解析方式（例如将json解析为对象）
+  支持使用路由跳转到第三方SDK中的Activ...
            
         </font>
       </div>
@@ -703,13 +700,13 @@ TheRouter 核心功能具备四大能力：
 
         <font color="#666666"> 
           
-            模块化能力支持项：  
+            模块化能力支持项：
 
 
-支持跨模块依赖注入
-支持自定义注入项的创建规则，依赖注入可自定义参数
-支持自定义服务拦截，单模块mock调试
-支持注入对象缓存，多次注入 只会new一次对象
+  支持跨模块依赖注入
+  支持自定义注入项的创建规则，依赖注入可自定义参数
+  支持自定义服务拦截，单模块mock调试
+  支持注入对象缓存，多次注入 只会new一次对象
 
 
 1. 依赖注入
@@ -717,7 +714,7 @@ TheRouter 核心功能具备四大能力：
 用于跨模块通信使用，核心设计思想是参考了SOA(面向服务架构) 的设计方式。
 具体到 Android 侧就是 AIDL 类似的实现：
 例如当前有两个模块：A订单模块、B登录模块，下单需要获取用户信息。
-这个业务场景就是，A需要...
+这个业务场景...
            
         </font>
       </div>

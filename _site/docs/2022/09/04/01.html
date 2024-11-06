@@ -83,126 +83,129 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<p><code>TheRouter</code> 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。<br>
-Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android">https://github.com/HuolalaTech/hll-wp-therouter-android</a>。    </p>
+		<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。<br />
+Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android">https://github.com/HuolalaTech/hll-wp-therouter-android</a>。</p>
 
-<p>TheRouter 核心功能具备如下能力：    </p>
+<p>TheRouter 核心功能具备如下能力：</p>
 
 <ul>
-<li>页面导航跳转能力(Navigator)<br></li>
-<li>跨模块依赖注入能力(ServiceProvider)<br></li>
-<li>单模块自动初始化能力(FlowTaskExecutor)<br></li>
-<li>动态化能力(ActionManager)<br></li>
-<li>模块AAR/源码依赖一键切换脚本<br></li>
+  <li>页面导航跳转能力(Navigator)</li>
+  <li>跨模块依赖注入能力(ServiceProvider)</li>
+  <li>单模块自动初始化能力(FlowTaskExecutor)</li>
+  <li>动态化能力(ActionManager)</li>
+  <li>模块AAR/源码依赖一键切换脚本</li>
 </ul>
 
-<h3>一、为什么要使用 TheRouter</h3>
+<h3 id="一为什么要使用-therouter">一、为什么要使用 TheRouter</h3>
 
-<p>路由是现如今移动端开发中必不可少的功能，尤其是企业级APP，可以用于将<code>Intent</code>页面跳转的强依赖关系解耦，同时减少跨团队开发的互相依赖问题。   </p>
+<p>路由是现如今移动端开发中必不可少的功能，尤其是企业级APP，可以用于将<code class="language-plaintext highlighter-rouge">Intent</code>页面跳转的强依赖关系解耦，同时减少跨团队开发的互相依赖问题。</p>
 
-<p>对于大型 APP 开发，基本都会选用模块化(或组件化)方式开发，对于模块间解耦要求更高。 <code>TheRouter</code> 是一整套完全面向模块化开发的解决方案，不仅能支持常规的模块依赖解耦、页面跳转，同时提供了模块化过程中常见问题的解决办法。例如：完美解决了模块化开发后由于组件内无法获取 <code>Application</code> 生命周期与业务流程，造成每次初始化与关联依赖调用都需要跨模块修改代码的问题。       </p>
+<p>对于大型 APP 开发，基本都会选用模块化(或组件化)方式开发，对于模块间解耦要求更高。 <code class="language-plaintext highlighter-rouge">TheRouter</code> 是一整套完全面向模块化开发的解决方案，不仅能支持常规的模块依赖解耦、页面跳转，同时提供了模块化过程中常见问题的解决办法。例如：完美解决了模块化开发后由于组件内无法获取 <code class="language-plaintext highlighter-rouge">Application</code> 生命周期与业务流程，造成每次初始化与关联依赖调用都需要跨模块修改代码的问题。</p>
 
-<h4>1.1 TheRouter 四大能力</h4>
+<h4 id="11-therouter-四大能力">1.1 TheRouter 四大能力</h4>
 
 <p>Navigator：</p>
 
 <ul>
-<li>支持 <code>Activity</code> 和 <code>Fragment</code></li>
-<li>支持<code>Path</code>与页面多对一关系或一对一关系，可用于解决多端path统一问题</li>
-<li>页面<code>Path</code>支持正则表达式声明</li>
-<li>支持 <code>json</code> 格式路由表导出</li>
-<li>支持动态下发 <code>json</code> 路由表，降级任意页面为H5</li>
-<li>支持任意<code>object</code>跨模块传递（无需序列化，且能保证对象类型）</li>
-<li>支持页面跳转拦截处理</li>
-<li>支持自定义页面参数解析方式（例如将<code>json</code>解析为对象）</li>
-<li>支持使用路由跳转到第三方 SDK 中的<code>Activity</code>(<code>Fragment</code>)</li>
+  <li>支持 <code class="language-plaintext highlighter-rouge">Activity</code> 和 <code class="language-plaintext highlighter-rouge">Fragment</code></li>
+  <li>支持<code class="language-plaintext highlighter-rouge">Path</code>与页面多对一关系或一对一关系，可用于解决多端path统一问题</li>
+  <li>页面<code class="language-plaintext highlighter-rouge">Path</code>支持正则表达式声明</li>
+  <li>支持 <code class="language-plaintext highlighter-rouge">json</code> 格式路由表导出</li>
+  <li>支持动态下发 <code class="language-plaintext highlighter-rouge">json</code> 路由表，降级任意页面为H5</li>
+  <li>支持任意<code class="language-plaintext highlighter-rouge">object</code>跨模块传递（无需序列化，且能保证对象类型）</li>
+  <li>支持页面跳转拦截处理</li>
+  <li>支持自定义页面参数解析方式（例如将<code class="language-plaintext highlighter-rouge">json</code>解析为对象）</li>
+  <li>支持使用路由跳转到第三方 SDK 中的<code class="language-plaintext highlighter-rouge">Activity</code>(<code class="language-plaintext highlighter-rouge">Fragment</code>)</li>
 </ul>
 
 <p>ServiceProvider：</p>
 
 <ul>
-<li>支持跨模块依赖注入</li>
-<li>支持自定义注入项的创建规则，依赖注入可自定义参数</li>
-<li>支持自定义服务拦截，单模块<code>mock</code>调试</li>
-<li>支持注入对象缓存，多次注入 只会new一次对象</li>
+  <li>支持跨模块依赖注入</li>
+  <li>支持自定义注入项的创建规则，依赖注入可自定义参数</li>
+  <li>支持自定义服务拦截，单模块<code class="language-plaintext highlighter-rouge">mock</code>调试</li>
+  <li>支持注入对象缓存，多次注入 只会new一次对象</li>
 </ul>
 
 <p>FlowTaskExecutor：</p>
 
 <ul>
-<li>支持单模块独立初始化</li>
-<li>支持懒加载初始化</li>
-<li>独立初始化允许多任务依赖(参考<code>Gradle Task</code>)</li>
-<li>支持编译期循环引用检测</li>
-<li>支持自定义业务初始化时机，可以用于解决隐私合规问题</li>
+  <li>支持单模块独立初始化</li>
+  <li>支持懒加载初始化</li>
+  <li>独立初始化允许多任务依赖(参考<code class="language-plaintext highlighter-rouge">Gradle Task</code>)</li>
+  <li>支持编译期循环引用检测</li>
+  <li>支持自定义业务初始化时机，可以用于解决隐私合规问题</li>
 </ul>
 
 <p>ActionManager：</p>
 
 <ul>
-<li>支持全局回调配置</li>
-<li>支持优先级响应与中断响应</li>
-<li>支持记录调用路径，解决调试期观察者模式无法追踪<code>Observable</code>的问题 </li>
+  <li>支持全局回调配置</li>
+  <li>支持优先级响应与中断响应</li>
+  <li>支持记录调用路径，解决调试期观察者模式无法追踪<code class="language-plaintext highlighter-rouge">Observable</code>的问题</li>
 </ul>
 
-<p><strong>注：</strong> <code>FlowTaskExecutor</code>、<code>ActionManager</code> 后续会作为可选能力，提供<code>可插拔</code>或<code>单独使用</code>的选项（预计10月份提供）。</p>
+<p><strong>注：</strong> <code class="language-plaintext highlighter-rouge">FlowTaskExecutor</code>、<code class="language-plaintext highlighter-rouge">ActionManager</code> 后续会作为可选能力，提供<code class="language-plaintext highlighter-rouge">可插拔</code>或<code class="language-plaintext highlighter-rouge">单独使用</code>的选项（预计10月份提供）。</p>
 
-<h3>二、路由方案</h3>
+<h3 id="二路由方案">二、路由方案</h3>
 
-<p>目前现有的路由基本上集中于两种能力的实现：页面跳转、跨模块调用，核心技术方案大体上如图：  </p>
+<p>目前现有的路由基本上集中于两种能力的实现：页面跳转、跨模块调用，核心技术方案大体上如图：</p>
 
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d819de9d8ea424d8ee0b1b924795967~tplv-k3u1fbpfcp-watermark.image?" class="blog-img"/> </p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d819de9d8ea424d8ee0b1b924795967~tplv-k3u1fbpfcp-watermark.image?" class="blog-img" /></p>
 
 <ol>
-<li>开发阶段，对要使用路由的落地页或被调用方法添加注解标识。<br></li>
-<li>编译期解析注解，生成一系列中间代码，待调用。</li>
-<li> 应用启动后调用中间代码完成路由的准备动作。大部分路由会额外通过 <code>Gradle Transform</code>，在编译期做一次聚合，以提升运行时准备路由表的效率。<br></li>
-<li>发起路由跳转时，本质上就是一次路由表遍历，通过uri获取到对应的落地页或方法对象，进行调用。<br></li>
+  <li>开发阶段，对要使用路由的落地页或被调用方法添加注解标识。</li>
+  <li>编译期解析注解，生成一系列中间代码，待调用。</li>
+  <li>应用启动后调用中间代码完成路由的准备动作。大部分路由会额外通过 <code class="language-plaintext highlighter-rouge">Gradle Transform</code>，在编译期做一次聚合，以提升运行时准备路由表的效率。</li>
+  <li>发起路由跳转时，本质上就是一次路由表遍历，通过uri获取到对应的落地页或方法对象，进行调用。</li>
 </ol>
 
-<p><code>TheRouter</code> 的页面跳转、跨模块调用也是如此，但是在设计上会有一些细节处理。   </p>
+<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 的页面跳转、跨模块调用也是如此，但是在设计上会有一些细节处理。</p>
 
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e048fba4a04c46738ed9a1e29ebab6e7~tplv-k3u1fbpfcp-watermark.image?" class="blog-img"/></p>
+<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e048fba4a04c46738ed9a1e29ebab6e7~tplv-k3u1fbpfcp-watermark.image?" class="blog-img" /></p>
 
-<p><code>TheRouter</code> 会在编译期根据注解生成 <code>RouteMap__</code>开头的类，这些类中记录了当前模块的所有路由信息，也就是当前模块的路由表。   </p>
+<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 会在编译期根据注解生成 <code class="language-plaintext highlighter-rouge">RouteMap__</code>开头的类，这些类中记录了当前模块的所有路由信息，也就是当前模块的路由表。</p>
 
-<p>在最顶层的<code>app</code>模块中，通过<code>Gradle</code>插件，将所有aar、源码中的<code>RouteMap__</code>开头的类统一集中到<code>TheRouterServiceProvideInjecter</code>类中。   </p>
+<p>在最顶层的<code class="language-plaintext highlighter-rouge">app</code>模块中，通过<code class="language-plaintext highlighter-rouge">Gradle</code>插件，将所有aar、源码中的<code class="language-plaintext highlighter-rouge">RouteMap__</code>开头的类统一集中到<code class="language-plaintext highlighter-rouge">TheRouterServiceProvideInjecter</code>类中。</p>
 
-<p>后续应用启动后，初始化路由时只需要执行<code>TheRouterServiceProvideInjecter</code>类的方法，就能<strong>没有任何反射</strong>的加载到全部的路由表了。  </p>
+<p>后续应用启动后，初始化路由时只需要执行<code class="language-plaintext highlighter-rouge">TheRouterServiceProvideInjecter</code>类的方法，就能<strong>没有任何反射</strong>的加载到全部的路由表了。</p>
 
-<p>加载以后的路由表会被保存到一个支持正则匹配的 <code>Map</code> 中，这也是<code>TheRouter</code>允许多个<code>path</code>对应同一个落地页的原因。每当发生页面跳转时，通过跳转时的<code>path</code>，去<code>Map</code>中获取到对应的落地页信息，再正常调用<code>startActivity()</code>即可。   </p>
+<p>加载以后的路由表会被保存到一个支持正则匹配的 <code class="language-plaintext highlighter-rouge">Map</code> 中，这也是<code class="language-plaintext highlighter-rouge">TheRouter</code>允许多个<code class="language-plaintext highlighter-rouge">path</code>对应同一个落地页的原因。每当发生页面跳转时，通过跳转时的<code class="language-plaintext highlighter-rouge">path</code>，去<code class="language-plaintext highlighter-rouge">Map</code>中获取到对应的落地页信息，再正常调用<code class="language-plaintext highlighter-rouge">startActivity()</code>即可。</p>
 
-<h3>三、使用 TheRouter 页面跳转</h3>
+<h3 id="三使用-therouter-页面跳转">三、使用 TheRouter 页面跳转</h3>
 
-<h4>3.1 声明路由项</h4>
+<h4 id="31-声明路由项">3.1 声明路由项</h4>
 
-<p>如果一个页面（支持 Activity、Fragment）允许被路由打开，则需要使用注解 <code>@Route</code> 声明路由项，每个页面允许声明多个路由项，也就是一对多的能力，极大降低多端路由统一时的业务影响面。  </p>
+<p>如果一个页面（支持 Activity、Fragment）允许被路由打开，则需要使用注解 <code class="language-plaintext highlighter-rouge">@Route</code> 声明路由项，每个页面允许声明多个路由项，也就是一对多的能力，极大降低多端路由统一时的业务影响面。</p>
 
-<p><strong>参数释义</strong>   </p>
+<p><strong>参数释义</strong></p>
 
 <ul>
-<li><strong>path</strong>: 路由path 【必传】。<br>
-建议是一个url。path内支持使用正则表达式（为了匹配效率，正则必须包含反双斜杠\），允许多个path对应同一个Activity(Fragment)。<br></li>
-<li><strong>action</strong>: 自定义事件【可选】。<br>
-一般用来打开目标页面后做一个执行动作，例如自定义页面弹出广告弹窗。<br></li>
-<li><strong>description</strong>: 页面描述【可选】。<br>
-会被记录到路由表中，方便后期排查的时候知道每个path或Activity是什么业务。<br></li>
-<li><strong>params</strong>: 页面参数【可选】。<br>
-自动写入<code>intent</code>中，允许写在路由表中动态下发修改默认值，或通过路由跳转时代码传入。<br></li>
+  <li><strong>path</strong>: 路由path 【必传】。 <br />
+ 建议是一个url。path内支持使用正则表达式（为了匹配效率，正则必须包含反双斜杠\），允许多个path对应同一个Activity(Fragment)。</li>
+  <li><strong>action</strong>: 自定义事件【可选】。<br />
+ 一般用来打开目标页面后做一个执行动作，例如自定义页面弹出广告弹窗。</li>
+  <li><strong>description</strong>: 页面描述【可选】。<br />
+ 会被记录到路由表中，方便后期排查的时候知道每个path或Activity是什么业务。</li>
+  <li><strong>params</strong>: 页面参数【可选】。 <br />
+ 自动写入<code class="language-plaintext highlighter-rouge">intent</code>中，允许写在路由表中动态下发修改默认值，或通过路由跳转时代码传入。</li>
 </ul>
-<div class="highlight"><pre><code class="language-java" data-lang="java"> <span class="nd">@Route</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"http://therouter.com/home"</span><span class="o">,</span> <span class="n">action</span> <span class="o">=</span> <span class="s">"action://scheme.com"</span><span class="o">,</span>
-        <span class="n">description</span> <span class="o">=</span> <span class="s">"第二个页面"</span><span class="o">,</span> <span class="n">params</span> <span class="o">=</span> <span class="o">{</span><span class="s">"hello"</span><span class="o">,</span> <span class="s">"world"</span><span class="o">})</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeActivity</span> <span class="kd">extends</span> <span class="n">AppCompatActivity</span> <span class="o">{</span>
-<span class="o">}</span>
-</code></pre></div>
-<h4>3.2 发起页面跳转</h4>
 
-<p>传入的参数可以是 <code>String</code> 和8种基本数据类型、也可以是<code>Bundle</code>、<code>Serializable</code>、
-<code>Parcelable</code>对象，跟 <code>Intent</code> 传值规则一致。<br>
-同时也支持为本次跳转的 <code>Intent</code> 添加<code>Flag/Uri/ClipData/identifier</code>等业务特殊参数。   </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 传入参数可以通过注解 @Autowired 解析成任意类型，如果是对象建议传json</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nd">@Route</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"http://therouter.com/home"</span><span class="o">,</span> <span class="n">action</span> <span class="o">=</span> <span class="s">"action://scheme.com"</span><span class="o">,</span>
+        <span class="n">description</span> <span class="o">=</span> <span class="s">"第二个页面"</span><span class="o">,</span> <span class="n">params</span> <span class="o">=</span> <span class="o">{</span><span class="s">"hello"</span><span class="o">,</span> <span class="s">"world"</span><span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeActivity</span> <span class="kd">extends</span> <span class="nc">AppCompatActivity</span> <span class="o">{</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="32-发起页面跳转">3.2 发起页面跳转</h4>
+
+<p>传入的参数可以是 <code class="language-plaintext highlighter-rouge">String</code> 和8种基本数据类型、也可以是<code class="language-plaintext highlighter-rouge">Bundle</code>、<code class="language-plaintext highlighter-rouge">Serializable</code>、
+<code class="language-plaintext highlighter-rouge">Parcelable</code>对象，跟 <code class="language-plaintext highlighter-rouge">Intent</code> 传值规则一致。 <br />
+同时也支持为本次跳转的 <code class="language-plaintext highlighter-rouge">Intent</code> 添加<code class="language-plaintext highlighter-rouge">Flag/Uri/ClipData/identifier</code>等业务特殊参数。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 传入参数可以通过注解 @Autowired 解析成任意类型，如果是对象建议传json</span>
 <span class="c1">// context 参数如果不传或传 null，会自动使用 application 替换</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"http://therouter.com/home"</span><span class="o">)</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"http://therouter.com/home"</span><span class="o">)</span>
         <span class="o">.</span><span class="na">withInt</span><span class="o">(</span><span class="s">"key1"</span><span class="o">,</span> <span class="mi">12345678</span><span class="o">)</span>
         <span class="o">.</span><span class="na">withString</span><span class="o">(</span><span class="s">"key2"</span><span class="o">,</span> <span class="s">"参数"</span><span class="o">)</span>
         <span class="o">.</span><span class="na">withBoolean</span><span class="o">(</span><span class="s">"key3"</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
@@ -215,48 +218,50 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
 
         <span class="c1">// 如果要打开的是fragment，需要使用</span>
         <span class="o">.</span><span class="na">createFragment</span><span class="o">();</span>
-</code></pre></div>
-<h4>3.3 路由表生成规则</h4>
+</code></pre></div></div>
 
-<p>如果两条路由的<code>path</code>、目标<code>className</code>完全相同，则认为是同一条路由，<strong>不会考虑参数是否相同</strong>。<br>
-路由表生成规则：编译期按照如下顺序取<strong>并集</strong>。   </p>
+<h4 id="33-路由表生成规则">3.3 路由表生成规则</h4>
 
-<p><strong>覆盖规则</strong>：<br>
-根据如下顺序，如果相同，后者可以覆盖前者的路由表规则。   </p>
+<p>如果两条路由的<code class="language-plaintext highlighter-rouge">path</code>、目标<code class="language-plaintext highlighter-rouge">className</code>完全相同，则认为是同一条路由，<strong>不会考虑参数是否相同</strong>。 <br />
+路由表生成规则：编译期按照如下顺序取<strong>并集</strong>。</p>
+
+<p><strong>覆盖规则</strong>： <br />
+根据如下顺序，如果相同，后者可以覆盖前者的路由表规则。</p>
 
 <ol>
-<li>编译期解析注解生成路由表</li>
-<li>首先取 <code>业务模块 aar</code> 中的路由表</li>
-<li>再取 主<code>app module</code> 代码中的路由表</li>
-<li>最后取 <code>assets/RouteMap.json</code> 文件中声明的路由表。
-
-<ul>
-<li>如果编译期没有这个文件，会生成一份默认路由表放在这个目录内；如果有，会将路由表合并。<br></li>
-<li>路由表生成时可配置是否启用检查路由合法性，判断目标页面是否存在，(warning/error)级别。<br></li>
-</ul></li>
-<li>运行时线上动态下发的路由表<br>
-
-<ul>
-<li>路由表允许线上动态下发，将覆盖本地路由表，详见 【3.4 动态路由表的设计与使用】<br></li>
-</ul></li>
+  <li>编译期解析注解生成路由表</li>
+  <li>首先取 <code class="language-plaintext highlighter-rouge">业务模块 aar</code> 中的路由表</li>
+  <li>再取 主<code class="language-plaintext highlighter-rouge">app module</code> 代码中的路由表</li>
+  <li>最后取 <code class="language-plaintext highlighter-rouge">assets/RouteMap.json</code> 文件中声明的路由表。
+    <ul>
+      <li>如果编译期没有这个文件，会生成一份默认路由表放在这个目录内；如果有，会将路由表合并。</li>
+      <li>路由表生成时可配置是否启用检查路由合法性，判断目标页面是否存在，(warning/error)级别。</li>
+    </ul>
+  </li>
+  <li>运行时线上动态下发的路由表
+    <ul>
+      <li>路由表允许线上动态下发，将覆盖本地路由表，详见 【3.4 动态路由表的设计与使用】</li>
+    </ul>
+  </li>
 </ol>
 
-<p>如果编译期没有这个文件，会生成一份默认路由表放在这个目录内；如果有，会将路由表合并，因此，对于没办法修改代码的第三方SDK内部，如果希望通过路由打开，只需要手动在<code>RouteMap.json</code>文件中声明，就能通过路由打开了。    </p>
+<p>如果编译期没有这个文件，会生成一份默认路由表放在这个目录内；如果有，会将路由表合并，因此，对于没办法修改代码的第三方SDK内部，如果希望通过路由打开，只需要手动在<code class="language-plaintext highlighter-rouge">RouteMap.json</code>文件中声明，就能通过路由打开了。</p>
 
-<h4>3.4 动态路由表的设计与使用</h4>
+<h4 id="34-动态路由表的设计与使用">3.4 动态路由表的设计与使用</h4>
 
-<p><code>TheRouter</code> 的路由表是动态添加的，项目每次编译后，会在 apk 内生成一份当前 APP 的全量路由表，默认路径为：<code>/assets/therouter/routeMap.json</code>。这个路由表也可以后续通过远程下发的方式使用，例如远端可以针对不同的APP版本，下发不同的路由表达到配置目的。这样如果将来线上某些页面发生Crash，可以通过将这个页面的落地页替换为H5的方式，临时解决这类问题。    </p>
+<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 的路由表是动态添加的，项目每次编译后，会在 apk 内生成一份当前 APP 的全量路由表，默认路径为：<code class="language-plaintext highlighter-rouge">/assets/therouter/routeMap.json</code>。这个路由表也可以后续通过远程下发的方式使用，例如远端可以针对不同的APP版本，下发不同的路由表达到配置目的。这样如果将来线上某些页面发生Crash，可以通过将这个页面的落地页替换为H5的方式，临时解决这类问题。</p>
 
 <p>有两种推荐的远程下发方式可供使用方选择：</p>
 
 <ol>
-<li>将打包系统与配置系统打通，每次新版本APP打包后自动将<code>assets/</code>目录中的配置文件上传到配置系统，下发给对应版本APP 。优点在于全自动不会出错。</li>
-<li>配置系统无法打通，线上手动下发需要修改的路由项，因为 <code>TheRouter</code> 会自动用最新下发的路由项覆盖包内的路由项。优点在于精确，且流量资源占用小。</li>
+  <li>将打包系统与配置系统打通，每次新版本APP打包后自动将<code class="language-plaintext highlighter-rouge">assets/</code>目录中的配置文件上传到配置系统，下发给对应版本APP 。优点在于全自动不会出错。</li>
+  <li>配置系统无法打通，线上手动下发需要修改的路由项，因为 <code class="language-plaintext highlighter-rouge">TheRouter</code> 会自动用最新下发的路由项覆盖包内的路由项。优点在于精确，且流量资源占用小。</li>
 </ol>
 
-<p>注：一旦你设置了自定义的<code>InitTask</code>，原框架内路由表初始化任务将不再执行，你需要自己处理找不到路由表时的兜底逻辑，一种建议的处理方式见如下代码。</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 此代码 必须 在 Application.super.onCreate() 之前调用</span>
-<span class="n">RouteMap</span><span class="o">.</span><span class="na">setInitTask</span><span class="o">(</span><span class="k">new</span> <span class="n">RouterMapInitTask</span><span class="o">()</span> <span class="o">{</span>
+<p>注：一旦你设置了自定义的<code class="language-plaintext highlighter-rouge">InitTask</code>，原框架内路由表初始化任务将不再执行，你需要自己处理找不到路由表时的兜底逻辑，一种建议的处理方式见如下代码。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 此代码 必须 在 Application.super.onCreate() 之前调用</span>
+<span class="nc">RouteMap</span><span class="o">.</span><span class="na">setInitTask</span><span class="o">(</span><span class="k">new</span> <span class="nc">RouterMapInitTask</span><span class="o">()</span> <span class="o">{</span>
     <span class="cm">/** 
      * 此方法执行在异步
      */</span>
@@ -265,212 +270,226 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
         <span class="c1">// 此处为纯业务逻辑，每家公司远端配置方案可能都不一样</span>
         <span class="c1">// 不建议每次都请求网络，否则请求网络的过程中，路由表是空的，可能造成APP无法跳转页面</span>
         <span class="c1">// 最好是优先加载本地，然后开异步线程加载远端配置</span>
-        <span class="n">String</span> <span class="n">json</span> <span class="o">=</span> <span class="n">Connfig</span><span class="o">.</span><span class="na">doHttp</span><span class="o">(</span><span class="s">"routeMap"</span><span class="o">);</span>
+        <span class="nc">String</span> <span class="n">json</span> <span class="o">=</span> <span class="nc">Connfig</span><span class="o">.</span><span class="na">doHttp</span><span class="o">(</span><span class="s">"routeMap"</span><span class="o">);</span>
         <span class="c1">// 建议加一个判断，如果远端配置拉取失败，使用包内配置做兜底方案，否则可能造成路由表异常</span>
-        <span class="k">if</span> <span class="o">(!</span><span class="n">TextUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">json</span><span class="o">))</span> <span class="o">{</span>
-            <span class="n">List</span><span class="o">&lt;</span><span class="n">RouteItem</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gson</span><span class="o">().</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">,</span> <span class="k">new</span> <span class="n">TypeToken</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">RouteItem</span><span class="o">&gt;&gt;()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="nc">TextUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">json</span><span class="o">))</span> <span class="o">{</span>
+            <span class="nc">List</span><span class="o">&lt;</span><span class="nc">RouteItem</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Gson</span><span class="o">().</span><span class="na">fromJson</span><span class="o">(</span><span class="n">json</span><span class="o">,</span> <span class="k">new</span> <span class="nc">TypeToken</span><span class="o">&lt;</span><span class="nc">List</span><span class="o">&lt;</span><span class="nc">RouteItem</span><span class="o">&gt;&gt;()</span> <span class="o">{</span>
             <span class="o">}.</span><span class="na">getType</span><span class="o">());</span>
             <span class="c1">// 建议远端下发路由表差异部分，用远端包覆盖本地更合理</span>
-            <span class="n">RouteMap</span><span class="o">.</span><span class="na">addRouteMap</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
+            <span class="nc">RouteMap</span><span class="o">.</span><span class="na">addRouteMap</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
         <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
             <span class="c1">// 在异步执行TheRouter内部兜底路由表</span>
             <span class="n">initRouteMap</span><span class="o">()</span>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">});</span>
-</code></pre></div>
-<h4>3.5 高级用法</h4>
+</code></pre></div></div>
 
-<p>TheRouter同时支持更多页面跳转能力，详情可参考项目文档【<a href="https://therouter.cn/docs/2022/08/28/01">https://therouter.cn/docs/2022/08/28/01</a>】：    </p>
+<h4 id="35-高级用法">3.5 高级用法</h4>
 
-<ul>
-<li>为第三方库里面的页面添加路由表，达到对某些页面降级替换的目的；<br></li>
-<li>延迟路由跳转（从Android 8开始，不能在后台启动页面）；<br></li>
-<li>跳转过程拦截器（总共四层，可根据实际需求使用）；<br></li>
-<li>跳转结果回调；</li>
-</ul>
-
-<h3>四、跨模块依赖注入 ServiceProvider 的设计</h3>
-
-<p>对于模块化开发中跨模块的调用，我们推荐采用 <a href="https://zh.m.wikipedia.org/zh-cn/%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">SOA(面向服务架构)</a> 的设计方式，服务调用方与使用方完全隔离，调用模块外的能力不需要关注能力的提供者是谁。<br>
-<code>ServiceProvider</code> 的核心设计思想也是这样的，目前服务间的调用协议采用接口的方式。当然，也可以兼容不通过接口下沉而是直接调用的情况。  </p>
-
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6dbabea09faa4a598faf46ffd7462de9~tplv-k3u1fbpfcp-watermark.image?" class="blog-img"/></p>
-
-<p>具体到 Android 侧就是 AIDL 类似的设计，只是要比AIDL开发简单很多：  </p>
+<p>TheRouter同时支持更多页面跳转能力，详情可参考项目文档【<a href="https://therouter.cn/docs/2022/08/28/01">https://therouter.cn/docs/2022/08/28/01</a>】：</p>
 
 <ul>
-<li>服务提供方负责提供服务，不需要关心调用方是谁会在何时调用自己。<br></li>
-<li>服务的使用方只关注服务本身，不需要关心这个服务是谁提供的，只需要只能服务能提供哪些能力即可。<br></li>
+  <li>为第三方库里面的页面添加路由表，达到对某些页面降级替换的目的；</li>
+  <li>延迟路由跳转（从Android 8开始，不能在后台启动页面）；</li>
+  <li>跳转过程拦截器（总共四层，可根据实际需求使用）；</li>
+  <li>跳转结果回调；</li>
 </ul>
 
-<p>例如上面的图片：拉拉需要使用录音的服务，小货则向外提供一个录音的服务，由<code>TheRouter</code>的<code>ServiceProvider</code>负责撮合。  </p>
+<h3 id="四跨模块依赖注入-serviceprovider-的设计">四、跨模块依赖注入 ServiceProvider 的设计</h3>
 
-<h4>4.1 服务使用方：拉拉</h4>
+<p>对于模块化开发中跨模块的调用，我们推荐采用 <a href="https://zh.m.wikipedia.org/zh-cn/%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">SOA(面向服务架构)</a> 的设计方式，服务调用方与使用方完全隔离，调用模块外的能力不需要关注能力的提供者是谁。<br />
+<code class="language-plaintext highlighter-rouge">ServiceProvider</code> 的核心设计思想也是这样的，目前服务间的调用协议采用接口的方式。当然，也可以兼容不通过接口下沉而是直接调用的情况。</p>
 
-<p>她无需关心，<code>IRecordService</code>这个接口服务是谁提供的，他只需要知道自己需要使用这样的一个服务就行了。<br>
-注：如果没有提供服务的提供方，<code>TheRouter.get()</code>可能返回<code>null</code>  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="nl">IRecordService:</span><span class="o">:</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="o">)?.</span><span class="na">doRecord</span><span class="o">()</span>
-</code></pre></div>
-<h4>4.2 服务提供方：小货</h4>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6dbabea09faa4a598faf46ffd7462de9~tplv-k3u1fbpfcp-watermark.image?" class="blog-img" /></p>
 
-<p>服务提供方需要声明一个提供服务的方法，用<code>@ServiceProvider</code>注解标记。  </p>
+<p>具体到 Android 侧就是 AIDL 类似的设计，只是要比AIDL开发简单很多：</p>
 
 <ul>
-<li>如果是 <code>java</code>，必须是 <code>public static</code> 修饰</li>
-<li>如果是 <code>kotlin</code>，建议写成 top level 的函数</li>
-<li>方法名不限</li>
+  <li>服务提供方负责提供服务，不需要关心调用方是谁会在何时调用自己。</li>
+  <li>服务的使用方只关注服务本身，不需要关心这个服务是谁提供的，只需要只能服务能提供哪些能力即可。</li>
 </ul>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**
+
+<p>例如上面的图片：拉拉需要使用录音的服务，小货则向外提供一个录音的服务，由<code class="language-plaintext highlighter-rouge">TheRouter</code>的<code class="language-plaintext highlighter-rouge">ServiceProvider</code>负责撮合。</p>
+
+<h4 id="41-服务使用方拉拉">4.1 服务使用方：拉拉</h4>
+
+<p>她无需关心，<code class="language-plaintext highlighter-rouge">IRecordService</code>这个接口服务是谁提供的，他只需要知道自己需要使用这样的一个服务就行了。<br />
+注：如果没有提供服务的提供方，<code class="language-plaintext highlighter-rouge">TheRouter.get()</code>可能返回<code class="language-plaintext highlighter-rouge">null</code></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="nl">IRecordService:</span><span class="o">:</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="o">)?.</span><span class="na">doRecord</span><span class="o">()</span>
+</code></pre></div></div>
+
+<h4 id="42-服务提供方小货">4.2 服务提供方：小货</h4>
+
+<p>服务提供方需要声明一个提供服务的方法，用<code class="language-plaintext highlighter-rouge">@ServiceProvider</code>注解标记。</p>
+
+<ul>
+  <li>如果是 <code class="language-plaintext highlighter-rouge">java</code>，必须是 <code class="language-plaintext highlighter-rouge">public static</code> 修饰</li>
+  <li>如果是 <code class="language-plaintext highlighter-rouge">kotlin</code>，建议写成 top level 的函数</li>
+  <li>方法名不限</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * 方法名不限定，任意名字都行
  * 返回值必须是服务接口名，如果是实现了服务的子类，需要加上returnType限定（例如下面代码）
  * 方法必须加上 public static 修饰，否则编译期就会报错
  */</span>
 <span class="nd">@ServiceProvider</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">IRecordService</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">IRecordService</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nf">IRecordService</span><span class="o">()</span> <span class="o">{</span>
         <span class="nd">@Override</span>
         <span class="kd">public</span> <span class="kt">void</span> <span class="nf">doRecord</span><span class="o">()</span> <span class="o">{</span>
-            <span class="n">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"执行录制逻辑"</span><span class="o">;</span>
+            <span class="nc">String</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"执行录制逻辑"</span><span class="o">;</span>
         <span class="o">}</span>
     <span class="o">};</span>
 <span class="o">}</span>
 
 <span class="c1">// 也可以直接返回对象，然后标注这个方法的服名是什么</span>
-<span class="nd">@ServiceProvider</span><span class="o">(</span><span class="n">returnType</span> <span class="o">=</span> <span class="n">IRecordService</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">RecordServiceImpl</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+<span class="nd">@ServiceProvider</span><span class="o">(</span><span class="n">returnType</span> <span class="o">=</span> <span class="nc">IRecordService</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">RecordServiceImpl</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
     <span class="c1">// xxx </span>
 <span class="o">}</span>
-</code></pre></div>
-<h3>五、单模块自动初始化能力 FlowTaskExecutor 的设计</h3>
+</code></pre></div></div>
 
-<p>前面讲过，<code>TheRouter</code>是完全面向模块化开发提供的一套解决方案。在模块化开发时，可能每个模块都有自己需要初始化的一些代码。以前的做法是把这些代码都在<code>Application</code>里声明，但是这样可能随着业务变动每次都需要修改<code>Application</code>所在模块。<code>TheRouter</code> 的单模块自动初始化能力就是为了解决这样的情况，可以只在当前模块声明初始化方法后，将会在业务场景时自动被调用。    </p>
+<h3 id="五单模块自动初始化能力-flowtaskexecutor-的设计">五、单模块自动初始化能力 FlowTaskExecutor 的设计</h3>
 
-<p>每个希望被自动初始化的方法，必须使用<code>public static</code>修饰，主要原因是这样子就能通过类名直接调用了。另外很多初始化代码都需要获取<code>Context</code>对象，所以我们将<code>Context</code>作为初始化方法的默认参数，会自动传入<code>Application</code>。其他的所在类名、方法名都没有限制，反正只要加上了 <code>@FlowTask</code> 注解，在编译期都能通过 APT 获取到。   </p>
+<p>前面讲过，<code class="language-plaintext highlighter-rouge">TheRouter</code>是完全面向模块化开发提供的一套解决方案。在模块化开发时，可能每个模块都有自己需要初始化的一些代码。以前的做法是把这些代码都在<code class="language-plaintext highlighter-rouge">Application</code>里声明，但是这样可能随着业务变动每次都需要修改<code class="language-plaintext highlighter-rouge">Application</code>所在模块。<code class="language-plaintext highlighter-rouge">TheRouter</code> 的单模块自动初始化能力就是为了解决这样的情况，可以只在当前模块声明初始化方法后，将会在业务场景时自动被调用。</p>
 
-<h4>5.1 FlowTaskExecutor 使用介绍</h4>
+<p>每个希望被自动初始化的方法，必须使用<code class="language-plaintext highlighter-rouge">public static</code>修饰，主要原因是这样子就能通过类名直接调用了。另外很多初始化代码都需要获取<code class="language-plaintext highlighter-rouge">Context</code>对象，所以我们将<code class="language-plaintext highlighter-rouge">Context</code>作为初始化方法的默认参数，会自动传入<code class="language-plaintext highlighter-rouge">Application</code>。其他的所在类名、方法名都没有限制，反正只要加上了 <code class="language-plaintext highlighter-rouge">@FlowTask</code> 注解，在编译期都能通过 APT 获取到。</p>
 
-<p>可以在当前模块中，任意类中声明一个任意方法名的方法，给方法添加上<code>@FlowTask</code> 的注解即可。   </p>
+<h4 id="51-flowtaskexecutor-使用介绍">5.1 FlowTaskExecutor 使用介绍</h4>
 
-<p><code>@FlowTask</code> 注解参数说明： </p>
+<p>可以在当前模块中，任意类中声明一个任意方法名的方法，给方法添加上<code class="language-plaintext highlighter-rouge">@FlowTask</code> 的注解即可。</p>
+
+<p><code class="language-plaintext highlighter-rouge">@FlowTask</code> 注解参数说明：</p>
 
 <ul>
-<li><strong>taskName</strong>：当前初始化任务的任务名，必须全局唯一，建议格式为：<code>moduleName_taskName</code></li>
-<li><strong>dependsOn</strong>：参考<code>Gradle</code> Task，任务与任务之间可能会有依赖关系。如果当前任务需要依赖其他任务先初始化，则在这里声明依赖的任务名。可以同时依赖多个任务，用英文逗号分隔，空格可选，会被过滤：dependsOn = &quot;mmkv, config, login&quot;，默认为空，应用启动就被调用。注：<code>dependsOn</code>只能保证<code>task</code>是在依赖任务之后执行，由于内部逻辑都是在异步线程操作，取决于线程切换，并不一定是立刻执行。<br></li>
-<li><strong>async</strong>：是否要在异步执行此任务，默认false。</li>
+  <li><strong>taskName</strong>：当前初始化任务的任务名，必须全局唯一，建议格式为：<code class="language-plaintext highlighter-rouge">moduleName_taskName</code></li>
+  <li><strong>dependsOn</strong>：参考<code class="language-plaintext highlighter-rouge">Gradle</code> Task，任务与任务之间可能会有依赖关系。如果当前任务需要依赖其他任务先初始化，则在这里声明依赖的任务名。可以同时依赖多个任务，用英文逗号分隔，空格可选，会被过滤：dependsOn = “mmkv, config, login”，默认为空，应用启动就被调用。注：<code class="language-plaintext highlighter-rouge">dependsOn</code>只能保证<code class="language-plaintext highlighter-rouge">task</code>是在依赖任务之后执行，由于内部逻辑都是在异步线程操作，取决于线程切换，并不一定是立刻执行。</li>
+  <li><strong>async</strong>：是否要在异步执行此任务，默认false。</li>
 </ul>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * 将会在异步执行
  */</span>
-<span class="nd">@FlowTask</span><span class="o">(</span><span class="n">taskName</span> <span class="o">=</span> <span class="s">"mmkv_init"</span><span class="o">,</span> <span class="n">dependsOn</span> <span class="o">=</span> <span class="n">TheRouterFlowTask</span><span class="o">.</span><span class="na">APP_ONCREATE</span><span class="o">,</span> <span class="n">async</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"异步=========Application onCreate后执行"</span><span class="o">);</span>
+<span class="nd">@FlowTask</span><span class="o">(</span><span class="n">taskName</span> <span class="o">=</span> <span class="s">"mmkv_init"</span><span class="o">,</span> <span class="n">dependsOn</span> <span class="o">=</span> <span class="nc">TheRouterFlowTask</span><span class="o">.</span><span class="na">APP_ONCREATE</span><span class="o">,</span> <span class="n">async</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test2</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"异步=========Application onCreate后执行"</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="nd">@FlowTask</span><span class="o">(</span><span class="n">taskName</span> <span class="o">=</span> <span class="s">"app1"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"main线程=========应用启动就会执行"</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"main线程=========应用启动就会执行"</span><span class="o">);</span>
 <span class="o">}</span>
 
 <span class="cm">/**
  * 将会在主线程初始化
  */</span>
 <span class="nd">@FlowTask</span><span class="o">(</span><span class="n">taskName</span> <span class="o">=</span> <span class="s">"test"</span><span class="o">,</span> <span class="n">dependsOn</span> <span class="o">=</span> <span class="s">"mmkv,app1"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"main线程=========在app1和mmkv两个任务都执行以后才会被执行"</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test3</span><span class="o">(</span><span class="nc">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"main线程=========在app1和mmkv两个任务都执行以后才会被执行"</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
-<h4>5.2内置初始化节点</h4>
+</code></pre></div></div>
 
-<p>使用这个能力，在路由内部默认支持了两个生命周期类任务，可在使用时直接引用  </p>
+<h4 id="52内置初始化节点">5.2内置初始化节点</h4>
+
+<p>使用这个能力，在路由内部默认支持了两个生命周期类任务，可在使用时直接引用</p>
 
 <ul>
-<li> <strong>TheRouterFlowTask.APP_ONCREATE</strong>：当Application的onCreate()执行后初始化<br></li>
-<li><strong>TheRouterFlowTask.APP_ONSPLASH</strong>：当应用的首个Activity.onCreate()执行后初始化</li>
-<li><strong>TheRouterFlowTask. BEFORE_THEROUTER _INITIALIZATION</strong>：当应用启动后，在TheRouter初始化之前，执行任务。(1.1.1-rc2版本新增)<br></li>
+  <li><strong>TheRouterFlowTask.APP_ONCREATE</strong>：当Application的onCreate()执行后初始化</li>
+  <li><strong>TheRouterFlowTask.APP_ONSPLASH</strong>：当应用的首个Activity.onCreate()执行后初始化</li>
+  <li><strong>TheRouterFlowTask. BEFORE_THEROUTER _INITIALIZATION</strong>：当应用启动后，在TheRouter初始化之前，执行任务。(1.1.1-rc2版本新增)</li>
 </ul>
 
-<p>同时，使用<code>TheRouter</code>的自动初始化依赖，也无需担心循环依赖造成的问题，框架会在编译期构建有向无环图，监测循环依赖情况，如果发现会在编译期直接报错，并且还会将发生循环引用的任务显示出来，用于排错。   </p>
+<p>同时，使用<code class="language-plaintext highlighter-rouge">TheRouter</code>的自动初始化依赖，也无需担心循环依赖造成的问题，框架会在编译期构建有向无环图，监测循环依赖情况，如果发现会在编译期直接报错，并且还会将发生循环引用的任务显示出来，用于排错。</p>
 
-<h4>5.3  实现原理</h4>
+<h4 id="53--实现原理">5.3  实现原理</h4>
 
-<p>每个加了 <code>@FlowTask</code> 注解的方法，都会在编译期被解析，生成一个对应的 <code>Task</code> 对象，这个对象包含了初始化方法的相关信息，比如：是否异步执行、任务名、是否依赖其他任务先执行。   </p>
+<p>每个加了 <code class="language-plaintext highlighter-rouge">@FlowTask</code> 注解的方法，都会在编译期被解析，生成一个对应的 <code class="language-plaintext highlighter-rouge">Task</code> 对象，这个对象包含了初始化方法的相关信息，比如：是否异步执行、任务名、是否依赖其他任务先执行。</p>
 
-<p>当所有aar都编译完成，生成好全部的 <code>Task</code> 以后，会在主 app 中通过<code>Gradle</code>插件进行聚合，在这时会将所有的 <code>Task</code> 做一次检查，通过构建<code>有向无环图</code>来防止 <code>Task</code> 发生循环引用的情况。  </p>
+<p>当所有aar都编译完成，生成好全部的 <code class="language-plaintext highlighter-rouge">Task</code> 以后，会在主 app 中通过<code class="language-plaintext highlighter-rouge">Gradle</code>插件进行聚合，在这时会将所有的 <code class="language-plaintext highlighter-rouge">Task</code> 做一次检查，通过构建<code class="language-plaintext highlighter-rouge">有向无环图</code>来防止 <code class="language-plaintext highlighter-rouge">Task</code> 发生循环引用的情况。</p>
 
-<p>每次应用启动后，会在路由初始化时，将有向图中的全部<code>Task</code>，按照依赖关系按顺序加载。  </p>
+<p>每次应用启动后，会在路由初始化时，将有向图中的全部<code class="language-plaintext highlighter-rouge">Task</code>，按照依赖关系按顺序加载。</p>
 
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b400b35a3c0244479ef61ce6759b25a7~tplv-k3u1fbpfcp-watermark.image?" class="blog-img"/></p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b400b35a3c0244479ef61ce6759b25a7~tplv-k3u1fbpfcp-watermark.image?" class="blog-img" /></p>
 
-<h3>六、动态化能力 ActionManager 的设计</h3>
+<h3 id="六动态化能力-actionmanager-的设计">六、动态化能力 ActionManager 的设计</h3>
 
-<p><code>Action</code> 本质是一个全局的系统回调，主要用于预埋的一系列操作，例如：弹窗、上传日志、清理缓存。<br>
-与 Android 系统自带的广播通知类似，你可以在任何地方声明动作与处理方式。并且所有<code>Action</code>都是可以被跟踪的，只要你愿意，可以在日志中将所有的动作调用栈输出，以方便调试使用，这样在一定程度上可以解决观察者模式带来的通病：<strong>无法追踪<code>Observable</code>的问题</strong>。</p>
+<p><code class="language-plaintext highlighter-rouge">Action</code> 本质是一个全局的系统回调，主要用于预埋的一系列操作，例如：弹窗、上传日志、清理缓存。<br />
+与 Android 系统自带的广播通知类似，你可以在任何地方声明动作与处理方式。并且所有<code class="language-plaintext highlighter-rouge">Action</code>都是可以被跟踪的，只要你愿意，可以在日志中将所有的动作调用栈输出，以方便调试使用，这样在一定程度上可以解决观察者模式带来的通病：<strong>无法追踪<code class="language-plaintext highlighter-rouge">Observable</code>的问题</strong>。</p>
 
-<h4>6.1 Action 使用</h4>
+<h4 id="61-action-使用">6.1 Action 使用</h4>
 
 <p>声明一个 Action：</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// action建议遵循一定的格式</span>
-<span class="kd">const</span> <span class="n">val</span> <span class="n">ACTION</span> <span class="o">=</span> <span class="s">"therouter://action/xxx"</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// action建议遵循一定的格式</span>
+<span class="kd">const</span> <span class="n">val</span> <span class="no">ACTION</span> <span class="o">=</span> <span class="s">"therouter://action/xxx"</span>
 
 <span class="nd">@FlowTask</span><span class="o">(</span><span class="n">taskName</span><span class="o">=</span><span class="s">"action_demo"</span><span class="o">)</span>
-<span class="n">fun</span> <span class="nf">init</span><span class="o">(</span><span class="nl">context:</span> <span class="n">Context</span><span class="o">)</span> <span class="o">=</span>
-    <span class="n">TheRouter</span><span class="o">.</span><span class="na">addActionInterceptor</span><span class="o">(</span><span class="n">ACTION</span><span class="o">,</span> <span class="nl">object:</span> <span class="n">ActionInterceptor</span><span class="o">()</span> <span class="o">{</span>
-        <span class="n">override</span> <span class="n">fun</span> <span class="nf">handle</span><span class="o">(</span><span class="nl">context:</span> <span class="n">Context</span><span class="o">,</span> <span class="nl">args:</span> <span class="n">Bundle</span><span class="o">):</span> <span class="n">Boolean</span> <span class="o">{</span>
+<span class="n">fun</span> <span class="nf">init</span><span class="o">(</span><span class="nl">context:</span> <span class="nc">Context</span><span class="o">)</span> <span class="o">=</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">addActionInterceptor</span><span class="o">(</span><span class="no">ACTION</span><span class="o">,</span> <span class="nl">object:</span> <span class="nc">ActionInterceptor</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">override</span> <span class="n">fun</span> <span class="nf">handle</span><span class="o">(</span><span class="nl">context:</span> <span class="nc">Context</span><span class="o">,</span> <span class="nl">args:</span> <span class="nc">Bundle</span><span class="o">):</span> <span class="nc">Boolean</span> <span class="o">{</span>
             <span class="c1">// do something</span>
             <span class="k">return</span> <span class="kc">false</span>
         <span class="o">}</span>
     <span class="o">})</span>
-</code></pre></div>
+</code></pre></div></div>
+
 <p>执行一个 Action：</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// action建议遵循一定的格式</span>
-<span class="kd">const</span> <span class="n">val</span> <span class="n">ACTION</span> <span class="o">=</span> <span class="s">"therouter://action/xxx"</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// action建议遵循一定的格式</span>
+<span class="kd">const</span> <span class="n">val</span> <span class="no">ACTION</span> <span class="o">=</span> <span class="s">"therouter://action/xxx"</span>
 
 <span class="c1">// 如果执行了一个没有被声明的Action，则不会有任何动作</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">ACTION</span><span class="o">).</span><span class="na">action</span><span class="o">()</span>
-</code></pre></div>
-<h4>6.2 高级用法</h4>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="no">ACTION</span><span class="o">).</span><span class="na">action</span><span class="o">()</span>
+</code></pre></div></div>
 
-<p>每个<code>Action</code> 允许关联多个 <code>ActionInterceptor</code>进行处理，多个<code>ActionInterceptor</code>之间可以自定义拦截器优先级，同时允许终止接下来的低优先级拦截器的执行。   </p>
+<h4 id="62-高级用法">6.2 高级用法</h4>
 
-<p>最典型应用场景：首页可能会有多个弹窗，不同业务之间的弹窗是有优先级之分的，为了体验优化我们肯定不会在首页一次把所有弹窗全部弹出，可以通过<code>ActionInterceptor</code>为每个弹窗声明好优先级关系，假设需求是首页只能弹出3个弹窗，那么第三个弹窗处理完毕即可关闭当前事件，接下来的拦截器将不会被响应。</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">ActionInterceptor</span> <span class="o">{</span>
+<p>每个<code class="language-plaintext highlighter-rouge">Action</code> 允许关联多个 <code class="language-plaintext highlighter-rouge">ActionInterceptor</code>进行处理，多个<code class="language-plaintext highlighter-rouge">ActionInterceptor</code>之间可以自定义拦截器优先级，同时允许终止接下来的低优先级拦截器的执行。</p>
 
-    <span class="kd">abstract</span> <span class="n">fun</span> <span class="nf">handle</span><span class="o">(</span><span class="nl">context:</span> <span class="n">Context</span><span class="o">,</span> <span class="nl">args:</span> <span class="n">Bundle</span><span class="o">):</span> <span class="n">Boolean</span>
+<p>最典型应用场景：首页可能会有多个弹窗，不同业务之间的弹窗是有优先级之分的，为了体验优化我们肯定不会在首页一次把所有弹窗全部弹出，可以通过<code class="language-plaintext highlighter-rouge">ActionInterceptor</code>为每个弹窗声明好优先级关系，假设需求是首页只能弹出3个弹窗，那么第三个弹窗处理完毕即可关闭当前事件，接下来的拦截器将不会被响应。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">ActionInterceptor</span> <span class="o">{</span>
+
+    <span class="kd">abstract</span> <span class="n">fun</span> <span class="nf">handle</span><span class="o">(</span><span class="nl">context:</span> <span class="nc">Context</span><span class="o">,</span> <span class="nl">args:</span> <span class="nc">Bundle</span><span class="o">):</span> <span class="nc">Boolean</span>
 
     <span class="n">fun</span> <span class="nf">onFinish</span><span class="o">()</span> <span class="o">{}</span>
 
     <span class="cm">/**
      * 数字越大，优先级越高
      */</span>
-    <span class="n">open</span> <span class="n">val</span> <span class="nl">priority:</span> <span class="n">Int</span>
+    <span class="n">open</span> <span class="n">val</span> <span class="nl">priority:</span> <span class="nc">Int</span>
         <span class="nf">get</span><span class="o">()</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="o">}</span>
-</code></pre></div>
-<h4>6.3 客户端动态响应使用场景</h4>
+</code></pre></div></div>
 
-<p><strong>如果仅客户端使用</strong>，常用的场景可能是：当用户执行某些操作（打开某个页面、H5点击某个按钮、动态页面配置的点击事件）时，将会自动触发，执行预埋的 Action 逻辑。   </p>
+<h4 id="63-客户端动态响应使用场景">6.3 客户端动态响应使用场景</h4>
 
-<p><strong>如果与服务端链路打通</strong>，这个能力其实是需要整个公司的配合，比如有一套类似智慧大脑的方案，可以基于客户端过去的一些埋点数据，智能推断出用户下一步要做的事情，然后通过长连接直接向客户端下发指令做某些事情。那么通过客户端预埋的页面跳转、弹窗、清缓存、退出登录等等操作，就可以通过服务端指令进行操作，则就是一套完整的动态化方案。   </p>
+<p><strong>如果仅客户端使用</strong>，常用的场景可能是：当用户执行某些操作（打开某个页面、H5点击某个按钮、动态页面配置的点击事件）时，将会自动触发，执行预埋的 Action 逻辑。</p>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8bae49fec9d94ae2a3cdf2d07b39efa6~tplv-k3u1fbpfcp-zoom-1.image" class="blog-img"/></p>
+<p><strong>如果与服务端链路打通</strong>，这个能力其实是需要整个公司的配合，比如有一套类似智慧大脑的方案，可以基于客户端过去的一些埋点数据，智能推断出用户下一步要做的事情，然后通过长连接直接向客户端下发指令做某些事情。那么通过客户端预埋的页面跳转、弹窗、清缓存、退出登录等等操作，就可以通过服务端指令进行操作，则就是一套完整的动态化方案。</p>
 
-<h3>七、一键切换源码与 AAR</h3>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8bae49fec9d94ae2a3cdf2d07b39efa6~tplv-k3u1fbpfcp-zoom-1.image" class="blog-img" /></p>
 
-<h4>7.1 模块化支持的 Gradle 脚本</h4>
+<h3 id="七一键切换源码与-aar">七、一键切换源码与 AAR</h3>
 
-<p>在模块化开发过程中，如果没有采用分仓，或采用了分仓但依然使用 <code>git-submodule</code> 的方式开发，应该都会遇到一个问题。如果集成包采用源码编译，构建时间实在太久，大大降低开发调试效率；如果采用aar依赖编译，对于底层模块修改了代码，每次都要重新构建aar，在上层模块修改版本号以后，才能继续整包构建编译，也极大影响开发效率。<br>
-<code>TheRouter</code> 中提供了一个 <code>Gradle</code> 脚本，只需要在开发本地的<code>local.properties</code>文件中声明要参与编译的<code>module</code>，其他未声明的默认使用aar编译，这样就能灵活切换源码与aar，并且不会影响其他人，如下节选代码可供参考使用：  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**
+<h4 id="71-模块化支持的-gradle-脚本">7.1 模块化支持的 Gradle 脚本</h4>
+
+<p>在模块化开发过程中，如果没有采用分仓，或采用了分仓但依然使用 <code class="language-plaintext highlighter-rouge">git-submodule</code> 的方式开发，应该都会遇到一个问题。如果集成包采用源码编译，构建时间实在太久，大大降低开发调试效率；如果采用aar依赖编译，对于底层模块修改了代码，每次都要重新构建aar，在上层模块修改版本号以后，才能继续整包构建编译，也极大影响开发效率。<br />
+<code class="language-plaintext highlighter-rouge">TheRouter</code> 中提供了一个 <code class="language-plaintext highlighter-rouge">Gradle</code> 脚本，只需要在开发本地的<code class="language-plaintext highlighter-rouge">local.properties</code>文件中声明要参与编译的<code class="language-plaintext highlighter-rouge">module</code>，其他未声明的默认使用aar编译，这样就能灵活切换源码与aar，并且不会影响其他人，如下节选代码可供参考使用：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * 如果工程中有源码，则依赖源码，否则依赖aar
  */</span>
-<span class="n">def</span> <span class="nf">moduleApi</span><span class="o">(</span><span class="n">String</span> <span class="n">compileStr</span><span class="o">,</span> <span class="n">Closure</span> <span class="n">configureClosure</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">String</span><span class="o">[]</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">compileStr</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">":"</span><span class="o">)</span>
-    <span class="n">String</span> <span class="n">group</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
-    <span class="n">String</span> <span class="n">artifactid</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-    <span class="n">String</span> <span class="n">version</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="n">def</span> <span class="nf">moduleApi</span><span class="o">(</span><span class="nc">String</span> <span class="n">compileStr</span><span class="o">,</span> <span class="nc">Closure</span> <span class="n">configureClosure</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">String</span><span class="o">[]</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">compileStr</span><span class="o">.</span><span class="na">split</span><span class="o">(</span><span class="s">":"</span><span class="o">)</span>
+    <span class="nc">String</span> <span class="n">group</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+    <span class="nc">String</span> <span class="n">artifactid</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+    <span class="nc">String</span> <span class="n">version</span> <span class="o">=</span> <span class="n">temp</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
 
-    <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">includeModule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;()</span>
+    <span class="nc">Set</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">includeModule</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashSet</span><span class="o">&lt;&gt;()</span>
     <span class="n">rootProject</span><span class="o">.</span><span class="na">getAllprojects</span><span class="o">().</span><span class="na">each</span> <span class="o">{</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">it</span> <span class="o">!=</span> <span class="n">rootProject</span><span class="o">)</span> <span class="n">includeModule</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">it</span><span class="o">.</span><span class="na">name</span><span class="o">)</span>
     <span class="o">}</span>
@@ -484,140 +503,145 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
         <span class="n">projects</span><span class="o">.</span><span class="na">project</span><span class="o">.</span><span class="na">dependencies</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"api"</span><span class="o">,</span> <span class="s">"$group:$artifactid:$version"</span><span class="o">,</span> <span class="n">configureClosure</span><span class="o">)</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div>
-<p>在实际使用时，可以完全使用<code>moduleApi</code> 替换掉原有的<code>api</code>。当然， <code>implementation</code>也可以有一个对应的<code>moduleImplementation</code>，这样只需要注释或解注释<code>setting.gradle</code>文件内的<code>include</code>语句就可以达到切换源码、<code>aar</code>的目的了。</p>
+</code></pre></div></div>
 
-<h3>八、从其他路由迁移至 TheRouter</h3>
+<p>在实际使用时，可以完全使用<code class="language-plaintext highlighter-rouge">moduleApi</code> 替换掉原有的<code class="language-plaintext highlighter-rouge">api</code>。当然， <code class="language-plaintext highlighter-rouge">implementation</code>也可以有一个对应的<code class="language-plaintext highlighter-rouge">moduleImplementation</code>，这样只需要注释或解注释<code class="language-plaintext highlighter-rouge">setting.gradle</code>文件内的<code class="language-plaintext highlighter-rouge">include</code>语句就可以达到切换源码、<code class="language-plaintext highlighter-rouge">aar</code>的目的了。</p>
 
-<h4>8.1 迁移工具一键迁移</h4>
+<h3 id="八从其他路由迁移至-therouter">八、从其他路由迁移至 TheRouter</h3>
 
-<p><code>TheRouter</code>提供了图形化界面的迁移工具，可以一键从其他路由迁移到<code>TheRouter</code>，目前仅支持<code>ARouter</code>，其他路由框架迁移也在开发中（GitHub下载，70M左右，请耐心等待）：  </p>
+<h4 id="81-迁移工具一键迁移">8.1 迁移工具一键迁移</h4>
+
+<p><code class="language-plaintext highlighter-rouge">TheRouter</code>提供了图形化界面的迁移工具，可以一键从其他路由迁移到<code class="language-plaintext highlighter-rouge">TheRouter</code>，目前仅支持<code class="language-plaintext highlighter-rouge">ARouter</code>，其他路由框架迁移也在开发中（GitHub下载，70M左右，请耐心等待）：</p>
 
 <ul>
-<li>Mac OS 迁移工具下载：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Mac.zip">https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Mac.zip</a> </li>
-<li>Windows 迁移工具下载：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Windows.zip">https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Windows.zip</a></li>
+  <li>Mac OS 迁移工具下载：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Mac.zip">https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Mac.zip</a></li>
+  <li>Windows 迁移工具下载：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Windows.zip">https://github.com/HuolalaTech/hll-wp-therouter-android/wiki/uploads/file/TheRouterTransfer-Windows.zip</a></li>
 </ul>
 
-<p>如果项目中使用了ARouter的IProvider.init()方法，可能需要手动处理初始化逻辑。<br>
-如下图：  </p>
+<p>如果项目中使用了ARouter的IProvider.init()方法，可能需要手动处理初始化逻辑。<br />
+如下图：</p>
 
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f2cc2b3509f41ccaa11dc9617088033~tplv-k3u1fbpfcp-watermark.image?" class="blog-img"/></p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f2cc2b3509f41ccaa11dc9617088033~tplv-k3u1fbpfcp-watermark.image?" class="blog-img" /></p>
 
-<h4>8.2 与其他路由对比</h4>
+<h4 id="82-与其他路由对比">8.2 与其他路由对比</h4>
 
-<table><thead>
-<tr>
-<th>功能</th>
-<th>TheRouter</th>
-<th>ARouter</th>
-<th>WMRouter</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Fragment路由</td>
-<td>✔️</td>
-<td>✔️</td>
-<td>✔️</td>
-</tr>
-<tr>
-<td>支持依赖注入</td>
-<td>✔️</td>
-<td>✔️</td>
-<td>✔️</td>
-</tr>
-<tr>
-<td>加载路由表</td>
-<td>无运行时扫描<br>无反射</td>
-<td>运行时扫描dex(新版本改为反射)<br>反射实例类<br>性能损耗大</td>
-<td>运行时读文件<br>反射实例类<br>性能损耗中</td>
-</tr>
-<tr>
-<td>注解正则表达式</td>
-<td>✔️</td>
-<td>✖️</td>
-<td>✔️</td>
-</tr>
-<tr>
-<td>Activity指定拦截器</td>
-<td>✔️（四大拦截器可根据业务定制）</td>
-<td>✖️</td>
-<td>✔️</td>
-</tr>
-<tr>
-<td>导出路由文档</td>
-<td>✔️（路由文档支持添加注释描述）</td>
-<td>✔️</td>
-<td>✖️</td>
-</tr>
-<tr>
-<td>动态注册路由信息</td>
-<td>✔️</td>
-<td>✖️</td>
-<td>✖️</td>
-</tr>
-<tr>
-<td>APT支持增量编译</td>
-<td>✔️</td>
-<td>✔️（开启文档生成则无法增量编译）</td>
-<td>✖️</td>
-</tr>
-<tr>
-<td>plugin支持增量编译</td>
-<td>✔️</td>
-<td>✖️</td>
-<td>✖️</td>
-</tr>
-<tr>
-<td>支持KSP编译</td>
-<td>✔️</td>
-<td>✖️</td>
-<td>✖️</td>
-</tr>
-<tr>
-<td>支持 AGP8 编译</td>
-<td>✔️</td>
-<td>Gradle7.3以后无法使用</td>
-<td>Gradle7.3以后无法使用</td>
-</tr>
-<tr>
-<td>多 Path 对应同一页面（低成本实现双端path统一）</td>
-<td>✔️</td>
-<td>✖️</td>
-<td>✖️</td>
-</tr>
-<tr>
-<td>远端路由表下发</td>
-<td>✔️</td>
-<td>✖️</td>
-<td>✖️</td>
-</tr>
-<tr>
-<td>支持单模块独立初始化</td>
-<td>✔️</td>
-<td>✖️</td>
-<td>✖️</td>
-</tr>
-<tr>
-<td>支持使用路由打开第三方SDK页面</td>
-<td>✔️</td>
-<td>✖️</td>
-<td>✖️</td>
-</tr>
-<tr>
-<td>对热修复支持（例如tinker）</td>
-<td>✔️(未改变的代码多次构建无变动)</td>
-<td>✖️(多次构建apt产物会发生变化，生成无意义补丁)</td>
-<td>✖️(多次构建apt产物会发生变化，生成无意义补丁)</td>
-</tr>
-</tbody></table>
+<table>
+  <thead>
+    <tr>
+      <th>功能</th>
+      <th>TheRouter</th>
+      <th>ARouter</th>
+      <th>WMRouter</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Fragment路由</td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td>支持依赖注入</td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td>加载路由表</td>
+      <td>无运行时扫描<br />无反射</td>
+      <td>运行时扫描dex(新版本改为反射)<br />反射实例类<br />性能损耗大</td>
+      <td>运行时读文件<br />反射实例类<br />性能损耗中</td>
+    </tr>
+    <tr>
+      <td>注解正则表达式</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td>Activity指定拦截器</td>
+      <td>✔️（四大拦截器可根据业务定制）</td>
+      <td>✖️</td>
+      <td>✔️</td>
+    </tr>
+    <tr>
+      <td>导出路由文档</td>
+      <td>✔️（路由文档支持添加注释描述）</td>
+      <td>✔️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>动态注册路由信息</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>APT支持增量编译</td>
+      <td>✔️</td>
+      <td>✔️（开启文档生成则无法增量编译）</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>plugin支持增量编译</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>支持KSP编译</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>支持 AGP8 编译</td>
+      <td>✔️</td>
+      <td>Gradle7.3以后无法使用</td>
+      <td>Gradle7.3以后无法使用</td>
+    </tr>
+    <tr>
+      <td>多 Path 对应同一页面（低成本实现双端path统一）</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>远端路由表下发</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>支持单模块独立初始化</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>支持使用路由打开第三方SDK页面</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>对热修复支持（例如tinker）</td>
+      <td>✔️(未改变的代码多次构建无变动)</td>
+      <td>✖️(多次构建apt产物会发生变化，生成无意义补丁)</td>
+      <td>✖️(多次构建apt产物会发生变化，生成无意义补丁)</td>
+    </tr>
+  </tbody>
+</table>
 
-<h3>九、总结</h3>
+<h3 id="九总结">九、总结</h3>
 
-<p><code>TheRouter</code> 并不仅仅是一个小巧灵活的路由库，而是一整套完整的 <code>Android</code> 模块化解决方案，能够解决几乎全部的模块化过程中会遇到的问题。<br>
-对于现有的路由框架，我们也在最大限度支持平滑迁移，目前已完成<code>ARouter</code>的一键迁移工具，其他框架的迁移仍在开发中。你也可以在<code>Github</code> <code>issue</code>中提出需求，我们评估后会尽快支持，也欢迎任何人提供 <code>Pull Requests</code>。  </p>
+<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 并不仅仅是一个小巧灵活的路由库，而是一整套完整的 <code class="language-plaintext highlighter-rouge">Android</code> 模块化解决方案，能够解决几乎全部的模块化过程中会遇到的问题。<br />
+对于现有的路由框架，我们也在最大限度支持平滑迁移，目前已完成<code class="language-plaintext highlighter-rouge">ARouter</code>的一键迁移工具，其他框架的迁移仍在开发中。你也可以在<code class="language-plaintext highlighter-rouge">Github</code> <code class="language-plaintext highlighter-rouge">issue</code>中提出需求，我们评估后会尽快支持，也欢迎任何人提供 <code class="language-plaintext highlighter-rouge">Pull Requests</code>。</p>
 
-<p>更多问题请加群沟通：<br>
-<img src="https://kymjs.com/therouter/wx/therouter_wx.jpg" class="blog-img"/></p>
+<p>更多问题请加群沟通：<br />
+<img src="https://kymjs.com/therouter/wx/therouter_wx.jpg" class="blog-img" /></p>
+
 
 	</div>
   

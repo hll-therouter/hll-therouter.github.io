@@ -83,199 +83,218 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<p>如无法解决你的问题，建议登记应用，获取优先技术支持 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57</a>    </p>
+		<p>如无法解决你的问题，建议登记应用，获取优先技术支持 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/57</a></p>
 
-<h3>问题列表不定期更新中...</h3>
+<h3 id="问题列表不定期更新中">问题列表不定期更新中…</h3>
 
-<hr>
+<hr />
 
-<h4>Q1: <strong>路由表不生成（或生成的代码有问题编译报错）</strong></h4>
+<h4 id="q1-路由表不生成或生成的代码有问题编译报错">Q1: <strong>路由表不生成（或生成的代码有问题编译报错）</strong></h4>
 
-<p>(注：1.2.0-rc5版本已修复：<code>KSP</code>与<code>ViewBinding</code>共用不生成路由表的问题)  </p>
+<p>(注：1.2.0-rc5版本已修复：<code class="language-plaintext highlighter-rouge">KSP</code>与<code class="language-plaintext highlighter-rouge">ViewBinding</code>共用不生成路由表的问题)</p>
 
-<p>请按照以下步骤排查：   </p>
+<p>请按照以下步骤排查：</p>
 
 <ol>
-<li>plugin 加了吗？plugin 必须加且只能加在 app 模块里。<br></li>
-<li>kapt加了吗？kapt不能只加最底层，所有用了注解的模块都要加。<br></li>
-<li>router、plugin、kapt，三个依赖的版本号必须一致。<br></li>
-<li>在这里查看JDK信息：<code>Preferences-&gt; Build Tools-&gt; Gradle-&gt; Gradle JDK</code>。不能用AS自带的jdk，KSP会有兼容问题，请在 Oracle 官网下载：<a href="https://www.oracle.com/hk/java/technologies/downloads/#java17">Java 17</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java11">Java 11</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java8">Java 8</a>。</li>
-<li>尝试更新至最新rc版本查看是否修复。<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">版本列表</a></li>
+  <li>plugin 加了吗？plugin 必须加且只能加在 app 模块里。</li>
+  <li>kapt加了吗？kapt不能只加最底层，所有用了注解的模块都要加。</li>
+  <li>router、plugin、kapt，三个依赖的版本号必须一致。</li>
+  <li>在这里查看JDK信息：<code class="language-plaintext highlighter-rouge">Preferences-&gt; Build Tools-&gt; Gradle-&gt; Gradle JDK</code>。不能用AS自带的jdk，KSP会有兼容问题，请在 Oracle 官网下载：<a href="https://www.oracle.com/hk/java/technologies/downloads/#java17">Java 17</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java11">Java 11</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java8">Java 8</a>。</li>
+  <li>尝试更新至最新rc版本查看是否修复。<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">版本列表</a></li>
 </ol>
 
-<hr>
+<hr />
 
-<h4>Q2：<strong>kotlin使用<code>@Autowired</code>注解编译不通过</strong></h4>
+<h4 id="q2kotlin使用autowired注解编译不通过">Q2：<strong>kotlin使用<code class="language-plaintext highlighter-rouge">@Autowired</code>注解编译不通过</strong></h4>
 
 <p>查看 GitHub Issue：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/6">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/6</a></p>
 
-<hr>
+<hr />
 
-<h4>Q3：<strong>使用Gradle 8.X，编译报错</strong></h4>
+<h4 id="q3使用gradle-8x编译报错">Q3：<strong>使用Gradle 8.X，编译报错</strong></h4>
 
 <p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/22">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/22</a></p>
 
-<hr>
+<hr />
 
-<h4>Q4：<strong>从 ARouter 迁移 TheRouter 时通过 Bundle 传递的参数不能正确获取</strong></h4>
+<h4 id="q4从-arouter-迁移-therouter-时通过-bundle-传递的参数不能正确获取">Q4：<strong>从 ARouter 迁移 TheRouter 时通过 Bundle 传递的参数不能正确获取</strong></h4>
 
 <p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/29">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/29</a></p>
 
-<hr>
+<hr />
 
-<h4>Q5：<strong>多进程如何使用</strong></h4>
+<h4 id="q5多进程如何使用">Q5：<strong>多进程如何使用</strong></h4>
 
 <p><a href="https://therouter.cn/docs/2022/09/03/01">https://therouter.cn/docs/2022/09/03/01</a></p>
 
-<hr>
+<hr />
 
-<h4>Q6：<strong>同一个服务名有多个服务提供方，如何使用</strong></h4>
+<h4 id="q6同一个服务名有多个服务提供方如何使用">Q6：<strong>同一个服务名有多个服务提供方，如何使用</strong></h4>
 
-<p>请查看文档 【1.3 服务提供方】章节的内容：<a href="https://therouter.cn/docs/2022/08/27/01">https://therouter.cn/docs/2022/08/27/01</a>   </p>
+<p>请查看文档 【1.3 服务提供方】章节的内容：<a href="https://therouter.cn/docs/2022/08/27/01">https://therouter.cn/docs/2022/08/27/01</a></p>
 
-<hr>
+<hr />
 
-<h4>Q7：多进程使用 TheRouter</h4>
+<h4 id="q7多进程使用-therouter">Q7：多进程使用 TheRouter</h4>
 
-<p>TheRouter 路由支持多进程，但默认只会在主进程执行初始化逻辑。如果使用了多进程，可以先关闭<code>TheRouter</code>的自动初始化，然后手动在<code>Application</code>的<code>onCreate()</code>中执行初始化功能。   </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">override</span> <span class="n">fun</span> <span class="nf">attachBaseContext</span><span class="o">(</span><span class="nl">base:</span> <span class="n">Context</span><span class="o">)</span> <span class="o">{</span>
+<p>TheRouter 路由支持多进程，但默认只会在主进程执行初始化逻辑。如果使用了多进程，可以先关闭<code class="language-plaintext highlighter-rouge">TheRouter</code>的自动初始化，然后手动在<code class="language-plaintext highlighter-rouge">Application</code>的<code class="language-plaintext highlighter-rouge">onCreate()</code>中执行初始化功能。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">override</span> <span class="n">fun</span> <span class="nf">attachBaseContext</span><span class="o">(</span><span class="nl">base:</span> <span class="nc">Context</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">super</span><span class="o">.</span><span class="na">attachBaseContext</span><span class="o">(</span><span class="n">base</span><span class="o">)</span>
     <span class="n">theRouterUseAutoInit</span> <span class="o">=</span> <span class="kc">false</span>
 <span class="o">}</span>
 
 <span class="n">override</span> <span class="n">fun</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
     <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">()</span>
-    <span class="n">TheRouter</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="k">this</span><span class="o">)</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="k">this</span><span class="o">)</span>
 <span class="o">}</span>
-</code></pre></div>
-<p><strong>注意</strong>： </p>
+</code></pre></div></div>
+
+<p><strong>注意</strong>：</p>
 
 <ul>
-<li>1、多进程<code>ServiceProvider</code>，TheRouter 支持跨进程获取数据，但获取的数据本身需要支持跨进程，可以理解为<code>TheRouter</code>本质是个链接两个进程的通道，要将数据从一个进程传递到另一个进程，这个数据本身需要能够被另一个进程接收的到。<br></li>
-<li>2、<code>FlowTask</code>的跨进程依赖暂不支持，预计支持版本在<code>1.2.2</code>。<br></li>
-<li>3、<code>ActionManager</code>的跨进程响应暂不支持，预计支持版本在<code>1.2.2</code>。<br></li>
+  <li>1、多进程<code class="language-plaintext highlighter-rouge">ServiceProvider</code>，TheRouter 支持跨进程获取数据，但获取的数据本身需要支持跨进程，可以理解为<code class="language-plaintext highlighter-rouge">TheRouter</code>本质是个链接两个进程的通道，要将数据从一个进程传递到另一个进程，这个数据本身需要能够被另一个进程接收的到。</li>
+  <li>2、<code class="language-plaintext highlighter-rouge">FlowTask</code>的跨进程依赖暂不支持，预计支持版本在<code class="language-plaintext highlighter-rouge">1.2.2</code>。</li>
+  <li>3、<code class="language-plaintext highlighter-rouge">ActionManager</code>的跨进程响应暂不支持，预计支持版本在<code class="language-plaintext highlighter-rouge">1.2.2</code>。</li>
 </ul>
 
-<hr>
+<hr />
 
-<h4>Q8：自定义Log输出</h4>
+<h4 id="q8自定义log输出">Q8：自定义Log输出</h4>
 
-<p>默认情况下，<code>TheRouter</code>会在<code>debug</code>模式下，将<code>log</code>打印到控制台，在<code>release</code>模式下不做任何输出。<br>
-如果你希望采集线上日志信息，可以自定义<code>release</code>场景下的日志输出方式：</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">override</span> <span class="n">fun</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+<p>默认情况下，<code class="language-plaintext highlighter-rouge">TheRouter</code>会在<code class="language-plaintext highlighter-rouge">debug</code>模式下，将<code class="language-plaintext highlighter-rouge">log</code>打印到控制台，在<code class="language-plaintext highlighter-rouge">release</code>模式下不做任何输出。<br />
+如果你希望采集线上日志信息，可以自定义<code class="language-plaintext highlighter-rouge">release</code>场景下的日志输出方式：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">override</span> <span class="n">fun</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
     <span class="c1">// 这一步建议放在Application.onCreate()之前，否则可能会在赋值之前就有部分日志已经执行了默认逻辑。</span>
-    <span class="n">TheRouter</span><span class="o">.</span><span class="na">logCat</span> <span class="o">=</span> <span class="o">{</span><span class="n">tag</span><span class="o">,</span> <span class="n">msg</span> <span class="o">-&gt;</span>  
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">logCat</span> <span class="o">=</span> <span class="o">{</span><span class="n">tag</span><span class="o">,</span> <span class="n">msg</span> <span class="o">-&gt;</span>  
         <span class="c1">// 执行上报日志的逻辑</span>
     <span class="o">}</span>
     <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">()</span>
 <span class="o">}</span>
-</code></pre></div>
-<hr>
+</code></pre></div></div>
 
-<h4>Q9：判断String，是否为路由path</h4>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 判断是否为路由落地页path</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">isRouterPath</span><span class="o">(</span><span class="n">path</span><span class="o">)</span> <span class="o">:</span> <span class="n">Boolean</span>  
+<hr />
+
+<h4 id="q9判断string是否为路由path">Q9：判断String，是否为路由path</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 判断是否为路由落地页path</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">isRouterPath</span><span class="o">(</span><span class="n">path</span><span class="o">)</span> <span class="o">:</span> <span class="nc">Boolean</span>  
 
 <span class="c1">// 判断是否为 Action</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">isRouterAction</span><span class="o">(</span><span class="n">path</span><span class="o">)</span> <span class="o">:</span> <span class="n">Boolean</span>
-</code></pre></div>
-<hr>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">isRouterAction</span><span class="o">(</span><span class="n">path</span><span class="o">)</span> <span class="o">:</span> <span class="nc">Boolean</span>
+</code></pre></div></div>
 
-<h4>Q10：导出路由历史记录</h4>
+<hr />
+
+<h4 id="q10导出路由历史记录">Q10：导出路由历史记录</h4>
 
 <p>如果需要记录用户历史操作信息，用于排查错误时回放，可以直接使用历史记录导出功能：</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// level共8个状态可选</span>
-<span class="n">val</span> <span class="n">NONE</span> <span class="c1">// 不导出任何数据</span>
-<span class="n">val</span> <span class="n">ACTIVITY</span> <span class="c1">//仅导出Activity的路由操作</span>
-<span class="n">val</span> <span class="n">FRAGMENT</span> <span class="c1">//仅导出Fragment的路由操作</span>
-<span class="n">val</span> <span class="n">PAGE</span>  <span class="c1">// 导出 Fragment + Activity的路由操作</span>
-<span class="n">val</span> <span class="n">ACTION</span>  <span class="c1">// 导出 ActionManager 的操作记录</span>
-<span class="n">val</span> <span class="n">SERVICE_PROVIDER</span> <span class="c1">// 导出 ServiceProvider的记录</span>
-<span class="n">val</span> <span class="n">FLOW_TASK</span> <span class="c1">// 导出 FlowTaskExecutor 的历史记录</span>
-<span class="n">val</span> <span class="n">ALL</span> <span class="c1">// 导出全部记录</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// level共8个状态可选</span>
+<span class="n">val</span> <span class="no">NONE</span> <span class="c1">// 不导出任何数据</span>
+<span class="n">val</span> <span class="no">ACTIVITY</span> <span class="c1">//仅导出Activity的路由操作</span>
+<span class="n">val</span> <span class="no">FRAGMENT</span> <span class="c1">//仅导出Fragment的路由操作</span>
+<span class="n">val</span> <span class="no">PAGE</span>  <span class="c1">// 导出 Fragment + Activity的路由操作</span>
+<span class="n">val</span> <span class="no">ACTION</span>  <span class="c1">// 导出 ActionManager 的操作记录</span>
+<span class="n">val</span> <span class="no">SERVICE_PROVIDER</span> <span class="c1">// 导出 ServiceProvider的记录</span>
+<span class="n">val</span> <span class="no">FLOW_TASK</span> <span class="c1">// 导出 FlowTaskExecutor 的历史记录</span>
+<span class="n">val</span> <span class="no">ALL</span> <span class="c1">// 导出全部记录</span>
 
 <span class="c1">// 8种状态可互相叠加，例如</span>
-<span class="n">val</span> <span class="n">level</span> <span class="o">=</span> <span class="n">ACTIVITY</span> <span class="o">+</span> <span class="n">ACTION</span> <span class="o">+</span> <span class="n">FLOW_TASK</span>
+<span class="n">val</span> <span class="n">level</span> <span class="o">=</span> <span class="no">ACTIVITY</span> <span class="o">+</span> <span class="no">ACTION</span> <span class="o">+</span> <span class="no">FLOW_TASK</span>
 
 <span class="nf">export</span><span class="o">(</span><span class="n">level</span><span class="o">).</span><span class="na">forEach</span> <span class="o">{</span>
     <span class="n">info</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">it</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="sc">'\n'</span><span class="o">).</span><span class="na">append</span><span class="o">(</span><span class="sc">'\n'</span><span class="o">)</span>
 <span class="o">}</span>
-</code></pre></div>
-<hr>
+</code></pre></div></div>
 
-<h4>Q11：导入导出 Intent 对象到路由</h4>
+<hr />
 
-<p>有一些特殊的业务场景可能必须使用<code>Intent</code>对象作为参数，例如通知栏点击以后，系统只提供了<code>Intent</code>参数，或者用于替代<code>startActivityForResult()</code>的新 API <code>ActivityResultLauncher</code> 。<br>
-TheRouter 也支持这样的使用场景：  </p>
+<h4 id="q11导入导出-intent-对象到路由">Q11：导入导出 Intent 对象到路由</h4>
 
-<p>导入 Intent：  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">intent</span><span class="o">).</span><span class="na">withXxxxx</span><span class="o">().</span><span class="na">navigation</span><span class="o">()</span>
-</code></pre></div>
-<p>导出 Intent：  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 注：导出Intent时，需要url有对应的落地页，否则Intent不会附带withXXX()的参数信息</span>
-<span class="n">val</span> <span class="n">intent</span> <span class="o">=</span> <span class="n">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">url</span><span class="o">).</span><span class="na">withXxxxx</span><span class="o">().</span><span class="na">createIntent</span><span class="o">()</span>
-</code></pre></div>
-<hr>
+<p>有一些特殊的业务场景可能必须使用<code class="language-plaintext highlighter-rouge">Intent</code>对象作为参数，例如通知栏点击以后，系统只提供了<code class="language-plaintext highlighter-rouge">Intent</code>参数，或者用于替代<code class="language-plaintext highlighter-rouge">startActivityForResult()</code>的新 API <code class="language-plaintext highlighter-rouge">ActivityResultLauncher</code> 。  <br />
+TheRouter 也支持这样的使用场景：</p>
 
-<h4>Q12：插件化项目集成</h4>
+<p>导入 Intent：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">intent</span><span class="o">).</span><span class="na">withXxxxx</span><span class="o">().</span><span class="na">navigation</span><span class="o">()</span>
+</code></pre></div></div>
+
+<p>导出 Intent：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 注：导出Intent时，需要url有对应的落地页，否则Intent不会附带withXXX()的参数信息</span>
+<span class="n">val</span> <span class="n">intent</span> <span class="o">=</span> <span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="n">url</span><span class="o">).</span><span class="na">withXxxxx</span><span class="o">().</span><span class="na">createIntent</span><span class="o">()</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="q12插件化项目集成">Q12：插件化项目集成</h4>
 
 <p>TheRouter 的路由表是完全动态化的，所以允许动态加载插件路由表。
 现有市面上插件化框架较多，具体可参考使用的插件化方案，当插件被加载时分别调用如下代码</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 在异步线程执行</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 在异步线程执行</span>
 <span class="n">execute</span> <span class="o">{</span>
     <span class="c1">// 初始化插件内的依赖注入</span>
-    <span class="n">TheRouterServiceProvideInjecter</span><span class="o">.</span><span class="na">trojan</span><span class="o">();</span>
+    <span class="nc">TheRouterServiceProvideInjecter</span><span class="o">.</span><span class="na">trojan</span><span class="o">();</span>
     <span class="c1">// 初始化插件内的FlowTask</span>
-    <span class="n">TheRouterServiceProvideInjecter</span><span class="o">.</span><span class="na">addFlowTask</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">TheRouter</span><span class="o">.</span><span class="na">digraph</span><span class="o">);</span>
+    <span class="nc">TheRouterServiceProvideInjecter</span><span class="o">.</span><span class="na">addFlowTask</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="nc">TheRouter</span><span class="o">.</span><span class="na">digraph</span><span class="o">);</span>
     <span class="c1">// 初始化插件内的路由表</span>
-    <span class="n">TheRouterServiceProvideInjecter</span><span class="o">.</span><span class="na">initDefaultRouteMap</span><span class="o">();</span>
+    <span class="nc">TheRouterServiceProvideInjecter</span><span class="o">.</span><span class="na">initDefaultRouteMap</span><span class="o">();</span>
 <span class="o">}</span>
-</code></pre></div>
-<hr>
+</code></pre></div></div>
 
-<h4>Q13：Flutter/RN/WEEX 等混编项目集成</h4>
+<hr />
+
+<h4 id="q13flutterrnweex-等混编项目集成">Q13：Flutter/RN/WEEX 等混编项目集成</h4>
 
 <p>TheRouter 的路由表是完全动态化的，所以允许动态加载跨平台项目的路由表。</p>
 
-<p>可以直接将路由表配置到<code>/assets/RouteMap.json</code>文件中。<br>
-如果路由表的 <code>url</code> 是具备规律的，可简单使用正则表达式一次性加载。</p>
-<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">[</span><span class="w">
+<p>可以直接将路由表配置到<code class="language-plaintext highlighter-rouge">/assets/RouteMap.json</code>文件中。<br />
+如果路由表的 <code class="language-plaintext highlighter-rouge">url</code> 是具备规律的，可简单使用正则表达式一次性加载。</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://kymjs.com/flutter/\\S*"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"com.therouter.FlutterActivity"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"key"</span><span class="p">:</span><span class="s2">"value"</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://kymjs.com/flutter/</span><span class="se">\\</span><span class="s2">S*"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"className"</span><span class="p">:</span><span class="w"> </span><span class="s2">"com.therouter.FlutterActivity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"key"</span><span class="p">:</span><span class="s2">"value"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="err">......</span><span class="w">
   </span><span class="err">//</span><span class="w"> </span><span class="err">添加其他路由表</span><span class="w">
   </span><span class="err">......</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<hr>
+</span></code></pre></div></div>
 
-<h4>Q14：我的项目使用的Gradle8.x（或AGP8），引入插件失败</h4>
+<hr />
 
-<p>请完整查看接入文档<a href="https://therouter.cn/docs/2022/11/23/01">https://therouter.cn/docs/2022/11/23/01</a>，并仔细阅读【第一步：接入classpath】   </p>
+<h4 id="q14我的项目使用的gradle8x或agp8引入插件失败">Q14：我的项目使用的Gradle8.x（或AGP8），引入插件失败</h4>
 
-<hr>
+<p>请完整查看接入文档<a href="https://therouter.cn/docs/2022/11/23/01">https://therouter.cn/docs/2022/11/23/01</a>，并仔细阅读【第一步：接入classpath】</p>
 
-<h4>Q15：我为什么总是拉不到TheRouter的依赖</h4>
+<hr />
 
-<p>TheRouter 的依赖全部上传在 <code>mavenCentral</code>，请检查你的仓库声明中是否有声明。另外，请不要使用阿里云的镜像仓库，否则也会造成拉不到依赖的情况。   </p>
-<div class="highlight"><pre><code class="language-" data-lang="">repositories {
+<h4 id="q15我为什么总是拉不到therouter的依赖">Q15：我为什么总是拉不到TheRouter的依赖</h4>
+
+<p>TheRouter 的依赖全部上传在 <code class="language-plaintext highlighter-rouge">mavenCentral</code>，请检查你的仓库声明中是否有声明。另外，请不要使用阿里云的镜像仓库，否则也会造成拉不到依赖的情况。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>repositories {
     mavenCentral()
 }
-</code></pre></div>
-<hr>
+</code></pre></div></div>
 
-<h4>Q16：编译报错 <code>API &#39;android.registerTransform&#39; is removed</code></h4>
+<hr />
 
-<p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/121">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/121</a></p>
+<h4 id="q16编译报错-api-androidregistertransform-is-removed">Q16：编译报错 <code class="language-plaintext highlighter-rouge">API 'android.registerTransform' is removed</code></h4>
 
-<hr>
+<p>https://github.com/HuolalaTech/hll-wp-therouter-android/issues/121</p>
+
+<hr />
+
 
 	</div>
   
@@ -341,7 +360,7 @@ TheRouter 也支持这样的使用场景：  </p>
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">2 mins</small>
+            <small class="text-muted">3 mins</small>
           </div>
         </div>
       </div>

@@ -5,16 +5,9 @@ baseurl: ""
 url: ""
 permalink: /docs/:year/:month/:day/:title 
 
-company_name: 货拉拉移动技术团队
+company_name: 货拉拉
 
-markdown: redcarpet
-redcarpet:
-  extensions:
-    - fenced_code_blocks
-    - no_intra_emphasis
-    - strikethrough
-    - autolink
-    - tables 
+markdown: kramdown
     
 plugins:
   - jekyll-feed

@@ -83,26 +83,27 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<p>TheRouter 在<code>1.1.4-rc2</code>开始，已经将<code>KSP</code>能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 <code>KSP</code>。  </p>
+		<p>TheRouter 在<code class="language-plaintext highlighter-rouge">1.1.4-rc2</code>开始，已经将<code class="language-plaintext highlighter-rouge">KSP</code>能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 <code class="language-plaintext highlighter-rouge">KSP</code>。</p>
 
-<h3>什么是KSP</h3>
+<h3 id="什么是ksp">什么是KSP</h3>
 
-<p>KSP全称：Kotlin Symbol Processing。<br>
-借助官网的描述：KSP 提供了一种基于 Kotlin 的轻量级的编译期插件 API，其编译速度最快可以达到 kapt 速度的两倍。    </p>
+<p>KSP全称：Kotlin Symbol Processing。<br />
+借助官网的描述：KSP 提供了一种基于 Kotlin 的轻量级的编译期插件 API，其编译速度最快可以达到 kapt 速度的两倍。</p>
 
-<p>从原理角度讲，<code>Android</code>项目构建过程中，可用的注解处理器总共有三种：APT、KAPT、KSP。<br>
-APT 比较好理解，就是 JDK 提供的注解处理器，通常在 Gradle 项目中不需要引入什么额外插件，只需要在依赖时使用 <code>annotationProcessor &quot;cn.therouter:apt:x.x.x</code>，但是他不支持 Kotlin 注解的解析。<br>
-KAPT 最早是 Kotlin 推出的APT，用于兼容 Kotlin 代码的注解，但是他的实现比较简单粗暴，内部实际上是包了一层APT，他编译时首先处理 Kotlin 的注解解析，如果无法解析，再用APT去解析，所以相当于同一个模块，如果是Java、Kotlin混编时，会执行两遍注解解析。<br>
-KSP 是基于语法分析的注解解析，严格来讲，他不仅仅可以用来做注解解析，还可以做一些基于语法分析的事情，比如自定义的代码语法检查，相当于替代了一部分 lint 可以做的事情。正因为基于语法分析来做的，所以性能必然是比 KAPT 高，毕竟编译期一定会先走一遍语法分析。   </p>
+<p>从原理角度讲，<code class="language-plaintext highlighter-rouge">Android</code>项目构建过程中，可用的注解处理器总共有三种：APT、KAPT、KSP。<br />
+APT 比较好理解，就是 JDK 提供的注解处理器，通常在 Gradle 项目中不需要引入什么额外插件，只需要在依赖时使用 <code class="language-plaintext highlighter-rouge">annotationProcessor "cn.therouter:apt:x.x.x</code>，但是他不支持 Kotlin 注解的解析。<br />
+KAPT 最早是 Kotlin 推出的APT，用于兼容 Kotlin 代码的注解，但是他的实现比较简单粗暴，内部实际上是包了一层APT，他编译时首先处理 Kotlin 的注解解析，如果无法解析，再用APT去解析，所以相当于同一个模块，如果是Java、Kotlin混编时，会执行两遍注解解析。<br />
+KSP 是基于语法分析的注解解析，严格来讲，他不仅仅可以用来做注解解析，还可以做一些基于语法分析的事情，比如自定义的代码语法检查，相当于替代了一部分 lint 可以做的事情。正因为基于语法分析来做的，所以性能必然是比 KAPT 高，毕竟编译期一定会先走一遍语法分析。</p>
 
-<h3>TheRouter 的 KSP 使用</h3>
+<h3 id="therouter-的-ksp-使用">TheRouter 的 KSP 使用</h3>
 
-<h4>第一步</h4>
+<h4 id="第一步">第一步</h4>
 
-<p>在项目中所有使用了注解的模块，对应的<code>build.gradle</code>文件中都需要加入如下依赖，<strong>所有模块都要添加，不能只添加子模块</strong>：  </p>
+<p>在项目中所有使用了注解的模块，对应的<code class="language-plaintext highlighter-rouge">build.gradle</code>文件中都需要加入如下依赖，<strong>所有模块都要添加，不能只添加子模块</strong>：</p>
 
-<p><strong>注意</strong> ，使用<code>KSP</code>以后，如果之前使用了<code>kapt</code>需要将原本的<code>kapt</code>依赖删掉</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Gradle7.x以下版本，这样加入 KSP插件</span>
+<p><strong>注意</strong> ，使用<code class="language-plaintext highlighter-rouge">KSP</code>以后，如果之前使用了<code class="language-plaintext highlighter-rouge">kapt</code>需要将原本的<code class="language-plaintext highlighter-rouge">kapt</code>依赖删掉</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Gradle7.x以下版本，这样加入 KSP插件</span>
 <span class="n">apply</span> <span class="nl">plugin:</span> <span class="err">'</span><span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">devtools</span><span class="o">.</span><span class="na">ksp</span><span class="err">'</span>
 <span class="c1">// 删除之前的kapt依赖(如有)</span>
 <span class="c1">// apply plugin: 'kotlin-kapt' </span>
@@ -123,17 +124,19 @@ KSP 是基于语法分析的注解解析，严格来讲，他不仅仅可以用�
     <span class="c1">// kapt "cn.therouter:apt:1.1.4-rc4"</span>
 <span class="o">}</span>
 
-</code></pre></div>
-<h4>第二步</h4>
+</code></pre></div></div>
 
-<p>在项目根目录<code>build.gradle</code>引入 kapt 插件的 classpath : </p>
+<h4 id="第二步">第二步</h4>
 
-<p><strong>注意</strong>，版本号需要在KSP官网<a href="https://github.com/google/ksp/releases">https://github.com/google/ksp/releases</a>，找到跟自己项目中 Kotlin 版本号对应的<code>KSP</code>插件版本号。例如，我的 Kotlin 版本号是 <code>1.5.31</code>，所以 KSP 插件的版本号就使用对应的<code>1.5.31-1.0.0</code>  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Gradle7.x以下版本，这样加入 </span>
+<p>在项目根目录<code class="language-plaintext highlighter-rouge">build.gradle</code>引入 kapt 插件的 classpath :</p>
+
+<p><strong>注意</strong>，版本号需要在KSP官网<a href="https://github.com/google/ksp/releases">https://github.com/google/ksp/releases</a>，找到跟自己项目中 Kotlin 版本号对应的<code class="language-plaintext highlighter-rouge">KSP</code>插件版本号。例如，我的 Kotlin 版本号是 <code class="language-plaintext highlighter-rouge">1.5.31</code>，所以 KSP 插件的版本号就使用对应的<code class="language-plaintext highlighter-rouge">1.5.31-1.0.0</code></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Gradle7.x以下版本，这样加入 </span>
 <span class="n">buildscript</span> <span class="o">{</span>
-    <span class="n">dependencies</span> <span class="o">{</span>
-        <span class="n">classpath</span> <span class="s">"com.google.devtools.ksp:symbol-processing-gradle-plugin:xxx-xxx"</span>  
-    <span class="o">}</span>
+	<span class="n">dependencies</span> <span class="o">{</span>
+		<span class="n">classpath</span> <span class="s">"com.google.devtools.ksp:symbol-processing-gradle-plugin:xxx-xxx"</span>  
+	<span class="o">}</span>
 <span class="o">}</span>
 
 <span class="c1">// Gradle7.x及以上版本，提供了新的方式，也这样加入  </span>
@@ -142,7 +145,8 @@ KSP 是基于语法分析的注解解析，严格来讲，他不仅仅可以用�
     <span class="n">id</span> <span class="s">"com.google.devtools.ksp"</span> <span class="n">version</span> <span class="err">'</span><span class="n">xxx</span><span class="o">-</span><span class="n">xxx</span><span class="err">'</span> <span class="n">apply</span> <span class="kc">false</span>
 <span class="o">}</span>
 
-</code></pre></div>
+</code></pre></div></div>
+
 	</div>
   
   
@@ -196,13 +200,13 @@ KSP 是基于语法分析的注解解析，严格来讲，他不仅仅可以用�
         <div class="card-body">
           <p class="card-text">
             
-              模块化能力支持项：  
+              模块化能力支持项：
 
 
-支持跨模块依赖注入
-支持自定义注入项的创建规则，依赖注入可自定义参数
-支持自定义服务拦截，单模块mock调试
-支持注入对象缓存...
+  支持跨模块依赖注入
+  支持自定义注入项的创建规则，依赖注入可自定义参数
+  支持自定义服务拦截，单模块mock调试
+  支持...
             
           </p>
           <div class="d-flex justify-content-between align-items-center">
@@ -211,7 +215,7 @@ KSP 是基于语法分析的注解解析，严格来讲，他不仅仅可以用�
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">12 mins</small>
+            <small class="text-muted">13 mins</small>
           </div>
         </div>
       </div>
@@ -242,7 +246,7 @@ KSP 是基于语法分析的注解解析，严格来讲，他不仅仅可以用�
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">6 mins</small>
+            <small class="text-muted">8 mins</small>
           </div>
         </div>
       </div>

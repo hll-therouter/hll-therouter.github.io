@@ -83,129 +83,150 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<p>TheRouter是货拉拉开源的路由框架，针对 Android 平台实现组件化、跨模块调用、动态化等功能的集成框架，基本上算当前最先进的路由库了。<br>
-Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https://github.com/HuolalaTech/hll-wp-therouter-android/</a><br>
-官网：<a href="http://therouter.cn/">http://therouter.cn/</a>  </p>
+		<p>TheRouter是货拉拉开源的路由框架，针对 Android 平台实现组件化、跨模块调用、动态化等功能的集成框架，基本上算当前最先进的路由库了。 <br />
+Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https://github.com/HuolalaTech/hll-wp-therouter-android/</a> <br />
+官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
 
-<h2>开始之前</h2>
+<h2 id="开始之前">开始之前</h2>
 
-<p>如果你的项目之前使用过其他路由，建议使用迁移工具一键迁移： <a href="https://therouter.cn/docs/2022/09/05/01">https://therouter.cn/docs/2022/09/05/01</a>   </p>
+<p>如果你的项目之前使用过其他路由，建议使用迁移工具一键迁移： <a href="https://therouter.cn/docs/2022/09/05/01">https://therouter.cn/docs/2022/09/05/01</a></p>
 
-<p>如果你的是新项目，请先记住一点：<strong>plugin、apt、router 三个依赖的版本号必须保持一致</strong>，请继续往下看接入步骤。   </p>
+<p>如果你的是新项目，请先记住一点：<strong>plugin、apt、router 三个依赖的版本号必须保持一致</strong>，请继续往下看接入步骤。</p>
 
-<h2>查看最新版本</h2>
+<h2 id="查看最新版本">查看最新版本</h2>
 
-<p>TheRouter 的版本分为两种，稳定版和 rc版，一般不追求新功能我们就用稳定版就行，可以在官网看到最新的版本号和各种版本的说明：<a href="https://therouter.cn/docs/2022/09/06/01">https://therouter.cn/docs/2022/09/06/01</a>  </p>
+<p>TheRouter 的版本分为两种，稳定版和 rc版，一般不追求新功能我们就用稳定版就行，可以在官网看到最新的版本号和各种版本的说明：<a href="https://therouter.cn/docs/2022/09/06/01">https://therouter.cn/docs/2022/09/06/01</a></p>
 
-<h2>接入</h2>
+<h2 id="接入">接入</h2>
 
-<p>新建一个<code>Demo</code>工程，打开<code>Demo</code>的根目录<code>build.gradle</code>。</p>
+<p>新建一个<code class="language-plaintext highlighter-rouge">Demo</code>工程，打开<code class="language-plaintext highlighter-rouge">Demo</code>的根目录<code class="language-plaintext highlighter-rouge">build.gradle</code>。</p>
 
-<h3>第一步：接入classpath</h3>
+<h3 id="第一步接入classpath">第一步：接入classpath</h3>
 
-<h4>8.X 版本 Gradle</h4>
+<h4 id="8x-版本-gradle">8.X 版本 Gradle</h4>
 
-<p>由于 8.X 版本的 Gradle，必须使用<code>Java 17</code>的环境了，并且不兼容老<code>JDK</code>编译的<code>class</code>，所以对于新版本需要使用专为<code>Java 17</code>编译的插件。</p>
-<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">id</span> <span class="s1">'cn.therouter.agp8'</span> <span class="n">version</span> <span class="s1">'1.2.1'</span> <span class="n">apply</span> <span class="kc">false</span>
-</code></pre></div>
-<p><img src="https://therouter.cn/assets/img/image/1.png" class="blog-img"></p>
+<p>由于 8.X 版本的 Gradle，必须使用<code class="language-plaintext highlighter-rouge">Java 17</code>的环境了，并且不兼容老<code class="language-plaintext highlighter-rouge">JDK</code>编译的<code class="language-plaintext highlighter-rouge">class</code>，所以对于新版本需要使用专为<code class="language-plaintext highlighter-rouge">Java 17</code>编译的插件。</p>
 
-<h4>7.X 版本 Gradle</h4>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter.agp8'</span> <span class="n">version</span> <span class="s1">'1.2.1'</span> <span class="n">apply</span> <span class="kc">false</span>
+</code></pre></div></div>
 
-<p>7.X 的 Gradle，<code>classpath</code>已经改为用<code>plugins</code>的方式引入，只需要在闭包内加这一句就行了</p>
-<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">id</span> <span class="s1">'cn.therouter'</span> <span class="n">version</span> <span class="s1">'1.2.2'</span> <span class="n">apply</span> <span class="kc">false</span>
-</code></pre></div>
-<p><img src="https://therouter.cn/assets/img/image/2.jpg" class="blog-img"></p>
+<p><img src="https://therouter.cn/assets/img/image/1.png" class="blog-img" /></p>
 
-<h4>6.x 及之前的老版本 Gradle</h4>
+<h4 id="7x-版本-gradle">7.X 版本 Gradle</h4>
 
-<p>对于6.x 及之前的  Gradle，需要手动引入<code>classpath</code>，在 TheRouter 官方 Github 首页也有接入介绍</p>
-<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">classpath</span> <span class="s2">"cn.therouter:plugin:1.2.2"</span>
-</code></pre></div>
-<p><img src="https://therouter.cn/assets/img/image/3.jpg" class="blog-img"></p>
+<p>7.X 的 Gradle，<code class="language-plaintext highlighter-rouge">classpath</code>已经改为用<code class="language-plaintext highlighter-rouge">plugins</code>的方式引入，只需要在闭包内加这一句就行了</p>
 
-<h3>第二步：引入插件</h3>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter'</span> <span class="n">version</span> <span class="s1">'1.2.2'</span> <span class="n">apply</span> <span class="kc">false</span>
+</code></pre></div></div>
 
-<h4>7.X 及以后版本 Gradle</h4>
+<p><img src="https://therouter.cn/assets/img/image/2.jpg" class="blog-img" /></p>
 
-<p>找到项目里全部的app模块（一般只会有一个，特殊项目会有多个）。也就是整个工程的所有<code>build.gradle</code>文件里面，只要是有<code>com.android.application</code>这个的模块，都要加上如下代码</p>
-<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="c1">// 7.X及以上新版本这样写</span>
+<h4 id="6x-及之前的老版本-gradle">6.x 及之前的老版本 Gradle</h4>
+
+<p>对于6.x 及之前的  Gradle，需要手动引入<code class="language-plaintext highlighter-rouge">classpath</code>，在 TheRouter 官方 Github 首页也有接入介绍</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">classpath</span> <span class="s2">"cn.therouter:plugin:1.2.2"</span>
+</code></pre></div></div>
+
+<p><img src="https://therouter.cn/assets/img/image/3.jpg" class="blog-img" /></p>
+
+<h3 id="第二步引入插件">第二步：引入插件</h3>
+
+<h4 id="7x-及以后版本-gradle">7.X 及以后版本 Gradle</h4>
+
+<p>找到项目里全部的app模块（一般只会有一个，特殊项目会有多个）。也就是整个工程的所有<code class="language-plaintext highlighter-rouge">build.gradle</code>文件里面，只要是有<code class="language-plaintext highlighter-rouge">com.android.application</code>这个的模块，都要加上如下代码</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 7.X及以上新版本这样写</span>
 <span class="n">id</span> <span class="s1">'therouter'</span>
-</code></pre></div>
-<p><img src="https://therouter.cn/assets/img/image/4.jpg" class="blog-img"></p>
+</code></pre></div></div>
 
-<h4>6.x 及之前的老版本 Gradle</h4>
+<p><img src="https://therouter.cn/assets/img/image/4.jpg" class="blog-img" /></p>
 
-<p>找到项目里全部的app模块（一般只会有一个，特殊项目会有多个）。也就是整个工程的所有<code>build.gradle</code>文件里面，只要是有<code>com.android.application</code>这个的模块，都要加上如下代码</p>
-<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="c1">// 6.X及以下老版本这样写</span>
+<h4 id="6x-及之前的老版本-gradle-1">6.x 及之前的老版本 Gradle</h4>
+
+<p>找到项目里全部的app模块（一般只会有一个，特殊项目会有多个）。也就是整个工程的所有<code class="language-plaintext highlighter-rouge">build.gradle</code>文件里面，只要是有<code class="language-plaintext highlighter-rouge">com.android.application</code>这个的模块，都要加上如下代码</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 6.X及以下老版本这样写</span>
 <span class="n">apply</span> <span class="nl">plugin:</span> <span class="s1">'therouter'</span>
-</code></pre></div>
-<p><img src="https://therouter.cn/assets/img/image/5.jpg" class="blog-img"></p>
+</code></pre></div></div>
 
-<h3>第三步：引入注解处理器</h3>
+<p><img src="https://therouter.cn/assets/img/image/5.jpg" class="blog-img" /></p>
 
-<p>最新版的 TheRouter 已经支持<code>KSP</code>解析，如果你都不知道<code>KSP</code>是什么，那么就继续往下看，使用<code>kapt</code>吧。如果你希望使用<code>KSP</code>，可以看文档：<a href="https://therouter.cn/docs/2023/05/15/01">使用 KSP 处理注解</a>。  </p>
+<h3 id="第三步引入注解处理器">第三步：引入注解处理器</h3>
 
-<p>TheRouter 的注解处理依赖<code>kapt</code>执行，所以要在项目里面手动引入，否则无法处理注解。  </p>
+<p>最新版的 TheRouter 已经支持<code class="language-plaintext highlighter-rouge">KSP</code>解析，如果你都不知道<code class="language-plaintext highlighter-rouge">KSP</code>是什么，那么就继续往下看，使用<code class="language-plaintext highlighter-rouge">kapt</code>吧。如果你希望使用<code class="language-plaintext highlighter-rouge">KSP</code>，可以看文档：<a href="https://therouter.cn/docs/2023/05/15/01">使用 KSP 处理注解</a>。</p>
 
-<p><strong>注：所有的模块都必须引入kapt，否则就有可能造成某些路由表不生成。</strong><br>
-<strong>注：所有APP的模块，如果是需要上线的模块，必须直接或间接在 app 中被依赖，否则最终生成apk会丢失未被依赖的功能。</strong>  </p>
+<p>TheRouter 的注解处理依赖<code class="language-plaintext highlighter-rouge">kapt</code>执行，所以要在项目里面手动引入，否则无法处理注解。</p>
 
-<p><img src="https://therouter.cn/assets/img/image/6.jpg" class="blog-img"></p>
+<p><strong>注：所有的模块都必须引入kapt，否则就有可能造成某些路由表不生成。</strong><br />
+<strong>注：所有APP的模块，如果是需要上线的模块，必须直接或间接在 app 中被依赖，否则最终生成apk会丢失未被依赖的功能。</strong></p>
 
-<p>如果报找不到kapt，可能是因为没有声明kotlin-kapt的插件，参考<code>步骤二</code>里面的截图，接入对应的kapt。<br>
-如果是纯Java工程，需要用Java的APT处理，纯Java就不用声明<code>kotlin-kapt</code>插件了，直接把<code>kapt</code>改成<code>annotationProcessor</code></p>
-<div class="highlight"><pre><code class="language-groovy" data-lang="groovy"><span class="n">annotationProcessor</span> <span class="s2">"cn.therouter:apt:1.2.2"</span>
-</code></pre></div>
-<h3>第四步：引入路由库</h3>
+<p><img src="https://therouter.cn/assets/img/image/6.jpg" class="blog-img" /></p>
 
-<p>在需要使用路由功能的模块的<code>build.gradle</code>，(不像kapt，这个是可以使用传递依赖的)，加入如下依赖  </p>
-<div class="highlight"><pre><code class="language-" data-lang="">dependencies {
+<p>如果报找不到kapt，可能是因为没有声明kotlin-kapt的插件，参考<code class="language-plaintext highlighter-rouge">步骤二</code>里面的截图，接入对应的kapt。<br />
+如果是纯Java工程，需要用Java的APT处理，纯Java就不用声明<code class="language-plaintext highlighter-rouge">kotlin-kapt</code>插件了，直接把<code class="language-plaintext highlighter-rouge">kapt</code>改成<code class="language-plaintext highlighter-rouge">annotationProcessor</code></p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">annotationProcessor</span> <span class="s2">"cn.therouter:apt:1.2.2"</span>
+</code></pre></div></div>
+
+<h3 id="第四步引入路由库">第四步：引入路由库</h3>
+
+<p>在需要使用路由功能的模块的<code class="language-plaintext highlighter-rouge">build.gradle</code>，(不像kapt，这个是可以使用传递依赖的)，加入如下依赖</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies {
     implementation "cn.therouter:router:1.2.2"
 }
-</code></pre></div>
-<h2>使用</h2>
+</code></pre></div></div>
 
-<h4>1. 声明路由</h4>
+<h2 id="使用">使用</h2>
+
+<h4 id="1-声明路由">1. 声明路由</h4>
 
 <p>给需要跳转的页面加上路由表声明</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Route</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"http://therouter.com/home"</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeActivity</span> <span class="kd">extends</span> <span class="n">BaseActivity</span> <span class="o">{</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Route</span><span class="o">(</span><span class="n">path</span> <span class="o">=</span> <span class="s">"http://therouter.com/home"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HomeActivity</span> <span class="kd">extends</span> <span class="nc">BaseActivity</span> <span class="o">{</span>
 <span class="o">}</span>
-</code></pre></div>
-<h4>2. 添加参数注入</h4>
+</code></pre></div></div>
+
+<h4 id="2-添加参数注入">2. 添加参数注入</h4>
 
 <p>这一步如果在base里面写了的话就不用每个Activity都加了。</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
-<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-    <span class="n">TheRouter</span><span class="o">.</span><span class="na">inject</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">inject</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div>
-<h4>3. 发起跳转</h4>
+</code></pre></div></div>
+
+<h4 id="3-发起跳转">3. 发起跳转</h4>
 
 <p>也就是原来使用startActivity()的方法，都可以改成这样使用了</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Override</span>
-<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nd">@Nullable</span> <span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
     <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
-    <span class="n">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"要跳转的目标页Path"</span><span class="o">)</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"要跳转的目标页Path"</span><span class="o">)</span>
         <span class="o">.</span><span class="na">withInt</span><span class="o">(</span><span class="s">"intValue"</span><span class="o">,</span> <span class="mi">12345678</span><span class="o">)</span> 
         <span class="o">.</span><span class="na">withString</span><span class="o">(</span><span class="s">"str_123_Value"</span><span class="o">,</span> <span class="s">"传中文字符串"</span><span class="o">)</span>
         <span class="o">.</span><span class="na">withBoolean</span><span class="o">(</span><span class="s">"boolValue"</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>
         <span class="o">.</span><span class="na">withLong</span><span class="o">(</span><span class="s">"longValue"</span><span class="o">,</span> <span class="mi">123456789012345L</span><span class="o">)</span>
         <span class="o">.</span><span class="na">withChar</span><span class="o">(</span><span class="s">"charValue"</span><span class="o">,</span> <span class="sc">'c'</span><span class="o">)</span>
         <span class="o">.</span><span class="na">withDouble</span><span class="o">(</span><span class="s">"double"</span><span class="o">,</span> <span class="mf">3.14159265358972</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">withFloat</span><span class="o">(</span><span class="s">"floatValue"</span><span class="o">,</span> <span class="mf">3.14159265358972</span><span class="n">F</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withFloat</span><span class="o">(</span><span class="s">"floatValue"</span><span class="o">,</span> <span class="mf">3.14159265358972</span><span class="no">F</span><span class="o">)</span>
         <span class="o">.</span><span class="na">navigation</span><span class="o">();</span>
-
-    <span class="n">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"如果没有参数，可以什么都不传"</span><span class="o">).</span><span class="na">navigation</span><span class="o">();</span>
+        
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"如果没有参数，可以什么都不传"</span><span class="o">).</span><span class="na">navigation</span><span class="o">();</span>
 <span class="o">}</span>
-</code></pre></div>
-<h2>AGP 8.X 使用</h2>
+</code></pre></div></div>
 
-<p><em>从1.2.1开始，beta版本已经全部合入rc版本，无需再特殊关注beta版本进度。</em>    </p>
+<h2 id="agp-8x-使用">AGP 8.X 使用</h2>
 
-<p>使用时只需注意本文第一步中，classpath引入的不同，需要使用<code>cn.therouter.agp8</code>引入插件。   </p>
+<p><em>从1.2.1开始，beta版本已经全部合入rc版本，无需再特殊关注beta版本进度。</em></p>
+
+<p>使用时只需注意本文第一步中，classpath引入的不同，需要使用<code class="language-plaintext highlighter-rouge">cn.therouter.agp8</code>引入插件。</p>
+
 
 	</div>
   
@@ -271,7 +292,7 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">2 mins</small>
+            <small class="text-muted">3 mins</small>
           </div>
         </div>
       </div>

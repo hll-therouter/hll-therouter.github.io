@@ -83,191 +83,212 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<p>模块化能力支持项：  </p>
+		<p>模块化能力支持项：</p>
 
 <ul>
-<li>支持跨模块依赖注入</li>
-<li>支持自定义注入项的创建规则，依赖注入可自定义参数</li>
-<li>支持自定义服务拦截，单模块mock调试</li>
-<li>支持注入对象缓存，多次注入 只会new一次对象</li>
+  <li>支持跨模块依赖注入</li>
+  <li>支持自定义注入项的创建规则，依赖注入可自定义参数</li>
+  <li>支持自定义服务拦截，单模块mock调试</li>
+  <li>支持注入对象缓存，多次注入 只会new一次对象</li>
 </ul>
 
-<h3>1. 依赖注入</h3>
+<h3 id="1-依赖注入">1. 依赖注入</h3>
 
 <p>用于跨模块通信使用，核心设计思想是参考了<a href="https://baike.baidu.com/item/%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/8258990">SOA(面向服务架构)</a> 的设计方式。
-具体到 Android 侧就是 AIDL 类似的实现：<br>
-例如当前有两个模块：A订单模块、B登录模块，下单需要获取用户信息。<br>
-这个业务场景就是，A需要使用获取用户信息的服务，B需要向外提供一个获取用户信息的服务。    </p>
+具体到 Android 侧就是 AIDL 类似的实现：<br />
+例如当前有两个模块：A订单模块、B登录模块，下单需要获取用户信息。<br />
+这个业务场景就是，A需要使用获取用户信息的服务，B需要向外提供一个获取用户信息的服务。</p>
 
-<p><img src="https://s1.ax1x.com/2022/06/08/XrJc0f.jpg" class="blog-img"/></p>
+<p><img src="https://s1.ax1x.com/2022/06/08/XrJc0f.jpg" class="blog-img" /></p>
 
-<h4>1.1 声明接口服务</h4>
+<h4 id="11-声明接口服务">1.1 声明接口服务</h4>
 
-<p>首先声明一个接口，放入公共依赖层  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 假设当前有一个用户信息获取服务</span>
+<p>首先声明一个接口，放入公共依赖层</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 假设当前有一个用户信息获取服务</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IUserService</span> <span class="o">{</span>
-    <span class="n">String</span> <span class="nf">getUserInfo</span><span class="o">();</span>
+    <span class="nc">String</span> <span class="nf">getUserInfo</span><span class="o">();</span>
 <span class="o">}</span>
-</code></pre></div>
-<h4>1.2 服务使用方</h4>
+</code></pre></div></div>
+
+<h4 id="12-服务使用方">1.2 服务使用方</h4>
 
 <p>也就是上面例子的 A订单模块，他需要使用获取用户信息的服务
-A无需关心，<code>IUserService</code>这个接口服务是谁提供的，他只需要知道自己需要使用这样的一个服务就行了。<br>
-<strong>注</strong>：<em>如果没有提供服务的提供方，<code>TheRouter.get()</code>可能返回<code>null</code></em>    </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="nl">IUserService:</span><span class="o">:</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="o">)?.</span><span class="na">getUserInfo</span><span class="o">()</span>
-</code></pre></div>
-<h4>1.3 服务提供方</h4>
+A无需关心，<code class="language-plaintext highlighter-rouge">IUserService</code>这个接口服务是谁提供的，他只需要知道自己需要使用这样的一个服务就行了。<br />
+<strong>注</strong>：<em>如果没有提供服务的提供方，<code class="language-plaintext highlighter-rouge">TheRouter.get()</code>可能返回<code class="language-plaintext highlighter-rouge">null</code></em></p>
 
-<p>服务提供方需要声明一个提供服务的方法，用<code>@ServiceProvider</code>注解标记。  </p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="nl">IUserService:</span><span class="o">:</span><span class="kd">class</span><span class="err">.</span><span class="nc">java</span><span class="o">)?.</span><span class="na">getUserInfo</span><span class="o">()</span>
+</code></pre></div></div>
+
+<h4 id="13-服务提供方">1.3 服务提供方</h4>
+
+<p>服务提供方需要声明一个提供服务的方法，用<code class="language-plaintext highlighter-rouge">@ServiceProvider</code>注解标记。</p>
 
 <ul>
-<li>如果是 java，必须是 public static 修饰</li>
-<li>如果是 kotlin，建议写成 top level 的函数</li>
-<li>方法名不限<br></li>
+  <li>如果是 java，必须是 public static 修饰</li>
+  <li>如果是 kotlin，建议写成 top level 的函数</li>
+  <li>方法名不限</li>
 </ul>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="cm">/**
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * 方法名不限定，任意名字都行
  * 返回值必须是服务接口名，如果是实现了服务的子类，需要加上returnType限定（例如下面代码）
  * 方法必须加上 public static 修饰，否则编译期就会报错
  */</span>
 <span class="nd">@ServiceProvider</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">IUserService</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">IUserService</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nf">IUserService</span><span class="o">()</span> <span class="o">{</span>
         <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUserInfo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getUserInfo</span><span class="o">()</span> <span class="o">{</span>
             <span class="k">return</span> <span class="s">"返回用户信息"</span><span class="o">;</span>
         <span class="o">}</span>
     <span class="o">};</span>
 <span class="o">}</span>
 
 <span class="c1">// 也可以直接返回对象，然后标注这个方法的服名是什么</span>
-<span class="nd">@ServiceProvider</span><span class="o">(</span><span class="n">returnType</span> <span class="o">=</span> <span class="n">IUserService</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">UserServiceImpl</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+<span class="nd">@ServiceProvider</span><span class="o">(</span><span class="n">returnType</span> <span class="o">=</span> <span class="nc">IUserService</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">UserServiceImpl</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">xxx</span>
 <span class="o">}</span>
-</code></pre></div>
-<p><strong>注</strong>：每个服务只能有一个服务提供方，类似<code>ARouter</code>那种多个接口实现类，我们认为是不符合面向服务设计规范的。如果你一定要有多个服务，并且由使用方决定在什么时间使用哪个服务，建议选择如下改造方案：  </p>
+</code></pre></div></div>
+
+<p><strong>注</strong>：每个服务只能有一个服务提供方，类似<code class="language-plaintext highlighter-rouge">ARouter</code>那种多个接口实现类，我们认为是不符合面向服务设计规范的。如果你一定要有多个服务，并且由使用方决定在什么时间使用哪个服务，建议选择如下改造方案：</p>
 
 <ul>
-<li>推荐做法：将不同的服务提供方定义为不同的接口。<br></li>
-<li>如果两个不同的服务在同一个模块：自定义一个服务提供者方法，由这个方法控制返回哪个服务。<br></li>
-<li>对于单向的服务(不依赖接口方法返回值的业务)：使用<code>ActionManager</code>替换实现。<br></li>
+  <li>推荐做法：将不同的服务提供方定义为不同的接口。</li>
+  <li>如果两个不同的服务在同一个模块：自定义一个服务提供者方法，由这个方法控制返回哪个服务。</li>
+  <li>对于单向的服务(不依赖接口方法返回值的业务)：使用<code class="language-plaintext highlighter-rouge">ActionManager</code>替换实现。</li>
 </ul>
 
-<h3>2. 自定义服务拦截器</h3>
+<h3 id="2-自定义服务拦截器">2. 自定义服务拦截器</h3>
 
-<p><strong>使用场景</strong>：单模块调试时，可能会有需要 mock 其他模块提供的服务，TheRouter 允许自定义其他模块的实现。   </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">Interceptor</span> <span class="n">interceptor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Interceptor</span><span class="o">()</span> <span class="o">{</span>
+<p><strong>使用场景</strong>：单模块调试时，可能会有需要 mock 其他模块提供的服务，TheRouter 允许自定义其他模块的实现。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Interceptor</span> <span class="n">interceptor</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Interceptor</span><span class="o">()</span> <span class="o">{</span>
     <span class="nd">@Override</span>
-    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">interception</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">clazz</span><span class="o">,</span> <span class="n">Object</span><span class="o">...</span> <span class="n">params</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">if</span> <span class="o">(</span><span class="n">clazz</span> <span class="o">==</span> <span class="n">IUserService</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="no">T</span> <span class="nf">interception</span><span class="o">(</span><span class="nc">Class</span><span class="o">&lt;</span><span class="no">T</span><span class="o">&gt;</span> <span class="n">clazz</span><span class="o">,</span> <span class="nc">Object</span><span class="o">...</span> <span class="n">params</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">clazz</span> <span class="o">==</span> <span class="nc">IUserService</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
             <span class="k">return</span> <span class="k">new</span> <span class="nf">IUserService</span><span class="o">();</span>
         <span class="o">}</span>
         <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">};</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">getRouterInject</span><span class="o">().</span><span class="na">addInterceptor</span><span class="o">(</span><span class="n">interceptor</span><span class="o">);</span>
-</code></pre></div>
-<h3>3. 服务缓存</h3>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">getRouterInject</span><span class="o">().</span><span class="na">addInterceptor</span><span class="o">(</span><span class="n">interceptor</span><span class="o">);</span>
+</code></pre></div></div>
 
-<p>服务提供方运行对提供的服务做配置，对于无状态的服务，尽可能使用缓存方式减少对象创建次数，而有状态的服务，则每次创建新对象保证多次调用有不会互相污染状态（例如订单状态管理、商品销售状态等服务）。      </p>
+<h3 id="3-服务缓存">3. 服务缓存</h3>
 
-<p>声明服务缓存只需要在<strong>接口协议</strong>上新增额外注解即可，例如下面示例代码：  </p>
+<p>服务提供方运行对提供的服务做配置，对于无状态的服务，尽可能使用缓存方式减少对象创建次数，而有状态的服务，则每次创建新对象保证多次调用有不会互相污染状态（例如订单状态管理、商品销售状态等服务）。</p>
+
+<p>声明服务缓存只需要在<strong>接口协议</strong>上新增额外注解即可，例如下面示例代码：</p>
 
 <ul>
-<li><strong>Singleton</strong> 表示这个对象会被永久缓存，对外部调用方而言相当于这个对象声明成了单例</li>
-<li><strong>NewInstance</strong> 表示每次都会返回新对象<br></li>
+  <li><strong>Singleton</strong> 表示这个对象会被永久缓存，对外部调用方而言相当于这个对象声明成了单例</li>
+  <li><strong>NewInstance</strong> 表示每次都会返回新对象</li>
 </ul>
 
-<p><strong>注</strong>：<em>如果两个注解同时被添加，则只有<code>Singleton</code>会生效。</em><br>
-<strong>注</strong>：<em><code>@Singleton</code>和<code>@NewInstance</code>需要加在接口协议上。</em>  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">
+<p><strong>注</strong>：<em>如果两个注解同时被添加，则只有<code class="language-plaintext highlighter-rouge">Singleton</code>会生效。</em><br />
+<strong>注</strong>：<em><code class="language-plaintext highlighter-rouge">@Singleton</code>和<code class="language-plaintext highlighter-rouge">@NewInstance</code>需要加在接口协议上。</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1">// 注：如果都不加，默认是LRU+软引用缓存</span>
 <span class="c1">// 如果两个注解同时被添加，则只有Singleton会生效。</span>
 <span class="nd">@Singleton</span> <span class="c1">// 对外部调用方而言相当于这个对象声明成了单例</span>
 <span class="nd">@NewInstance</span>  <span class="c1">// 每次都会返回新对象</span>
 <span class="kd">public</span> <span class="kd">interface</span> <span class="nc">IUserService</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUserInfo</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getUserInfo</span><span class="o">();</span>
 <span class="o">}</span>
 
 
 <span class="nd">@ServiceProvider</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">IUserService</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">IUserService</span> <span class="nf">test</span><span class="o">()</span> <span class="o">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nf">IUserService</span><span class="o">()</span> <span class="o">{</span>
         <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUserInfo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getUserInfo</span><span class="o">()</span> <span class="o">{</span>
             <span class="k">return</span> <span class="s">"返回用户信息"</span><span class="o">;</span>
         <span class="o">}</span>
     <span class="o">};</span>
 <span class="o">}</span>
-</code></pre></div>
-<h3>4. 在类上注解ServiceProvider</h3>
+</code></pre></div></div>
 
-<p>从<code>1.1.2-rc7</code>版本开始，<code>ServiceProvider</code>支持给类设置注解。  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 服务提供方</span>
+<h3 id="4-在类上注解serviceprovider">4. 在类上注解ServiceProvider</h3>
+
+<p>从<code class="language-plaintext highlighter-rouge">1.1.2-rc7</code>版本开始，<code class="language-plaintext highlighter-rouge">ServiceProvider</code>支持给类设置注解。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 服务提供方</span>
 <span class="nd">@ServiceProvider</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClassAnnotation</span> <span class="kd">implements</span> <span class="n">ITestClassAnnotation</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClassAnnotation</span> <span class="kd">implements</span> <span class="nc">ITestClassAnnotation</span> <span class="o">{</span>
 <span class="o">}</span>
 
 <span class="c1">//服务使用方</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-</code></pre></div>
-<p>如果一个接口都没有实现，默认的返回类型为当前类本身。<br>
-如果 类有多个接口需要实现，则必须显示声明<code>returnType</code>，例如：</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 服务提供方</span>
-<span class="nd">@ServiceProvider</span><span class="o">(</span><span class="n">returnType</span> <span class="o">=</span> <span class="n">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClassAnnotation</span> <span class="kd">implements</span> <span class="n">ITestClassAnnotation</span><span class="o">,</span> <span class="n">ITest0</span> <span class="o">{</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="nc">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</code></pre></div></div>
+
+<p>如果一个接口都没有实现，默认的返回类型为当前类本身。<br />
+如果 类有多个接口需要实现，则必须显示声明<code class="language-plaintext highlighter-rouge">returnType</code>，例如：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 服务提供方</span>
+<span class="nd">@ServiceProvider</span><span class="o">(</span><span class="n">returnType</span> <span class="o">=</span> <span class="nc">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClassAnnotation</span> <span class="kd">implements</span> <span class="nc">ITestClassAnnotation</span><span class="o">,</span> <span class="nc">ITest0</span> <span class="o">{</span>
 <span class="o">}</span>
 
 <span class="c1">//服务使用方</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-</code></pre></div>
-<h3>5. 多参数服务提供者</h3>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="nc">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</code></pre></div></div>
 
-<h4>5.1 静态方法作为服务提供者</h4>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 服务提供方</span>
+<h3 id="5-多参数服务提供者">5. 多参数服务提供者</h3>
+
+<h4 id="51-静态方法作为服务提供者">5.1 静态方法作为服务提供者</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 服务提供方</span>
 <span class="nd">@ServiceProvider</span>
-<span class="kd">public</span> <span class="kd">static</span> <span class="n">IUserService</span> <span class="nf">test</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="nc">IUserService</span> <span class="nf">test</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">return</span> <span class="k">new</span> <span class="nf">IUserService</span><span class="o">()</span> <span class="o">{</span>
         <span class="nd">@Override</span>
-        <span class="kd">public</span> <span class="n">String</span> <span class="nf">getUserInfo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getUserInfo</span><span class="o">()</span> <span class="o">{</span>
             <span class="k">return</span> <span class="n">str</span><span class="o">;</span>
         <span class="o">}</span>
     <span class="o">};</span>
 <span class="o">}</span>
 
 <span class="c1">//服务使用方</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">IUserService</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="s">"user Info"</span><span class="o">);</span>
-</code></pre></div>
-<h4>5.2 类对象作为服务提供者</h4>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// 服务提供方</span>
-<span class="nd">@ServiceProvider</span><span class="o">(</span><span class="n">returnType</span> <span class="o">=</span> <span class="n">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">params</span><span class="o">={</span><span class="n">String</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClassAnnotation</span> <span class="kd">implements</span> <span class="n">ITestClassAnnotation</span><span class="o">,</span> <span class="n">ITest0</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="nf">TestClassAnnotation</span><span class="o">(</span><span class="n">String</span> <span class="n">str</span><span class="o">){}</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="nc">IUserService</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="s">"user Info"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h4 id="52-类对象作为服务提供者">5.2 类对象作为服务提供者</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 服务提供方</span>
+<span class="nd">@ServiceProvider</span><span class="o">(</span><span class="n">returnType</span> <span class="o">=</span> <span class="nc">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">params</span><span class="o">={</span><span class="nc">String</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClassAnnotation</span> <span class="kd">implements</span> <span class="nc">ITestClassAnnotation</span><span class="o">,</span> <span class="nc">ITest0</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="nf">TestClassAnnotation</span><span class="o">(</span><span class="nc">String</span> <span class="n">str</span><span class="o">){}</span>
 <span class="o">}</span>
 
 <span class="c1">//服务使用方</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="s">"hello"</span><span class="o">)</span>
-</code></pre></div>
-<h3>6. 设置继承的服务实现</h3>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="nc">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="s">"hello"</span><span class="o">)</span>
+</code></pre></div></div>
 
-<p>如果你的类有父类实现了接口协议，而你又不想显示声明<code>returnType</code>，例如下面这种场景。我们也提供了一个编译选项可供使用，在<code>gradle.properties</code>文件中加入 <code>USE_EXTENSION=true</code>    </p>
+<h3 id="6-设置继承的服务实现">6. 设置继承的服务实现</h3>
 
-<p><strong>注</strong> ：请 <strong>谨慎</strong> 开启 <code>USE_EXTENSION</code>。当开启后，所有协议判断会使用<code>isAssignableFrom</code>去判断，而不再是<code>equals</code>，对运行时性能会有较大影响。  </p>
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SuperTestClassAnnotation</span> <span class="kd">implements</span> <span class="n">ITestClassAnnotation</span><span class="o">,</span> <span class="n">ITest0</span> <span class="o">{</span>
+<p>如果你的类有父类实现了接口协议，而你又不想显示声明<code class="language-plaintext highlighter-rouge">returnType</code>，例如下面这种场景。我们也提供了一个编译选项可供使用，在<code class="language-plaintext highlighter-rouge">gradle.properties</code>文件中加入 <code class="language-plaintext highlighter-rouge">USE_EXTENSION=true</code></p>
+
+<p><strong>注</strong> ：请 <strong>谨慎</strong> 开启 <code class="language-plaintext highlighter-rouge">USE_EXTENSION</code>。当开启后，所有协议判断会使用<code class="language-plaintext highlighter-rouge">isAssignableFrom</code>去判断，而不再是<code class="language-plaintext highlighter-rouge">equals</code>，对运行时性能会有较大影响。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SuperTestClassAnnotation</span> <span class="kd">implements</span> <span class="nc">ITestClassAnnotation</span><span class="o">,</span> <span class="nc">ITest0</span> <span class="o">{</span>
 <span class="o">}</span>
 
 <span class="c1">// 服务提供方</span>
 <span class="nd">@ServiceProvider</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClassAnnotation</span> <span class="kd">extends</span> <span class="n">SuperTestClassAnnotation</span><span class="o">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestClassAnnotation</span> <span class="kd">extends</span> <span class="nc">SuperTestClassAnnotation</span><span class="o">{</span>
 <span class="o">}</span>
 
 <span class="c1">// 当在`gradle.properties`文件中加入 `USE_EXTENSION=true`后，</span>
 <span class="c1">// 表示允许接口协议拥有继承关系，所以可以使用如下两个协议获取并使用服务</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="nc">ITestClassAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
 <span class="c1">// 或</span>
-<span class="n">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">ITest0</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-</code></pre></div>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="nc">ITest0</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+</code></pre></div></div>
+
+
 	</div>
   
   
@@ -363,7 +384,7 @@ A无需关心，<code>IUserService</code>这个接口服务是谁提供的，他
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">6 mins</small>
+            <small class="text-muted">8 mins</small>
           </div>
         </div>
       </div>
