@@ -151,7 +151,7 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
 
 <p>目前现有的路由基本上集中于两种能力的实现：页面跳转、跨模块调用，核心技术方案大体上如图：</p>
 
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2d819de9d8ea424d8ee0b1b924795967~tplv-k3u1fbpfcp-watermark.image?" class="blog-img" /></p>
+<p><img src="https://cdn.kymjs.com:8843/qiniu/images/blog_image/therouter/1.png" class="blog-img" /></p>
 
 <ol>
   <li>开发阶段，对要使用路由的落地页或被调用方法添加注解标识。</li>
@@ -162,7 +162,7 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
 
 <p><code class="language-plaintext highlighter-rouge">TheRouter</code> 的页面跳转、跨模块调用也是如此，但是在设计上会有一些细节处理。</p>
 
-<p><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e048fba4a04c46738ed9a1e29ebab6e7~tplv-k3u1fbpfcp-watermark.image?" class="blog-img" /></p>
+<p><img src="https://cdn.kymjs.com:8843/qiniu/images/blog_image/therouter/2.png" class="blog-img" /></p>
 
 <p><code class="language-plaintext highlighter-rouge">TheRouter</code> 会在编译期根据注解生成 <code class="language-plaintext highlighter-rouge">RouteMap__</code>开头的类，这些类中记录了当前模块的所有路由信息，也就是当前模块的路由表。</p>
 
@@ -301,7 +301,7 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
 <p>对于模块化开发中跨模块的调用，我们推荐采用 <a href="https://zh.m.wikipedia.org/zh-cn/%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">SOA(面向服务架构)</a> 的设计方式，服务调用方与使用方完全隔离，调用模块外的能力不需要关注能力的提供者是谁。<br />
 <code class="language-plaintext highlighter-rouge">ServiceProvider</code> 的核心设计思想也是这样的，目前服务间的调用协议采用接口的方式。当然，也可以兼容不通过接口下沉而是直接调用的情况。</p>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6dbabea09faa4a598faf46ffd7462de9~tplv-k3u1fbpfcp-watermark.image?" class="blog-img" /></p>
+<p><img src="https://cdn.kymjs.com:8843/qiniu/images/blog_image/therouter/3.jpeg" class="blog-img" /></p>
 
 <p>具体到 Android 侧就是 AIDL 类似的设计，只是要比AIDL开发简单很多：</p>
 
@@ -412,7 +412,7 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
 
 <p>每次应用启动后，会在路由初始化时，将有向图中的全部<code class="language-plaintext highlighter-rouge">Task</code>，按照依赖关系按顺序加载。</p>
 
-<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b400b35a3c0244479ef61ce6759b25a7~tplv-k3u1fbpfcp-watermark.image?" class="blog-img" /></p>
+<p><img src="https://cdn.kymjs.com:8843/qiniu/images/blog_image/therouter/4.png" class="blog-img" /></p>
 
 <h3 id="六动态化能力-actionmanager-的设计">六、动态化能力 ActionManager 的设计</h3>
 
@@ -471,7 +471,7 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
 
 <p><strong>如果与服务端链路打通</strong>，这个能力其实是需要整个公司的配合，比如有一套类似智慧大脑的方案，可以基于客户端过去的一些埋点数据，智能推断出用户下一步要做的事情，然后通过长连接直接向客户端下发指令做某些事情。那么通过客户端预埋的页面跳转、弹窗、清缓存、退出登录等等操作，就可以通过服务端指令进行操作，则就是一套完整的动态化方案。</p>
 
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8bae49fec9d94ae2a3cdf2d07b39efa6~tplv-k3u1fbpfcp-zoom-1.image" class="blog-img" /></p>
+<p><img src="https://cdn.kymjs.com:8843/qiniu/therouter/actionmanager.png" class="blog-img" /></p>
 
 <h3 id="七一键切换源码与-aar">七、一键切换源码与 AAR</h3>
 
@@ -521,7 +521,7 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
 <p>如果项目中使用了ARouter的IProvider.init()方法，可能需要手动处理初始化逻辑。<br />
 如下图：</p>
 
-<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7f2cc2b3509f41ccaa11dc9617088033~tplv-k3u1fbpfcp-watermark.image?" class="blog-img" /></p>
+<p><img src="https://cdn.kymjs.com:8843/qiniu/images/blog_image/therouter/5.png" class="blog-img" /></p>
 
 <h4 id="82-与其他路由对比">8.2 与其他路由对比</h4>
 
@@ -640,7 +640,7 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
 对于现有的路由框架，我们也在最大限度支持平滑迁移，目前已完成<code class="language-plaintext highlighter-rouge">ARouter</code>的一键迁移工具，其他框架的迁移仍在开发中。你也可以在<code class="language-plaintext highlighter-rouge">Github</code> <code class="language-plaintext highlighter-rouge">issue</code>中提出需求，我们评估后会尽快支持，也欢迎任何人提供 <code class="language-plaintext highlighter-rouge">Pull Requests</code>。</p>
 
 <p>更多问题请加群沟通：<br />
-<img src="https://kymjs.com/therouter/wx/therouter_wx.jpg" class="blog-img" /></p>
+<img src="https://cdn.kymjs.com:8843/qiniu/therouter/therouter_wx_group.png" class="blog-img" /></p>
 
 
 	</div>
@@ -825,7 +825,7 @@ Github 项目地址与使用文档详见 <a href="https://github.com/HuolalaTech
   </div>
 
   <div class="copyright text center">
-    <p>&copy; Copyright 2024, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
+    <p>&copy; Copyright 2025, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
   </div>
 </footer>
 </html>

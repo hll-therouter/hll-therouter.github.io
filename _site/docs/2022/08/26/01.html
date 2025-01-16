@@ -162,26 +162,29 @@
 
 <h3 id="编译期配置">编译期配置</h3>
 
-<p>**从 <code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，编译器配置已经迁移到<code class="language-plaintext highlighter-rouge">build.gradle</code>中，具体请查看：<a href="https://therouter.cn/docs/2024/07/22/01">1.2.3版本编译改动</a> **</p>
+<p><strong>从 <code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，编译器配置已经迁移到<code class="language-plaintext highlighter-rouge">build.gradle</code>中，具体请查看</strong>：<a href="https://therouter.cn/docs/2024/07/22/01">1.2.3版本编译改动</a></p>
 
 <ol>
   <li><code class="language-plaintext highlighter-rouge">@FlowTask</code>的<code class="language-plaintext highlighter-rouge">dependsOn</code>参数声明了一个不存在的任务，通常情况下是由于任务名书写错误，建议设置为<code class="language-plaintext highlighter-rouge">error</code>，尽早在编译期发现问题。
-可在<code class="language-plaintext highlighter-rouge">local.properties</code>配置编译期属性（warning输出日志，error直接报错）</li>
+可在<code class="language-plaintext highlighter-rouge">local.properties</code>配置编译期属性（warning输出日志，error直接报错）<br />
+<strong>注：设置为<code class="language-plaintext highlighter-rouge">error</code>时，有可能造成虚拟依赖报错，将在未来版本优化。</strong> 详情见 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/229">issue #229</a></li>
 </ol>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">CHECK_FLOW_UNKNOW_DEPEND=warning</code> warning/error可选</li>
+  <li>新版本改为在<code class="language-plaintext highlighter-rouge">build.gradle</code>中配置<code class="language-plaintext highlighter-rouge">checkFlowDepend</code></li>
 </ul>
 
 <p>2 . 在编译期，如果想知道当前APP中，总共有哪些<code class="language-plaintext highlighter-rouge">FlowTask</code>，他们之间的依赖关系是怎样的，可以通过在<code class="language-plaintext highlighter-rouge">local.properties</code>配置编译期属性即可。</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">SHOW_FLOW_DEPEND=true</code></li>
+  <li>新版本改为在<code class="language-plaintext highlighter-rouge">build.gradle</code>中配置<code class="language-plaintext highlighter-rouge">showFlowDepend</code></li>
 </ul>
 
 <p>编译效果如下图所示：</p>
 
-<p><img src="https://s1.ax1x.com/2022/12/05/zyBye1.jpg" class="blog-post" alt="TheRouter FlowTask" /></p>
+<p><img src="https://cdn.kymjs.com:8843/qiniu/therouter/flowtask_dep.jpg" class="blog-post" alt="TheRouter FlowTask" /></p>
 
 <h2 id="初始化方法的限制">初始化方法的限制</h2>
 
@@ -201,7 +204,7 @@
 
 <p>每次应用启动后，会在路由初始化时，将有向图中的全部<code class="language-plaintext highlighter-rouge">Task</code>，按照依赖关系按顺序加载。</p>
 
-<p><img src="https://x.imgs.ovh/x/2023/09/13/6501587f3cae4.png" class="blog-img" /></p>
+<p><img src="https://cdn.kymjs.com:8843/qiniu/images/blog_image/therouter/4.png" class="blog-img" /></p>
 
 	</div>
   
@@ -378,7 +381,7 @@
   </div>
 
   <div class="copyright text center">
-    <p>&copy; Copyright 2024, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
+    <p>&copy; Copyright 2025, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
   </div>
 </footer>
 </html>
