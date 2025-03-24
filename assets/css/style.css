@@ -152,16 +152,22 @@ address {
     margin-top: 28px;
     }
 
-.home-button-start{
+.home-button-start1{
   position: absolute;
   top: 73%;
-  left: 17%;
+  left: 14%;
   color: white;
 }
-.home-button-github{
+.home-button-start2{
   position: absolute;
   top: 73%;
-  left: 27%;
+  left: 23%;
+  color: white;
+}
+.home-button-start3{
+  position: absolute;
+  top: 73%;
+  left: 32%;
   color: white;
 }
 .home-text{
@@ -191,17 +197,24 @@ address {
     margin-top: 28px;
     margin-left: 21px;
     }
-  .home-button-start{
+  .home-button-start1{
     position: absolute;
     top: 53%;
-    left: 17%;
+    left: 10%;
     color: white;
   }
 
-  .home-button-github{
+  .home-button-start2{
     position: absolute;
     top: 53%;
-    left: 57%;
+    left: 40%;
+    color: white;
+  }
+
+  .home-button-start3{
+    position: absolute;
+    top: 53%;
+    left: 70%;
     color: white;
   }
   .home-text{
@@ -211,6 +224,9 @@ address {
     position: absolute;
     top: 13%;
     left: 17%;
+    width: 100%;
+    margin-left: 13%;
+    text-align: left;
     color: white;
     font-size: 4.5vw;
   }
@@ -225,16 +241,22 @@ address {
     margin-left: -58px;
     }
 
-  .home-button-start{
+  .home-button-start1{
     position: absolute;
     top: 73%;
     left: 17%;
     color: white;
   }
-  .home-button-github{
+  .home-button-start2{
     position: absolute;
     top: 73%;
-    left: 47%;
+    left: 45%;
+    color: white;
+  }
+  .home-button-start3{
+    position: absolute;
+    top: 73%;
+    left: 73%;
     color: white;
   }
   .home-text{
@@ -242,7 +264,7 @@ address {
     top: 30%; 
     left: 12%; 
     color: white; 
-    max-width: 50%; 
+    max-width: 80%; 
     font-size: 2.2vw; 
     line-height:2.8vw
   }

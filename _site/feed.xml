@@ -1,12 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-01-16T18:08:40+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">为 TheRouter 的 AGP8 编译加个速</title><link href="http://localhost:4000/docs/2024/10/31/01" rel="alternate" type="text/html" title="为 TheRouter 的 AGP8 编译加个速" /><published>2024-10-31T00:00:00+08:00</published><updated>2024-10-31T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/10/31/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/10/31/01"><![CDATA[<p>内容请见：</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-03-24T10:35:35+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">为 TheRouter 的 AGP8 编译加个速</title><link href="http://localhost:4000/docs/2024/10/31/01" rel="alternate" type="text/html" title="为 TheRouter 的 AGP8 编译加个速" /><published>2024-10-31T00:00:00+08:00</published><updated>2024-10-31T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/10/31/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/10/31/01"><![CDATA[<p>内容请见：</p>
 
 <p>《为 TheRouter 的 AGP8 编译加个速》<br />
-<a href="https://kymjs.com/code/2024/10/31/01/">https://kymjs.com/code/2024/10/31/01/</a></p>]]></content><author><name>张涛</name></author><category term="session" /><category term="原理与项目实践讲解" /><summary type="html"><![CDATA[AGP8 的变更应该很多人都知道了，移除了 Transform API，所以很多 class 操作类的插件代码都需要改了。]]></summary></entry><entry><title type="html">1.2.3版本编译改动</title><link href="http://localhost:4000/docs/2024/07/22/01" rel="alternate" type="text/html" title="1.2.3版本编译改动" /><published>2024-07-22T00:00:00+08:00</published><updated>2024-07-22T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/07/22/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/07/22/01"><![CDATA[<h2 id="背景">背景</h2>
-<p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，我们对<code class="language-plaintext highlighter-rouge">TheRouter</code>编译过程做了大量优化，同时适配了<code class="language-plaintext highlighter-rouge">Gradle</code>的<code class="language-plaintext highlighter-rouge">4.x-8.x</code>全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。</p>
+<a href="https://kymjs.com/code/2024/10/31/01/">https://kymjs.com/code/2024/10/31/01/</a></p>]]></content><author><name>张涛</name></author><category term="session" /><category term="原理与项目实践讲解" /><summary type="html"><![CDATA[AGP8 的变更应该很多人都知道了，移除了 Transform API，所以很多 class 操作类的插件代码都需要改了。]]></summary></entry><entry><title type="html">新版本编译改动</title><link href="http://localhost:4000/docs/2024/07/22/01" rel="alternate" type="text/html" title="新版本编译改动" /><published>2024-07-22T00:00:00+08:00</published><updated>2024-07-22T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/07/22/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/07/22/01"><![CDATA[<h2 id="背景">背景</h2>
+<p>从<code class="language-plaintext highlighter-rouge">1.2.3</code>版本开始，我们对<code class="language-plaintext highlighter-rouge">TheRouter</code>编译过程做了大量优化，同时适配了<code class="language-plaintext highlighter-rouge">Gradle</code>的<code class="language-plaintext highlighter-rouge">4.x-9.x</code>全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。</p>
 
 <p><br /><br /></p>
 
-<h2 id="改动一编译期选项">改动一：编译期选项</h2>
+<h2 id="130版本改动">1.3.0版本改动</h2>
+
+<ol>
+  <li>由于新版本 Android Studio 强制使用 Java 17，TheRouter 从 1.3.0 开始全部使用 JDK17 编译，你需要更新编译 JDK 版本。</li>
+  <li>新增编译选项：
+    <ul>
+      <li><strong>forceIncremental</strong>：bool值, 强制开启增量编译。增量编译默认只在debug模式并且有缓存时开启，如果强制开启增量编译，不论debug还是release都会启用增量。</li>
+      <li><strong>incrementalCachePath</strong>：String值, 增量编译缓存路径。取工程根目录的相对路径，例如配置incrementalCachePath = “test”，则会在工程中新建一个名为test的文件夹。如不配置，默认是在app/build/目录下。   <strong>强烈建议 ：如果开启了强制增量编译，把缓存路径设置到工程目录下，并随git一起提交缓存数据，否则prd集成打包时，由于没有缓存又强制开启增量，会造成无法插入增量内容，运行时被降级为反射。</strong></li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="编译期选项">编译期选项</h2>
 
 <p>老版本的<code class="language-plaintext highlighter-rouge">TheRouter</code>提供了不少编译期选项，可以通过手动在<code class="language-plaintext highlighter-rouge">local.properties</code>或<code class="language-plaintext highlighter-rouge">gradle.properties</code>文件中配置。从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，这些配置全部迁移到了app module的 <code class="language-plaintext highlighter-rouge">build.gradle</code> 内。你可以使用如下方式配置编译选项：</p>
 
@@ -21,13 +33,18 @@ TheRouter {
     checkFlowDepend = "";
     // 图形化输出当前的 FlowTask 依赖图，不配则不输出
     showFlowDepend = true;
+    
+    // 1.3.0新增，强制开启增量编译，详情见上方描述
+    public boolean forceIncremental = false;
+    // 1.3.0新增，自定义增量编译缓存路径，详情见上方描述
+    public String incrementalCachePath = "";
 }
 
 </code></pre></div></div>
 
 <p><br /><br /></p>
 
-<h2 id="改动二编译缓存">改动二：编译缓存</h2>
+<h2 id="编译缓存">编译缓存</h2>
 
 <p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，所有编译均采用增量编译，且不再依赖<code class="language-plaintext highlighter-rouge">Gradle</code>的增量配置，所有增量均由框架内部实现，每次编译时会校验编译<code class="language-plaintext highlighter-rouge">jar</code>包与缓存数据是否一致，如果不一致才会去扫描有变更的<code class="language-plaintext highlighter-rouge">jar</code>包。因此，才能做到编译速度大幅提升。 <br />
 缓存路径在：/app/build/therouter目录下。</p>
@@ -36,14 +53,14 @@ TheRouter {
 
 <p><br /><br /></p>
 
-<h2 id="改动三默认服务提供者">改动三：默认服务提供者</h2>
+<h2 id="默认服务提供者">默认服务提供者</h2>
 
 <p>老版本的<code class="language-plaintext highlighter-rouge">TheRouter</code>，如果使用了一个不存在<code class="language-plaintext highlighter-rouge">ServiceProvider</code>的<code class="language-plaintext highlighter-rouge">Service</code>接口时，会默认创建一个接口的空实现类来避免空指针。但实际应用起来发现，并不能降低空指针的概率，反倒将原本应该在开发阶段就发现的问题延到了线上才发现。 <br />
 从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>开始，如果没有声明<code class="language-plaintext highlighter-rouge">@ServiceProvider</code>的接口，调用<code class="language-plaintext highlighter-rouge">TheRouter.get()</code>时，将会直接返回<code class="language-plaintext highlighter-rouge">null</code>。</p>
 
 <p><br /><br /></p>
 
-<h2 id="改动四优化-ksp-编译速度">改动四：优化 KSP 编译速度</h2>
+<h2 id="优化-ksp-编译速度">优化 KSP 编译速度</h2>
 
 <p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，使用<code class="language-plaintext highlighter-rouge">KSP</code>处理注解也支持增量编译了。二次编译时，不会再次遍历全部类，而是只处理变更文件。 <br />
 本优化由 <a href="https://github.com/hust-twj"><strong>@hust-twj</strong></a> 提供，详情查看：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/pull/184">https://github.com/HuolalaTech/hll-wp-therouter-android/pull/184</a></p>
@@ -57,7 +74,7 @@ ksp.incremental.intermodule=true
 
 <p><br /><br /></p>
 
-<h2 id="改动五不再兼容agp4">改动五：不再兼容AGP4</h2>
+<h2 id="ksp不再兼容agp4">KSP不再兼容AGP4</h2>
 
 <p>由于使用了<code class="language-plaintext highlighter-rouge">1.9.21-1.0.16</code>版本的KSP（已经是能支持增量编译的最低版本），必须将Kotlin版本也升级到<code class="language-plaintext highlighter-rouge">1.9.21</code>，因此无法再兼容<code class="language-plaintext highlighter-rouge">AGP4</code>的编译。   <br />
 推荐你采用项目demo一致的 Gradle 版本号和 AGP 版本号。</p>
@@ -67,7 +84,7 @@ AGP Version：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/b
 
 <p><br /></p>
 
-<h2 id="改动六agp8-编译提速">改动六：AGP8 编译提速</h2>
+<h2 id="agp8-编译提速">AGP8 编译提速</h2>
 
 <p>老版本的 TheRouter 采用了 Gradle 标准 API，在插件内会将所有的 jar 和 class 聚合成一个，造成编译速度非常慢。</p>
 
@@ -833,8 +850,6 @@ TheRouterSelector(test/jump, jumpToTestVC, TestService)
 
 <h4 id="q1-路由表不生成或生成的代码有问题编译报错">Q1: <strong>路由表不生成（或生成的代码有问题编译报错）</strong></h4>
 
-<p>(注：1.2.0-rc5版本已修复：<code class="language-plaintext highlighter-rouge">KSP</code>与<code class="language-plaintext highlighter-rouge">ViewBinding</code>共用不生成路由表的问题)</p>
-
 <p>请按照以下步骤排查：</p>
 
 <ol>
@@ -843,6 +858,7 @@ TheRouterSelector(test/jump, jumpToTestVC, TestService)
   <li>router、plugin、kapt，三个依赖的版本号必须一致。</li>
   <li>在这里查看JDK信息：<code class="language-plaintext highlighter-rouge">Preferences-&gt; Build Tools-&gt; Gradle-&gt; Gradle JDK</code>。不能用AS自带的jdk，KSP会有兼容问题，请在 Oracle 官网下载：<a href="https://www.oracle.com/hk/java/technologies/downloads/#java17">Java 17</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java11">Java 11</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java8">Java 8</a>。</li>
   <li>尝试更新至最新rc版本查看是否修复。<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">版本列表</a></li>
+  <li>1.2.4 开始，路由表在增量编译时不会生成和校验，不影响实际使用，在release或非增量编译时会自动生成。详情可查阅构建日志中<code class="language-plaintext highlighter-rouge">TheRouter Environment</code>的内容。</li>
 </ol>
 
 <hr />
@@ -1120,20 +1136,27 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 
 <h3 id="第一步接入classpath">第一步：接入classpath</h3>
 
-<h4 id="8x-版本-gradle">8.X 版本 Gradle</h4>
+<h4 id="8x-及以后版本-gradle">8.X 及以后版本 Gradle</h4>
 
-<p>由于 8.X 版本的 Gradle，必须使用<code class="language-plaintext highlighter-rouge">Java 17</code>的环境了，并且不兼容老<code class="language-plaintext highlighter-rouge">JDK</code>编译的<code class="language-plaintext highlighter-rouge">class</code>，所以对于新版本需要使用专为<code class="language-plaintext highlighter-rouge">Java 17</code>编译的插件。</p>
+<p><strong>注</strong>：<code class="language-plaintext highlighter-rouge">TheRouter 1.3.x</code>开始，可直接看<code class="language-plaintext highlighter-rouge">Gradle 7.x</code> 的接入方式，原因如下：</p>
 
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter.agp8'</span> <span class="n">version</span> <span class="s1">'1.2.1'</span> <span class="n">apply</span> <span class="kc">false</span>
+<p>由于 8.X 版本的 Gradle，必须使用<code class="language-plaintext highlighter-rouge">Java 17</code>的环境，并且不兼容老<code class="language-plaintext highlighter-rouge">JDK</code>编译的<code class="language-plaintext highlighter-rouge">class</code>，所以对于新版本需要使用专为<code class="language-plaintext highlighter-rouge">Java 17</code>编译的插件。</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter.agp8'</span> <span class="n">version</span> <span class="s1">'1.2.4'</span> <span class="n">apply</span> <span class="kc">false</span>
 </code></pre></div></div>
 
 <p><img src="https://therouter.cn/assets/img/image/1.png" class="blog-img" /></p>
+
+<p><strong>20250228更新</strong>：从<code class="language-plaintext highlighter-rouge">1.3.x</code>开始，TheRouter 已经全部使用<code class="language-plaintext highlighter-rouge">Java 17</code>编译，也可以使用如下id引用：</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter'</span> <span class="n">version</span> <span class="s1">'1.3.x'</span> <span class="n">apply</span> <span class="kc">false</span>
+</code></pre></div></div>
 
 <h4 id="7x-版本-gradle">7.X 版本 Gradle</h4>
 
 <p>7.X 的 Gradle，<code class="language-plaintext highlighter-rouge">classpath</code>已经改为用<code class="language-plaintext highlighter-rouge">plugins</code>的方式引入，只需要在闭包内加这一句就行了</p>
 
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter'</span> <span class="n">version</span> <span class="s1">'1.2.2'</span> <span class="n">apply</span> <span class="kc">false</span>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter'</span> <span class="n">version</span> <span class="s1">'1.3.0'</span> <span class="n">apply</span> <span class="kc">false</span>
 </code></pre></div></div>
 
 <p><img src="https://therouter.cn/assets/img/image/2.jpg" class="blog-img" /></p>
@@ -1142,7 +1165,7 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 
 <p>对于6.x 及之前的  Gradle，需要手动引入<code class="language-plaintext highlighter-rouge">classpath</code>，在 TheRouter 官方 Github 首页也有接入介绍</p>
 
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">classpath</span> <span class="s2">"cn.therouter:plugin:1.2.2"</span>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">classpath</span> <span class="s2">"cn.therouter:plugin:1.3.0"</span>
 </code></pre></div></div>
 
 <p><img src="https://therouter.cn/assets/img/image/3.jpg" class="blog-img" /></p>
@@ -1183,7 +1206,7 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 <p>如果报找不到kapt，可能是因为没有声明kotlin-kapt的插件，参考<code class="language-plaintext highlighter-rouge">步骤二</code>里面的截图，接入对应的kapt。<br />
 如果是纯Java工程，需要用Java的APT处理，纯Java就不用声明<code class="language-plaintext highlighter-rouge">kotlin-kapt</code>插件了，直接把<code class="language-plaintext highlighter-rouge">kapt</code>改成<code class="language-plaintext highlighter-rouge">annotationProcessor</code></p>
 
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">annotationProcessor</span> <span class="s2">"cn.therouter:apt:1.2.2"</span>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">annotationProcessor</span> <span class="s2">"cn.therouter:apt:1.3.0"</span>
 </code></pre></div></div>
 
 <h3 id="第四步引入路由库">第四步：引入路由库</h3>
@@ -1191,7 +1214,7 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 <p>在需要使用路由功能的模块的<code class="language-plaintext highlighter-rouge">build.gradle</code>，(不像kapt，这个是可以使用传递依赖的)，加入如下依赖</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies {
-    implementation "cn.therouter:router:1.2.2"
+    implementation "cn.therouter:router:1.3.0"
 }
 </code></pre></div></div>
 
@@ -1240,9 +1263,10 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 
 <h2 id="agp-8x-使用">AGP 8.X 使用</h2>
 
-<p><em>从1.2.1开始，beta版本已经全部合入rc版本，无需再特殊关注beta版本进度。</em></p>
+<p>从1.2.1开始，beta版本已经全部合入rc版本，无需再特殊关注beta版本进度。</p>
 
-<p>使用时只需注意本文第一步中，classpath引入的不同，需要使用<code class="language-plaintext highlighter-rouge">cn.therouter.agp8</code>引入插件。</p>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry><entry><title type="html">Android Studio 插件，开发必备工具</title><link href="http://localhost:4000/docs/2022/09/29/01" rel="alternate" type="text/html" title="Android Studio 插件，开发必备工具" /><published>2022-09-29T00:00:00+08:00</published><updated>2022-09-29T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/09/29/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/09/29/01"><![CDATA[<p>开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。</p>
+<p>从 1.3.0 开始，TheRouter 已全部使用 <code class="language-plaintext highlighter-rouge">Java17</code> 编译，无需区分<code class="language-plaintext highlighter-rouge">Gradle 8.x</code> 还是<code class="language-plaintext highlighter-rouge">7.x</code>。<br />
+如果使用的是 1.3.x 之前的版本，使用时只需注意本文第一步中，id 引入的不同。</p>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry><entry><title type="html">Android Studio 插件，开发必备工具</title><link href="http://localhost:4000/docs/2022/09/29/01" rel="alternate" type="text/html" title="Android Studio 插件，开发必备工具" /><published>2022-09-29T00:00:00+08:00</published><updated>2022-09-29T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/09/29/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/09/29/01"><![CDATA[<p>开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。</p>
 
 <iframe width="384px" height="319px" src="https://plugins.jetbrains.com/embeddable/card/20047"></iframe>
 

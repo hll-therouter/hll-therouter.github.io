@@ -51,6 +51,11 @@
       </li>
       <li class="nav-item">
         
+          <a href="/harmony" class="nav-link header-color">Harmony</a>
+         
+      </li>
+      <li class="nav-item">
+        
           <a href="/ios" class="nav-link header-color">iOS</a>
          
       </li>
@@ -91,8 +96,6 @@
 
 <h4 id="q1-路由表不生成或生成的代码有问题编译报错">Q1: <strong>路由表不生成（或生成的代码有问题编译报错）</strong></h4>
 
-<p>(注：1.2.0-rc5版本已修复：<code class="language-plaintext highlighter-rouge">KSP</code>与<code class="language-plaintext highlighter-rouge">ViewBinding</code>共用不生成路由表的问题)</p>
-
 <p>请按照以下步骤排查：</p>
 
 <ol>
@@ -101,6 +104,7 @@
   <li>router、plugin、kapt，三个依赖的版本号必须一致。</li>
   <li>在这里查看JDK信息：<code class="language-plaintext highlighter-rouge">Preferences-&gt; Build Tools-&gt; Gradle-&gt; Gradle JDK</code>。不能用AS自带的jdk，KSP会有兼容问题，请在 Oracle 官网下载：<a href="https://www.oracle.com/hk/java/technologies/downloads/#java17">Java 17</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java11">Java 11</a>、<a href="https://www.oracle.com/hk/java/technologies/downloads/#java8">Java 8</a>。</li>
   <li>尝试更新至最新rc版本查看是否修复。<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">版本列表</a></li>
+  <li>1.2.4 开始，路由表在增量编译时不会生成和校验，不影响实际使用，在release或非增量编译时会自动生成。详情可查阅构建日志中<code class="language-plaintext highlighter-rouge">TheRouter Environment</code>的内容。</li>
 </ol>
 
 <hr />
@@ -345,7 +349,7 @@ TheRouter 也支持这样的使用场景：</p>
     <div class="col">
       <div class="card shadow-sm">
         <a href=/docs/2024/07/22/01>
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>1.2.3版本编译改动</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">1.2.3版本编译改动</text></svg>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>新版本编译改动</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">新版本编译改动</text></svg>
         </a>
 
         <div class="card-body">

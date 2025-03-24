@@ -21,6 +21,13 @@
         {% endif %} 
       </li>
       <li class="nav-item">
+        {% if page.harmony or page.url == "/harmony" or page.url == "/harmony/" %}
+          <a href="/harmony" class="nav-link active header-color">Harmony</a>
+        {% else %}
+          <a href="/harmony" class="nav-link header-color">Harmony</a>
+        {% endif %} 
+      </li>
+      <li class="nav-item">
         {% if page.ios or page.url == "/ios/" or page.url == "/ios" %}
           <a href="/ios" class="nav-link active header-color">iOS</a>
         {% else %}
