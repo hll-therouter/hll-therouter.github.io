@@ -7,10 +7,12 @@ $dokka.location:a//initDefaultRouteMap/#/PointingToDeclaration/router/a/init-de
 $dokka.location:a//trojan/#/PointingToDeclaration/router/a/trojan.html
 $dokka.location:com.therouter.app.flowtask.lifecycle////PointingToDeclaration/router/com.therouter.app.flowtask.lifecycle/index.html
 $dokka.location:com.therouter.app.flowtask.lifecycle/FlowTask///PointingToDeclaration/router/com.therouter.app.flowtask.lifecycle/-flow-task/index.html
-$dokka.location:com.therouter.app.flowtask.lifecycle/FlowTask/FlowTask/#kotlin.String#kotlin.String#kotlin.Boolean/PointingToDeclaration/router/com.therouter.app.flowtask.lifecycle/-flow-task/-flow-task.html
 $dokka.location:com.therouter.app.flowtask.lifecycle/FlowTask/async/#/PointingToDeclaration/router/com.therouter.app.flowtask.lifecycle/-flow-task/async.html
 $dokka.location:com.therouter.app.flowtask.lifecycle/FlowTask/dependsOn/#/PointingToDeclaration/router/com.therouter.app.flowtask.lifecycle/-flow-task/depends-on.html
 $dokka.location:com.therouter.app.flowtask.lifecycle/FlowTask/taskName/#/PointingToDeclaration/router/com.therouter.app.flowtask.lifecycle/-flow-task/task-name.html
+$dokka.location:com.therouter.app.flowtask////PointingToDeclaration/router/com.therouter.app.flowtask/index.html
+$dokka.location:com.therouter.app.flowtask/VirtualFlowTask///PointingToDeclaration/router/com.therouter.app.flowtask/-virtual-flow-task/index.html
+$dokka.location:com.therouter.app.flowtask/VirtualFlowTask/taskName/#/PointingToDeclaration/router/com.therouter.app.flowtask/-virtual-flow-task/task-name.html
 $dokka.location:com.therouter.flow////PointingToDeclaration/router/com.therouter.flow/index.html
 $dokka.location:com.therouter.flow//DONE/#/PointingToDeclaration/router/com.therouter.flow/-d-o-n-e.html
 $dokka.location:com.therouter.flow//NONE/#/PointingToDeclaration/router/com.therouter.flow/-n-o-n-e.html
@@ -21,6 +23,7 @@ $dokka.location:com.therouter.flow/Digraph///PointingToDeclaration/router/com.t
 $dokka.location:com.therouter.flow/Digraph/Digraph/#/PointingToDeclaration/router/com.therouter.flow/-digraph/-digraph.html
 $dokka.location:com.therouter.flow/Digraph/addPendingRunnable/#java.lang.Runnable/PointingToDeclaration/router/com.therouter.flow/-digraph/add-pending-runnable.html
 $dokka.location:com.therouter.flow/Digraph/addTask/#com.therouter.flow.Task?/PointingToDeclaration/router/com.therouter.flow/-digraph/add-task.html
+$dokka.location:com.therouter.flow/Digraph/beforeInit/#android.content.Context?/PointingToDeclaration/router/com.therouter.flow/-digraph/before-init.html
 $dokka.location:com.therouter.flow/Digraph/beforeSchedule/#/PointingToDeclaration/router/com.therouter.flow/-digraph/before-schedule.html
 $dokka.location:com.therouter.flow/Digraph/getDepends/#com.therouter.flow.Task/PointingToDeclaration/router/com.therouter.flow/-digraph/get-depends.html
 $dokka.location:com.therouter.flow/Digraph/getVirtualTask/#kotlin.String/PointingToDeclaration/router/com.therouter.flow/-digraph/get-virtual-task.html
@@ -77,9 +80,11 @@ $dokka.location:com.therouter.history/ServiceProviderHistory///PointingToDeclara
 $dokka.location:com.therouter.history/ServiceProviderHistory/ServiceProviderHistory/#kotlin.String/PointingToDeclaration/router/com.therouter.history/-service-provider-history/-service-provider-history.html
 $dokka.location:com.therouter.history/ServiceProviderHistory/event/#/PointingToDeclaration/router/com.therouter.history/-service-provider-history/event.html
 $dokka.location:com.therouter.inject////PointingToDeclaration/router/com.therouter.inject/index.html
-$dokka.location:com.therouter.inject//CLASS_NAME/#/PointingToDeclaration/router/com.therouter.inject/-c-l-a-s-s_-n-a-m-e.html
 $dokka.location:com.therouter.inject//PACKAGE/#/PointingToDeclaration/router/com.therouter.inject/-p-a-c-k-a-g-e.html
-$dokka.location:com.therouter.inject//SUFFIX/#/PointingToDeclaration/router/com.therouter.inject/-s-u-f-f-i-x.html
+$dokka.location:com.therouter.inject//PREFIX_ROUTER_MAP/#/PointingToDeclaration/router/com.therouter.inject/-p-r-e-f-i-x_-r-o-u-t-e-r_-m-a-p.html
+$dokka.location:com.therouter.inject//PREFIX_SERVICE_PROVIDER/#/PointingToDeclaration/router/com.therouter.inject/-p-r-e-f-i-x_-s-e-r-v-i-c-e_-p-r-o-v-i-d-e-r.html
+$dokka.location:com.therouter.inject//SUFFIX_AUTOWIRED/#/PointingToDeclaration/router/com.therouter.inject/-s-u-f-f-i-x_-a-u-t-o-w-i-r-e-d.html
+$dokka.location:com.therouter.inject//SUFFIX_AUTOWIRED_DOT_CLASS/#/PointingToDeclaration/router/com.therouter.inject/-s-u-f-f-i-x_-a-u-t-o-w-i-r-e-d_-d-o-t_-c-l-a-s-s.html
 $dokka.location:com.therouter.inject/ClassWrapper///PointingToDeclaration/router/com.therouter.inject/-class-wrapper/index.html
 $dokka.location:com.therouter.inject/ClassWrapper/ClassWrapper/#java.lang.Class[TypeParam(bounds=[kotlin.Any?])]#kotlin.Array[kotlin.Any?]/PointingToDeclaration/router/com.therouter.inject/-class-wrapper/-class-wrapper.html
 $dokka.location:com.therouter.inject/ClassWrapper/equals/#kotlin.Any?/PointingToDeclaration/router/com.therouter.inject/-class-wrapper/equals.html
@@ -87,9 +92,9 @@ $dokka.location:com.therouter.inject/ClassWrapper/hashCode/#/PointingToDeclarati
 $dokka.location:com.therouter.inject/ClassWrapper/key/#/PointingToDeclaration/router/com.therouter.inject/-class-wrapper/key.html
 $dokka.location:com.therouter.inject/ClassWrapper/unWrapper/#/PointingToDeclaration/router/com.therouter.inject/-class-wrapper/un-wrapper.html
 $dokka.location:com.therouter.inject/Interceptor///PointingToDeclaration/router/com.therouter.inject/-interceptor/index.html
+$dokka.location:com.therouter.inject/Interceptor/initFlowTask/#android.content.Context#com.therouter.flow.Digraph/PointingToDeclaration/router/com.therouter.inject/-interceptor/init-flow-task.html
 $dokka.location:com.therouter.inject/Interceptor/interception/#java.lang.Class[TypeParam(bounds=[kotlin.Any?])]?#kotlin.Array[kotlin.Any?]/PointingToDeclaration/router/com.therouter.inject/-interceptor/interception.html
 $dokka.location:com.therouter.inject/NewInstance///PointingToDeclaration/router/com.therouter.inject/-new-instance/index.html
-$dokka.location:com.therouter.inject/NewInstance/NewInstance/#/PointingToDeclaration/router/com.therouter.inject/-new-instance/-new-instance.html
 $dokka.location:com.therouter.inject/RecyclerBin///PointingToDeclaration/router/com.therouter.inject/-recycler-bin/index.html
 $dokka.location:com.therouter.inject/RecyclerBin/get/#java.lang.Class[TypeParam(bounds=[kotlin.Any?])]#kotlin.Array[kotlin.Any?]/PointingToDeclaration/router/com.therouter.inject/-recycler-bin/get.html
 $dokka.location:com.therouter.inject/RecyclerBin/put/#java.lang.Class[TypeParam(bounds=[kotlin.Any?])]#TypeParam(bounds=[kotlin.Any?])#kotlin.Array[kotlin.Any?]/PointingToDeclaration/router/com.therouter.inject/-recycler-bin/put.html
@@ -107,11 +112,9 @@ $dokka.location:com.therouter.inject/RouterInject/get/#java.lang.Class[TypeParam
 $dokka.location:com.therouter.inject/RouterInject/privateAddInterceptor/#com.therouter.inject.Interceptor/PointingToDeclaration/router/com.therouter.inject/-router-inject/private-add-interceptor.html
 $dokka.location:com.therouter.inject/RouterInject/syncInitRouterInject/#android.content.Context?/PointingToDeclaration/router/com.therouter.inject/-router-inject/sync-init-router-inject.html
 $dokka.location:com.therouter.inject/ServiceProvider///PointingToDeclaration/router/com.therouter.inject/-service-provider/index.html
-$dokka.location:com.therouter.inject/ServiceProvider/ServiceProvider/#kotlin.reflect.KClass[*]#kotlin.Array[kotlin.reflect.KClass[*]]/PointingToDeclaration/router/com.therouter.inject/-service-provider/-service-provider.html
 $dokka.location:com.therouter.inject/ServiceProvider/params/#/PointingToDeclaration/router/com.therouter.inject/-service-provider/params.html
 $dokka.location:com.therouter.inject/ServiceProvider/returnType/#/PointingToDeclaration/router/com.therouter.inject/-service-provider/return-type.html
 $dokka.location:com.therouter.inject/Singleton///PointingToDeclaration/router/com.therouter.inject/-singleton/index.html
-$dokka.location:com.therouter.inject/Singleton/Singleton/#/PointingToDeclaration/router/com.therouter.inject/-singleton/-singleton.html
 $dokka.location:com.therouter.router.action.interceptor////PointingToDeclaration/router/com.therouter.router.action.interceptor/index.html
 $dokka.location:com.therouter.router.action.interceptor/ActionInterceptor///PointingToDeclaration/router/com.therouter.router.action.interceptor/-action-interceptor/index.html
 $dokka.location:com.therouter.router.action.interceptor/ActionInterceptor/ActionInterceptor/#/PointingToDeclaration/router/com.therouter.router.action.interceptor/-action-interceptor/-action-interceptor.html
@@ -122,7 +125,6 @@ $dokka.location:com.therouter.router.action.interceptor/ActionInterceptor/optAct
 $dokka.location:com.therouter.router.action.interceptor/ActionInterceptor/priority/#/PointingToDeclaration/router/com.therouter.router.action.interceptor/-action-interceptor/priority.html
 $dokka.location:com.therouter.router.action////PointingToDeclaration/router/com.therouter.router.action/index.html
 $dokka.location:com.therouter.router.action/ActionInterceptor///PointingToDeclaration/router/com.therouter.router.action/-action-interceptor/index.html
-$dokka.location:com.therouter.router.action/ActionInterceptor/ActionInterceptor/#kotlin.String/PointingToDeclaration/router/com.therouter.router.action/-action-interceptor/-action-interceptor.html
 $dokka.location:com.therouter.router.action/ActionInterceptor/actionName/#/PointingToDeclaration/router/com.therouter.router.action/-action-interceptor/action-name.html
 $dokka.location:com.therouter.router.autowired////PointingToDeclaration/router/com.therouter.router.autowired/index.html
 $dokka.location:com.therouter.router.autowired/DefaultIdParser///PointingToDeclaration/router/com.therouter.router.autowired/-default-id-parser/index.html
@@ -187,7 +189,7 @@ $dokka.location:com.therouter.router//addPathReplaceInterceptor/#com.therouter.r
 $dokka.location:com.therouter.router//addRouteItem/#com.therouter.router.RouteItem/PointingToDeclaration/router/com.therouter.router/add-route-item.html
 $dokka.location:com.therouter.router//addRouteMap/#kotlin.collections.Collection[com.therouter.router.RouteItem]?/PointingToDeclaration/router/com.therouter.router/add-route-map.html
 $dokka.location:com.therouter.router//addRouterReplaceInterceptor/#com.therouter.router.interceptor.RouterReplaceInterceptor/PointingToDeclaration/router/com.therouter.router/add-router-replace-interceptor.html
-$dokka.location:com.therouter.router//asyncInitRouteMap/#/PointingToDeclaration/router/com.therouter.router/async-init-route-map.html
+$dokka.location:com.therouter.router//asyncInitRouteMap/#android.content.Context?/PointingToDeclaration/router/com.therouter.router/async-init-route-map.html
 $dokka.location:com.therouter.router//defaultNavigationCallback/#com.therouter.router.interceptor.NavigationCallback?/PointingToDeclaration/router/com.therouter.router/default-navigation-callback.html
 $dokka.location:com.therouter.router//foundPathFromIntent/#android.content.Intent/PointingToDeclaration/router/com.therouter.router/found-path-from-intent.html
 $dokka.location:com.therouter.router//getFileListFromAssets/#android.content.Context?#kotlin.String?/PointingToDeclaration/router/com.therouter.router/get-file-list-from-assets.html
@@ -227,6 +229,7 @@ $dokka.location:com.therouter.router/AutowiredItem/key/#/PointingToDeclaration/
 $dokka.location:com.therouter.router/AutowiredItem/required/#/PointingToDeclaration/router/com.therouter.router/-autowired-item/required.html
 $dokka.location:com.therouter.router/AutowiredItem/type/#/PointingToDeclaration/router/com.therouter.router/-autowired-item/type.html
 $dokka.location:com.therouter.router/IRouterMapAPT///PointingToDeclaration/router/com.therouter.router/-i-router-map-a-p-t/index.html
+$dokka.location:com.therouter.router/IRouterMapAPT/init/#/PointingToDeclaration/router/com.therouter.router/-i-router-map-a-p-t/init.html
 $dokka.location:com.therouter.router/Navigator///PointingToDeclaration/router/com.therouter.router/-navigator/index.html
 $dokka.location:com.therouter.router/Navigator/Navigator/#kotlin.String?#android.content.Intent?/PointingToDeclaration/router/com.therouter.router/-navigator/-navigator.html
 $dokka.location:com.therouter.router/Navigator/Navigator/#kotlin.String?/PointingToDeclaration/router/com.therouter.router/-navigator/-navigator.html
@@ -291,23 +294,31 @@ $dokka.location:com.therouter.router/Route/action/#/PointingToDeclaration/route
 $dokka.location:com.therouter.router/Route/description/#/PointingToDeclaration/router/com.therouter.router/-route/description.html
 $dokka.location:com.therouter.router/Route/params/#/PointingToDeclaration/router/com.therouter.router/-route/params.html
 $dokka.location:com.therouter.router/Route/path/#/PointingToDeclaration/router/com.therouter.router/-route/path.html
+$dokka.location:com.therouter.router/RouteItem.CREATOR///PointingToDeclaration/router/com.therouter.router/-route-item/-c-r-e-a-t-o-r/index.html
+$dokka.location:com.therouter.router/RouteItem.CREATOR/createFromParcel/#android.os.Parcel/PointingToDeclaration/router/com.therouter.router/-route-item/-c-r-e-a-t-o-r/create-from-parcel.html
+$dokka.location:com.therouter.router/RouteItem.CREATOR/newArray/#kotlin.Int/PointingToDeclaration/router/com.therouter.router/-route-item/-c-r-e-a-t-o-r/new-array.html
 $dokka.location:com.therouter.router/RouteItem///PointingToDeclaration/router/com.therouter.router/-route-item/index.html
 $dokka.location:com.therouter.router/RouteItem/RouteItem/#/PointingToDeclaration/router/com.therouter.router/-route-item/-route-item.html
+$dokka.location:com.therouter.router/RouteItem/RouteItem/#android.os.Parcel/PointingToDeclaration/router/com.therouter.router/-route-item/-route-item.html
 $dokka.location:com.therouter.router/RouteItem/RouteItem/#kotlin.String#kotlin.String#kotlin.String#kotlin.String/PointingToDeclaration/router/com.therouter.router/-route-item/-route-item.html
 $dokka.location:com.therouter.router/RouteItem/action/#/PointingToDeclaration/router/com.therouter.router/-route-item/action.html
 $dokka.location:com.therouter.router/RouteItem/addParams/#kotlin.String#kotlin.String/PointingToDeclaration/router/com.therouter.router/-route-item/add-params.html
 $dokka.location:com.therouter.router/RouteItem/className/#/PointingToDeclaration/router/com.therouter.router/-route-item/class-name.html
 $dokka.location:com.therouter.router/RouteItem/copy/#/PointingToDeclaration/router/com.therouter.router/-route-item/copy.html
+$dokka.location:com.therouter.router/RouteItem/describeContents/#/PointingToDeclaration/router/com.therouter.router/-route-item/describe-contents.html
 $dokka.location:com.therouter.router/RouteItem/description/#/PointingToDeclaration/router/com.therouter.router/-route-item/description.html
 $dokka.location:com.therouter.router/RouteItem/getExtras/#/PointingToDeclaration/router/com.therouter.router/-route-item/get-extras.html
-$dokka.location:com.therouter.router/RouteItem/params/#/PointingToDeclaration/router/com.therouter.router/-route-item/params.html
 $dokka.location:com.therouter.router/RouteItem/path/#/PointingToDeclaration/router/com.therouter.router/-route-item/path.html
+$dokka.location:com.therouter.router/RouteItem/readFromParcel/#android.os.Parcel/PointingToDeclaration/router/com.therouter.router/-route-item/read-from-parcel.html
 $dokka.location:com.therouter.router/RouteItem/toString/#/PointingToDeclaration/router/com.therouter.router/-route-item/to-string.html
+$dokka.location:com.therouter.router/RouteItem/writeToParcel/#android.os.Parcel#kotlin.Int/PointingToDeclaration/router/com.therouter.router/-route-item/write-to-parcel.html
 $dokka.location:com.therouter.router/RouterMapInitTask///PointingToDeclaration/router/com.therouter.router/-router-map-init-task/index.html
 $dokka.location:com.therouter.router/RouterMapInitTask/asyncInitRouteMap/#/PointingToDeclaration/router/com.therouter.router/-router-map-init-task/async-init-route-map.html
 $dokka.location:com.therouter.router/Routes///PointingToDeclaration/router/com.therouter.router/-routes/index.html
 $dokka.location:com.therouter.router/Routes/value/#/PointingToDeclaration/router/com.therouter.router/-routes/value.html
 $dokka.location:com.therouter////PointingToDeclaration/router/com.therouter/index.html
+$dokka.location:com.therouter//KEEP_ALIVE_SECONDS/#/PointingToDeclaration/router/com.therouter/-k-e-e-p_-a-l-i-v-e_-s-e-c-o-n-d-s.html
+$dokka.location:com.therouter//MAX_QUEUE_SIZE/#/PointingToDeclaration/router/com.therouter/-m-a-x_-q-u-e-u-e_-s-i-z-e.html
 $dokka.location:com.therouter//ROUTE_MAP_ASSETS_PATH/#/PointingToDeclaration/router/com.therouter/-r-o-u-t-e_-m-a-p_-a-s-s-e-t-s_-p-a-t-h.html
 $dokka.location:com.therouter//WEB_HOST/#/PointingToDeclaration/router/com.therouter/-w-e-b_-h-o-s-t.html
 $dokka.location:com.therouter//WEB_SCHEME/#/PointingToDeclaration/router/com.therouter/-w-e-b_-s-c-h-e-m-e.html
@@ -351,6 +362,7 @@ $dokka.location:com.therouter/TheRouter/routerInject/#/PointingToDeclaration/ro
 $dokka.location:com.therouter/TheRouter/runTask/#kotlin.String/PointingToDeclaration/router/com.therouter/-the-router/run-task.html
 a
 com.therouter
+com.therouter.app.flowtask
 com.therouter.app.flowtask.lifecycle
 com.therouter.flow
 com.therouter.history

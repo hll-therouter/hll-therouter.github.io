@@ -15,7 +15,11 @@
       </li>
       <li class="nav-item">
         {% if page.android or page.url == "/doc" or page.url == "/doc/" %}
-          <a href="/doc" class="nav-link active header-color">Android</a>
+          {% if page.harmony or page.url == "/harmony" or page.url == "/harmony/" %}
+            <a href="/doc" class="nav-link header-color">Android</a>
+          {% else %}
+            <a href="/doc" class="nav-link active header-color">Android</a>
+          {% endif %} 
         {% else %}
           <a href="/doc" class="nav-link header-color">Android</a>
         {% endif %} 
@@ -42,20 +46,12 @@
         {% endif %} 
       </li>
       <li class="nav-item">
-        {% if page.url contains "/api" %}
-          <a href="/api" class="nav-link active header-color">API文档</a>
-        {% else %}
-          <a href="/api" class="nav-link header-color">API文档</a>
-        {% endif %} 
-      </li>
-      <li class="nav-item">
         {% if page.url == "/about" %}
           <a href="/about" class="nav-link active header-color">关于</a>
         {% else %}
           <a href="/about" class="nav-link header-color">关于</a>
         {% endif %} 
       </li>
-      <li class="nav-item"><a href="https://github.com/HuolalaTech/hll-wp-therouter-android" class="nav-link header-color">GitHub</a></li>
     </ul>
   </header>
 </div>

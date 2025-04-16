@@ -1,4 +1,625 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-03-26T10:58:56+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">为 TheRouter 的 AGP8 编译加个速</title><link href="http://localhost:4000/docs/2024/10/31/01" rel="alternate" type="text/html" title="为 TheRouter 的 AGP8 编译加个速" /><published>2024-10-31T00:00:00+08:00</published><updated>2024-10-31T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/10/31/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/10/31/01"><![CDATA[<p>内容请见：</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-16T14:30:42+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">Harmony 动态路由框架：TheRouter 开源</title><link href="http://localhost:4000/docs/2025/03/24/01" rel="alternate" type="text/html" title="Harmony 动态路由框架：TheRouter 开源" /><published>2025-03-24T00:00:00+08:00</published><updated>2025-03-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/24/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是一个用于移动端APP，包括 Android、iOS、Harmony 三端的模块化、组件化开发的一整套解决方案框架。提供了三端高一致性，对移动端开发者更友好，让开发人员更适应，使用起来也更顺手。在鸿蒙上， TheRouter 基于HMRouter做了深度定制，不仅支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，还提供了编译时安全检查、支持动态路由下发与修改、路由 Path 一对多等高度动态能力。</p>
+
+<p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
+官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
+
+<p>TheRouter Harmony 核心功能具备如下能力：</p>
+
+<ul>
+  <li>页面导航跳转能力(Navigator)</li>
+  <li>跨模块依赖注入能力(ServiceProvider)</li>
+  <li>动态化能力(ActionManager)</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="一为什么要使用-therouter">一、为什么要使用 TheRouter</h3>
+
+<p>路由是现如今移动端开发中必不可少的功能，尤其是企业级APP，可以用于将多模块页面跳转的强依赖关系解耦，同时减少跨团队开发的互相依赖问题。</p>
+
+<p>对于大型 APP 开发，基本都会选用模块化(或组件化)方式开发，对于模块间解耦要求更高。 <code class="language-plaintext highlighter-rouge">TheRouter</code> 是一整套完全面向模块化开发的解决方案，不仅能支持常规的模块依赖解耦、页面跳转，同时提供了模块化过程中常见问题的解决办法。</p>
+
+<p><br /></p>
+
+<h4 id="11-therouter-鸿蒙端的三大能力">1.1 TheRouter 鸿蒙端的三大能力</h4>
+
+<p>Navigator：</p>
+
+<ul>
+  <li>支持 <code class="language-plaintext highlighter-rouge">Path</code> 与页面多对一关系或一对一关系，可用于解决多端path统一问题</li>
+  <li>页面 <code class="language-plaintext highlighter-rouge">Path</code> 支持正则表达式声明</li>
+  <li>支持 <code class="language-plaintext highlighter-rouge">json</code> 格式路由表导出</li>
+  <li>路由表支持为页面添加注释说明</li>
+  <li>支持动态下发 <code class="language-plaintext highlighter-rouge">json</code> 路由表，降级任意页面为H5</li>
+  <li>支持页面跳转拦截处理</li>
+  <li>支持使用路由跳转到第三方 SDK 中的页面</li>
+</ul>
+
+<p>ServiceProvider：</p>
+
+<ul>
+  <li>支持跨模块依赖注入</li>
+  <li>支持自定义注入项的创建规则，依赖注入可自定义参数</li>
+  <li>支持注入对象缓存，多次注入，只会 new 一次对象</li>
+</ul>
+
+<p>ActionManager：</p>
+
+<ul>
+  <li>支持全局回调配置</li>
+  <li>支持多对一链式响应</li>
+  <li>支持优先级响应</li>
+  <li>方法支持返回值与入参</li>
+  <li>支持记录调用路径，解决调试期观察者模式无法追踪 <code class="language-plaintext highlighter-rouge">Observable</code> 的问题</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="二鸿蒙路由方案">二、鸿蒙路由方案</h3>
+
+<p>根据华为官方文档建议，从API 10开始，推荐使用 <code class="language-plaintext highlighter-rouge">NavPathStack</code> 配合 <code class="language-plaintext highlighter-rouge">navDestination</code> 属性进行页面路由。所以 <code class="language-plaintext highlighter-rouge">TheRouter</code> 也是按照这个方案实现的，如果你的项目还是使用 <code class="language-plaintext highlighter-rouge">ohos.router</code> 组件，建议尽早迁移。<br />
+详细内容请查看华为官方文档：<a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router">https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-router</a></p>
+
+<p>无论哪个平台，路由的本质就是一个 Map，或者说是字典。其中 key 是，页面的 path，value 是路由项。对于 Action、ServiceProvider，也都是一样。<br />
+所以在鸿蒙上最核心的重点，是实现在编译期将注解 path 关联到具体的路由项，使其产生一个一对多或一对一的对应关系。其次就是要考虑如何与系统自带的路由表兼容，遵循系统方案而不是完全打造一套，否则可能引起将来的不确定性。  <br />
+在 TheRouter 中，通过编译期的 <code class="language-plaintext highlighter-rouge">hvigor</code> 插件，解析全部的注解关键字，并将获取到的内容保存下来，在应用编译完成后，参照系统的路由表格式，生成一份增量的路由表，聚合到系统的路由表内。正是因为这样，才能做到兼容第三方SDK，正常跳转到第三方页面。既然第三方都能跳转，那么其他的二方、或自己的独立模块自然也就可以正常跳转了。</p>
+
+<p><br /></p>
+
+<h3 id="三使用-therouter-页面跳转">三、使用 TheRouter 页面跳转</h3>
+
+<h4 id="31-声明路由项">3.1 声明路由项</h4>
+
+<p>如果一个页面允许被路由打开，则需要使用注解 <code class="language-plaintext highlighter-rouge">@Route</code> 声明路由项，每个页面允许声明多个路由项，也就是一对多的能力，极大降低多端路由统一时的业务影响面。</p>
+
+<p><strong>参数释义</strong></p>
+
+<ul>
+  <li><strong>path</strong>: 路由path 【必传】。 <br />
+ 建议是一个url，并推荐三端url统一。path内支持使用正则表达式，允许多个path对应同一个Page。</li>
+  <li><strong>description</strong>: 页面描述【可选】。<br />
+ 会被记录到路由表中，方便后期排查的时候知道每个path或Page是什么业务。</li>
+  <li><strong>params</strong>: 页面参数【可选】。 <br />
+ 自动写入当前页面参数中，允许写在路由表中动态下发修改默认值，或通过路由跳转时代码传入。</li>
+  <li><strong>launchMode</strong>: 当前页的启动方式【可选】。 <br />
+ 启动模式，可选项：’STANDARD’(默认)、’MOVE_TO_TOP_SINGLETON’、’POP_TO_SINGLETON’、’NEW_INSTANCE’。</li>
+</ul>
+
+<p><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Route</span><span class="o">({</span> <span class="nl">path:</span> <span class="nc">BaseConstant</span><span class="o">.</span><span class="na">MAIN_PAGE</span><span class="o">,</span> <span class="nl">description:</span> <span class="err">'</span><span class="nc">Demo首页</span><span class="err">'</span><span class="o">,</span> <span class="nl">params:</span> <span class="o">[</span><span class="s">"hello"</span><span class="o">,</span> <span class="s">"路由表默认参数"</span><span class="o">],</span> <span class="nl">launchMode:</span><span class="err">'</span><span class="no">STANDARD</span><span class="err">'</span> <span class="o">})</span>
+<span class="nd">@Component</span>
+<span class="n">export</span> <span class="n">struct</span> <span class="nc">MainPage</span> <span class="o">{</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="32-发起页面跳转">3.2 发起页面跳转</h4>
+
+<p>传入的参数可以是 <code class="language-plaintext highlighter-rouge">string</code> 和基本数据类型、也可以是<code class="language-plaintext highlighter-rouge">ESObject</code>对象。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"http://therouter.com/home"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withNumber</span><span class="o">(</span><span class="s">"key1"</span><span class="o">,</span> <span class="mi">12345678</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withString</span><span class="o">(</span><span class="s">"key2"</span><span class="o">,</span> <span class="s">"参数"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withBoolean</span><span class="o">(</span><span class="s">"key3"</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">with</span><span class="o">({</span><span class="nl">xxx:</span><span class="n">xxx</span><span class="o">})</span> 
+         <span class="c1">// navigation、replace、pop 均可以额外传入 callback 参数，对当前跳转的个状态回调</span>
+        <span class="o">.</span><span class="na">navigation</span><span class="o">();</span>
+
+        <span class="c1">// 替换页面（相当于先 pop 再 push）</span>
+        <span class="o">.</span><span class="na">replace</span><span class="o">();</span>
+
+        <span class="c1">// 关闭当前页</span>
+        <span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+       
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="33-路由表生成规则">3.3 路由表生成规则</h4>
+
+<p>如果两条路由的 <code class="language-plaintext highlighter-rouge">path</code> 完全相同，则认为是同一条路由，<strong>不会考虑参数是否相同</strong>。 <br />
+路由表生成规则：编译期按照如下顺序取<strong>并集</strong>。</p>
+
+<p><strong>覆盖规则</strong>： <br />
+根据如下顺序，如果相同，后者可以覆盖前者的路由表规则。</p>
+
+<ol>
+  <li>编译期解析注解生成路由表</li>
+  <li>首先取 <code class="language-plaintext highlighter-rouge">业务模块(har/hap)</code> 中的路由表</li>
+  <li>再取 主<code class="language-plaintext highlighter-rouge">hsp module</code> 代码中的路由表</li>
+  <li>最后取 <code class="language-plaintext highlighter-rouge">resources/base/profile/RouteMap.json</code> 文件中声明的路由表。
+    <ul>
+      <li>如果编译期没有这个文件，会生成一份默认路由表放在这个目录内（编译完成后如果没有配置保留，会自动删掉）；如果有，会将路由表合并。</li>
+    </ul>
+  </li>
+  <li>运行时线上动态下发的路由表
+    <ul>
+      <li>路由表允许线上动态下发，将覆盖本地路由表，详见 【3.4 动态路由表的设计与使用】</li>
+    </ul>
+  </li>
+</ol>
+
+<p>如果编译期没有这个文件，会生成一份默认路由表放在这个目录内（编译完成后如果没有配置保留，会自动删掉）；如果有，会将路由表合并，因此，对于没办法修改代码的第三方SDK内部，如果希望通过路由打开，只需要手动在 <code class="language-plaintext highlighter-rouge">RouteMap.json</code> 文件中声明，就能通过路由打开了。</p>
+
+<p><br /></p>
+
+<h4 id="34-动态路由表的设计与使用">3.4 动态路由表的设计与使用</h4>
+
+<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 的路由表是动态添加的，项目每次编译后，会在 app 内生成一份当前模块的全量路由表。这个路由表也可以后续通过远程下发的方式使用，例如远端可以针对不同的APP版本，下发不同的路由表达到配置目的。这样如果将来线上某些页面发生Crash，可以通过将这个页面的落地页替换为H5的方式，临时解决这类问题。  <br />
+<br /></p>
+
+<p>有两种推荐的远程下发方式可供使用方选择：</p>
+
+<ol>
+  <li>将打包系统与配置系统打通，每次新版本打包后自动将所有模块(hsp、har、hap) <code class="language-plaintext highlighter-rouge">resource/rawfile/</code> 目录中的路由表文件上传到配置系统，聚合成一个 json 后，下发给对应版本 APP 。优点在于全自动不会出错。</li>
+  <li>配置系统无法打通，线上手动下发需要修改的路由项，因为 <code class="language-plaintext highlighter-rouge">TheRouter</code> 会自动用最新下发的路由项覆盖包内的路由项。优点在于精确，且流量资源占用小。 <br />
+<br /></li>
+</ol>
+
+<p><strong>动态路由限制</strong> ：准确的说，应该是鸿蒙系统的限制。在鸿蒙上，路由表必须是静态的并且在编译期确定下来。TheRouter Harmony 做了一些黑科技处理，允许动态加载一个或多个路由表，但是动态加载的路由页面必须是在编译期就已经存在的，不能凭空新增（类似 <code class="language-plaintext highlighter-rouge">Android</code> 的 <code class="language-plaintext highlighter-rouge">Activity</code>，在编译后就不能再改或新增注册清单文件了）。</p>
+
+<p><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 与Android逻辑不同，此代码 必须 在页面打开之前，路由初始化之后调用。 建议紧跟 TheRouter.init() 调用</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">setRouteMapInitTask</span><span class="o">(</span><span class="nl">task:</span> <span class="o">(</span><span class="nl">map:</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="n">string</span><span class="o">,</span> <span class="nc">RouteItem</span><span class="o">&gt;)</span> <span class="o">=&gt;</span> <span class="kt">void</span><span class="o">);</span>
+
+<span class="cm">/** 
+ * 此处的 map 就是当前应用的路由表全量，
+ * 当获取到远端路由表以后，把路由表继续传入map中，有重复项可自动覆盖
+ */</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">setRouteMapInitTask</span><span class="o">(()</span> <span class="o">=&gt;</span> <span class="o">{</span>
+    <span class="c1">// 此处为纯业务逻辑，每家公司远端配置方案可能都不一样</span>
+    <span class="kd">const</span> <span class="n">json</span> <span class="o">=</span> <span class="nc">Connfig</span><span class="o">.</span><span class="na">doHttp</span><span class="o">(</span><span class="s">"routeMap"</span><span class="o">);</span>
+    <span class="c1">// 只需要将路由json返回给框架即可，不建议在任务中做耗时操作</span>
+    <span class="k">return</span> <span class="n">json</span><span class="o">;</span>
+<span class="o">});</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="35-拦截器用法">3.5 拦截器用法</h4>
+
+<p>框架内置四种自定义处理器可供业务场景定制，用于在路由跳转过程中，以切面的方式统一修改路由落地页参数信息。 <br />
+Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参考【<a href="https://therouter.cn/docs/2022/08/28/01">Android 文档</a> 第三部分】。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 所有拦截器方法均在 TheRouter 类下，可以直接如下方式全局调用</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">addNavigatorPathFixHandle</span><span class="o">()</span>
+
+<span class="cm">/**
+  * 应用场景：用于修复客户端上路由 path 错误问题。
+  * 例如：相对路径转绝对路径，或由于服务端下发的链接无法固定https或http，但客户端代码写死了 https 的 path，就可以用这种方式统一。
+  * 注：必须在 TheRouter.build() 方法调用前添加处理器，否则处理器前的所有path不会被修改。
+  */</span>
+<span class="kd">static</span> <span class="nf">addNavigatorPathFixHandle</span><span class="o">(</span><span class="nl">handle:</span> <span class="nc">NavigatorPathFixHandle</span><span class="o">);</span>
+
+<span class="cm">/**
+  * 页面替换器
+  * 应用场景：需要将某些path指定为新链接的时候使用。 也可以用在修复链接的场景，但是与 path 修改器不同的是，修改器通常是为了解决通用性的问题，替换器只在页面跳转时才会生效，更多是用来解决特性问题。
+  *
+  * 例如模块化的时候，首页壳模板组件中开发了一个SplashActivity广告组件作为应用的MainActivity，在闪屏广告结束的时候自动跳转业务首页页面。 但是每个业务不同，首页页面的 Path 也不相同，而不希望让每个业务线自己去改这个首页壳模板组件，此时就可以组件中先写占位符https://kymjs.com/splash/to/home，让接入方通过 Path 替换器解决。
+  * 注：必须在 TheRouter.build().navigation() 方法调用前添加处理器，否则处理器前的所有跳转不会被替换。
+  */</span>
+<span class="kd">static</span> <span class="nf">addPathReplaceInterceptor</span><span class="o">(</span><span class="nl">interceptor:</span> <span class="nc">PathReplaceInterceptor</span><span class="o">);</span>
+
+
+<span class="cm">/**
+  * 路由替换器
+  * 应用场景：常用在未登录不能使用的页面上。例如访问用户钱包页面，在钱包页声明的时候，可以在路由表上声明本页面是需要登录的，在路由跳转过程中，如果落地页是需要登录的，则先替换路由到登录页，同时将原落地页信息作为参数传给登录页，登录流程处理完成后可以继续执行之前的路由操作。
+  *
+  * 路由替换器的拦截点更靠后，主要用于框架已经从路由表中根据 path 找到路由以后，对找到的路由做操作。
+  *
+  * 这种逻辑在所有页面跳转前写不太合适，以前的做法通常是在落地页写逻辑判断用户是否具有权限，但其实在路由层完成更合适。
+  * 注：必须在 TheRouter.build().navigation() 方法调用前添加处理器，否则处理器前的所有跳转不会被替换。
+  */</span>
+<span class="kd">static</span> <span class="nf">addRouterReplaceInterceptor</span><span class="o">(</span><span class="nl">interceptor:</span> <span class="nc">RouterReplaceInterceptor</span><span class="o">);</span>
+
+<span class="cm">/**
+  * 路由AOP拦截器
+  * 与前三个处理器不同的点在于，路由的AOP拦截器全局只能有一个。用于实现AOP的能力，在整个TheRouter跳转的过程中，跳转前，目标页是否找到的回调，跳转时，跳转后，都可以做一些自定义的逻辑处理。
+  *
+  * 使用场景：场景很多，最常用的是可以拦截一些跳转，例如debug页面在生产环境不打开，或定制startActivity跳转方法。
+  */</span>
+<span class="kd">public</span> <span class="nf">setRouterInterceptor</span><span class="o">(</span><span class="nl">interceptor:</span> <span class="o">(</span><span class="nl">route:</span> <span class="nc">RouteItem</span><span class="o">,</span> <span class="nl">callback:</span> <span class="o">(</span><span class="nl">route:</span> <span class="nc">RouteItem</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="kt">void</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="kt">void</span><span class="o">);</span>
+</code></pre></div></div>
+
+<h4 id="36-高级用法">3.6 高级用法</h4>
+
+<p>TheRouter同时支持更多页面跳转能力：</p>
+
+<ul>
+  <li>为第三方库里面的页面添加路由表，达到对某些页面降级替换的目的；</li>
+  <li>跳转过程拦截器（总共四层，可根据实际需求使用）；</li>
+  <li>跳转结果回调；</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="四跨模块依赖注入-serviceprovider-的设计">四、跨模块依赖注入 ServiceProvider 的设计</h3>
+
+<p>对于模块化开发中跨模块的调用，我们推荐采用 <a href="https://zh.m.wikipedia.org/zh-cn/%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">SOA(面向服务架构)</a> 的设计方式，服务调用方与使用方完全隔离，调用模块外的能力不需要关注能力的提供者是谁。<br />
+<code class="language-plaintext highlighter-rouge">ServiceProvider</code> 的核心设计思想也是这样的，目前服务间的调用协议采用接口的方式。当然，也可以兼容不通过接口下沉而是直接调用的情况。</p>
+
+<p><img src="https://cdn.kymjs.com:8843/qiniu/images/blog_image/therouter/3.jpeg" class="blog-img" /></p>
+
+<ul>
+  <li>服务提供方负责提供服务，不需要关心调用方是谁会在何时调用自己。</li>
+  <li>服务的使用方只关注服务本身，不需要关心这个服务是谁提供的，只需要只能服务能提供哪些能力即可。</li>
+</ul>
+
+<p>例如上面的图片：拉拉需要使用录音的服务，小货则向外提供一个录音的服务，由<code class="language-plaintext highlighter-rouge">TheRouter</code>的<code class="language-plaintext highlighter-rouge">ServiceProvider</code>负责撮合。</p>
+
+<p><br /></p>
+
+<h4 id="41-服务使用方拉拉">4.1 服务使用方：拉拉</h4>
+
+<p>她无需关心，<code class="language-plaintext highlighter-rouge">IRecordService</code> 这个接口服务是谁提供的，他只需要知道自己需要使用这样的一个服务就行了。<br />
+注：如果没有提供服务的提供方，<code class="language-plaintext highlighter-rouge">TheRouter.get()</code> 可能返回 <code class="language-plaintext highlighter-rouge">undefined</code></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">&lt;</span><span class="nc">IRecordService</span><span class="o">&gt;(</span><span class="nc">BaseConstant</span><span class="o">.</span><span class="na">CLASS_SERVICE</span><span class="o">)?.</span><span class="na">doRecord</span><span class="o">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="42-服务提供方小货">4.2 服务提供方：小货</h4>
+
+<p>服务提供方需要声明一个提供服务的方法，用 <code class="language-plaintext highlighter-rouge">@ServiceProvider</code> 注解标记，并需要实现接口 <code class="language-plaintext highlighter-rouge">IServiceProvider</code>。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// 类名不限定，任意名字都行</span>
+<span class="c1">// 所有的 ServiceProvider 必须实现 IServiceProvider 接口</span>
+<span class="c1">// 多次添加重复serviceName，框架会保证安全，在编译时报错</span>
+<span class="nd">@ServiceProvider</span><span class="o">({</span> <span class="nl">serviceName:</span> <span class="nc">BaseConstant</span><span class="o">.</span><span class="na">CLASS_SERVICE</span><span class="o">,</span> <span class="nl">singleton:</span> <span class="kc">true</span> <span class="o">})</span>
+<span class="n">export</span> <span class="kd">class</span> <span class="nc">CustomService</span> <span class="kd">implements</span> <span class="nc">IRecordService</span><span class="o">,</span> <span class="nc">IServiceProvider</span> <span class="o">{</span>
+
+  <span class="n">doRecord</span><span class="o">():</span> <span class="kt">void</span> <span class="o">{</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>@ServiceProvider 参数释义</strong></p>
+
+<ul>
+  <li><strong>serviceName</strong>: 服务名 【必传】。 <br />
+ 服务的唯一标识。如果重复，在编译期会直接报错。</li>
+  <li><strong>singleton</strong>: 默认false【可选】。<br />
+ 服务提供方提供出的服务是否为单例。</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="五动态化能力-action-的设计">五、动态化能力 Action 的设计</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Action</code> 本质是一个全局的系统回调，主要用于预埋的一系列操作，例如：弹窗、上传日志、清理缓存。<br />
+与 Android 系统自带的广播通知类似，你可以在任何地方声明动作与处理方式。并且所有 <code class="language-plaintext highlighter-rouge">Action</code> 都是可以被跟踪的，只要你愿意，可以在日志中将所有的动作调用栈输出，以方便调试使用，这样在一定程度上可以解决观察者模式带来的通病：<strong>无法追踪 <code class="language-plaintext highlighter-rouge">Observable</code> 的问题</strong>。</p>
+
+<p><br /></p>
+
+<h4 id="51-action-使用">5.1 Action 使用</h4>
+
+<p>声明一个 Action：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// action建议遵循一定的格式</span>
+<span class="kd">const</span> <span class="n">readonly</span> <span class="no">ACTION</span> <span class="o">=</span> <span class="s">"therouter://action/xxx"</span>
+
+<span class="c1">// action既可以放在ServiceProvider里面，也可以单独放在任意类中，但不能是top-level函数，这一点与Android不同</span>
+<span class="c1">// action函数允许有返回值，可以做耗时操作</span>
+<span class="c1">// 多次添加重复action，每个action的方法都会执行，但最终只会返回优先级最高的方法的返回值</span>
+<span class="nd">@Action</span><span class="o">({</span> <span class="nl">action:</span> <span class="no">ACTION</span> <span class="o">})</span>
+<span class="kd">public</span> <span class="nf">test</span><span class="o">(</span><span class="nl">par:</span> <span class="n">string</span><span class="o">):</span> <span class="n">string</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="s">"返回入参："</span> <span class="o">+</span> <span class="n">par</span><span class="o">;</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>执行一个 Action：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// action建议遵循一定的格式</span>
+<span class="kd">const</span> <span class="n">val</span> <span class="no">ACTION</span> <span class="o">=</span> <span class="s">"therouter://action/xxx"</span>
+
+<span class="c1">// 如果执行了一个没有被声明的Action，则不会有任何动作</span>
+<span class="c1">// 这里的"hello"字符串，是根据action定义时有一个入参，所以调用时需要传入这个参数</span>
+<span class="nc">TheRouter</span><span class="o">.</span><span class="na">action</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;(</span><span class="no">ACTION</span><span class="o">,</span> <span class="s">"hello"</span><span class="o">).</span><span class="na">then</span><span class="o">((</span><span class="n">str</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="n">str</span><span class="o">;</span>
+<span class="o">})</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>@Action 参数释义</strong></p>
+
+<ul>
+  <li><strong>action</strong>: 事件名 【必传】。 <br />
+ 当前函数需要响应的action。如果同一个action有多个函数订阅，会在响应时根据优先级决定先后顺序。</li>
+  <li><strong>priority</strong>: 优先级(number类型)，默认5【可选】。<br />
+ 数字越大，优先级越高。</li>
+</ul>
+
+<p><br /></p>
+
+<h4 id="52-客户端动态响应使用场景">5.2 客户端动态响应使用场景</h4>
+
+<p><strong>如果仅客户端使用</strong>，常用的场景可能是：当用户执行某些操作（打开某个页面、H5点击某个按钮、动态页面配置的点击事件）时，将会自动触发，执行预埋的 Action 逻辑。</p>
+
+<p><strong>如果与服务端链路打通</strong>，这个能力其实是需要整个公司的配合，比如有一套类似智慧大脑的方案，可以基于客户端过去的一些埋点数据，智能推断出用户下一步要做的事情，然后通过长连接直接向客户端下发指令做某些事情。那么通过客户端预埋的页面跳转、弹窗、清缓存、退出登录等等操作，就可以通过服务端指令进行操作，则就是一套完整的动态化方案。</p>
+
+<p><img src="https://cdn.kymjs.com:8843/qiniu/therouter/actionmanager.png" class="blog-img" /></p>
+
+<p><br /></p>
+
+<h3 id="六从其他路由迁移至-therouter">六、从其他路由迁移至 TheRouter</h3>
+
+<h4 id="61-迁移工具一键迁移">6.1 迁移工具一键迁移？</h4>
+
+<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 在 Android 项目上提供了图形化界面的迁移工具，可以一键从其他路由迁移到<code class="language-plaintext highlighter-rouge">TheRouter</code>。</p>
+
+<p>鸿蒙当然也提供了相同的能力，你可以在插件市场搜索，直接安装。安装好以后，点击 IDE 顶部的 Tool 菜单，找到迁移工具。</p>
+
+<p><br /></p>
+
+<h4 id="62-与其他路由对比">6.2 与其他路由对比</h4>
+
+<p><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>功能</th>
+      <th>TheRouter</th>
+      <th>HMRouter</th>
+      <th>Navigation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>具备三端高一致性</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>注解生成路由表</td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>路由path支持正则表达式</td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>指定拦截器</td>
+      <td>✔️（四大拦截器可根据业务定制）</td>
+      <td>✔️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>导出路由表</td>
+      <td>✔️（路由文档支持添加注释描述）</td>
+      <td>✔️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>支持跨模块调用</td>
+      <td>✔️</td>
+      <td>✔️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>动态修改路由信息</td>
+      <td>✔️</td>
+      <td>✖️(未提供功能接口)</td>
+      <td>✔️(限制高，需提前定义，通过if/else修改实现)</td>
+    </tr>
+    <tr>
+      <td>远端路由表下发</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>多 Path 对应同一页面（低成本实现双端path统一）</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+    <tr>
+      <td>支持使用路由打开第三方SDK页面</td>
+      <td>✔️</td>
+      <td>✖️</td>
+      <td>✖️</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h3 id="七总结">七、总结</h3>
+
+<p><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 并不仅仅是一个小巧灵活的路由库，而是一整套 <code class="language-plaintext highlighter-rouge">Android</code>、<code class="language-plaintext highlighter-rouge">iOS</code>、<code class="language-plaintext highlighter-rouge">Harmony</code> 三端完整的移动端解决方案，对移动端开发者更友好，上手开发适应性更强。使用 <code class="language-plaintext highlighter-rouge">TheRouter</code> 能够解决几乎全部的模块化过程中会遇到的问题。<br />
+对于现有的路由框架，我们也在最大限度支持平滑迁移。你也可以在 <code class="language-plaintext highlighter-rouge">Github</code> <code class="language-plaintext highlighter-rouge">issue</code> 中提出需求，我们评估后会尽快支持，也欢迎任何人提供 <code class="language-plaintext highlighter-rouge">Pull Requests</code>。</p>
+
+<p><br /></p>
+
+<p>更多问题请加群沟通：<br />
+<br />
+<img src="https://cdn.kymjs.com:8843/qiniu/therouter/therouter_wx_group.png" class="blog-img" /></p>
+
+<p><br /></p>]]></content><author><name></name></author><category term="news" /><category term="news" /><summary type="html"><![CDATA[TheRouter 鸿蒙动态路由框架正式开源。]]></summary></entry><entry><title type="html">接入鸿蒙 TheRouter</title><link href="http://localhost:4000/docs/2025/03/23/01" rel="alternate" type="text/html" title="接入鸿蒙 TheRouter" /><published>2025-03-23T00:00:00+08:00</published><updated>2025-03-23T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/23/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/23/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，支持动态路由下发、编译时安全检查、路由Path一对多等高度动态能力。</p>
+
+<p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
+官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
+
+<p><br /></p>
+
+<h2 id="开始之前">开始之前</h2>
+
+<p>如果你的是新项目，请先记住一点：<strong>plugin、router 两个依赖的版本号必须保持一致</strong>，请继续往下看接入步骤。</p>
+
+<p><br /></p>
+
+<h2 id="查看最新版本">查看最新版本</h2>
+
+<p>TheRouter 的版本分为两种，稳定版和 rc版，一般不追求新功能我们就用稳定版就行，可以在官网看到最新的版本号和各种版本的说明：<a href="https://therouter.cn/docs/2022/09/06/01">https://therouter.cn/docs/2022/09/06/01</a></p>
+
+<p><br /></p>
+
+<h2 id="接入">接入</h2>
+
+<p>在工程根目录命令行引入依赖库和插件库（必须全部依赖，不能只使用其中一个）。</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 引入代码库依赖
+ohpm i @hll/therouter   
+
+// 引入插件依赖
+npm i therouter-plugin
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="第一步接入编译插件">第一步：接入编译插件</h3>
+
+<ol>
+  <li>打开项目根目录的 <code class="language-plaintext highlighter-rouge">hvigor/hvigor-config.json5</code>，检查 <code class="language-plaintext highlighter-rouge">dependencies</code> 中是否已经加入了依赖，一般为 <code class="language-plaintext highlighter-rouge">"therouter-plugin": "x.x.x"</code>。</li>
+  <li>打开工程 <strong>所有</strong> 模块（hsp、hap、har）的 <code class="language-plaintext highlighter-rouge">hvigorfile.ts</code> 文件。</li>
+  <li>在 <code class="language-plaintext highlighter-rouge">plugins</code> 中加入如下对应的依赖</li>
+</ol>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 如果是 hap，则类似如下依赖</span>
+<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"therouter-plugin"</span><span class="o">;</span>
+<span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
+  <span class="nl">plugins:</span> <span class="o">[</span><span class="n">hapPlugin</span><span class="o">()]</span>
+<span class="o">}</span>
+
+<span class="c1">// 如果是 har，则类似如下依赖</span>
+<span class="kn">import</span> <span class="err">{</span> <span class="nn">harPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"therouter-plugin"</span><span class="o">;</span>
+<span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
+  <span class="nl">plugins:</span> <span class="o">[</span><span class="n">harPlugin</span><span class="o">()]</span>
+<span class="o">}</span>
+
+<span class="c1">// 如果是 hap，则类似如下依赖</span>
+<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"therouter-plugin"</span><span class="o">;</span>
+<span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
+  <span class="nl">plugins:</span> <span class="o">[</span><span class="n">hapPlugin</span><span class="o">()]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h3 id="第二步检查依赖是否引入">第二步：检查依赖是否引入</h3>
+
+<ol>
+  <li>打开 <strong>工程根目录</strong> 的 <code class="language-plaintext highlighter-rouge">oh-package.json5</code> 文件。</li>
+  <li>检查 <code class="language-plaintext highlighter-rouge">dependencies</code> 中，是否已经加入了依赖，一般为：<code class="language-plaintext highlighter-rouge">"@hll/therouter": "x.x.x"</code></li>
+</ol>
+
+<p><br /><br /></p>
+
+<h2 id="使用">使用</h2>
+
+<h4 id="1-初始化">1. 初始化</h4>
+
+<p>在项目入口的 <code class="language-plaintext highlighter-rouge">UIAbility</code> 的 <code class="language-plaintext highlighter-rouge">onCreate()</code> 中加入如下代码：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">onCreate</span><span class="o">(</span><span class="nl">want:</span> <span class="nc">Want</span><span class="o">,</span> <span class="nl">launchParam:</span> <span class="nc">AbilityConstant</span><span class="o">.</span><span class="na">LaunchParam</span><span class="o">):</span> <span class="kt">void</span> <span class="o">{</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">init</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">context</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="2-定义页面容器">2. 定义页面容器</h4>
+
+<p>TheRouter 按照华为推荐方案，基于系统 Navigation 实现，所以必须在页面中定义一个容器项 <code class="language-plaintext highlighter-rouge">TheRouterPage</code>，建议创建一个完全新的类作为入口并在 <code class="language-plaintext highlighter-rouge">/resources/base/profile/main_pages.json</code> 中配置这个类，复制如下代码：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="err">{</span> <span class="nn">TheRouterPage</span> <span class="o">}</span> <span class="n">from</span> <span class="err">'</span><span class="nd">@hll</span><span class="o">/</span><span class="n">therouter</span><span class="err">'</span><span class="o">;</span>
+
+<span class="nd">@Entry</span>
+<span class="nd">@Component</span>
+<span class="n">struct</span> <span class="nc">Index</span> <span class="o">{</span>
+  <span class="n">build</span><span class="o">()</span> <span class="o">{</span>
+    <span class="nc">RelativeContainer</span><span class="o">()</span> <span class="o">{</span>
+      <span class="nc">TheRouterPage</span><span class="o">({</span>
+        <span class="nl">stackId:</span> <span class="err">'</span><span class="no">XXXX</span><span class="err">'</span><span class="o">,</span>  <span class="c1">//【必传】可以自定义当前stack的名字，每个stack必须唯一</span>
+        <span class="nl">root:</span> <span class="err">'</span><span class="n">path</span><span class="err">'</span>  <span class="c1">// 【必传】当前应用的首页 path，推荐按照一定格式定义页面path</span>
+		<span class="c1">// 还有很多可选参数，详情请见文档</span>
+      <span class="o">});</span>
+    <span class="o">}</span>
+    <span class="o">.</span><span class="na">height</span><span class="o">(</span><span class="err">'</span><span class="mi">100</span><span class="o">%</span><span class="err">'</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">width</span><span class="o">(</span><span class="err">'</span><span class="mi">100</span><span class="o">%</span><span class="err">'</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="3-声明路由">3. 声明路由</h4>
+
+<p>给需要跳转的页面加上路由表声明</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Route</span><span class="o">({</span><span class="n">path</span> <span class="o">:</span> <span class="s">"http://therouter.com/home"</span><span class="o">})</span>
+<span class="n">export</span> <span class="n">struct</span> <span class="nc">HomePage</span> <span class="o">{</span>
+	<span class="n">xxx</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="4-发起跳转">4. 发起跳转</h4>
+
+<p>在需要跳转页面的位置调用如下代码：</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span>
+	<span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"http://therouter.com/home"</span><span class="o">)</span>  
+	<span class="o">.</span><span class="na">withString</span><span class="o">(</span><span class="sc">'k'</span><span class="o">,</span> <span class="sc">'v'</span><span class="o">)</span> <span class="c1">// 向落地页传参数（如果没参数，可不调用）</span>
+	<span class="o">.</span><span class="na">with</span><span class="o">({</span> <span class="nl">hello:</span> <span class="err">'</span><span class="n">world</span><span class="err">'</span> <span class="o">})</span> <span class="c1">// 另一种方式传参</span>
+	<span class="o">.</span><span class="na">navigation</span><span class="o">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="5-获取页面传参">5. 获取页面传参</h4>
+
+<p>接收有两种形式：</p>
+
+<ul>
+  <li>通过注解自动接收，默认支持 String 和8种基本数据类型，也支持自定义对象的解析</li>
+  <li>通过代码从路由中获取</li>
+</ul>
+
+<p>使用注解接收对象时，必须调用 TheRouter.inject(this) 。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 第一种：使用注解自动填充</span>
+  <span class="c1">// 允许解析成8种基本数据类型或对应封装类</span>
+  <span class="nd">@Autowired</span><span class="o">()</span>
+  <span class="n">key1</span> <span class="o">:</span> <span class="n">string</span> <span class="o">=</span> <span class="err">''</span>
+
+  <span class="c1">// 允许自定义传参key，如果不传默认是变量名作为key</span>
+  <span class="nd">@Autowired</span><span class="o">(</span><span class="err">'</span><span class="n">hello</span><span class="err">'</span><span class="o">)</span>
+  <span class="n">key1</span> <span class="o">:</span> <span class="n">string</span> <span class="o">=</span> <span class="err">''</span>
+
+  <span class="c1">// 使用注解接收对象时，必须调用，建议放在 aboutToApper() 中调用。</span>
+  <span class="nc">TheRouter</span><span class="o">.</span><span class="na">inject</span><span class="o">(</span><span class="k">this</span><span class="o">)</span>
+  
+  
+  
+<span class="c1">// 第二种：通过代码从路由中获取</span>
+  <span class="c1">// 可以在任何方法中调用，getCurrentParam() 返回值是个ESObject</span>
+  <span class="kd">const</span> <span class="n">v</span> <span class="o">=</span> <span class="nc">TheRouter</span><span class="o">.</span><span class="na">getCurrentParam</span><span class="o">()[</span><span class="sc">'k'</span><span class="o">];</span>   
+  
+</code></pre></div></div>
+
+<p><br /><br /></p>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry><entry><title type="html">为 TheRouter 的 AGP8 编译加个速</title><link href="http://localhost:4000/docs/2024/10/31/01" rel="alternate" type="text/html" title="为 TheRouter 的 AGP8 编译加个速" /><published>2024-10-31T00:00:00+08:00</published><updated>2024-10-31T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/10/31/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/10/31/01"><![CDATA[<p>内容请见：</p>
 
 <p>《为 TheRouter 的 AGP8 编译加个速》<br />
 <a href="https://kymjs.com/code/2024/10/31/01/">https://kymjs.com/code/2024/10/31/01/</a></p>]]></content><author><name>张涛</name></author><category term="session" /><category term="原理与项目实践讲解" /><summary type="html"><![CDATA[AGP8 的变更应该很多人都知道了，移除了 Transform API，所以很多 class 操作类的插件代码都需要改了。]]></summary></entry><entry><title type="html">新版本编译改动</title><link href="http://localhost:4000/docs/2024/07/22/01" rel="alternate" type="text/html" title="新版本编译改动" /><published>2024-07-22T00:00:00+08:00</published><updated>2024-07-22T00:00:00+08:00</updated><id>http://localhost:4000/docs/2024/07/22/01</id><content type="html" xml:base="http://localhost:4000/docs/2024/07/22/01"><![CDATA[<h2 id="背景">背景</h2>
@@ -10,7 +631,7 @@
 
 <ol>
   <li>由于新版本 Android Studio 强制使用 Java 17，TheRouter 从 1.3.0 开始全部使用 JDK17 编译，你需要更新编译 JDK 版本。</li>
-  <li>新增编译选项：
+  <li>新增编译选项（请在理解<a href="https://kymjs.com/code/2024/10/31/01/">增量实现原理</a>的前提下使用）：
     <ul>
       <li><strong>forceIncremental</strong>：bool值, 强制开启增量编译。增量编译默认只在debug模式并且有缓存时开启，如果强制开启增量编译，不论debug还是release都会启用增量。</li>
       <li><strong>incrementalCachePath</strong>：String值, 增量编译缓存路径。取工程根目录的相对路径，例如配置incrementalCachePath = “test”，则会在工程中新建一个名为test的文件夹。如不配置，默认是在app/build/目录下。   <strong>强烈建议 ：如果开启了强制增量编译，把缓存路径设置到工程目录下，并随git一起提交缓存数据，否则prd集成打包时，由于没有缓存又强制开启增量，会造成无法插入增量内容，运行时被降级为反射。</strong></li>
@@ -1266,94 +1887,4 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 <p>从1.2.1开始，beta版本已经全部合入rc版本，无需再特殊关注beta版本进度。</p>
 
 <p>从 1.3.0 开始，TheRouter 已全部使用 <code class="language-plaintext highlighter-rouge">Java17</code> 编译，无需区分<code class="language-plaintext highlighter-rouge">Gradle 8.x</code> 还是<code class="language-plaintext highlighter-rouge">7.x</code>。<br />
-如果使用的是 1.3.x 之前的版本，使用时只需注意本文第一步中，id 引入的不同。</p>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry><entry><title type="html">Android Studio 插件，开发必备工具</title><link href="http://localhost:4000/docs/2022/09/29/01" rel="alternate" type="text/html" title="Android Studio 插件，开发必备工具" /><published>2022-09-29T00:00:00+08:00</published><updated>2022-09-29T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/09/29/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/09/29/01"><![CDATA[<p>开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。</p>
-
-<iframe width="384px" height="319px" src="https://plugins.jetbrains.com/embeddable/card/20047"></iframe>
-
-<h2 id="下载插件">下载插件</h2>
-
-<ol>
-  <li>打开 Android Studio -&gt; Preferences -&gt;  Plugins  -&gt; Marketplace</li>
-  <li>搜索 <code class="language-plaintext highlighter-rouge">TheRouter</code></li>
-  <li>点击下载</li>
-  <li>重启 Android Studio</li>
-</ol>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin.jpg" class="blog-img" /></p>
-
-<h2 id="一键迁移工具">一键迁移工具</h2>
-
-<p>AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无需再次单独下载额外工具使用。  <br />
-下载安装最新插件后，在顶部菜栏即可看到<code class="language-plaintext highlighter-rouge">TheRouter</code>菜单，选择对应路由的一键迁移选项即可使用。</p>
-
-<p><strong>注：新版本AndroidStudio不再支持顶部菜单栏展示，需要在Tools菜单中查看</strong></p>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin11.png" class="blog-img" /></p>
-
-<h2 id="导航快捷跳转">导航快捷跳转</h2>
-
-<p>安装好插件后打开项目，就可以看到，在项目中所有调用了 <code class="language-plaintext highlighter-rouge">TheRouter.build(path)</code> 的地方，<br />
-还有 <code class="language-plaintext highlighter-rouge">@Route(path = "xxxxx")</code> 注解的位置，<br />
-在左侧侧边栏上都会有一个绿色箭头的图标。</p>
-
-<p>如果把鼠标放在图标上一段时间，就可以看到提示：<br />
-点击以后跳转到使用这个<code class="language-plaintext highlighter-rouge">path</code>的地方， <br />
-或者跳转到<code class="language-plaintext highlighter-rouge">path</code>定义的位置，点击以后就能自动跳转了。  <br />
-如下图：</p>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin1.jpg" class="blog-img" /></p>
-
-<p>如果在代码中有多个地方都可以跳转到当前落地页，点击箭头后会有一个选择框，<br />
-可以选择跳转到使用当前<code class="language-plaintext highlighter-rouge">path</code>的位置。 <br />
-例如这张图：</p>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin2.jpg" class="blog-img" /></p>
-
-<p>如果当前<code class="language-plaintext highlighter-rouge">path</code>是个没有被声明的，或者是由字符串拼接的，可能会出现无法找到定义位置的情况，此时在侧边栏会出现黄色的警告提示，<br />
-需要开发人工去检查这个<code class="language-plaintext highlighter-rouge">path</code>是不是忘记定义落地页了，还是说手误写错了<code class="language-plaintext highlighter-rouge">path</code>。   <br />
-例如这张图：</p>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin3.jpg" class="blog-img" /></p>
-
-<h2 id="获取最新版本">获取最新版本</h2>
-
-<p>再也无需时时刻刻关注 TheRouter 版本更新情况了，只需要手动点击菜单，即可实时知晓当前最新版本号。</p>
-
-<p><strong>注：新版本AndroidStudio不再支持顶部菜单栏展示，需要在Tools菜单中查看</strong></p>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin10.png" class="blog-img" /></p>
-
-<p><img src="http://localhost:4000/assets/img/image/TheRouterIdeaPlugin12.png" class="blog-img" /></p>
-
-<h2 id="插件开源">插件开源</h2>
-
-<p>本插件项目已基于 <code class="language-plaintext highlighter-rouge">Apache License 2.0</code> 协议开源，并上架插件市场，欢迎 star 与下载</p>
-
-<p>GitHub：<a href="https://github.com/kymjs/TheRouterIdeaPlugin">https://github.com/kymjs/TheRouterIdeaPlugin</a></p>]]></content><author><name></name></author><category term="tools" /><category term="辅助工具" /><summary type="html"><![CDATA[开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。]]></summary></entry><entry><title type="html">获取和使用最新版的 TheRouter</title><link href="http://localhost:4000/docs/2022/09/06/01" rel="alternate" type="text/html" title="获取和使用最新版的 TheRouter" /><published>2022-09-06T00:00:00+08:00</published><updated>2022-09-06T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/09/06/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/09/06/01"><![CDATA[<p>TheRouter 的版本规划分为三种，分别是 <code class="language-plaintext highlighter-rouge">稳定版</code>、<code class="language-plaintext highlighter-rouge">预览版</code>、<code class="language-plaintext highlighter-rouge">公测版</code>。</p>
-
-<h3 id="稳定版">稳定版</h3>
-
-<p>稳定版总是在 <code class="language-plaintext highlighter-rouge">main</code> 分支打包发布，最新的稳定版本就是<code class="language-plaintext highlighter-rouge">main</code>分支的最新代码。</p>
-
-<p>你可以在 GitHub 的 releases 页面找到最新的稳定版本。</p>
-
-<p>Android：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">https://github.com/HuolalaTech/hll-wp-therouter-android/releases</a><br />
-Harmony：<a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/releases">https://github.com/HuolalaTech/hll-wp-therouter-harmony/releases</a></p>
-
-<p>稳定版的版本号格式为 <code class="language-plaintext highlighter-rouge">x.y.z</code>，最新的稳定版本会有绿色的 <code class="language-plaintext highlighter-rouge">Latest</code> 标记。</p>
-
-<h3 id="预览版">预览版</h3>
-
-<p>预览版为一段时间的 <code class="language-plaintext highlighter-rouge">Feature</code> 和 <code class="language-plaintext highlighter-rouge">Bugfix</code> 整合，表示即将被合并到 <code class="language-plaintext highlighter-rouge">main</code> 分支的代码。</p>
-
-<p>最新的预览版会在  GitHub 的 Releases 页面 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">Android</a>、<a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/releases">Harmony</a> 标记为 <code class="language-plaintext highlighter-rouge">Pre-release</code>，预览版版本号一般会带有 -rc 标记。</p>
-
-<p>预览版与正式版在使用上没有任何区别，只是预览版更新迭代会更频繁。适合追求新功能和特定 bug 修复的开发者使用。</p>
-
-<h3 id="公测版">公测版</h3>
-
-<p>公测版为每次新 <code class="language-plaintext highlighter-rouge">feature </code> 或 <code class="language-plaintext highlighter-rouge">bugfix</code> 的打包，不会在 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/releases">releases 页</a> 单独展示，你可以主动在maven/ohpm上查看最新的公测版本。</p>
-
-<p>公测版版本号一般不会有特殊标记，每次迭代只会在 <a href="https://therouter.cn/docs/2022/08/24/01">微信客服群</a> 内通知。</p>
-
-<p>查看最新公测版本：<a href="https://s01.oss.sonatype.org/content/groups/staging/cn/therouter/">https://s01.oss.sonatype.org</a></p>]]></content><author><name></name></author><category term="news" /><category term="版本介绍" /><summary type="html"><![CDATA[TheRouter 的版本规划分为三种，分别是 `稳定版`、`预览版`、`公测版`。]]></summary></entry></feed>
+如果使用的是 1.3.x 之前的版本，使用时只需注意本文第一步中，id 引入的不同。</p>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry></feed>

@@ -1,605 +1,756 @@
----
-layout: default_api
----
-
-
-<div id="container">
-      <div id="leftColumn">
-        <div id="sideMenu"></div>
-      </div>
-      <div id="main"><script type="text/javascript" src="../../scripts/main.js"></script>
-        <div class="api-main-content" id="content" pageIds="router::com.therouter.router////PointingToDeclaration//1367601898">
-          <div class="breadcrumbs"><a href="../../index.html">router</a>/<a href="index.html">com.therouter.router</a></div>
-          <div class="cover ">
-            <h1 class="cover"><span><span>Package</span></span> <span>com.</span><wbr></wbr><span>therouter.</span><wbr></wbr><span>TheRouter API 文档</span></h1>
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>com.therouter.router</title>
+    <link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../styles/style.css" rel="Stylesheet">
+<link href="../../styles/main.css" rel="Stylesheet">
+<link href="../../styles/prism.css" rel="Stylesheet">
+<link href="../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../index.html">
+                            router
+                    </a>
+            </div>
+            <div class="library-version">
+1.3.0-rc2            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":router:dokkaJavadoccccc/release">androidJvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="package" id="content" pageIds="router::com.therouter.router////PointingToDeclaration//1367601898">
+  <div class="breadcrumbs"><a href="../../index.html">router</a><span class="delimiter">/</span><span class="current">com.therouter.router</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span><span>Package-level</span></span> <span><span>declarations</span></span></h1>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="TYPE">Types</button><button class="section-tab" data-togglable="FUNCTION,EXTENSION_FUNCTION">Functions</button><button class="section-tab" data-togglable="PROPERTY,EXTENSION_PROPERTY">Properties</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-1297292602%2FClasslikes%2F1367601898" anchor-label="Autowired" id="-1297292602%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-autowired/index.html"><span><span>Autowired</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1297292602%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Retention.html"><span class="token annotation builtin">Retention</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/RetentionPolicy.html">RetentionPolicy.SOURCE</a></span><wbr></wbr><span class="token punctuation">)</span></div><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Target.html"><span class="token annotation builtin">Target</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="token punctuation">[</span><span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/ElementType.html">ElementType.FIELD</a></span><wbr></wbr><span class="token punctuation">]</span></span><wbr></wbr><span class="token punctuation">)</span></div></div><span class="token keyword">annotation class </span><a href="-autowired/index.html">Autowired</a></div><div class="brief ">Annotation for parameters, which need autowired.</div></div></div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="tabbedcontent">
-            <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Types">Types</button><button class="section-tab" data-togglable="Functions">Functions</button><button class="section-tab" data-togglable="Properties">Properties</button></div>
-            <div class="tabs-section-body">
-              <h2 class="">Types</h2>
-              <div class="table" data-togglable="Types"><a data-name="-1297292602%2FClasslikes%2F1367601898" anchor-label="Autowired" id="-1297292602%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-autowired/index.html"><span><span>Autowired</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1297292602%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Retention.html"><span class="token annotation">Retention</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/RetentionPolicy.html">RetentionPolicy.SOURCE</a></span><wbr></wbr><span class="token punctuation">)</span></div><div class="block"><span class="token annotation">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Target.html"><span class="token annotation">Target</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="token punctuation">[</span><span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/ElementType.html">ElementType.FIELD</a></span><wbr></wbr><span class="token punctuation">]</span></span><wbr></wbr><span class="token punctuation">)</span></div></div><span class="token keyword">annotation class </span><a href="-autowired/index.html">Autowired</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief ">Annotation for parameters, which need autowired.</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 <a data-name="-1950478221%2FClasslikes%2F1367601898" anchor-label="AutowiredItem" id="-1950478221%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-autowired-item/index.html"><span>Autowired</span><wbr></wbr><span><span>Item</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1950478221%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-autowired-item/index.html">AutowiredItem</a><span class="token punctuation">(</span>type<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span>key<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span>id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span>args<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span>className<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span>fieldName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span>required<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span>description<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-autowired-item/index.html"><span>Autowired</span><wbr></wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1950478221%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-autowired-item/index.html">AutowiredItem</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">type<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">key<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">args<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">className<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">fieldName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">required<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">description<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="-750107653%2FClasslikes%2F1367601898" anchor-label="IRouterMapAPT" id="-750107653%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-i-router-map-a-p-t/index.html"><span>IRouter</span><wbr></wbr><span>Map</span><wbr></wbr><span><span>APT</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-750107653%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-i-router-map-a-p-t/index.html">IRouterMapAPT</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Created by ZhangTao on 17/8/1.</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-i-router-map-a-p-t/index.html"><span>IRouter</span><wbr></wbr><span>Map</span><wbr></wbr><span><span>APT</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-750107653%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-i-router-map-a-p-t/index.html">IRouterMapAPT</a></div><div class="brief "><p class="paragraph">Created by ZhangTao on 17/8/1.</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1858099839%2FClasslikes%2F1367601898" anchor-label="Navigator" id="1858099839%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-navigator/index.html"><span><span>Navigator</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1858099839%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-navigator/index.html">Navigator</a><span class="token punctuation">(</span>url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span>intent<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Intent.html">Intent</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">路由导航器。与RouterItem作用类似，允许互转。 RouterItem 用于描述一个静态的路由项 Navigator 用于描述一个路由项的跳转动作</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-navigator/index.html"><span><span>Navigator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1858099839%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-navigator/index.html">Navigator</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>intent<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Intent.html">Intent</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">路由导航器。与RouterItem作用类似，允许互转。 RouterItem 用于描述一个静态的路由项 Navigator 用于描述一个路由项的跳转动作</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="-1274706976%2FClasslikes%2F1367601898" anchor-label="OnRouteMapChangedListener" id="-1274706976%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-on-route-map-changed-listener/index.html"><span>On</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>Changed</span><wbr></wbr><span><span>Listener</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1274706976%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-on-route-map-changed-listener/index.html">OnRouteMapChangedListener</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-on-route-map-changed-listener/index.html"><span>On</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>Changed</span><wbr></wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1274706976%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-on-route-map-changed-listener/index.html">OnRouteMapChangedListener</a></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="367633740%2FClasslikes%2F1367601898" anchor-label="PendingNavigator" id="367633740%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-pending-navigator/index.html"><span>Pending</span><wbr></wbr><span><span>Navigator</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="367633740%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-pending-navigator/index.html">PendingNavigator</a><span class="token punctuation">(</span>navigator<span class="token operator">: </span><a href="-navigator/index.html">Navigator</a><span class="token punctuation">, </span>action<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">可以被挂起的导航器，通常用于延迟动作。 延迟跳转主要应用场景有两种： 第一种：初始化时期，如果路由表的量非常巨大时。这种情况在别的路由框架上要么会白屏一段时间，要么直接丢弃这次跳转。在TheRouter中，框架会暂存当前的跳转动作，在路由表初始化完成后立刻执行跳转。 第二种：从Android 8.0开始，Activity 不能在后台启动页面，这对于业务判断造成了很大的影响。由于可能会有前台 Service 的情况，不能单纯以 Activity 生命周期判断前后台。在TheRouter中，框架允许业务自定义前后台规则，如果为后台情况，可以将跳转动作暂存，当进入前台后再恢复跳转。</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-pending-navigator/index.html"><span>Pending</span><wbr></wbr><span><span>Navigator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="367633740%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-pending-navigator/index.html">PendingNavigator</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>navigator<span class="token operator">: </span><a href="-navigator/index.html">Navigator</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>action<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">可以被挂起的导航器，通常用于延迟动作。 延迟跳转主要应用场景有两种： 第一种：初始化时期，如果路由表的量非常巨大时。这种情况在别的路由框架上要么会白屏一段时间，要么直接丢弃这次跳转。在TheRouter中，框架会暂存当前的跳转动作，在路由表初始化完成后立刻执行跳转。 第二种：从Android 8.0开始，Activity 不能在后台启动页面，这对于业务判断造成了很大的影响。由于可能会有前台 Service 的情况，不能单纯以 Activity 生命周期判断前后台。在TheRouter中，框架允许业务自定义前后台规则，如果为后台情况，可以将跳转动作暂存，当进入前台后再恢复跳转。</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1945885445%2FClasslikes%2F1367601898" anchor-label="RegexpKeyedMap" id="1945885445%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-regexp-keyed-map/index.html"><span>Regexp</span><wbr></wbr><span>Keyed</span><wbr></wbr><span><span>Map</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1945885445%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-regexp-keyed-map/index.html">RegexpKeyedMap</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-regexp-keyed-map/index.html">V</a><span class="token operator">&gt;</span> : <a href="https://developer.android.com/reference/kotlin/java/util/HashMap.html">HashMap</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span><span class="token keyword"></span><a href="-regexp-keyed-map/index.html">V</a><span class="token operator">?</span><span class="token operator">&gt; </span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">专门为路由服务，因为路由的path存在正则的情况</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-regexp-keyed-map/index.html"><span>Regexp</span><wbr></wbr><span>Keyed</span><wbr></wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1945885445%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-regexp-keyed-map/index.html">RegexpKeyedMap</a><span class="token operator">&lt;</span><a href="-regexp-keyed-map/index.html">V</a><span class="token operator">&gt;</span> : <a href="https://developer.android.com/reference/kotlin/java/util/HashMap.html">HashMap</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">, </span><a href="-regexp-keyed-map/index.html">V</a><span class="token operator">?</span><span class="token operator">&gt; </span></div><div class="brief "><p class="paragraph">专门为路由服务，因为路由的path存在正则的情况</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1829990733%2FClasslikes%2F1367601898" anchor-label="Route" id="1829990733%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-route/index.html"><span><span>Route</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1829990733%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Retention.html"><span class="token annotation">Retention</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/RetentionPolicy.html">RetentionPolicy.SOURCE</a></span><wbr></wbr><span class="token punctuation">)</span></div><div class="block"><span class="token annotation">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Target.html"><span class="token annotation">Target</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="token punctuation">[</span><span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/ElementType.html">ElementType.TYPE</a></span><wbr></wbr><span class="token punctuation">]</span></span><wbr></wbr><span class="token punctuation">)</span></div><div class="block"><span class="token annotation">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Repeatable.html"><span class="token annotation">Repeatable</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><a href="-routes/index.html">Routes.class::class</a></span><wbr></wbr><span class="token punctuation">)</span></div></div><span class="token keyword">annotation class </span><a href="-route/index.html">Route</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief ">https://youtrack.jetbrains.com/issue/KT-12794 Kotlin 的 @Repeatable 不能注解到 Java class，得要到1.6才能支持，但是 Java 的却能注解到 Kotlin 代码，所以这个类只能写 Java 的 Created by ZhangTao on 17/8/11.</div></div></div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-route/index.html"><span><span>Route</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1829990733%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Retention.html"><span class="token annotation builtin">Retention</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/RetentionPolicy.html">RetentionPolicy.SOURCE</a></span><wbr></wbr><span class="token punctuation">)</span></div><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Target.html"><span class="token annotation builtin">Target</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="token punctuation">[</span><span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/ElementType.html">ElementType.TYPE</a></span><wbr></wbr><span class="token punctuation">]</span></span><wbr></wbr><span class="token punctuation">)</span></div><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Repeatable.html"><span class="token annotation builtin">Repeatable</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><a href="-routes/index.html">Routes::class</a></span><wbr></wbr><span class="token punctuation">)</span></div></div><span class="token keyword">annotation class </span><a href="-route/index.html">Route</a></div><div class="brief ">https://youtrack.jetbrains.com/issue/KT-12794 Kotlin 的 @Repeatable 不能注解到 Java class，得要到1.6才能支持，但是 Java 的却能注解到 Kotlin 代码，所以这个类只能写 Java 的 Created by ZhangTao on 17/8/11.</div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="2073822074%2FClasslikes%2F1367601898" anchor-label="RouteItem" id="2073822074%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-route-item/index.html"><span>Route</span><wbr></wbr><span><span>Item</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2073822074%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-route-item/index.html">RouteItem</a> : <a href="https://developer.android.com/reference/kotlin/java/io/Serializable.html">Serializable</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">独立的一条路由记录</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-route-item/index.html"><span>Route</span><wbr></wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2073822074%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">class </span><a href="-route-item/index.html">RouteItem</a> : <a href="https://developer.android.com/reference/kotlin/android/os/Parcelable.html">Parcelable</a>, <a href="https://developer.android.com/reference/kotlin/java/io/Serializable.html">Serializable</a></div><div class="brief "><p class="paragraph">独立的一条路由记录</p></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="-385794098%2FClasslikes%2F1367601898" anchor-label="RouterMapInitTask" id="-385794098%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-router-map-init-task/index.html"><span>Router</span><wbr></wbr><span>Map</span><wbr></wbr><span>Init</span><wbr></wbr><span><span>Task</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-385794098%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-router-map-init-task/index.html">RouterMapInitTask</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-router-map-init-task/index.html"><span>Router</span><wbr></wbr><span>Map</span><wbr></wbr><span>Init</span><wbr></wbr><span><span>Task</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-385794098%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="-router-map-init-task/index.html">RouterMapInitTask</a></div></div></div>
                 </div>
+              </div>
+            </div>
+          </div>
 <a data-name="814019970%2FClasslikes%2F1367601898" anchor-label="Routes" id="814019970%2FClasslikes%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-routes/index.html"><span><span>Routes</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="814019970%2FClasslikes%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Retention.html"><span class="token annotation">Retention</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/RetentionPolicy.html">RetentionPolicy.SOURCE</a></span><wbr></wbr><span class="token punctuation">)</span></div><div class="block"><span class="token annotation">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Target.html"><span class="token annotation">Target</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="token punctuation">[</span><span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/ElementType.html">ElementType.TYPE</a></span><wbr></wbr><span class="token punctuation">]</span></span><wbr></wbr><span class="token punctuation">)</span></div></div><span class="token keyword">annotation class </span><a href="-routes/index.html">Routes</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief ">Created by ZhangTao on 17/8/11.</div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="">Functions</h2>
-              <div class="table" data-togglable="Functions"><a data-name="-2126714225%2FFunctions%2F1367601898" anchor-label="addNavigatorPathFixHandle" id="-2126714225%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="add-navigator-path-fix-handle.html"><span>add</span><wbr></wbr><span>Navigator</span><wbr></wbr><span>Path</span><wbr></wbr><span>Fix</span><wbr></wbr><span><span>Handle</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2126714225%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-navigator-path-fix-handle.html"><span class="token function">addNavigatorPathFixHandle</span></a><span class="token punctuation">(</span>handle<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-navigator-path-fix-handle/index.html">NavigatorPathFixHandle</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">应用场景：用于修复客户端上路由 path 错误问题。 例如：相对路径转绝对路径，或由于服务端下发的链接无法固定https或http，但客户端代码写死了 https 的 path，就可以用这种方式统一。 注：必须在 TheRouter.build() 方法调用前添加处理器，否则处理器前的所有path不会被修改。</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-692718353%2FFunctions%2F1367601898" anchor-label="addPathReplaceInterceptor" id="-692718353%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="add-path-replace-interceptor.html"><span>add</span><wbr></wbr><span>Path</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-692718353%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-path-replace-interceptor.html"><span class="token function">addPathReplaceInterceptor</span></a><span class="token punctuation">(</span>interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-path-replace-interceptor/index.html">PathReplaceInterceptor</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">页面替换器 应用场景：需要将某些path指定为新链接的时候使用。 也可以用在修复链接的场景，但是与 path 修改器不同的是，修改器通常是为了解决通用性的问题，替换器只在页面跳转时才会生效，更多是用来解决特性问题。</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="852259168%2FFunctions%2F1367601898" anchor-label="addRouteItem" id="852259168%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="add-route-item.html"><span>add</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Item</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="852259168%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-synchronized/index.html"><span class="token annotation">Synchronized</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-route-item.html"><span class="token function">addRouteItem</span></a><span class="token punctuation">(</span>routeItem<span class="token operator">: </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">向路由表添加路由</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1647879650%2FFunctions%2F1367601898" anchor-label="addRouteMap" id="1647879650%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="add-route-map.html"><span>add</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1647879650%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-synchronized/index.html"><span class="token annotation">Synchronized</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-route-map.html"><span class="token function">addRouteMap</span></a><span class="token punctuation">(</span>routeItemArray<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-route-item/index.html">RouteItem</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">向路由表添加路由</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-915958609%2FFunctions%2F1367601898" anchor-label="addRouterReplaceInterceptor" id="-915958609%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="add-router-replace-interceptor.html"><span>add</span><wbr></wbr><span>Router</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-915958609%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-router-replace-interceptor.html"><span class="token function">addRouterReplaceInterceptor</span></a><span class="token punctuation">(</span>interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-router-replace-interceptor/index.html">RouterReplaceInterceptor</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">路由替换器 应用场景：常用在未登录不能使用的页面上。例如访问用户钱包页面，在钱包页声明的时候，可以在路由表上声明本页面是需要登录的，在路由跳转过程中，如果落地页是需要登录的，则先替换路由到登录页，同时将原落地页信息作为参数传给登录页，登录流程处理完成后可以继续执行之前的路由操作。</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-489529112%2FFunctions%2F1367601898" anchor-label="asyncInitRouteMap" id="-489529112%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="async-init-route-map.html"><span>async</span><wbr></wbr><span>Init</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-489529112%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="async-init-route-map.html"><span class="token function">asyncInitRouteMap</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">在异步初始化路由表</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="765164436%2FFunctions%2F1367601898" anchor-label="defaultNavigationCallback" id="765164436%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="default-navigation-callback.html"><span>default</span><wbr></wbr><span>Navigation</span><wbr></wbr><span><span>Callback</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="765164436%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="default-navigation-callback.html"><span class="token function">defaultNavigationCallback</span></a><span class="token punctuation">(</span>callback<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-navigation-callback/index.html">NavigationCallback</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">自定义全局路由跳转结果回调</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1407423670%2FFunctions%2F1367601898" anchor-label="foundPathFromIntent" id="-1407423670%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="found-path-from-intent.html"><span>found</span><wbr></wbr><span>Path</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Intent</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1407423670%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-synchronized/index.html"><span class="token annotation">Synchronized</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="found-path-from-intent.html"><span class="token function">foundPathFromIntent</span></a><span class="token punctuation">(</span>intent<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Intent.html">Intent</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">尝试通过Intent，从路由表中获取对应的路由Path 如果路由表中没有对应路由，则将类名作为路由Path新创建一条路由项</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-276494024%2FFunctions%2F1367601898" anchor-label="getFileListFromAssets" id="-276494024%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="get-file-list-from-assets.html"><span>get</span><wbr></wbr><span>File</span><wbr></wbr><span>List</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Assets</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-276494024%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-file-list-from-assets.html"><span class="token function">getFileListFromAssets</span></a><span class="token punctuation">(</span>context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token operator">?</span><span class="token punctuation">, </span>path<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1019039746%2FFunctions%2F1367601898" anchor-label="getStreamFromAssets" id="-1019039746%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="get-stream-from-assets.html"><span>get</span><wbr></wbr><span>Stream</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Assets</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1019039746%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-stream-from-assets.html"><span class="token function">getStreamFromAssets</span></a><span class="token punctuation">(</span>context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token operator">?</span><span class="token punctuation">, </span>fileName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/InputStream.html">InputStream</a><span class="token operator">?</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">从assets 文件夹中获取文件并读取数据流</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-435091926%2FFunctions%2F1367601898" anchor-label="getStringFromAssets" id="-435091926%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="get-string-from-assets.html"><span>get</span><wbr></wbr><span>String</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Assets</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-435091926%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-string-from-assets.html"><span class="token function">getStringFromAssets</span></a><span class="token punctuation">(</span>context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span>fileName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">从assets 文件夹中获取文件并读取数据</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-2015595184%2FFunctions%2F1367601898" anchor-label="getUrlWithParams" id="-2015595184%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="get-url-with-params.html"><span>get</span><wbr></wbr><span>Url</span><wbr></wbr><span>With</span><wbr></wbr><span><span>Params</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2015595184%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">.</span><a href="get-url-with-params.html"><span class="token function">getUrlWithParams</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">.</span><a href="get-url-with-params.html"><span class="token function">getUrlWithParams</span></a><span class="token punctuation">(</span>handle<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-navigator-params-fix-handle/index.html">NavigatorParamsFixHandle</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">.</span><a href="get-url-with-params.html"><span class="token function">getUrlWithParams</span></a><span class="token punctuation">(</span>handle<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">获取当前路由的完整url记录</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-2053078288%2FFunctions%2F1367601898" anchor-label="initRouteMap" id="-2053078288%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="init-route-map.html"><span>init</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2053078288%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="init-route-map.html"><span class="token function">initRouteMap</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">在主线程初始化路由表</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="442665230%2FFunctions%2F1367601898" anchor-label="matchRouteMap" id="442665230%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="match-route-map.html"><span>match</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="442665230%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-synchronized/index.html"><span class="token annotation">Synchronized</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="match-route-map.html"><span class="token function">matchRouteMap</span></a><span class="token punctuation">(</span>url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-route-item/index.html">RouteItem</a><span class="token operator">?</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">尝试通过Path，从路由表中获取对应的路由项，如果没有对应路由，则返回null</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-268147884%2FFunctions%2F1367601898" anchor-label="matchRouteMapForClassName" id="-268147884%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="match-route-map-for-class-name.html"><span>match</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>For</span><wbr></wbr><span>Class</span><wbr></wbr><span><span>Name</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-268147884%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-synchronized/index.html"><span class="token annotation">Synchronized</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="match-route-map-for-class-name.html"><span class="token function">matchRouteMapForClassName</span></a><span class="token punctuation">(</span>className<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="-route-item/index.html">RouteItem</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">尝试通过ClassName，从路由表中获取对应的路由项，如果没有对应路由，则返回空数组</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-753366074%2FFunctions%2F1367601898" anchor-label="removeNavigatorPathFixHandle" id="-753366074%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="remove-navigator-path-fix-handle.html"><span>remove</span><wbr></wbr><span>Navigator</span><wbr></wbr><span>Path</span><wbr></wbr><span>Fix</span><wbr></wbr><span><span>Handle</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-753366074%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-navigator-path-fix-handle.html"><span class="token function">removeNavigatorPathFixHandle</span></a><span class="token punctuation">(</span>interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-navigator-path-fix-handle/index.html">NavigatorPathFixHandle</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">移除Path修改器</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="680629798%2FFunctions%2F1367601898" anchor-label="removePathReplaceInterceptor" id="680629798%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="remove-path-replace-interceptor.html"><span>remove</span><wbr></wbr><span>Path</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="680629798%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-path-replace-interceptor.html"><span class="token function">removePathReplaceInterceptor</span></a><span class="token punctuation">(</span>interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-path-replace-interceptor/index.html">PathReplaceInterceptor</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1785609626%2FFunctions%2F1367601898" anchor-label="removeRouterReplaceInterceptor" id="-1785609626%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="remove-router-replace-interceptor.html"><span>remove</span><wbr></wbr><span>Router</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1785609626%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-router-replace-interceptor.html"><span class="token function">removeRouterReplaceInterceptor</span></a><span class="token punctuation">(</span>interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-router-replace-interceptor/index.html">RouterReplaceInterceptor</a><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-641849877%2FFunctions%2F1367601898" anchor-label="sendPendingNavigator" id="-641849877%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="send-pending-navigator.html"><span>send</span><wbr></wbr><span>Pending</span><wbr></wbr><span><span>Navigator</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-641849877%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="send-pending-navigator.html"><span class="token function">sendPendingNavigator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">可以被挂起的导航器，通常用于延迟动作。 延迟跳转主要应用场景有两种： 第一种：初始化时期，如果路由表的量非常巨大时。这种情况在别的路由框架上要么会白屏一段时间，要么直接丢弃这次跳转。在TheRouter中，框架会暂存当前的跳转动作，在路由表初始化完成后立刻执行跳转。 第二种：从Android 8.0开始，Activity 不能在后台启动页面，这对于业务判断造成了很大的影响。由于可能会有前台 Service 的情况，不能单纯以 Activity 生命周期判断前后台。在TheRouter中，框架允许业务自定义前后台规则，如果为后台情况，可以将跳转动作暂存，当进入前台后再恢复跳转。</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1673274474%2FFunctions%2F1367601898" anchor-label="setOnRouteMapChangedListener" id="-1673274474%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="set-on-route-map-changed-listener.html"><span>set</span><wbr></wbr><span>On</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>Changed</span><wbr></wbr><span><span>Listener</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1673274474%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-on-route-map-changed-listener.html"><span class="token function">setOnRouteMapChangedListener</span></a><span class="token punctuation">(</span>listener<span class="token operator">: </span><a href="-on-route-map-changed-listener/index.html">OnRouteMapChangedListener</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">当路由项被改变时，会触发回调。例如路由项被覆盖、路由项内容发生变化</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="246720779%2FFunctions%2F1367601898" anchor-label="setRouteMapInitTask" id="246720779%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="set-route-map-init-task.html"><span>set</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>Init</span><wbr></wbr><span><span>Task</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="246720779%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-route-map-init-task.html"><span class="token function">setRouteMapInitTask</span></a><span class="token punctuation">(</span>task<span class="token operator">: </span><a href="-router-map-init-task/index.html">RouterMapInitTask</a><span class="token operator">?</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-route-map-init-task.html"><span class="token function">setRouteMapInitTask</span></a><span class="token punctuation">(</span>task<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">设置自定义路由表初始化逻辑，设置后会在异步线程中调用自定义初始化逻辑 默认初始化逻辑为 initRouteMap()</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1132985850%2FFunctions%2F1367601898" anchor-label="setRouterInterceptor" id="-1132985850%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="set-router-interceptor.html"><span>set</span><wbr></wbr><span>Router</span><wbr></wbr><span><span>Interceptor</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1132985850%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-router-interceptor.html"><span class="token function">setRouterInterceptor</span></a><span class="token punctuation">(</span>interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-router-interceptor/index.html">RouterInterceptor</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-router-interceptor.html"><span class="token function">setRouterInterceptor</span></a><span class="token punctuation">(</span>interceptor<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span>routeItem<span class="token operator">: </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">, </span><span class="token keyword"></span>callback<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword"></span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">路由AOP拦截器 与前三个处理器不同的点在于，路由的AOP拦截器全局只能有一个。用于实现AOP的能力，在整个TheRouter跳转的过程中，跳转前，目标页是否找到的回调，跳转时，跳转后，都可以做一些自定义的逻辑处理。</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1390374461%2FFunctions%2F1367601898" anchor-label="toNavigator" id="-1390374461%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="to-navigator.html"><span>to</span><wbr></wbr><span><span>Navigator</span></span></a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1390374461%2FFunctions%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">.</span><a href="to-navigator.html"><span class="token function">toNavigator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-navigator/index.html">Navigator</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">将当前路由转换为导航器</p></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <h2 class="">Properties</h2>
-              <div class="table" data-togglable="Properties"><a data-name="1263709608%2FProperties%2F1367601898" anchor-label="gson" id="1263709608%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="gson.html">gson</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1263709608%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><a data-name="1263709608%2FProperties%2F1367601898" anchor-label="gson" id="1263709608%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="gson.html">gson</a><span class="token operator">: </span><span data-unresolved-link="com.google.gson/Gson///PointingToDeclaration/">Gson</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1710126307%2FProperties%2F1367601898" anchor-label="KEY_ACTION" id="-1710126307%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-k-e-y_-a-c-t-i-o-n.html">KEY_ACTION</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1710126307%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><a data-name="-1710126307%2FProperties%2F1367601898" anchor-label="KEY_ACTION" id="-1710126307%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-a-c-t-i-o-n.html">KEY_ACTION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="862055156%2FProperties%2F1367601898" anchor-label="KEY_ANIM_IN" id="862055156%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-k-e-y_-a-n-i-m_-i-n.html">KEY_ANIM_IN</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="862055156%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><a data-name="862055156%2FProperties%2F1367601898" anchor-label="KEY_ANIM_IN" id="862055156%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-a-n-i-m_-i-n.html">KEY_ANIM_IN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1828508909%2FProperties%2F1367601898" anchor-label="KEY_ANIM_OUT" id="-1828508909%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-k-e-y_-a-n-i-m_-o-u-t.html">KEY_ANIM_OUT</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1828508909%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><a data-name="-1828508909%2FProperties%2F1367601898" anchor-label="KEY_ANIM_OUT" id="-1828508909%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-a-n-i-m_-o-u-t.html">KEY_ANIM_OUT</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1385350737%2FProperties%2F1367601898" anchor-label="KEY_BUNDLE" id="1385350737%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-k-e-y_-b-u-n-d-l-e.html">KEY_BUNDLE</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1385350737%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><a data-name="1385350737%2FProperties%2F1367601898" anchor-label="KEY_BUNDLE" id="1385350737%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-b-u-n-d-l-e.html">KEY_BUNDLE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="315646027%2FProperties%2F1367601898" anchor-label="KEY_DESCRIPTION" id="315646027%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-k-e-y_-d-e-s-c-r-i-p-t-i-o-n.html">KEY_DESCRIPTION</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="315646027%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><a data-name="315646027%2FProperties%2F1367601898" anchor-label="KEY_DESCRIPTION" id="315646027%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-d-e-s-c-r-i-p-t-i-o-n.html">KEY_DESCRIPTION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-1791702641%2FProperties%2F1367601898" anchor-label="KEY_INTENT_FLAGS" id="-1791702641%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-k-e-y_-i-n-t-e-n-t_-f-l-a-g-s.html">KEY_INTENT_FLAGS</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1791702641%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><a data-name="-1791702641%2FProperties%2F1367601898" anchor-label="KEY_INTENT_FLAGS" id="-1791702641%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-i-n-t-e-n-t_-f-l-a-g-s.html">KEY_INTENT_FLAGS</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="1672203896%2FProperties%2F1367601898" anchor-label="KEY_OBJECT_ACTIVITY" id="1672203896%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-k-e-y_-o-b-j-e-c-t_-a-c-t-i-v-i-t-y.html">KEY_OBJECT_ACTIVITY</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1672203896%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><a data-name="1672203896%2FProperties%2F1367601898" anchor-label="KEY_OBJECT_ACTIVITY" id="1672203896%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-o-b-j-e-c-t_-a-c-t-i-v-i-t-y.html">KEY_OBJECT_ACTIVITY</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-810839108%2FProperties%2F1367601898" anchor-label="KEY_OBJECT_NAVIGATOR" id="-810839108%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-k-e-y_-o-b-j-e-c-t_-n-a-v-i-g-a-t-o-r.html">KEY_OBJECT_NAVIGATOR</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-810839108%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><a data-name="-810839108%2FProperties%2F1367601898" anchor-label="KEY_OBJECT_NAVIGATOR" id="-810839108%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-o-b-j-e-c-t_-n-a-v-i-g-a-t-o-r.html">KEY_OBJECT_NAVIGATOR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-<a data-name="-252339826%2FProperties%2F1367601898" anchor-label="KEY_PATH" id="-252339826%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
-                <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
-                  <div class="main-subrow keyValue ">
-                    <div class=""><span class="inline-flex"><a href="-k-e-y_-p-a-t-h.html">KEY_PATH</a><span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-252339826%2FProperties%2F1367601898"></span>
-                          <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>链接已复制到剪贴板</span></div>
-                        </span></span></div>
-                    <div>
-                      <div class="title">
-                        <div class="platform-hinted " data-platform-hinted="data-platform-hinted" data-togglable="Properties"><div class="content sourceset-depenent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><a data-name="-252339826%2FProperties%2F1367601898" anchor-label="KEY_PATH" id="-252339826%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-p-a-t-h.html">KEY_PATH</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
-                      </div>
-                    </div>
-                  </div>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-routes/index.html"><span><span>Routes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="814019970%2FClasslikes%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Retention.html"><span class="token annotation builtin">Retention</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/RetentionPolicy.html">RetentionPolicy.SOURCE</a></span><wbr></wbr><span class="token punctuation">)</span></div><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/Target.html"><span class="token annotation builtin">Target</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="token punctuation">[</span><span><a href="https://developer.android.com/reference/kotlin/java/lang/annotation/ElementType.html">ElementType.TYPE</a></span><wbr></wbr><span class="token punctuation">]</span></span><wbr></wbr><span class="token punctuation">)</span></div></div><span class="token keyword">annotation class </span><a href="-routes/index.html">Routes</a></div><div class="brief ">Created by ZhangTao on 17/8/11.</div></div></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1263709608%2FProperties%2F1367601898" anchor-label="gson" id="1263709608%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="gson.html"><span><span>gson</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1263709608%2FProperties%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="gson.html">gson</a><span class="token operator">: </span><span data-unresolved-link="com.google.gson/Gson///PointingToDeclaration/">Gson</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1710126307%2FProperties%2F1367601898" anchor-label="KEY_ACTION" id="-1710126307%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-e-y_-a-c-t-i-o-n.html"><span><span>KEY_ACTION</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1710126307%2FProperties%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-a-c-t-i-o-n.html">KEY_ACTION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="862055156%2FProperties%2F1367601898" anchor-label="KEY_ANIM_IN" id="862055156%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-e-y_-a-n-i-m_-i-n.html"><span><span>KEY_ANIM_IN</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="862055156%2FProperties%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-a-n-i-m_-i-n.html">KEY_ANIM_IN</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1828508909%2FProperties%2F1367601898" anchor-label="KEY_ANIM_OUT" id="-1828508909%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-e-y_-a-n-i-m_-o-u-t.html"><span><span>KEY_ANIM_OUT</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1828508909%2FProperties%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-a-n-i-m_-o-u-t.html">KEY_ANIM_OUT</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1385350737%2FProperties%2F1367601898" anchor-label="KEY_BUNDLE" id="1385350737%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-e-y_-b-u-n-d-l-e.html"><span><span>KEY_BUNDLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1385350737%2FProperties%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-b-u-n-d-l-e.html">KEY_BUNDLE</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="315646027%2FProperties%2F1367601898" anchor-label="KEY_DESCRIPTION" id="315646027%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-e-y_-d-e-s-c-r-i-p-t-i-o-n.html"><span><span>KEY_DESCRIPTION</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="315646027%2FProperties%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-d-e-s-c-r-i-p-t-i-o-n.html">KEY_DESCRIPTION</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1791702641%2FProperties%2F1367601898" anchor-label="KEY_INTENT_FLAGS" id="-1791702641%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-e-y_-i-n-t-e-n-t_-f-l-a-g-s.html"><span><span>KEY_INTENT_FLAGS</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1791702641%2FProperties%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-i-n-t-e-n-t_-f-l-a-g-s.html">KEY_INTENT_FLAGS</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1672203896%2FProperties%2F1367601898" anchor-label="KEY_OBJECT_ACTIVITY" id="1672203896%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-e-y_-o-b-j-e-c-t_-a-c-t-i-v-i-t-y.html"><span><span>KEY_OBJECT_ACTIVITY</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1672203896%2FProperties%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-o-b-j-e-c-t_-a-c-t-i-v-i-t-y.html">KEY_OBJECT_ACTIVITY</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-810839108%2FProperties%2F1367601898" anchor-label="KEY_OBJECT_NAVIGATOR" id="-810839108%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-e-y_-o-b-j-e-c-t_-n-a-v-i-g-a-t-o-r.html"><span><span>KEY_OBJECT_NAVIGATOR</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-810839108%2FProperties%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-o-b-j-e-c-t_-n-a-v-i-g-a-t-o-r.html">KEY_OBJECT_NAVIGATOR</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-252339826%2FProperties%2F1367601898" anchor-label="KEY_PATH" id="-252339826%2FProperties%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-e-y_-p-a-t-h.html"><span><span>KEY_PATH</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-252339826%2FProperties%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">const </span><span class="token keyword">val </span><a href="-k-e-y_-p-a-t-h.html">KEY_PATH</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-2126714225%2FFunctions%2F1367601898" anchor-label="addNavigatorPathFixHandle" id="-2126714225%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-navigator-path-fix-handle.html"><span>add</span><wbr></wbr><span>Navigator</span><wbr></wbr><span>Path</span><wbr></wbr><span>Fix</span><wbr></wbr><span><span>Handle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2126714225%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="add-navigator-path-fix-handle.html"><span class="token function">addNavigatorPathFixHandle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">handle<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-navigator-path-fix-handle/index.html">NavigatorPathFixHandle</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">应用场景：用于修复客户端上路由 path 错误问题。 例如：相对路径转绝对路径，或由于服务端下发的链接无法固定https或http，但客户端代码写死了 https 的 path，就可以用这种方式统一。 注：必须在 TheRouter.build() 方法调用前添加处理器，否则处理器前的所有path不会被修改。</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-692718353%2FFunctions%2F1367601898" anchor-label="addPathReplaceInterceptor" id="-692718353%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-path-replace-interceptor.html"><span>add</span><wbr></wbr><span>Path</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-692718353%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="add-path-replace-interceptor.html"><span class="token function">addPathReplaceInterceptor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-path-replace-interceptor/index.html">PathReplaceInterceptor</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">页面替换器 应用场景：需要将某些path指定为新链接的时候使用。 也可以用在修复链接的场景，但是与 path 修改器不同的是，修改器通常是为了解决通用性的问题，替换器只在页面跳转时才会生效，更多是用来解决特性问题。</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="852259168%2FFunctions%2F1367601898" anchor-label="addRouteItem" id="852259168%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-route-item.html"><span>add</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="852259168%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="add-route-item.html"><span class="token function">addRouteItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">routeItem<span class="token operator">: </span><a href="-route-item/index.html">RouteItem</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">向路由表添加路由</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1647879650%2FFunctions%2F1367601898" anchor-label="addRouteMap" id="1647879650%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-route-map.html"><span>add</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1647879650%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="add-route-map.html"><span class="token function">addRouteMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">routeItemArray<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-collection/index.html">Collection</a><span class="token operator">&lt;</span><a href="-route-item/index.html">RouteItem</a><span class="token operator">&gt;</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">向路由表添加路由</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-915958609%2FFunctions%2F1367601898" anchor-label="addRouterReplaceInterceptor" id="-915958609%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-router-replace-interceptor.html"><span>add</span><wbr></wbr><span>Router</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-915958609%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="add-router-replace-interceptor.html"><span class="token function">addRouterReplaceInterceptor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-router-replace-interceptor/index.html">RouterReplaceInterceptor</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">路由替换器 应用场景：常用在未登录不能使用的页面上。例如访问用户钱包页面，在钱包页声明的时候，可以在路由表上声明本页面是需要登录的，在路由跳转过程中，如果落地页是需要登录的，则先替换路由到登录页，同时将原落地页信息作为参数传给登录页，登录流程处理完成后可以继续执行之前的路由操作。</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-491146396%2FFunctions%2F1367601898" anchor-label="asyncInitRouteMap" id="-491146396%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="async-init-route-map.html"><span>async</span><wbr></wbr><span>Init</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-491146396%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="async-init-route-map.html"><span class="token function">asyncInitRouteMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">在异步初始化路由表</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="765164436%2FFunctions%2F1367601898" anchor-label="defaultNavigationCallback" id="765164436%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="default-navigation-callback.html"><span>default</span><wbr></wbr><span>Navigation</span><wbr></wbr><span><span>Callback</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="765164436%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="default-navigation-callback.html"><span class="token function">defaultNavigationCallback</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">callback<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-navigation-callback/index.html">NavigationCallback</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">自定义全局路由跳转结果回调</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1407423670%2FFunctions%2F1367601898" anchor-label="foundPathFromIntent" id="-1407423670%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="found-path-from-intent.html"><span>found</span><wbr></wbr><span>Path</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Intent</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1407423670%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="found-path-from-intent.html"><span class="token function">foundPathFromIntent</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">intent<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Intent.html">Intent</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">尝试通过Intent，从路由表中获取对应的路由Path 如果路由表中没有对应路由，则将类名作为路由Path新创建一条路由项</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-276494024%2FFunctions%2F1367601898" anchor-label="getFileListFromAssets" id="-276494024%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-file-list-from-assets.html"><span>get</span><wbr></wbr><span>File</span><wbr></wbr><span>List</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Assets</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-276494024%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-file-list-from-assets.html"><span class="token function">getFileListFromAssets</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">path<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1019039746%2FFunctions%2F1367601898" anchor-label="getStreamFromAssets" id="-1019039746%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-stream-from-assets.html"><span>get</span><wbr></wbr><span>Stream</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Assets</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1019039746%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-stream-from-assets.html"><span class="token function">getStreamFromAssets</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token operator">?</span><span class="token punctuation">, </span></span><span class="parameter ">fileName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/java/io/InputStream.html">InputStream</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">从assets 文件夹中获取文件并读取数据流</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-435091926%2FFunctions%2F1367601898" anchor-label="getStringFromAssets" id="-435091926%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-string-from-assets.html"><span>get</span><wbr></wbr><span>String</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Assets</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-435091926%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="get-string-from-assets.html"><span class="token function">getStringFromAssets</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">context<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/android/content/Context.html">Context</a><span class="token punctuation">, </span></span><span class="parameter ">fileName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">从assets 文件夹中获取文件并读取数据</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2015595184%2FFunctions%2F1367601898" anchor-label="getUrlWithParams" id="-2015595184%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-url-with-params.html"><span>get</span><wbr></wbr><span>Url</span><wbr></wbr><span>With</span><wbr></wbr><span><span>Params</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2015595184%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">.</span><a href="get-url-with-params.html"><span class="token function">getUrlWithParams</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">.</span><a href="get-url-with-params.html"><span class="token function">getUrlWithParams</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">handle<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-navigator-params-fix-handle/index.html">NavigatorParamsFixHandle</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">.</span><a href="get-url-with-params.html"><span class="token function">getUrlWithParams</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">handle<span class="token operator">: </span><span class="token punctuation">(</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div><div class="brief "><p class="paragraph">获取当前路由的完整url记录</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2053078288%2FFunctions%2F1367601898" anchor-label="initRouteMap" id="-2053078288%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="init-route-map.html"><span>init</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2053078288%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="init-route-map.html"><span class="token function">initRouteMap</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">在主线程初始化路由表</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="442665230%2FFunctions%2F1367601898" anchor-label="matchRouteMap" id="442665230%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="match-route-map.html"><span>match</span><wbr></wbr><span>Route</span><wbr></wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="442665230%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="match-route-map.html"><span class="token function">matchRouteMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-route-item/index.html">RouteItem</a><span class="token operator">?</span></div><div class="brief "><p class="paragraph">尝试通过Path，从路由表中获取对应的路由项，如果没有对应路由，则返回null</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-268147884%2FFunctions%2F1367601898" anchor-label="matchRouteMapForClassName" id="-268147884%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="match-route-map-for-class-name.html"><span>match</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>For</span><wbr></wbr><span>Class</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-268147884%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="match-route-map-for-class-name.html"><span class="token function">matchRouteMapForClassName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">className<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="-route-item/index.html">RouteItem</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">尝试通过ClassName，从路由表中获取对应的路由项，如果没有对应路由，则返回空数组</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-753366074%2FFunctions%2F1367601898" anchor-label="removeNavigatorPathFixHandle" id="-753366074%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-navigator-path-fix-handle.html"><span>remove</span><wbr></wbr><span>Navigator</span><wbr></wbr><span>Path</span><wbr></wbr><span>Fix</span><wbr></wbr><span><span>Handle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-753366074%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="remove-navigator-path-fix-handle.html"><span class="token function">removeNavigatorPathFixHandle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-navigator-path-fix-handle/index.html">NavigatorPathFixHandle</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">移除Path修改器</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="680629798%2FFunctions%2F1367601898" anchor-label="removePathReplaceInterceptor" id="680629798%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-path-replace-interceptor.html"><span>remove</span><wbr></wbr><span>Path</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="680629798%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="remove-path-replace-interceptor.html"><span class="token function">removePathReplaceInterceptor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-path-replace-interceptor/index.html">PathReplaceInterceptor</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1785609626%2FFunctions%2F1367601898" anchor-label="removeRouterReplaceInterceptor" id="-1785609626%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-router-replace-interceptor.html"><span>remove</span><wbr></wbr><span>Router</span><wbr></wbr><span>Replace</span><wbr></wbr><span><span>Interceptor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1785609626%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="remove-router-replace-interceptor.html"><span class="token function">removeRouterReplaceInterceptor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-router-replace-interceptor/index.html">RouterReplaceInterceptor</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-641849877%2FFunctions%2F1367601898" anchor-label="sendPendingNavigator" id="-641849877%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="send-pending-navigator.html"><span>send</span><wbr></wbr><span>Pending</span><wbr></wbr><span><span>Navigator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-641849877%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="send-pending-navigator.html"><span class="token function">sendPendingNavigator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">可以被挂起的导航器，通常用于延迟动作。 延迟跳转主要应用场景有两种： 第一种：初始化时期，如果路由表的量非常巨大时。这种情况在别的路由框架上要么会白屏一段时间，要么直接丢弃这次跳转。在TheRouter中，框架会暂存当前的跳转动作，在路由表初始化完成后立刻执行跳转。 第二种：从Android 8.0开始，Activity 不能在后台启动页面，这对于业务判断造成了很大的影响。由于可能会有前台 Service 的情况，不能单纯以 Activity 生命周期判断前后台。在TheRouter中，框架允许业务自定义前后台规则，如果为后台情况，可以将跳转动作暂存，当进入前台后再恢复跳转。</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1673274474%2FFunctions%2F1367601898" anchor-label="setOnRouteMapChangedListener" id="-1673274474%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-on-route-map-changed-listener.html"><span>set</span><wbr></wbr><span>On</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>Changed</span><wbr></wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1673274474%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-on-route-map-changed-listener.html"><span class="token function">setOnRouteMapChangedListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">listener<span class="token operator">: </span><a href="-on-route-map-changed-listener/index.html">OnRouteMapChangedListener</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">当路由项被改变时，会触发回调。例如路由项被覆盖、路由项内容发生变化</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="246720779%2FFunctions%2F1367601898" anchor-label="setRouteMapInitTask" id="246720779%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-route-map-init-task.html"><span>set</span><wbr></wbr><span>Route</span><wbr></wbr><span>Map</span><wbr></wbr><span>Init</span><wbr></wbr><span><span>Task</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="246720779%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-route-map-init-task.html"><span class="token function">setRouteMapInitTask</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">task<span class="token operator">: </span><a href="-router-map-init-task/index.html">RouterMapInitTask</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token operator">?</span></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-route-map-init-task.html"><span class="token function">setRouteMapInitTask</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">task<span class="token operator">: </span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">设置自定义路由表初始化逻辑，设置后会在异步线程中调用自定义初始化逻辑 默认初始化逻辑为 initRouteMap()</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1132985850%2FFunctions%2F1367601898" anchor-label="setRouterInterceptor" id="-1132985850%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-router-interceptor.html"><span>set</span><wbr></wbr><span>Router</span><wbr></wbr><span><span>Interceptor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1132985850%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-router-interceptor.html"><span class="token function">setRouterInterceptor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">interceptor<span class="token operator">: </span><a href="../com.therouter.router.interceptor/-router-interceptor/index.html">RouterInterceptor</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">fun </span><a href="set-router-interceptor.html"><span class="token function">setRouterInterceptor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">interceptor<span class="token operator">: </span><span class="token punctuation">(</span>routeItem<span class="token operator">: </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">, </span>callback<span class="token operator">: </span><span class="token punctuation">(</span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-unit/index.html">Unit</a></span></span><span class="token punctuation">)</span></div><div class="brief "><p class="paragraph">路由AOP拦截器 与前三个处理器不同的点在于，路由的AOP拦截器全局只能有一个。用于实现AOP的能力，在整个TheRouter跳转的过程中，跳转前，目标页是否找到的回调，跳转时，跳转后，都可以做一些自定义的逻辑处理。</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1390374461%2FFunctions%2F1367601898" anchor-label="toNavigator" id="-1390374461%2FFunctions%2F1367601898" data-filterable-set=":router:dokkaJavadoccccc/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_FUNCTION" data-filterable-current=":router:dokkaJavadoccccc/release" data-filterable-set=":router:dokkaJavadoccccc/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="to-navigator.html"><span>to</span><wbr></wbr><span><span>Navigator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1390374461%2FFunctions%2F1367601898"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":router:dokkaJavadoccccc/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="-route-item/index.html">RouteItem</a><span class="token punctuation">.</span><a href="to-navigator.html"><span class="token function">toNavigator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-navigator/index.html">Navigator</a></div><div class="brief "><p class="paragraph">将当前路由转换为导航器</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  
-
-
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

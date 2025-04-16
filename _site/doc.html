@@ -46,7 +46,9 @@
       </li>
       <li class="nav-item">
         
-          <a href="/doc" class="nav-link active header-color">Android</a>
+          
+            <a href="/doc" class="nav-link active header-color">Android</a>
+           
          
       </li>
       <li class="nav-item">
@@ -66,15 +68,9 @@
       </li>
       <li class="nav-item">
         
-          <a href="/api" class="nav-link header-color">API文档</a>
-         
-      </li>
-      <li class="nav-item">
-        
           <a href="/about" class="nav-link header-color">关于</a>
          
       </li>
-      <li class="nav-item"><a href="https://github.com/HuolalaTech/hll-wp-therouter-android" class="nav-link header-color">GitHub</a></li>
     </ul>
   </header>
 </div>
@@ -85,6 +81,10 @@
     <!-- Main Container -->
 <div id="banners"></div>
 <div class="container">
+  
+      
+  
+      
   
     
       
@@ -152,6 +152,8 @@ Q1: 路由表不生成（或生成的代码有问题编译报错）
       
       
   
+    
+      
       
   
     
@@ -186,6 +188,14 @@ Q1: 路由表不生成（或生成的代码有问题编译报错）
   
 
 
+  
+    
+     
+      
+  
+    
+     
+      
   
     
     
@@ -255,9 +265,7 @@ https://kymjs.com/code/2024/10/31/01/
 
 
   由于新版本 Android Studio 强制使用 Java 17，TheRouter 从 1.3.0 开始全部使用 JDK17 编译，你需要更新编译 JDK 版本。
-  新增编译选项：
-    
-      forceI...
+  新增编译选项（请在理解增量实现原理的前提下使用）：...
            
         </font>
       </div>
@@ -388,7 +396,7 @@ Github: https://github.com/HuolalaTech/hll-wp-therouter-android/
     
     
       
-        <a href="/docs/2022/09/29/01" title="Android Studio 插件，开发必备工具">
+        <a href="/docs/2022/09/29/01" title="IDE 插件，开发必备工具">
       
       <div class="doc-list">
         <span class="entry-date date published">
@@ -403,29 +411,25 @@ Github: https://github.com/HuolalaTech/hll-wp-therouter-android/
         </span>
         <br>
 
-        <font class="kymjs-index-title">Android Studio 插件，开发必备工具</font>
+        <font class="kymjs-index-title">IDE 插件，开发必备工具</font>
         <br>
 
         <font color="#666666"> 
           
-            开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。
+            开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。 
+目前不仅支持 Android，也支持 Harmony。
+
+
 
 
 
 下载插件
 
 
-  打开 Android Studio -&gt; Preferences -&gt;  Plugins  -&gt; Marketplace
+  打开 Android Studio（或 DevEco-Studio） -&gt; Preferences -&gt;  Plugins  -&gt; Marketplace
   搜索 TheRouter
   点击下载
-  重启 Android Studio
-
-
-
-
-一键迁移工具
-
-AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无...
+  重启 Android Studio...
            
         </font>
       </div>
@@ -435,6 +439,43 @@ AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无...
       
   
     
+    
+      
+        <a href="/docs/2022/09/06/01" title="获取和使用最新版的 TheRouter">
+      
+      <div class="doc-list">
+        <span class="entry-date date published">
+        
+          <font class="kymjs-post-tag-news">资讯</font>
+        
+        <time datetime="2022-09-06T00:00:00+08:00">
+          
+            <font color="#aaaaaa"> TheRouter官方  创作于 2022-09-06 </font>
+          
+        </time>
+        </span>
+        <br>
+
+        <font class="kymjs-index-title">获取和使用最新版的 TheRouter</font>
+        <br>
+
+        <font color="#666666"> 
+          
+            TheRouter 的版本规划分为三种，分别是 稳定版、预览版、公测版。
+
+稳定版
+
+稳定版总是在 main 分支打包发布，最新的稳定版本就是main分支的最新代码。
+
+你可以在 GitHub 的 releases 页面找到最新的稳定版本。
+
+Android：https://github.com/HuolalaTech/hll-wp-therouter-android/releases
+Harmony：https://github...
+           
+        </font>
+      </div>
+      </a>
+      <hr>
      
       
   
@@ -461,13 +502,10 @@ AndroidStudio 插件的全新版本，已完美支持一键迁移工具，无...
 
         <font color="#666666"> 
           
-            TheRouter提供了图形化界面的迁移工具，可以一键从其他路由迁移到TheRouter。 
-全新迁移工具已集成到 AndroidStudio 开发插件中，可直接在AS插件市场下载，相关介绍请访问： https://therouter.cn/docs/2022/09/29/01
+            TheRouter提供了图形化界面的迁移工具，目前仅支持 ARouter 和 HMRouter，可以一键从其他路由迁移到TheRouter。 
+迁移插件目前已支持 Android、Harmony 工程，可在 Android Studio 或 DevEco Studio 中直接使用，相关介绍请访问： https://therouter.cn/docs/2022/09/29/01
 
-旧版本图形界面可使用：1.1.1 (2022-10-09更新)
-
-
-  Mac OS 迁移工具下载：https://github.com/Huolala...
+旧版本图形界面可使用：1.1.1 (2022-10-...
            
         </font>
       </div>

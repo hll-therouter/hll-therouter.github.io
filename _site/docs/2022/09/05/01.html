@@ -46,7 +46,9 @@
       </li>
       <li class="nav-item">
         
-          <a href="/doc" class="nav-link active header-color">Android</a>
+          
+            <a href="/doc" class="nav-link active header-color">Android</a>
+           
          
       </li>
       <li class="nav-item">
@@ -66,15 +68,9 @@
       </li>
       <li class="nav-item">
         
-          <a href="/api" class="nav-link header-color">API文档</a>
-         
-      </li>
-      <li class="nav-item">
-        
           <a href="/about" class="nav-link header-color">关于</a>
          
       </li>
-      <li class="nav-item"><a href="https://github.com/HuolalaTech/hll-wp-therouter-android" class="nav-link header-color">GitHub</a></li>
     </ul>
   </header>
 </div>
@@ -88,8 +84,8 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<p><code class="language-plaintext highlighter-rouge">TheRouter</code>提供了图形化界面的迁移工具，可以一键从其他路由迁移到<code class="language-plaintext highlighter-rouge">TheRouter</code>。 <br />
-全新迁移工具已集成到 AndroidStudio 开发插件中，可直接在AS插件市场下载，相关介绍请访问： <a href="https://therouter.cn/docs/2022/09/29/01">https://therouter.cn/docs/2022/09/29/01</a></p>
+		<p><code class="language-plaintext highlighter-rouge">TheRouter</code>提供了图形化界面的迁移工具，目前仅支持 ARouter 和 HMRouter，可以一键从其他路由迁移到<code class="language-plaintext highlighter-rouge">TheRouter</code>。 <br />
+迁移插件目前已支持 Android、Harmony 工程，可在 Android Studio 或 DevEco Studio 中直接使用，相关介绍请访问： <a href="https://therouter.cn/docs/2022/09/29/01">https://therouter.cn/docs/2022/09/29/01</a></p>
 
 <p>旧版本图形界面可使用：1.1.1 (2022-10-09更新)</p>
 
@@ -100,7 +96,7 @@
 
 <p><img src="http://localhost:4000/assets/img/image/TheRouterTransfer.png" class="blog-img" /></p>
 
-<h3 id="注意事项">注意事项</h3>
+<h2 id="一android-迁移工具注意事项">一、Android 迁移工具注意事项</h2>
 
 <ol>
   <li>issue中有用户反馈：使用<code class="language-plaintext highlighter-rouge">Windows</code>系统迁移时，会发生乱码情况。犹豫迁移工具对文件的读写均采用<code class="language-plaintext highlighter-rouge">UTF-8</code>编码，所以建议在迁移之前先将工程编码设置为<code class="language-plaintext highlighter-rouge">UTF-8</code>。Android Studio支持修改工程编码：<code class="language-plaintext highlighter-rouge">Setting -&gt; Editor -&gt; File Encodings</code> 修改<code class="language-plaintext highlighter-rouge">Global Encoding</code>和<code class="language-plaintext highlighter-rouge">Project Encoding</code>为 <code class="language-plaintext highlighter-rouge">UTF-8</code></li>
@@ -108,7 +104,7 @@
 
 <p><img src="http://localhost:4000/assets/img/image/encode.jpg" class="blog-img" /></p>
 
-<h3 id="需要手动修改的部分">需要手动修改的部分</h3>
+<h3 id="11-需要手动修改的部分">1.1 需要手动修改的部分</h3>
 
 <ol>
   <li>
@@ -154,7 +150,7 @@
 
 <p>暂未发现其他需要手动修改部分</p>
 
-<h3 id="迁移建议">迁移建议</h3>
+<h3 id="12-android-迁移建议">1.2 Android 迁移建议</h3>
 
 <p>为防止在迁移完成后，写代码过程中，导包引用错误的情况。<br />
 建议手动检查一遍<code class="language-plaintext highlighter-rouge">ARouter</code>的引用是否全部删除，并在各模块<code class="language-plaintext highlighter-rouge">build.gradle</code>中配置如下代码，过滤掉相关引用。 <br />
@@ -166,25 +162,18 @@
 }
 </code></pre></div></div>
 
+<h2 id="二harmony-迁移工具注意事项">二、Harmony 迁移工具注意事项</h2>
+
+<p>由于 ts 导包比较复杂，目前迁移工具无法完整修改全部导包，在迁移结束后需要手动修改导包部分。</p>
+
+<h3 id="21-需要手动修改的部分">2.1 需要手动修改的部分</h3>
+
+<p>如果使用了 HMRouter 拦截器部分，需要自己手动处理拦截器的逻辑，HMRouter的拦截器全部可以用 TheRouter 的拦截器替换，具体逻辑请参考：TheRouter页面跳转：【<a href="https://therouter.cn/docs/2025/03/24/01">第三部分</a>】拦截器用法。</p>
+
+
 	</div>
   
   
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
-  
-    
   
     
     
@@ -196,20 +185,64 @@
     
     <div class="col">
       <div class="card shadow-sm">
+        <a href=/docs/2025/03/24/01>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Harmony 动态路由框架：TheRouter 开源</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">Harmony 动态路由框架：TheRouter 开源</text></svg>
+        </a>
+
+        <div class="card-body">
+          <p class="card-text">
+            
+              `TheRouter` 是一个用于移动端APP，包括 Android、iOS、Harmony 三端的模块化、组件化开发的一整套解决方案框架。提供了三端高一...
+            
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href=/docs/2025/03/24/01>
+                <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
+              </a>
+            </div>
+            <small class="text-muted">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+    
+
+    
+    
+    <div class="col">
+      <div class="card shadow-sm">
         <a href=/docs/2022/09/29/01>
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Android Studio 插件，开发必备工具</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">Android Studio 插件，开发必备工具</text></svg>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>IDE 插件，开发必备工具</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">IDE 插件，开发必备工具</text></svg>
         </a>
 
         <div class="card-body">
           <p class="card-text">
             
               开发了一个用于自动跳转的辅助插件，可以直接从 路由 的声明处查看到哪些地方使用了本次跳转。   
-
-
-
-## 下载插件  
-
-1. 打开 Android ...
+目前不仅支持 Android，也支持 Harmony。 ...
             
           </p>
           <div class="d-flex justify-content-between align-items-center">
@@ -281,38 +314,7 @@
     
 
     
-    
-    <div class="col">
-      <div class="card shadow-sm">
-        <a href=/docs/2022/08/24/01>
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>在TheRouter官网发表文章</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">在TheRouter官网发表文章</text></svg>
-        </a>
-
-        <div class="card-body">
-          <p class="card-text">
-            
-              我们欢迎每一位开发者将自己的开发经验分享在【TheRouter 官方网站】 
-你可以分享包括：
-
-
-  使用 TheRouter 的开发经验
-  TheR...
-            
-          </p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <a href=/docs/2022/08/24/01>
-                <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
-              </a>
-            </div>
-            <small class="text-muted">2 mins</small>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    
-  
+      
   
     </div>
   
