@@ -149,42 +149,60 @@ a:hover { color: #888; text-decoration: none; }
 strong { font-weight: bold; }
 
 address {
-    margin-top: 28px;
-    }
+  margin-top: 28px;
+}
 
-.home-button-start1{
-  position: absolute;
-  top: 80%;
-  left: 14%;
-  color: white;
+.home-header {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  min-height: 500px;
 }
-.home-button-start2{
-  position: absolute;
-  top: 80%;
-  left: 23%;
-  color: white;
+.home-header-container {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  min-height: 500px;
 }
-.home-button-start3{
-  position: absolute;
-  top: 80%;
-  left: 32%;
-  color: white;
+.home-header img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
-.home-text{
+.home-text {
   position: absolute;
-  top: 36%;
-  left: 12%;
-  color: white;
-  max-width: 31%;
-  font-size: 1.1vw;
-  line-height:1.8vw
+  height: 100%;
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 15%;
+  padding-right: 60%;
+  top: 0%;
+  bottom: 0%;
+  left: 0%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.home-title{
-  position: absolute;
-  top: 13%;
-  left: 15%;
+.home-title {
   color: white;
   font-size: 2.2vw;
+  text-align: center;
+}
+.home-desc {
+  color: white;
+  font-size: 1.1vw;
+  line-height: 1.8vw;
+  text-align: left;
+  width: 100%;
+}
+.home-button-group{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .blog-img{
@@ -193,48 +211,30 @@ address {
 
 @media (min-width: 50px) and (max-width: 988px) {
 
- address {
+  address {
     margin-top: 28px;
     margin-left: 21px;
-    }
-  .home-button-start1{
-    position: absolute;
-    top: 80%;
-    left: 7%;
-    color: white;
   }
-
-  .home-button-start2{
-    position: absolute;
-    top: 80%;
-    left: 36%;
+  .home-title {
     color: white;
+    font-size: 2.6vw;
+    text-align: center;
   }
-
-  .home-button-start3{
+  .home-text {
     position: absolute;
-    top: 80%;
-    left: 66%;
-    color: white;
-  }
-  .home-text{
-    position: absolute;
-    top: 25%;
-    left: 5%;
-    color: white;
-    max-width: 90%;
-    font-size: 4.2vw;
-    line-height:7.8vw
-  }
-  .home-title{
-    position: absolute;
-    top: 10%;
-    left: 0%;
+    height: 100%;
     width: 100%;
-    margin-left: 13%;
-    text-align: left;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 58%;
+  }
+  .home-desc {
     color: white;
-    font-size: 7.5vw;
+    font-size: 1.4vw;
+    line-height: 2.2vw;
+    text-align: left;
+    width: 100%;
   }
   .blog-img{
     width: 90%;
@@ -242,37 +242,30 @@ address {
 }
 @media (min-width: 988px) and (max-width: 1200px) {
 
- address {
+  address {
     margin-top: 28px;
     margin-left: -58px;
-    }
-
-  .home-button-start1{
-    position: absolute;
-    top: 80%;
-    left: 15%;
-    color: white;
   }
-  .home-button-start2{
-    position: absolute;
-    top: 80%;
-    left: 35%;
+  .home-title {
     color: white;
+    font-size: 2.6vw;
+    text-align: center;
   }
-  .home-button-start3{
+  .home-text {
     position: absolute;
-    top: 80%;
-    left: 55%;
-    color: white;
+    height: 100%;
+    width: 100%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 3%;
+    padding-right: 58%;
   }
-  .home-text{
-    position: absolute; 
-    top: 30%; 
-    left: 10%; 
-    color: white; 
-    max-width: 60%; 
-    font-size: 2.2vw; 
-    line-height:2.8vw
+  .home-desc {
+    color: white;
+    font-size: 1.4vw;
+    line-height: 2.2vw;
+    text-align: left;
+    width: 100%;
   }
   .blog-img{
     width: 70%;
@@ -841,7 +834,7 @@ footer .row{
 }
 
 .button-color {
-  --bs-btn-color: #000;
+  --bs-btn-color: #fff;
   --bs-btn-bg: #02C4B4;
   --bs-btn-border-color: #02C4B4;
   --bs-btn-hover-color: #000;
