@@ -16,12 +16,12 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="http://localhost:4000/assets/css/animate.min.css">
-  <link rel="stylesheet" href="http://localhost:4000/assets/css/style2.css">
-  <link rel="stylesheet" href="http://localhost:4000/assets/css/kymjs1.css">
-  <link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/prism.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/style2.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/kymjs1.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.kymjs.com:8843/therouter_assets/css/prism.css">
 
-  <script type="text/javascript" src="http://localhost:4000/js/prism.js"></script>
+  <script type="text/javascript" src="https://cdn.kymjs.com:8843/therouter_assets/js/prism.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </head>
   <script type="text/javascript" src="http://localhost:4000/js/jquery-1.10.2.min.js"></script>
@@ -34,7 +34,7 @@
     <div class="container">
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-      <img src="http://localhost:4000/assets/img/logo/logo4.png" width="170px">
+      <img src="https://cdn.kymjs.com:8843/therouter_assets/img/logo/logo4.png" width="170px">
     </a>
 
     <ul class="nav nav-pills">
@@ -154,7 +154,7 @@
 
 <h2 id="使用介绍预览">使用介绍预览</h2>
 
-<p><img src="/assets/img/image/therouter_ios1.gif" class="blog-img" /></p>
+<p><img src="https://cdn.kymjs.com:8843/therouter_assets/img/image/therouter_ios1.gif" class="blog-img" /></p>
 
 <h2 id="如何集成使用">如何集成使用</h2>
 
@@ -162,13 +162,13 @@
 
 <p>Add the following entry in your Podfile:</p>
 
-<pre><code class="language-clike">   pod 'TheRouter', '1.1.0'
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="n">pod</span> <span class="err">'</span><span class="nc">TheRouter</span><span class="err">'</span><span class="p">,</span> <span class="err">'</span><span class="mf">1.1.0</span><span class="err">'</span>
+</code></pre></div></div>
 
 <h2 id="swift限制版本">Swift限制版本</h2>
 
-<pre><code class="language-clike"> Swift5.0 or above
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nc">Swift5</span><span class="mf">.0</span> <span class="n">or</span> <span class="n">above</span>
+</code></pre></div></div>
 
 <h2 id="therouter-使用方式">TheRouter 使用方式</h2>
 
@@ -180,112 +180,112 @@
 
 <p>鉴于已经实现了自动注册能力，开发者无需自己添加路由，只需要进行如下操作即可</p>
 
-<pre><code class="language-clike">/// 实现TheRouterable协议
-extension TheRouterController: TheRouterable {
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// 实现TheRouterable协议</span>
+<span class="n">extension</span> <span class="nc">TheRouterController</span><span class="p">:</span> <span class="nc">TheRouterable</span> <span class="p">{</span>
     
-    static var patternString: [String] {
-        ["scheme://router/demo"]
-    }
+    <span class="n">static</span> <span class="kd">var</span> <span class="py">patternString</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">]</span> <span class="p">{</span>
+<span class="na">        ["scheme://router/demo"]</span>
+    <span class="p">}</span>
     
-    static func registerAction(info: [String : Any]) -&gt; Any {
-        debugPrint(info)
+    <span class="n">static</span> <span class="n">func</span> <span class="nf">registerAction</span><span class="p">(</span><span class="n">info</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span> <span class="p">:</span> <span class="nc">Any</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nc">Any</span> <span class="p">{</span>
+        <span class="nf">debugPrint</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
         
-        let vc =  TheRouterController()
-        vc.qrResultCallBack = info["clouse"] as? QrScanResultCallBack
-        vc.resultLabel.text = info.description
-        return vc
-    }
-}
+        <span class="n">let</span> <span class="n">vc</span> <span class="p">=</span>  <span class="nc">TheRouterController</span><span class="p">()</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">qrResultCallBack</span> <span class="p">=</span> <span class="n">info</span><span class="p">[</span><span class="s">"clouse"</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="nc">QrScanResultCallBack</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">resultLabel</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">info</span><span class="p">.</span><span class="n">description</span>
+        <span class="k">return</span> <span class="n">vc</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-/// 在AppDelegate中实现懒加载的闭包
-// 路由懒加载注册
-TheRouter.lazyRegisterRouterHandle { url, userInfo in
-    TheRouterManager.injectRouterServiceConfig(webRouterUrl, serivceHost)
-    return TheRouterManager.addGloableRouter([".The"], url, userInfo)
-}
+<span class="c1">/// 在AppDelegate中实现懒加载的闭包</span>
+<span class="c1">// 路由懒加载注册</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">lazyRegisterRouterHandle</span> <span class="p">{</span> <span class="n">url</span><span class="p">,</span> <span class="n">userInfo</span> <span class="k">in</span>
+    <span class="nc">TheRouterManager</span><span class="p">.</span><span class="nf">injectRouterServiceConfig</span><span class="p">(</span><span class="n">webRouterUrl</span><span class="p">,</span> <span class="n">serivceHost</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nc">TheRouterManager</span><span class="p">.</span><span class="nf">addGloableRouter</span><span class="p">([</span><span class="s">".The"</span><span class="p">],</span> <span class="n">url</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">)</span>
+<span class="p">}</span>
 
-// 动态注册服务
-TheRouterManager.registerServices()
+<span class="c1">// 动态注册服务</span>
+<span class="nc">TheRouterManager</span><span class="p">.</span><span class="nf">registerServices</span><span class="p">()</span>
 
-// 日志回调，可以监控线上路由运行情况
-TheRouter.logcat { url, logType, errorMsg in
-    debugPrint("TheRouter: logMsg- \(url) \(logType.rawValue) \(errorMsg)")
-}
-</code></pre>
+<span class="c1">// 日志回调，可以监控线上路由运行情况</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">logcat</span> <span class="p">{</span> <span class="n">url</span><span class="p">,</span> <span class="n">logType</span><span class="p">,</span> <span class="n">errorMsg</span> <span class="k">in</span>
+    <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"TheRouter: logMsg- \(url) \(logType.rawValue) \(errorMsg)"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h4 id="oc-注解的形式">OC 注解的形式</h4>
 
 <p>这里列举了OC使用注解的方式，Swift因为其缺乏动态性，是不支持注解的。</p>
 
-<pre><code class="language-clike">//使用注解
-@page(@"home/main")
-- (UIViewController *)homePage{
-    // Do stuff...
-}
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//使用注解</span>
+<span class="err">@</span><span class="nf">page</span><span class="p">(</span><span class="s">@"home/main"</span><span class="p">)</span>
+<span class="p">-</span> <span class="p">(</span><span class="nc">UIViewController</span> <span class="p">*)</span><span class="nf">homePage</span><span class="p">{</span>
+    <span class="c1">// Do stuff...</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h4 id="swift-注册形式">Swift 注册形式</h4>
 
 <p>Swift 中，我们都知道 Swift 是不支持注解的，那么 Swift 动态注册路由该怎么解决呢，我们使用 runtime 遍历工程里的方式找到遵循了路由协议的类进行自动注册。</p>
 
-<pre><code class="language-clike">public class func registerRouterMap(_ registerClassPrifxArray: [String], _ urlPath: String, _ userInfo: [String: Any]) -&gt; Any? {
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kd">class</span> <span class="err">func register</span><span class="nc">RouterMap</span><span class="p">(</span><span class="n">_</span> <span class="n">registerClassPrifxArray</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">],</span> <span class="n">_</span> <span class="n">urlPath</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="n">_</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nc">Any</span><span class="p">?</span> <span class="p">{</span>
         
-        let expectedClassCount = objc_getClassList(nil, 0)
-        let allClasses = UnsafeMutablePointer&lt;AnyClass&gt;.allocate(capacity: Int(expectedClassCount))
-        let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer&lt;AnyClass&gt;(allClasses)
-        let actualClassCount: Int32 = objc_getClassList(autoreleasingAllClasses, expectedClassCount)
+        <span class="n">let</span> <span class="n">expectedClassCount</span> <span class="p">=</span> <span class="nf">objc_getClassList</span><span class="p">(</span><span class="n">nil</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">let</span> <span class="n">allClasses</span> <span class="p">=</span> <span class="nc">UnsafeMutablePointer</span><span class="p">&lt;</span><span class="nc">AnyClass</span><span class="p">&gt;.</span><span class="nf">allocate</span><span class="p">(</span><span class="n">capacity</span><span class="p">:</span> <span class="nc">Int</span><span class="p">(</span><span class="n">expectedClassCount</span><span class="p">))</span>
+        <span class="n">let</span> <span class="n">autoreleasingAllClasses</span> <span class="p">=</span> <span class="nc">AutoreleasingUnsafeMutablePointer</span><span class="p">&lt;</span><span class="nc">AnyClass</span><span class="p">&gt;(</span><span class="n">allClasses</span><span class="p">)</span>
+        <span class="n">let</span> <span class="n">actualClassCount</span><span class="p">:</span> <span class="nc">Int32</span> <span class="p">=</span> <span class="nf">objc_getClassList</span><span class="p">(</span><span class="n">autoreleasingAllClasses</span><span class="p">,</span> <span class="n">expectedClassCount</span><span class="p">)</span>
         
-        var resultXLClass = [AnyClass]()
-        for i in 0 ..&lt; actualClassCount {
+        <span class="kd">var</span> <span class="py">resultXLClass</span> <span class="p">=</span> <span class="p">[</span><span class="nc">AnyClass</span><span class="p">]()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span> <span class="o">..</span><span class="p">&lt;</span> <span class="nf">actualClassCount</span> <span class="p">{</span>
             
-            let currentClass: AnyClass = allClasses[Int(i)]
-            let fullClassName: String = NSStringFromClass(currentClass.self)
+            <span class="n">let</span> <span class="n">currentClass</span><span class="p">:</span> <span class="nc">AnyClass</span> <span class="p">=</span> <span class="n">allClasses</span><span class="p">[</span><span class="nc">Int</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+            <span class="n">let</span> <span class="n">fullClassName</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="nc">NSStringFromClass</span><span class="p">(</span><span class="n">currentClass</span><span class="p">.</span><span class="n">self</span><span class="p">)</span>
             
-            for value in registerClassPrifxArray {
-                if (fullClassName.containsSubString(substring: value))  {
-                    if currentClass is UIViewController.Type {
-                        resultXLClass.append(currentClass)
-                    }
+            <span class="k">for</span> <span class="n">value</span> <span class="k">in</span> <span class="nf">registerClassPrifxArray</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">fullClassName</span><span class="p">.</span><span class="nf">containsSubString</span><span class="p">(</span><span class="n">substring</span><span class="p">:</span> <span class="n">value</span><span class="p">))</span>  <span class="p">{</span>
+                    <span class="k">if</span> <span class="n">currentClass</span> <span class="k">is</span> <span class="nc">UIViewController</span><span class="p">.</span><span class="nc">Type</span> <span class="p">{</span>
+                        <span class="n">resultXLClass</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">currentClass</span><span class="p">)</span>
+                    <span class="p">}</span>
                     
-    #if DEBUG
-                    if let clss = currentClass as? CustomRouterInfo.Type {
-                        assert(clss.patternString.hasPrefix("scheme://"), "URL非scheme://开头，请重新确认")
-                        apiArray.append(clss.patternString)
-                        classMapArray.append(clss.routerClass)
-                    }
-    #endif
-                }
-            }
-        }
+    <span class="err">#</span><span class="k">if</span> <span class="nc">DEBUG</span>
+                    <span class="k">if</span> <span class="n">let</span> <span class="n">clss</span> <span class="p">=</span> <span class="n">currentClass</span> <span class="k">as</span><span class="p">?</span> <span class="nc">CustomRouterInfo</span><span class="p">.</span><span class="nc">Type</span> <span class="p">{</span>
+                        <span class="nf">assert</span><span class="p">(</span><span class="n">clss</span><span class="p">.</span><span class="n">patternString</span><span class="p">.</span><span class="nf">hasPrefix</span><span class="p">(</span><span class="s">"scheme://"</span><span class="p">),</span> <span class="s">"URL非scheme://开头，请重新确认"</span><span class="p">)</span>
+                        <span class="n">apiArray</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">clss</span><span class="p">.</span><span class="n">patternString</span><span class="p">)</span>
+                        <span class="n">classMapArray</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">clss</span><span class="p">.</span><span class="n">routerClass</span><span class="p">)</span>
+                    <span class="p">}</span>
+    <span class="err">#</span><span class="n">endif</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
         
-        for i in 0 ..&lt; resultXLClass.count {
-            let currentClass: AnyClass = resultXLClass[i]
-            if let cls = currentClass as? TheRouterable.Type {
-                let fullName: String = NSStringFromClass(currentClass.self)
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span> <span class="o">..</span><span class="p">&lt;</span> <span class="n">resultXLClass</span><span class="p">.</span><span class="nf">count</span> <span class="p">{</span>
+            <span class="n">let</span> <span class="n">currentClass</span><span class="p">:</span> <span class="nc">AnyClass</span> <span class="p">=</span> <span class="n">resultXLClass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">let</span> <span class="n">cls</span> <span class="p">=</span> <span class="n">currentClass</span> <span class="k">as</span><span class="p">?</span> <span class="nc">TheRouterable</span><span class="p">.</span><span class="nc">Type</span> <span class="p">{</span>
+                <span class="n">let</span> <span class="n">fullName</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="nc">NSStringFromClass</span><span class="p">(</span><span class="n">currentClass</span><span class="p">.</span><span class="n">self</span><span class="p">)</span>
                
-                for s in 0 ..&lt; cls.patternString.count {
+                <span class="k">for</span> <span class="n">s</span> <span class="k">in</span> <span class="mi">0</span> <span class="o">..</span><span class="p">&lt;</span> <span class="n">cls</span><span class="p">.</span><span class="n">patternString</span><span class="p">.</span><span class="nf">count</span> <span class="p">{</span>
                     
-                    if fullName.hasPrefix(NSKVONotifyingPrefix) {
-                        let range = fullName.index(fullName.startIndex, offsetBy: NSKVONotifyingPrefix.count)..&lt;fullName.endIndex
-                        let subString = fullName[range]
-                        pagePathMap[cls.patternString[s]] = "\(subString)"
-                        TheRouter.addRouterItem(cls.patternString[s], classString: "\(subString)")
-                    } else {
-                        pagePathMap[cls.patternString[s]] = fullName
-                        TheRouter.addRouterItem(cls.patternString[s], classString: fullName)
-                    }
-                }
-            }
-        }
+                    <span class="k">if</span> <span class="n">fullName</span><span class="p">.</span><span class="nf">hasPrefix</span><span class="p">(</span><span class="nc">NSKVONotifyingPrefix</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">let</span> <span class="n">range</span> <span class="p">=</span> <span class="n">fullName</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">fullName</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="nc">NSKVONotifyingPrefix</span><span class="p">.</span><span class="n">count</span><span class="p">)</span><span class="o">..</span><span class="p">&lt;</span><span class="n">fullName</span><span class="p">.</span><span class="n">endIndex</span>
+                        <span class="n">let</span> <span class="n">subString</span> <span class="p">=</span> <span class="n">fullName</span><span class="p">[</span><span class="n">range</span><span class="p">]</span>
+                        <span class="n">pagePathMap</span><span class="p">[</span><span class="n">cls</span><span class="p">.</span><span class="n">patternString</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="p">=</span> <span class="s">"\(subString)"</span>
+                        <span class="nc">TheRouter</span><span class="p">.</span><span class="nf">addRouterItem</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">patternString</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">classString</span><span class="p">:</span> <span class="s">"\(subString)"</span><span class="p">)</span>
+                    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="n">pagePathMap</span><span class="p">[</span><span class="n">cls</span><span class="p">.</span><span class="n">patternString</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="p">=</span> <span class="n">fullName</span>
+                        <span class="nc">TheRouter</span><span class="p">.</span><span class="nf">addRouterItem</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">patternString</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">classString</span><span class="p">:</span> <span class="n">fullName</span><span class="p">)</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
         
-#if DEBUG
-        debugPrint(pagePathMap)
-        routerForceRecheck()
-#endif
-        TheRouter.routerLoadStatus(true)
-        return TheRouter.openURL(urlPath, userInfo: userInfo)
-}
-</code></pre>
+<span class="err">#</span><span class="k">if</span> <span class="nc">DEBUG</span>
+        <span class="nf">debugPrint</span><span class="p">(</span><span class="n">pagePathMap</span><span class="p">)</span>
+        <span class="nf">routerForceRecheck</span><span class="p">()</span>
+<span class="err">#</span><span class="n">endif</span>
+        <span class="nc">TheRouter</span><span class="p">.</span><span class="nf">routerLoadStatus</span><span class="p">(</span><span class="k">true</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">(</span><span class="n">urlPath</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">:</span> <span class="n">userInfo</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>为了避免无效遍历，我们通过传入 registerClassPrifxArray 指定我们遍历包含这些前缀的类即可。一旦是 UIViewController.Type 类型就进行存储，然后再进行校验是否遵循 TheRouterable 协议，遵循则自动注册。无需手动注册。</p>
 
@@ -293,105 +293,105 @@ TheRouter.logcat { url, logType, errorMsg in
 
 <p>采用动态注册有一个不好的情况就是在启动时就去动态注册，在 TheRouter 中注册的时机被延后了，放在了 App 第一次通过 TheRouter.openUrl()时进行注册，会判断路由是否加载完毕，未加载完毕进行加载，然后打开路由。</p>
 
-<pre><code class="language-clike">@discardableResult
-public class func openURL(_ urlString: String, userInfo: [String: Any] = [String: Any](), handler: complateHandler = nil) -&gt; Any? {
-    if urlString.isEmpty {
-        return nil
-    }
-    if !shareInstance.isLoaded {
-        return shareInstance.lazyRegisterHandleBlock?(urlString, userInfo)
-    } else {
-       return openCacheRouter((urlString, userInfo))
-    }
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">@</span><span class="n">discardableResult</span>
+<span class="k">public</span> <span class="kd">class</span> <span class="err">func open</span><span class="nc">URL</span><span class="p">(</span><span class="n">_</span> <span class="n">urlString</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">](),</span> <span class="n">handler</span><span class="p">:</span> <span class="n">complateHandler</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nc">Any</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">urlString</span><span class="p">.</span><span class="nf">isEmpty</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">nil</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">!</span><span class="n">shareInstance</span><span class="p">.</span><span class="nf">isLoaded</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">shareInstance</span><span class="p">.</span><span class="n">lazyRegisterHandleBlock</span><span class="p">?(</span><span class="n">urlString</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="k">return</span> <span class="nf">openCacheRouter</span><span class="p">((</span><span class="n">urlString</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-// MARK: - Public method
-@discardableResult
-public class func openURL(_ uriTuple: (String, [String: Any]), handler: complateHandler = nil) -&gt; Any? {
-    if !shareInstance.isLoaded {
-        return shareInstance.lazyRegisterHandleBlock?(uriTuple.0, uriTuple.1)
-    } else {
-        return openCacheRouter(uriTuple)
-    }
-}
+<span class="c1">// MARK: - Public method</span>
+<span class="err">@</span><span class="n">discardableResult</span>
+<span class="k">public</span> <span class="kd">class</span> <span class="err">func open</span><span class="nc">URL</span><span class="p">(</span><span class="n">_</span> <span class="n">uriTuple</span><span class="p">:</span> <span class="p">(</span><span class="nc">String</span><span class="p">,</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">]),</span> <span class="n">handler</span><span class="p">:</span> <span class="n">complateHandler</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nc">Any</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">!</span><span class="n">shareInstance</span><span class="p">.</span><span class="nf">isLoaded</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">shareInstance</span><span class="p">.</span><span class="n">lazyRegisterHandleBlock</span><span class="p">?(</span><span class="n">uriTuple</span><span class="mf">.0</span><span class="p">,</span> <span class="n">uriTuple</span><span class="mf">.1</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nf">openCacheRouter</span><span class="p">(</span><span class="n">uriTuple</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-public class func openCacheRouter(_ uriTuple: (String, [String: Any]), handler: complateHandler = nil) -&gt; Any? {
+<span class="k">public</span> <span class="kd">class</span> <span class="err">func open</span><span class="nc">CacheRouter</span><span class="p">(</span><span class="n">_</span> <span class="n">uriTuple</span><span class="p">:</span> <span class="p">(</span><span class="nc">String</span><span class="p">,</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">]),</span> <span class="n">handler</span><span class="p">:</span> <span class="n">complateHandler</span> <span class="p">=</span> <span class="n">nil</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nc">Any</span><span class="p">?</span> <span class="p">{</span>
 
-    if uriTuple.0.isEmpty {
-        return nil
-    }
+    <span class="k">if</span> <span class="n">uriTuple</span><span class="mf">.0</span><span class="p">.</span><span class="nf">isEmpty</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">nil</span>
+    <span class="p">}</span>
 
-    if uriTuple.0.contains(shareInstance.serviceHost) {
-        return routerService(uriTuple)
-    } else {
-        return routerJump(uriTuple)
-    }
-}
-</code></pre>
+    <span class="k">if</span> <span class="n">uriTuple</span><span class="mf">.0</span><span class="p">.</span><span class="nf">contains</span><span class="p">(</span><span class="n">shareInstance</span><span class="p">.</span><span class="n">serviceHost</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nf">routerService</span><span class="p">(</span><span class="n">uriTuple</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nf">routerJump</span><span class="p">(</span><span class="n">uriTuple</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h4 id="如何让-oc-类也享受到-swift-路由">如何让 OC 类也享受到 Swift 路由</h4>
 
 <p>这是一个 OC 类的界面，实现路由的跳转需要继承 OC 类，并实现 TheRouterAble 协议即可</p>
 
-<pre><code class="language-clike">@interface TheRouterBController : UIViewController
-@property (nonatomic, strong) UILabel *desLabel;
-@end
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">@</span><span class="kd">interface</span> <span class="nc">TheRouterBController</span> <span class="p">:</span> <span class="nc">UIViewController</span>
+<span class="err">@</span><span class="nf">property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="nc">UILabel</span> <span class="p">*</span><span class="n">desLabel</span><span class="p">;</span>
+<span class="err">@</span><span class="n">end</span>
 
-@interface TheRouterBController ()
+<span class="err">@</span><span class="kd">interface</span> <span class="nc">TheRouterBController</span> <span class="p">()</span>
 
-@end
+<span class="err">@</span><span class="n">end</span>
 
-@implementation TheRouterBController
+<span class="err">@</span><span class="n">implementation</span> <span class="nc">TheRouterBController</span>
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.view.backgroundColor = [UIColor yellowColor];
-    [self.view addSubview:self.desLabel];
-    // Do any additional setup after loading the view.
-}
-@end
+<span class="p">-</span> <span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="nf">viewDidLoad</span> <span class="p">{</span>
+<span class="na">    [super viewDidLoad]</span><span class="p">;</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">backgroundColor</span> <span class="p">=</span> <span class="p">[</span><span class="nc">UIColor</span> <span class="n">yellowColor</span><span class="p">];</span>
+<span class="na">    [self.view addSubview:self.desLabel]</span><span class="p">;</span>
+    <span class="c1">// Do any additional setup after loading the view.</span>
+<span class="p">}</span>
+<span class="err">@</span><span class="n">end</span>
 
-public class TheRouterControllerB: TheRouterBController, TheRouterable {
+<span class="k">public</span> <span class="kd">class</span> <span class="nc">TheRouterControllerB</span><span class="p">:</span> <span class="nc">TheRouterBController</span><span class="p">,</span> <span class="nc">TheRouterable</span> <span class="p">{</span>
 
-    public static var patternString: [String] {
-        ["scheme://router/demo2",
-         "scheme://router/demo2-Android"]
-    }
+    <span class="k">public</span> <span class="n">static</span> <span class="kd">var</span> <span class="py">patternString</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">]</span> <span class="p">{</span>
+        <span class="p">[</span><span class="s">"scheme://router/demo2"</span><span class="p">,</span>
+         <span class="s">"scheme://router/demo2-Android"</span><span class="p">]</span>
+    <span class="p">}</span>
     
-    public static var descriptions: String {
-        "TheRouterControllerDemo"
-    }
+    <span class="k">public</span> <span class="n">static</span> <span class="kd">var</span> <span class="py">descriptions</span><span class="p">:</span> <span class="nc">String</span> <span class="p">{</span>
+        <span class="s">"TheRouterControllerDemo"</span>
+    <span class="p">}</span>
 
-    public static func registerAction(info: [String : Any]) -&gt; Any {
-        let vc =  TheRouterBController()
-        vc.desLabel.text = info.description
-        return vc
-    }
-}
-</code></pre>
+    <span class="k">public</span> <span class="n">static</span> <span class="n">func</span> <span class="nf">registerAction</span><span class="p">(</span><span class="n">info</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span> <span class="p">:</span> <span class="nc">Any</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nc">Any</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">vc</span> <span class="p">=</span>  <span class="nc">TheRouterBController</span><span class="p">()</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">desLabel</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">info</span><span class="p">.</span><span class="n">description</span>
+        <span class="k">return</span> <span class="n">vc</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h4 id="同时支持手动单个注册">同时支持手动单个注册</h4>
 
-<pre><code class="language-clike">// 模型模式
-TheRouter.addRouterItem(RouteItem(path: "scheme://router/demo?&amp;desc=简单注册,直接调用TheRouter.addRouterItem()注册即可", className: "TheRouter_Example.TheRouterController", desc: "简单注册,直接调用TheRouter", params: ["key1": 1]))
-// 字典模式
-TheRouter.addRouterItem(["scheme://router/demo?&amp;desc=简单注册,直接调用TheRouter.addRouterItem()注册即可": "TheRouter_Example.TheRouterController"])
-// 常量参数模式
-TheRouter.addRouterItem("scheme://router/demo?&amp;desc=简单注册", classString: "TheRouter_Example.TheRouterController")
-// 协议模式， TheRouterApi实现了 CustomRouterInfo协议
-TheRouter.addRouterItem(TheRouterApi.patternString, classString: TheRouterApi.routerClass)
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 模型模式</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">addRouterItem</span><span class="p">(</span><span class="nc">RouteItem</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="s">"scheme://router/demo?&amp;desc=简单注册,直接调用TheRouter.addRouterItem()注册即可"</span><span class="p">,</span> <span class="n">className</span><span class="p">:</span> <span class="s">"TheRouter_Example.TheRouterController"</span><span class="p">,</span> <span class="n">desc</span><span class="p">:</span> <span class="s">"简单注册,直接调用TheRouter"</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="p">[</span><span class="s">"key1"</span><span class="p">:</span> <span class="mi">1</span><span class="p">]))</span>
+<span class="c1">// 字典模式</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">addRouterItem</span><span class="p">([</span><span class="s">"scheme://router/demo?&amp;desc=简单注册,直接调用TheRouter.addRouterItem()注册即可"</span><span class="p">:</span> <span class="s">"TheRouter_Example.TheRouterController"</span><span class="p">])</span>
+<span class="c1">// 常量参数模式</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">addRouterItem</span><span class="p">(</span><span class="s">"scheme://router/demo?&amp;desc=简单注册"</span><span class="p">,</span> <span class="n">classString</span><span class="p">:</span> <span class="s">"TheRouter_Example.TheRouterController"</span><span class="p">)</span>
+<span class="c1">// 协议模式， TheRouterApi实现了 CustomRouterInfo协议</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">addRouterItem</span><span class="p">(</span><span class="nc">TheRouterApi</span><span class="p">.</span><span class="n">patternString</span><span class="p">,</span> <span class="n">classString</span><span class="p">:</span> <span class="nc">TheRouterApi</span><span class="p">.</span><span class="n">routerClass</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h4 id="同时支持手动批量注册">同时支持手动批量注册</h4>
 
-<pre><code class="language-clike">TheRouter.addRouterItem(["scheme://router/demo": "TheRouter_Example.TheRouterController",
-                    "scheme://router/demo1": "TheRouter_Example.TheRouterControllerA"])
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="p">.</span><span class="nf">addRouterItem</span><span class="p">([</span><span class="s">"scheme://router/demo"</span><span class="p">:</span> <span class="s">"TheRouter_Example.TheRouterController"</span><span class="p">,</span>
+                    <span class="s">"scheme://router/demo1"</span><span class="p">:</span> <span class="s">"TheRouter_Example.TheRouterControllerA"</span><span class="p">])</span>
+</code></pre></div></div>
 
 <h3 id="移除">移除</h3>
 
-<pre><code class="language-clike">TheRouter.removeRouter(TheRouterViewCApi.patternString)
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="p">.</span><span class="nf">removeRouter</span><span class="p">(</span><span class="nc">TheRouterViewCApi</span><span class="p">.</span><span class="n">patternString</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h3 id="打开">打开</h3>
 
@@ -399,125 +399,125 @@ TheRouter.addRouterItem(TheRouterApi.patternString, classString: TheRouterApi.ro
 
 <p>便利构造器链式打开路由</p>
 
-<pre><code class="language-clike">let model = TheRouterModel.init(name: "AKyS", age: 18)
-TheRouterBuilder.build("scheme://router/demo")
-    .withInt(key: "intValue", value: 2)
-    .withString(key: "stringValue", value: "2222")
-    .withFloat(key: "floatValue", value: 3.1415)
-    .withBool(key: "boolValue", value: false)
-    .withDouble(key: "doubleValue", value: 2.0)
-    .withAny(key: "any", value: model)
-    .navigation()
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">let</span> <span class="n">model</span> <span class="p">=</span> <span class="nc">TheRouterModel</span><span class="p">.</span><span class="nf">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">"AKyS"</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="mi">18</span><span class="p">)</span>
+<span class="nc">TheRouterBuilder</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="s">"scheme://router/demo"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withInt</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"intValue"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withString</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"stringValue"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="s">"2222"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withFloat</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"floatValue"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mf">3.1415</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withBool</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"boolValue"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="k">false</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withDouble</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"doubleValue"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withAny</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"any"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">model</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">navigation</span><span class="p">()</span>
     
-TheRouterBuilder.build("scheme://router/demo")
-	.withInt(key: "intValue", value: 2)
-	.withString(key: "stringValue", value: "sdsd")
-	.withFloat(key: "floatValue", value: 3.1415)
-	.withBool(key: "boolValue", value: false)
-	.withDouble(key: "doubleValue", value: 2.0)
-	.withAny(key: "any", value: model)
-	.navigation { params, instance in
+<span class="nc">TheRouterBuilder</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="s">"scheme://router/demo"</span><span class="p">)</span>
+	<span class="p">.</span><span class="nf">withInt</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"intValue"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+	<span class="p">.</span><span class="nf">withString</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"stringValue"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="s">"sdsd"</span><span class="p">)</span>
+	<span class="p">.</span><span class="nf">withFloat</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"floatValue"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mf">3.1415</span><span class="p">)</span>
+	<span class="p">.</span><span class="nf">withBool</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"boolValue"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="k">false</span><span class="p">)</span>
+	<span class="p">.</span><span class="nf">withDouble</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"doubleValue"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">)</span>
+	<span class="p">.</span><span class="nf">withAny</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="s">"any"</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">model</span><span class="p">)</span>
+	<span class="p">.</span><span class="nf">navigation</span> <span class="p">{</span> <span class="n">params</span><span class="p">,</span> <span class="n">instance</span> <span class="k">in</span>
 	    
-	}
+	<span class="p">}</span>
     
-</code></pre>
+</code></pre></div></div>
 
 <p>打开路由常用方式</p>
 
-<pre><code class="language-clike">public class TheRouterApi: CustomRouterInfo {
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kd">class</span> <span class="nc">TheRouterApi</span><span class="p">:</span> <span class="nc">CustomRouterInfo</span> <span class="p">{</span>
 
-    public static var patternString = "scheme://router/demo"
-    public static var routerClass = "TheRouter_Example.TheRouterController"
-    public var params: [String: Any] { return [:] }
-    public var jumpType: LAJumpType = .push
+    <span class="k">public</span> <span class="n">static</span> <span class="kd">var</span> <span class="py">patternString</span> <span class="p">=</span> <span class="s">"scheme://router/demo"</span>
+    <span class="k">public</span> <span class="n">static</span> <span class="kd">var</span> <span class="py">routerClass</span> <span class="p">=</span> <span class="s">"TheRouter_Example.TheRouterController"</span>
+    <span class="k">public</span> <span class="kd">var</span> <span class="py">params</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">]</span> <span class="p">{</span> <span class="k">return</span> <span class="p">[:]</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kd">var</span> <span class="py">jumpType</span><span class="p">:</span> <span class="nc">LAJumpType</span> <span class="p">=</span> <span class="p">.</span><span class="n">push</span>
 
-    public init() {}
-}
+    <span class="k">public</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
 
-public class TheRouterAApi: CustomRouterInfo {
+<span class="k">public</span> <span class="kd">class</span> <span class="nc">TheRouterAApi</span><span class="p">:</span> <span class="nc">CustomRouterInfo</span> <span class="p">{</span>
 
-    public static var patternString = "scheme://router/demo1"
-    public static var routerClass = "TheRouter_Example.TheRouterControllerA"
-    public var params: [String: Any] { return [:] }
-    public var jumpType: LAJumpType = .push
+    <span class="k">public</span> <span class="n">static</span> <span class="kd">var</span> <span class="py">patternString</span> <span class="p">=</span> <span class="s">"scheme://router/demo1"</span>
+    <span class="k">public</span> <span class="n">static</span> <span class="kd">var</span> <span class="py">routerClass</span> <span class="p">=</span> <span class="s">"TheRouter_Example.TheRouterControllerA"</span>
+    <span class="k">public</span> <span class="kd">var</span> <span class="py">params</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">]</span> <span class="p">{</span> <span class="k">return</span> <span class="p">[:]</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kd">var</span> <span class="py">jumpType</span><span class="p">:</span> <span class="nc">LAJumpType</span> <span class="p">=</span> <span class="p">.</span><span class="n">push</span>
 
-    public init() {}
-}
+    <span class="k">public</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
 
-TheRouter.openURL(TheRouterCApi.init().requiredURL)
-TheRouter.openWebURL("https://xxxxxxxx")
-</code></pre>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">(</span><span class="nc">TheRouterCApi</span><span class="p">.</span><span class="nf">init</span><span class="p">().</span><span class="n">requiredURL</span><span class="p">)</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openWebURL</span><span class="p">(</span><span class="s">"https://xxxxxxxx"</span><span class="p">)</span>
+</code></pre></div></div>
 
-<pre><code class="language-clike">
-@discardableResult
-public class func openWebURL(_ uriTuple: (String, [String: Any])) -&gt; Any? {
-    return TheRouter.openURL(uriTuple)
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="err">@</span><span class="n">discardableResult</span>
+<span class="k">public</span> <span class="kd">class</span> <span class="err">func open</span><span class="nc">WebURL</span><span class="p">(</span><span class="n">_</span> <span class="n">uriTuple</span><span class="p">:</span> <span class="p">(</span><span class="nc">String</span><span class="p">,</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">]))</span> <span class="p">-&gt;</span> <span class="nc">Any</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">(</span><span class="n">uriTuple</span><span class="p">)</span>
+<span class="p">}</span>
 
-@discardableResult
-public class func openWebURL(_ urlString: String,
-                             userInfo: [String: Any] = [String: Any]()) -&gt; Any? {
-    TheRouter.openURL((urlString, userInfo))
-}
-</code></pre>
+<span class="err">@</span><span class="n">discardableResult</span>
+<span class="k">public</span> <span class="kd">class</span> <span class="err">func open</span><span class="nc">WebURL</span><span class="p">(</span><span class="n">_</span> <span class="n">urlString</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+                             <span class="n">userInfo</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">]())</span> <span class="p">-&gt;</span> <span class="nc">Any</span><span class="p">?</span> <span class="p">{</span>
+    <span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">((</span><span class="n">urlString</span><span class="p">,</span> <span class="n">userInfo</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>元祖形式传入路由与追加参数</p>
 
-<pre><code class="language-clike">TheRouter.openURL(("scheme://router/demo1?id=2&amp;value=3&amp;name=AKyS&amp;desc=直接调用TheRouter.addRouterItem()注册即可，支持单个注册，批量注册，动态注册，懒加载动态注册", ["descs": "追加参数"]))
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">((</span><span class="s">"scheme://router/demo1?id=2&amp;value=3&amp;name=AKyS&amp;desc=直接调用TheRouter.addRouterItem()注册即可，支持单个注册，批量注册，动态注册，懒加载动态注册"</span><span class="p">,</span> <span class="p">[</span><span class="s">"descs"</span><span class="p">:</span> <span class="s">"追加参数"</span><span class="p">]))</span>
+</code></pre></div></div>
 
 <p>参数传递方式</p>
 
-<pre><code class="language-clike">let clouse = { (qrResult: String, qrStatus: Bool) in
-    print("\(qrResult) \(qrStatus)")
-    self.view.makeToast("\(qrResult) \(qrStatus)")
-}
-let model = TheRouterModel.init(name: "AKyS", age: 18)
-TheRouter.openURL(("scheme://router/demo?id=2&amp;value=3&amp;name=AKyS", ["model": model, "clouse": clouse]))
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">let</span> <span class="n">clouse</span> <span class="p">=</span> <span class="p">{</span> <span class="p">(</span><span class="n">qrResult</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span> <span class="n">qrStatus</span><span class="p">:</span> <span class="nc">Bool</span><span class="p">)</span> <span class="k">in</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"\(qrResult) \(qrStatus)"</span><span class="p">)</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="nf">makeToast</span><span class="p">(</span><span class="s">"\(qrResult) \(qrStatus)"</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">let</span> <span class="n">model</span> <span class="p">=</span> <span class="nc">TheRouterModel</span><span class="p">.</span><span class="nf">init</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="s">"AKyS"</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="mi">18</span><span class="p">)</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">((</span><span class="s">"scheme://router/demo?id=2&amp;value=3&amp;name=AKyS"</span><span class="p">,</span> <span class="p">[</span><span class="s">"model"</span><span class="p">:</span> <span class="n">model</span><span class="p">,</span> <span class="s">"clouse"</span><span class="p">:</span> <span class="n">clouse</span><span class="p">]))</span>
+</code></pre></div></div>
 
 <h3 id="全局失败映射">全局失败映射</h3>
 
-<pre><code class="language-clike">TheRouter.globalOpenFailedHandler { info in
-   debugPrint(info)
-}
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="p">.</span><span class="nf">globalOpenFailedHandler</span> <span class="p">{</span> <span class="n">info</span> <span class="k">in</span>
+   <span class="nf">debugPrint</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h3 id="拦截">拦截</h3>
 
 <p>比如在未登录情况下统一拦截：跳转消息列表之前先去登录，登录成功之后跳转到消息列表等。</p>
 
-<pre><code class="language-clike">let login = TheRouterLoginApi.templateString
- TheRouter.addRouterInterceptor([login], priority: 0) { (info) -&gt; Bool in
-       if LALoginManger.shared.isLogin {
-             return true
-       } else {
-             TheRouter.openURL(TheRouterLoginApi().build)
-             return false
-       }
- }
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">let</span> <span class="n">login</span> <span class="p">=</span> <span class="nc">TheRouterLoginApi</span><span class="p">.</span><span class="n">templateString</span>
+ <span class="nc">TheRouter</span><span class="p">.</span><span class="nf">addRouterInterceptor</span><span class="p">([</span><span class="n">login</span><span class="p">],</span> <span class="n">priority</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nc">Bool</span> <span class="k">in</span>
+       <span class="k">if</span> <span class="nc">LALoginManger</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="nf">isLogin</span> <span class="p">{</span>
+             <span class="k">return</span> <span class="k">true</span>
+       <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+             <span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">(</span><span class="nc">TheRouterLoginApi</span><span class="p">().</span><span class="n">build</span><span class="p">)</span>
+             <span class="k">return</span> <span class="k">false</span>
+       <span class="p">}</span>
+ <span class="p">}</span>
+</code></pre></div></div>
 
 <p>登录成功之后删除拦截器即可。</p>
 
 <h3 id="路由-path-与类正确安全校验">路由 Path 与类正确安全校验</h3>
 
-<pre><code class="language-clike">// MARK: - 客户端强制校验，是否匹配
-public static func routerForceRecheck() {
-    let patternArray = Set(pagePathMap.keys)
-    let apiPathArray = Set(apiArray)
-    let diffArray = patternArray.symmetricDifference(apiPathArray)
-    debugPrint("URL差集：\(diffArray)")
-    debugPrint("pagePathMap：\(pagePathMap)")
-    assert(diffArray.count == 0, "URL 拼写错误，请确认差集中的url是否匹配")
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MARK: - 客户端强制校验，是否匹配</span>
+<span class="k">public</span> <span class="n">static</span> <span class="n">func</span> <span class="nf">routerForceRecheck</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">let</span> <span class="n">patternArray</span> <span class="p">=</span> <span class="nc">Set</span><span class="p">(</span><span class="n">pagePathMap</span><span class="p">.</span><span class="n">keys</span><span class="p">)</span>
+    <span class="n">let</span> <span class="n">apiPathArray</span> <span class="p">=</span> <span class="nc">Set</span><span class="p">(</span><span class="n">apiArray</span><span class="p">)</span>
+    <span class="n">let</span> <span class="n">diffArray</span> <span class="p">=</span> <span class="n">patternArray</span><span class="p">.</span><span class="nf">symmetricDifference</span><span class="p">(</span><span class="n">apiPathArray</span><span class="p">)</span>
+    <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"URL差集：\(diffArray)"</span><span class="p">)</span>
+    <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"pagePathMap：\(pagePathMap)"</span><span class="p">)</span>
+    <span class="nf">assert</span><span class="p">(</span><span class="n">diffArray</span><span class="p">.</span><span class="n">count</span> <span class="p">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"URL 拼写错误，请确认差集中的url是否匹配"</span><span class="p">)</span>
 
-    let patternValueArray = Set(pagePathMap.values)
-    let classPathArray = Set(classMapArray)
-    let diffClassesArray = patternValueArray.symmetricDifference(classPathArray)
-    debugPrint("classes差集：\(diffClassesArray)")
-    assert(diffClassesArray.count == 0, "classes 拼写错误，请确认差集中的class是否匹配")
-}
-</code></pre>
+    <span class="n">let</span> <span class="n">patternValueArray</span> <span class="p">=</span> <span class="nc">Set</span><span class="p">(</span><span class="n">pagePathMap</span><span class="p">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">let</span> <span class="n">classPathArray</span> <span class="p">=</span> <span class="nc">Set</span><span class="p">(</span><span class="n">classMapArray</span><span class="p">)</span>
+    <span class="n">let</span> <span class="n">diffClassesArray</span> <span class="p">=</span> <span class="n">patternValueArray</span><span class="p">.</span><span class="nf">symmetricDifference</span><span class="p">(</span><span class="n">classPathArray</span><span class="p">)</span>
+    <span class="nf">debugPrint</span><span class="p">(</span><span class="s">"classes差集：\(diffClassesArray)"</span><span class="p">)</span>
+    <span class="nf">assert</span><span class="p">(</span><span class="n">diffClassesArray</span><span class="p">.</span><span class="n">count</span> <span class="p">==</span> <span class="mi">0</span><span class="p">,</span> <span class="s">"classes 拼写错误，请确认差集中的class是否匹配"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h3 id="踩坑路由注册-kvo">踩坑路由注册-KVO</h3>
 
@@ -525,16 +525,16 @@ public static func routerForceRecheck() {
 
 <p>排查原因： 是因为为了避免路由在启动时就注册，影响启动速度，采用了懒加载的方式即第一次打开路由界面的时候才先进行注册然后跳转。但是在我们动态注册之前，某个类因为添加了 KVO (Key-Value Observing 键值监听)，这个类在遍历时 className 修改为了 NSKVONotifying_xxx。需要我们进行特殊处理，如下</p>
 
-<pre><code class="language-clike">/// 对于KVO监听，动态创建子类，需要特殊处理
-public let NSKVONotifyingPrefix = "NSKVONotifying_"
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// 对于KVO监听，动态创建子类，需要特殊处理</span>
+<span class="k">public</span> <span class="n">let</span> <span class="nc">NSKVONotifyingPrefix</span> <span class="p">=</span> <span class="s">"NSKVONotifying_"</span>
 
-if fullName.hasPrefix(NSKVONotifyingPrefix) {
-    let range = fullName.index(fullName.startIndex, offsetBy: NSKVONotifyingPrefix.count)..&lt;fullName.endIndex
-    let subString = fullName[range]
-    pagePathMap[cls.patternString[s]] = "\(subString)"
-    TheRouter.addRouterItem(cls.patternString[s], classString: "\(subString)")
-}
-</code></pre>
+<span class="k">if</span> <span class="n">fullName</span><span class="p">.</span><span class="nf">hasPrefix</span><span class="p">(</span><span class="nc">NSKVONotifyingPrefix</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">let</span> <span class="n">range</span> <span class="p">=</span> <span class="n">fullName</span><span class="p">.</span><span class="nf">index</span><span class="p">(</span><span class="n">fullName</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="nc">NSKVONotifyingPrefix</span><span class="p">.</span><span class="n">count</span><span class="p">)</span><span class="o">..</span><span class="p">&lt;</span><span class="n">fullName</span><span class="p">.</span><span class="n">endIndex</span>
+    <span class="n">let</span> <span class="n">subString</span> <span class="p">=</span> <span class="n">fullName</span><span class="p">[</span><span class="n">range</span><span class="p">]</span>
+    <span class="n">pagePathMap</span><span class="p">[</span><span class="n">cls</span><span class="p">.</span><span class="n">patternString</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="p">=</span> <span class="s">"\(subString)"</span>
+    <span class="nc">TheRouter</span><span class="p">.</span><span class="nf">addRouterItem</span><span class="p">(</span><span class="n">cls</span><span class="p">.</span><span class="n">patternString</span><span class="p">[</span><span class="n">s</span><span class="p">],</span> <span class="n">classString</span><span class="p">:</span> <span class="s">"\(subString)"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h2 id="动态调用路由">动态调用路由</h2>
 
@@ -543,155 +543,155 @@ if fullName.hasPrefix(NSKVONotifyingPrefix) {
 <h3 id="重定向功能">重定向功能</h3>
 <p>定义路由下发模型数据结构</p>
 
-<pre><code class="language-clike">public struct TheRouterInfo {
-    public init() {}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="n">struct</span> <span class="nc">TheRouterInfo</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{}</span>
     
-    public var targetPath: String = ""
-    public var orginPath: String = ""
-    // 1: 表示替换或者修复客户端代码path错误 2: 新增路由path 3:删除路由
-    public var routerType: TheRouterReloadMapEnum = .none 
-    public var path: String = "" // 新的路由地址
-    public var className: String = "" // 路由地址对应的界面
-    public var params: [String: Any] = [:]
-}
-</code></pre>
+    <span class="k">public</span> <span class="kd">var</span> <span class="py">targetPath</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span>
+    <span class="k">public</span> <span class="kd">var</span> <span class="py">orginPath</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span>
+    <span class="c1">// 1: 表示替换或者修复客户端代码path错误 2: 新增路由path 3:删除路由</span>
+    <span class="k">public</span> <span class="kd">var</span> <span class="py">routerType</span><span class="p">:</span> <span class="nc">TheRouterReloadMapEnum</span> <span class="p">=</span> <span class="p">.</span><span class="n">none</span> 
+    <span class="k">public</span> <span class="kd">var</span> <span class="py">path</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span> <span class="c1">// 新的路由地址</span>
+    <span class="k">public</span> <span class="kd">var</span> <span class="py">className</span><span class="p">:</span> <span class="nc">String</span> <span class="p">=</span> <span class="s">""</span> <span class="c1">// 路由地址对应的界面</span>
+    <span class="k">public</span> <span class="kd">var</span> <span class="py">params</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">]</span> <span class="p">=</span> <span class="p">[:]</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>通过远端下发重定向数据，原本跳转到白色界面的业务逻辑改为跳转到黄色界面</p>
 
-<pre><code class="language-clike">let relocationMap = ["routerType": 1, "targetPath": "scheme://router/demo1", "orginPath": "scheme://router/demo"] as NSDictionary
-TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
-TheRouter.openURL("scheme://router/demo?desc=跳转白色界面被重定向到了黄色界面")
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">let</span> <span class="n">relocationMap</span> <span class="p">=</span> <span class="p">[</span><span class="s">"routerType"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">"targetPath"</span><span class="p">:</span> <span class="s">"scheme://router/demo1"</span><span class="p">,</span> <span class="s">"orginPath"</span><span class="p">:</span> <span class="s">"scheme://router/demo"</span><span class="p">]</span> <span class="k">as</span> <span class="nc">NSDictionary</span>
+<span class="nc">TheRouterManager</span><span class="p">.</span><span class="nf">addRelocationHandle</span><span class="p">(</span><span class="n">routerMapList</span><span class="p">:</span> <span class="p">[</span><span class="n">relocationMap</span><span class="p">])</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">(</span><span class="s">"scheme://router/demo?desc=跳转白色界面被重定向到了黄色界面"</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h3 id="重定向恢复">重定向恢复</h3>
 
 <p>在业务中，通常会进行业务调整，那么重定向之后需要恢复的话，就需要移除重定向</p>
 
-<pre><code class="language-clike">let relocationMap = ["routerType": 4, "targetPath": "scheme://router/demo", "orginPath": "scheme://router/demo"] as NSDictionary
-TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
-TheRouter.openURL("scheme://router/demo?desc=跳转白色界面被重定向到了黄色界面之后，根据下发数据又恢复到跳转白色界面")
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">let</span> <span class="n">relocationMap</span> <span class="p">=</span> <span class="p">[</span><span class="s">"routerType"</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s">"targetPath"</span><span class="p">:</span> <span class="s">"scheme://router/demo"</span><span class="p">,</span> <span class="s">"orginPath"</span><span class="p">:</span> <span class="s">"scheme://router/demo"</span><span class="p">]</span> <span class="k">as</span> <span class="nc">NSDictionary</span>
+<span class="nc">TheRouterManager</span><span class="p">.</span><span class="nf">addRelocationHandle</span><span class="p">(</span><span class="n">routerMapList</span><span class="p">:</span> <span class="p">[</span><span class="n">relocationMap</span><span class="p">])</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">(</span><span class="s">"scheme://router/demo?desc=跳转白色界面被重定向到了黄色界面之后，根据下发数据又恢复到跳转白色界面"</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h3 id="路由-path-动态修复">路由 Path 动态修复</h3>
 
 <p>在实际开发中，开发人员因为马虎写错了路由 Path，上线之后无法进行正常的业务跳转，此时就需要通过远端下发路由进行匹配跳转了。scheme://router/demo3 是正确 path,但是本地写错的路由 path 为 scheme://router/demo33，那么需要新增一个 path 进行映射。</p>
 
-<pre><code class="language-clike">let relocationMap = ["routerType": 2, "className": "TheRouter_Example.TheRouterControllerC", "path": "scheme://router/demo33"] as NSDictionary
-TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
-let value = TheRouterCApi.init().requiredURL
-TheRouter.openURL(value)
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">let</span> <span class="n">relocationMap</span> <span class="p">=</span> <span class="p">[</span><span class="s">"routerType"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">"className"</span><span class="p">:</span> <span class="s">"TheRouter_Example.TheRouterControllerC"</span><span class="p">,</span> <span class="s">"path"</span><span class="p">:</span> <span class="s">"scheme://router/demo33"</span><span class="p">]</span> <span class="k">as</span> <span class="nc">NSDictionary</span>
+<span class="nc">TheRouterManager</span><span class="p">.</span><span class="nf">addRelocationHandle</span><span class="p">(</span><span class="n">routerMapList</span><span class="p">:</span> <span class="p">[</span><span class="n">relocationMap</span><span class="p">])</span>
+<span class="n">let</span> <span class="n">value</span> <span class="p">=</span> <span class="nc">TheRouterCApi</span><span class="p">.</span><span class="nf">init</span><span class="p">().</span><span class="n">requiredURL</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h3 id="路由适配不同的-android-path">路由适配不同的 Android-Path</h3>
 
 <p>在实际开发中，一旦使用 URI 这种方式，牵扯到双端，就可以存在双端不一致的问题，那么如何解决呢，可以通过本地新增多路由 path 解决，也可以通过远端下发新路由解决。</p>
 
-<pre><code class="language-clike">public class TheRouterControllerB: TheRouterBController, TheRouterable {
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kd">class</span> <span class="nc">TheRouterControllerB</span><span class="p">:</span> <span class="nc">TheRouterBController</span><span class="p">,</span> <span class="nc">TheRouterable</span> <span class="p">{</span>
 
-    public static var patternString: [String] {
-        ["scheme://router/demo2",
-         "scheme://router/demo2Android"]
-    }
+    <span class="k">public</span> <span class="n">static</span> <span class="kd">var</span> <span class="py">patternString</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">]</span> <span class="p">{</span>
+        <span class="p">[</span><span class="s">"scheme://router/demo2"</span><span class="p">,</span>
+         <span class="s">"scheme://router/demo2Android"</span><span class="p">]</span>
+    <span class="p">}</span>
 
-    public static func registerAction(info: [String : Any]) -&gt; Any {
-        let vc =  TheRouterBController()
-        vc.desLabel.text = info.description
-        return vc
-    }
-}
-</code></pre>
+    <span class="k">public</span> <span class="n">static</span> <span class="n">func</span> <span class="nf">registerAction</span><span class="p">(</span><span class="n">info</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span> <span class="p">:</span> <span class="nc">Any</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nc">Any</span> <span class="p">{</span>
+        <span class="n">let</span> <span class="n">vc</span> <span class="p">=</span>  <span class="nc">TheRouterBController</span><span class="p">()</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">desLabel</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">info</span><span class="p">.</span><span class="n">description</span>
+        <span class="k">return</span> <span class="n">vc</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<pre><code class="language-clike">let relocationMap = ["routerType": 2, "className": "TheRouter_Example.TheRouterControllerD", "path": "scheme://router/demo5"] as NSDictionary
-TheRouterManager.addRelocationHandle(routerMapList: [relocationMap])
-TheRouter.openURL("scheme://router/demo2Android?desc=demo5是Android一个界面的path,为了双端统一，我们动态增加一个path,这样远端下发时demo5也就能跳转了")
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">let</span> <span class="n">relocationMap</span> <span class="p">=</span> <span class="p">[</span><span class="s">"routerType"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s">"className"</span><span class="p">:</span> <span class="s">"TheRouter_Example.TheRouterControllerD"</span><span class="p">,</span> <span class="s">"path"</span><span class="p">:</span> <span class="s">"scheme://router/demo5"</span><span class="p">]</span> <span class="k">as</span> <span class="nc">NSDictionary</span>
+<span class="nc">TheRouterManager</span><span class="p">.</span><span class="nf">addRelocationHandle</span><span class="p">(</span><span class="n">routerMapList</span><span class="p">:</span> <span class="p">[</span><span class="n">relocationMap</span><span class="p">])</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">(</span><span class="s">"scheme://router/demo2Android?desc=demo5是Android一个界面的path,为了双端统一，我们动态增加一个path,这样远端下发时demo5也就能跳转了"</span><span class="p">)</span>
 
-</code></pre>
+</code></pre></div></div>
 
 <h2 id="服务的动态注册与调用">服务的动态注册与调用</h2>
 
 <h3 id="如何声明服务及实现服务">如何声明服务及实现服务</h3>
 
-<pre><code class="language-clike">@objc
-public protocol AppConfigServiceProtocol: TheRouterServiceProtocol {
-    // 打开小程序
-    func openMiniProgram(info: [String: Any])
-}
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">@</span><span class="n">objc</span>
+<span class="k">public</span> <span class="n">protocol</span> <span class="nc">AppConfigServiceProtocol</span><span class="p">:</span> <span class="nc">TheRouterServiceProtocol</span> <span class="p">{</span>
+    <span class="c1">// 打开小程序</span>
+    <span class="n">func</span> <span class="nf">openMiniProgram</span><span class="p">(</span><span class="n">info</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">:</span> <span class="nc">Any</span><span class="p">])</span>
+<span class="p">}</span>
 
-final class ConfigModuleService: NSObject, AppConfigServiceProtocol {
+<span class="k">final</span> <span class="kd">class</span> <span class="nc">ConfigModuleService</span><span class="p">:</span> <span class="nc">NSObject</span><span class="p">,</span> <span class="nc">AppConfigServiceProtocol</span> <span class="p">{</span>
     
-    static var seriverName: String {
-        String(describing: AppConfigServiceProtocol.self)
-    }
+    <span class="n">static</span> <span class="kd">var</span> <span class="py">seriverName</span><span class="p">:</span> <span class="nc">String</span> <span class="p">{</span>
+        <span class="nc">String</span><span class="p">(</span><span class="n">describing</span><span class="p">:</span> <span class="nc">AppConfigServiceProtocol</span><span class="p">.</span><span class="n">self</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    func openMiniProgram(info: [String : Any]) {
-        if let window = UIApplication.shared.delegate?.window {
-            window?.makeToast("打开微信小程序", duration: 1, position: window?.center)
-        }
-    }
-}
+    <span class="n">func</span> <span class="nf">openMiniProgram</span><span class="p">(</span><span class="n">info</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span> <span class="p">:</span> <span class="nc">Any</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">let</span> <span class="n">window</span> <span class="p">=</span> <span class="nc">UIApplication</span><span class="p">.</span><span class="n">shared</span><span class="p">.</span><span class="n">delegate</span><span class="o">?.</span><span class="nf">window</span> <span class="p">{</span>
+            <span class="n">window</span><span class="o">?.</span><span class="nf">makeToast</span><span class="p">(</span><span class="s">"打开微信小程序"</span><span class="p">,</span> <span class="n">duration</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="n">position</span><span class="p">:</span> <span class="n">window</span><span class="o">?.</span><span class="n">center</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-</code></pre>
+</code></pre></div></div>
 <h3 id="如何使用服务">如何使用服务</h3>
 
-<pre><code class="language-clike">/// 使用方式
- if let appConfigService = TheRouter.fetchService(AppConfigServiceProtocol.self){
-     appConfigService.openMiniProgram(info: [:])
-}
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// 使用方式</span>
+ <span class="k">if</span> <span class="n">let</span> <span class="n">appConfigService</span> <span class="p">=</span> <span class="nc">TheRouter</span><span class="p">.</span><span class="nf">fetchService</span><span class="p">(</span><span class="nc">AppConfigServiceProtocol</span><span class="p">.</span><span class="n">self</span><span class="p">){</span>
+     <span class="n">appConfigService</span><span class="p">.</span><span class="nf">openMiniProgram</span><span class="p">(</span><span class="n">info</span><span class="p">:</span> <span class="p">[:])</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>服务使用了runtime动态注册，所以你不用担心服务没有注册的问题。只需像上述案例一样使用即可。</p>
 
-<pre><code class="language-clike">public class func registerServices() {
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="kd">class</span> <span class="err">func register</span><span class="nc">Services</span><span class="p">()</span> <span class="p">{</span>
     
-    let expectedClassCount = objc_getClassList(nil, 0)
-    let allClasses = UnsafeMutablePointer&lt;AnyClass&gt;.allocate(capacity: Int(expectedClassCount))
-    let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer&lt;AnyClass&gt;(allClasses)
-    let actualClassCount: Int32 = objc_getClassList(autoreleasingAllClasses, expectedClassCount)
-    var resultXLClass = [AnyClass]()
-    for i in 0 ..&lt; actualClassCount {
+    <span class="n">let</span> <span class="n">expectedClassCount</span> <span class="p">=</span> <span class="nf">objc_getClassList</span><span class="p">(</span><span class="n">nil</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">let</span> <span class="n">allClasses</span> <span class="p">=</span> <span class="nc">UnsafeMutablePointer</span><span class="p">&lt;</span><span class="nc">AnyClass</span><span class="p">&gt;.</span><span class="nf">allocate</span><span class="p">(</span><span class="n">capacity</span><span class="p">:</span> <span class="nc">Int</span><span class="p">(</span><span class="n">expectedClassCount</span><span class="p">))</span>
+    <span class="n">let</span> <span class="n">autoreleasingAllClasses</span> <span class="p">=</span> <span class="nc">AutoreleasingUnsafeMutablePointer</span><span class="p">&lt;</span><span class="nc">AnyClass</span><span class="p">&gt;(</span><span class="n">allClasses</span><span class="p">)</span>
+    <span class="n">let</span> <span class="n">actualClassCount</span><span class="p">:</span> <span class="nc">Int32</span> <span class="p">=</span> <span class="nf">objc_getClassList</span><span class="p">(</span><span class="n">autoreleasingAllClasses</span><span class="p">,</span> <span class="n">expectedClassCount</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="py">resultXLClass</span> <span class="p">=</span> <span class="p">[</span><span class="nc">AnyClass</span><span class="p">]()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">0</span> <span class="o">..</span><span class="p">&lt;</span> <span class="nf">actualClassCount</span> <span class="p">{</span>
         
-        let currentClass: AnyClass = allClasses[Int(i)]
-        if (class_getInstanceMethod(currentClass, NSSelectorFromString("methodSignatureForSelector:")) != nil),
-           (class_getInstanceMethod(currentClass, NSSelectorFromString("doesNotRecognizeSelector:")) != nil),
-           let cls = currentClass as? TheRouterServiceProtocol.Type {
-            print(currentClass)
-            resultXLClass.append(cls)
+        <span class="n">let</span> <span class="n">currentClass</span><span class="p">:</span> <span class="nc">AnyClass</span> <span class="p">=</span> <span class="n">allClasses</span><span class="p">[</span><span class="nc">Int</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nf">class_getInstanceMethod</span><span class="p">(</span><span class="n">currentClass</span><span class="p">,</span> <span class="nc">NSSelectorFromString</span><span class="p">(</span><span class="s">"methodSignatureForSelector:"</span><span class="p">))</span> <span class="p">!=</span> <span class="n">nil</span><span class="p">),</span>
+           <span class="p">(</span><span class="nf">class_getInstanceMethod</span><span class="p">(</span><span class="n">currentClass</span><span class="p">,</span> <span class="nc">NSSelectorFromString</span><span class="p">(</span><span class="s">"doesNotRecognizeSelector:"</span><span class="p">))</span> <span class="p">!=</span> <span class="n">nil</span><span class="p">),</span>
+           <span class="n">let</span> <span class="n">cls</span> <span class="p">=</span> <span class="n">currentClass</span> <span class="k">as</span><span class="p">?</span> <span class="nc">TheRouterServiceProtocol</span><span class="p">.</span><span class="nc">Type</span> <span class="p">{</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">currentClass</span><span class="p">)</span>
+            <span class="n">resultXLClass</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">cls</span><span class="p">)</span>
             
-            TheRouterServiceManager.default.registerService(named: cls.seriverName, lazyCreator: (cls as! NSObject.Type).init())
-        }
-    }
-}
-</code></pre>
+            <span class="nc">TheRouterServiceManager</span><span class="p">.</span><span class="n">default</span><span class="p">.</span><span class="nf">registerService</span><span class="p">(</span><span class="n">named</span><span class="p">:</span> <span class="n">cls</span><span class="p">.</span><span class="n">seriverName</span><span class="p">,</span> <span class="n">lazyCreator</span><span class="p">:</span> <span class="p">(</span><span class="n">cls</span> <span class="k">as</span><span class="p">!</span> <span class="nc">NSObject</span><span class="p">.</span><span class="nc">Type</span><span class="p">).</span><span class="nf">init</span><span class="p">())</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <h3 id="路由远端调用本地服务服务接口下发mqttjsbridge">路由远端调用本地服务：服务接口下发，MQTT,JSBridge</h3>
 
-<pre><code class="language-clike">let dict = ["ivar1": ["key":"value"]]
-let url = "scheme://services?protocol=AppConfigLAServiceProtocol&amp;method=openMiniProgramWithInfo:&amp;resultType=0"
-TheRouter.openURL((url, dict))
-</code></pre>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">let</span> <span class="n">dict</span> <span class="p">=</span> <span class="p">[</span><span class="s">"ivar1"</span><span class="p">:</span> <span class="p">[</span><span class="s">"key"</span><span class="p">:</span><span class="s">"value"</span><span class="p">]]</span>
+<span class="n">let</span> <span class="n">url</span> <span class="p">=</span> <span class="s">"scheme://services?protocol=AppConfigLAServiceProtocol&amp;method=openMiniProgramWithInfo:&amp;resultType=0"</span>
+<span class="nc">TheRouter</span><span class="p">.</span><span class="nf">openURL</span><span class="p">((</span><span class="n">url</span><span class="p">,</span> <span class="n">dict</span><span class="p">))</span>
+</code></pre></div></div>
 
 <h2 id="是否考虑swift59-macros">是否考虑Swift5.9 Macros？</h2>
 
 <p>从目前的实现方式来看，懒加载加上动态注册，已经解决了注册时的性能问题。即使需要遍历全工程的类，然后处理相关逻辑，也不会超过0.2s。之所以能够通过Class取得path，因为给类声明了静态变量。</p>
 
-<pre><code class="language-clike">/// 实现TheRouterable协议
-extension TheRouterController: TheRouterable {
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">/// 实现TheRouterable协议</span>
+<span class="n">extension</span> <span class="nc">TheRouterController</span><span class="p">:</span> <span class="nc">TheRouterable</span> <span class="p">{</span>
     
-    static var patternString: [String] {
-        ["scheme://router/demo"]
-    }
+    <span class="n">static</span> <span class="kd">var</span> <span class="py">patternString</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span><span class="p">]</span> <span class="p">{</span>
+<span class="na">        ["scheme://router/demo"]</span>
+    <span class="p">}</span>
     
-    static func registerAction(info: [String : Any]) -&gt; Any {
-        debugPrint(info)
+    <span class="n">static</span> <span class="n">func</span> <span class="nf">registerAction</span><span class="p">(</span><span class="n">info</span><span class="p">:</span> <span class="p">[</span><span class="nc">String</span> <span class="p">:</span> <span class="nc">Any</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nc">Any</span> <span class="p">{</span>
+        <span class="nf">debugPrint</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
         
-        let vc =  TheRouterController()
-        vc.qrResultCallBack = info["clouse"] as? QrScanResultCallBack
-        vc.resultLabel.text = info.description
-        return vc
-    }
-}
-</code></pre>
+        <span class="n">let</span> <span class="n">vc</span> <span class="p">=</span>  <span class="nc">TheRouterController</span><span class="p">()</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">qrResultCallBack</span> <span class="p">=</span> <span class="n">info</span><span class="p">[</span><span class="s">"clouse"</span><span class="p">]</span> <span class="k">as</span><span class="p">?</span> <span class="nc">QrScanResultCallBack</span>
+        <span class="n">vc</span><span class="p">.</span><span class="n">resultLabel</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="n">info</span><span class="p">.</span><span class="n">description</span>
+        <span class="k">return</span> <span class="n">vc</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 <h2 id="关于作者">关于作者</h2>
 
 <p><a href="https://juejin.cn/user/1768489241815070">货拉拉移动端技术团队</a></p>
@@ -701,7 +701,7 @@ extension TheRouterController: TheRouterable {
 <p>TheRouter 采用Apache2.0协议，详情参考<a href="LICENSE">LICENSE</a></p>
 
 <h2 id="交流沟通群">交流沟通群</h2>
-<p><img src="/assets/wx/wx_ios_group.jpg" class="blog-img" /></p>
+<p><img src="https://cdn.kymjs.com:8843/therouter_assets/wx/wx_ios_group.jpg" class="blog-img" /></p>
 
 
 	</div>

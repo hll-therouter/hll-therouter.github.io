@@ -16,12 +16,12 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="http://localhost:4000/assets/css/animate.min.css">
-  <link rel="stylesheet" href="http://localhost:4000/assets/css/style2.css">
-  <link rel="stylesheet" href="http://localhost:4000/assets/css/kymjs1.css">
-  <link rel="stylesheet" type="text/css" href="http://localhost:4000/assets/css/prism.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/style2.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/kymjs1.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.kymjs.com:8843/therouter_assets/css/prism.css">
 
-  <script type="text/javascript" src="http://localhost:4000/js/prism.js"></script>
+  <script type="text/javascript" src="https://cdn.kymjs.com:8843/therouter_assets/js/prism.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </head>
   <script type="text/javascript" src="http://localhost:4000/js/jquery-1.10.2.min.js"></script>
@@ -34,7 +34,7 @@
     <div class="container">
   <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-      <img src="http://localhost:4000/assets/img/logo/logo4.png" width="170px">
+      <img src="https://cdn.kymjs.com:8843/therouter_assets/img/logo/logo4.png" width="170px">
     </a>
 
     <ul class="nav nav-pills">
@@ -171,10 +171,10 @@
 
 <p><br /></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Route</span><span class="o">({</span> <span class="nl">path:</span> <span class="nc">BaseConstant</span><span class="o">.</span><span class="na">MAIN_PAGE</span><span class="o">,</span> <span class="nl">description:</span> <span class="err">'</span><span class="nc">Demo首页</span><span class="err">'</span><span class="o">,</span> <span class="nl">params:</span> <span class="o">[</span><span class="s">"hello"</span><span class="o">,</span> <span class="s">"路由表默认参数"</span><span class="o">],</span> <span class="nl">launchMode:</span><span class="err">'</span><span class="no">STANDARD</span><span class="err">'</span> <span class="o">})</span>
-<span class="nd">@Component</span>
-<span class="n">export</span> <span class="n">struct</span> <span class="nc">MainPage</span> <span class="o">{</span>
-<span class="o">}</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">@</span><span class="nd">Route</span><span class="p">({</span> <span class="na">path</span><span class="p">:</span> <span class="nx">BaseConstant</span><span class="p">.</span><span class="nx">MAIN_PAGE</span><span class="p">,</span> <span class="na">description</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Demo首页</span><span class="dl">'</span><span class="p">,</span> <span class="na">params</span><span class="p">:</span> <span class="p">[</span><span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">路由表默认参数</span><span class="dl">"</span><span class="p">],</span> <span class="na">launchMode</span><span class="p">:</span><span class="dl">'</span><span class="s1">STANDARD</span><span class="dl">'</span> <span class="p">})</span>
+<span class="p">@</span><span class="nd">Component</span>
+<span class="k">export</span> <span class="nx">struct</span> <span class="nx">MainPage</span> <span class="p">{</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -183,19 +183,19 @@
 
 <p>传入的参数可以是 <code class="language-plaintext highlighter-rouge">string</code> 和基本数据类型、也可以是<code class="language-plaintext highlighter-rouge">ESObject</code>对象。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">"http://therouter.com/home"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">withNumber</span><span class="o">(</span><span class="s">"key1"</span><span class="o">,</span> <span class="mi">12345678</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">withString</span><span class="o">(</span><span class="s">"key2"</span><span class="o">,</span> <span class="s">"参数"</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">withBoolean</span><span class="o">(</span><span class="s">"key3"</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">with</span><span class="o">({</span><span class="nl">xxx:</span><span class="n">xxx</span><span class="o">})</span> 
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">TheRouter</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://therouter.com/home</span><span class="dl">"</span><span class="p">)</span>
+        <span class="p">.</span><span class="nf">withNumber</span><span class="p">(</span><span class="dl">"</span><span class="s2">key1</span><span class="dl">"</span><span class="p">,</span> <span class="mi">12345678</span><span class="p">)</span>
+        <span class="p">.</span><span class="nf">withString</span><span class="p">(</span><span class="dl">"</span><span class="s2">key2</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">参数</span><span class="dl">"</span><span class="p">)</span>
+        <span class="p">.</span><span class="nf">withBoolean</span><span class="p">(</span><span class="dl">"</span><span class="s2">key3</span><span class="dl">"</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
+        <span class="p">.</span><span class="nf">with</span><span class="p">({</span><span class="na">xxx</span><span class="p">:</span><span class="nx">xxx</span><span class="p">})</span> 
          <span class="c1">// navigation、replace、pop 均可以额外传入 callback 参数，对当前跳转的个状态回调</span>
-        <span class="o">.</span><span class="na">navigation</span><span class="o">();</span>
+        <span class="p">.</span><span class="nf">navigation</span><span class="p">();</span>
 
         <span class="c1">// 替换页面（相当于先 pop 再 push）</span>
-        <span class="o">.</span><span class="na">replace</span><span class="o">();</span>
+        <span class="p">.</span><span class="nf">replace</span><span class="p">();</span>
 
         <span class="c1">// 关闭当前页</span>
-        <span class="o">.</span><span class="na">pop</span><span class="o">();</span>
+        <span class="p">.</span><span class="nf">pop</span><span class="p">();</span>
        
 </code></pre></div></div>
 
@@ -246,19 +246,19 @@
 
 <p><br /></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 与Android逻辑不同，此代码 必须 在页面打开之前，路由初始化之后调用。 建议紧跟 TheRouter.init() 调用</span>
-<span class="nc">TheRouter</span><span class="o">.</span><span class="na">setRouteMapInitTask</span><span class="o">(</span><span class="nl">task:</span> <span class="o">(</span><span class="nl">map:</span> <span class="nc">Map</span><span class="o">&lt;</span><span class="n">string</span><span class="o">,</span> <span class="nc">RouteItem</span><span class="o">&gt;)</span> <span class="o">=&gt;</span> <span class="kt">void</span><span class="o">);</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 与Android逻辑不同，此代码 必须 在页面打开之前，路由初始化之后调用。 建议紧跟 TheRouter.init() 调用</span>
+<span class="nx">TheRouter</span><span class="p">.</span><span class="nf">setRouteMapInitTask</span><span class="p">(</span><span class="nx">task</span><span class="p">:</span> <span class="p">(</span><span class="nx">map</span><span class="p">:</span> <span class="nb">Map</span><span class="o">&lt;</span><span class="kr">string</span><span class="p">,</span> <span class="nx">RouteItem</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">);</span>
 
 <span class="cm">/** 
  * 此处的 map 就是当前应用的路由表全量，
  * 当获取到远端路由表以后，把路由表继续传入map中，有重复项可自动覆盖
  */</span>
-<span class="nc">TheRouter</span><span class="o">.</span><span class="na">setRouteMapInitTask</span><span class="o">(()</span> <span class="o">=&gt;</span> <span class="o">{</span>
+<span class="nx">TheRouter</span><span class="p">.</span><span class="nf">setRouteMapInitTask</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="c1">// 此处为纯业务逻辑，每家公司远端配置方案可能都不一样</span>
-    <span class="kd">const</span> <span class="n">json</span> <span class="o">=</span> <span class="nc">Connfig</span><span class="o">.</span><span class="na">doHttp</span><span class="o">(</span><span class="s">"routeMap"</span><span class="o">);</span>
+    <span class="kd">const</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">Connfig</span><span class="p">.</span><span class="nf">doHttp</span><span class="p">(</span><span class="dl">"</span><span class="s2">routeMap</span><span class="dl">"</span><span class="p">);</span>
     <span class="c1">// 只需要将路由json返回给框架即可，不建议在任务中做耗时操作</span>
-    <span class="k">return</span> <span class="n">json</span><span class="o">;</span>
-<span class="o">});</span>
+    <span class="k">return</span> <span class="nx">json</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -268,15 +268,15 @@
 <p>框架内置四种自定义处理器可供业务场景定制，用于在路由跳转过程中，以切面的方式统一修改路由落地页参数信息。 <br />
 Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参考【<a href="https://therouter.cn/docs/2022/08/28/01">Android 文档</a> 第三部分】。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 所有拦截器方法均在 TheRouter 类下，可以直接如下方式全局调用</span>
-<span class="nc">TheRouter</span><span class="o">.</span><span class="na">addNavigatorPathFixHandle</span><span class="o">()</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 所有拦截器方法均在 TheRouter 类下，可以直接如下方式全局调用</span>
+<span class="nx">TheRouter</span><span class="p">.</span><span class="nf">addNavigatorPathFixHandle</span><span class="p">()</span>
 
 <span class="cm">/**
   * 应用场景：用于修复客户端上路由 path 错误问题。
   * 例如：相对路径转绝对路径，或由于服务端下发的链接无法固定https或http，但客户端代码写死了 https 的 path，就可以用这种方式统一。
   * 注：必须在 TheRouter.build() 方法调用前添加处理器，否则处理器前的所有path不会被修改。
   */</span>
-<span class="kd">static</span> <span class="nf">addNavigatorPathFixHandle</span><span class="o">(</span><span class="nl">handle:</span> <span class="nc">NavigatorPathFixHandle</span><span class="o">);</span>
+<span class="k">static</span> <span class="nf">addNavigatorPathFixHandle</span><span class="p">(</span><span class="nx">handle</span><span class="p">:</span> <span class="nx">NavigatorPathFixHandle</span><span class="p">);</span>
 
 <span class="cm">/**
   * 页面替换器
@@ -285,7 +285,7 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
   * 例如模块化的时候，首页壳模板组件中开发了一个SplashActivity广告组件作为应用的MainActivity，在闪屏广告结束的时候自动跳转业务首页页面。 但是每个业务不同，首页页面的 Path 也不相同，而不希望让每个业务线自己去改这个首页壳模板组件，此时就可以组件中先写占位符https://kymjs.com/splash/to/home，让接入方通过 Path 替换器解决。
   * 注：必须在 TheRouter.build().navigation() 方法调用前添加处理器，否则处理器前的所有跳转不会被替换。
   */</span>
-<span class="kd">static</span> <span class="nf">addPathReplaceInterceptor</span><span class="o">(</span><span class="nl">interceptor:</span> <span class="nc">PathReplaceInterceptor</span><span class="o">);</span>
+<span class="k">static</span> <span class="nf">addPathReplaceInterceptor</span><span class="p">(</span><span class="nx">interceptor</span><span class="p">:</span> <span class="nx">PathReplaceInterceptor</span><span class="p">);</span>
 
 
 <span class="cm">/**
@@ -297,7 +297,7 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
   * 这种逻辑在所有页面跳转前写不太合适，以前的做法通常是在落地页写逻辑判断用户是否具有权限，但其实在路由层完成更合适。
   * 注：必须在 TheRouter.build().navigation() 方法调用前添加处理器，否则处理器前的所有跳转不会被替换。
   */</span>
-<span class="kd">static</span> <span class="nf">addRouterReplaceInterceptor</span><span class="o">(</span><span class="nl">interceptor:</span> <span class="nc">RouterReplaceInterceptor</span><span class="o">);</span>
+<span class="k">static</span> <span class="nf">addRouterReplaceInterceptor</span><span class="p">(</span><span class="nx">interceptor</span><span class="p">:</span> <span class="nx">RouterReplaceInterceptor</span><span class="p">);</span>
 
 <span class="cm">/**
   * 路由AOP拦截器
@@ -305,7 +305,7 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
   *
   * 使用场景：场景很多，最常用的是可以拦截一些跳转，例如debug页面在生产环境不打开，或定制startActivity跳转方法。
   */</span>
-<span class="kd">public</span> <span class="nf">setRouterInterceptor</span><span class="o">(</span><span class="nl">interceptor:</span> <span class="o">(</span><span class="nl">route:</span> <span class="nc">RouteItem</span><span class="o">,</span> <span class="nl">callback:</span> <span class="o">(</span><span class="nl">route:</span> <span class="nc">RouteItem</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="kt">void</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="kt">void</span><span class="o">);</span>
+<span class="k">public</span> <span class="nf">setRouterInterceptor</span><span class="p">(</span><span class="nx">interceptor</span><span class="p">:</span> <span class="p">(</span><span class="nx">route</span><span class="p">:</span> <span class="nx">RouteItem</span><span class="p">,</span> <span class="nx">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">route</span><span class="p">:</span> <span class="nx">RouteItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">);</span>
 </code></pre></div></div>
 
 <h4 id="36-高级用法">3.6 高级用法</h4>
@@ -341,7 +341,7 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 <p>她无需关心，<code class="language-plaintext highlighter-rouge">IRecordService</code> 这个接口服务是谁提供的，他只需要知道自己需要使用这样的一个服务就行了。<br />
 注：如果没有提供服务的提供方，<code class="language-plaintext highlighter-rouge">TheRouter.get()</code> 可能返回 <code class="language-plaintext highlighter-rouge">undefined</code></p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="o">.</span><span class="na">get</span><span class="o">&lt;</span><span class="nc">IRecordService</span><span class="o">&gt;(</span><span class="nc">BaseConstant</span><span class="o">.</span><span class="na">CLASS_SERVICE</span><span class="o">)?.</span><span class="na">doRecord</span><span class="o">()</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">TheRouter</span><span class="p">.</span><span class="kd">get</span><span class="o">&lt;</span><span class="nx">IRecordService</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">BaseConstant</span><span class="p">.</span><span class="nx">CLASS_SERVICE</span><span class="p">)?.</span><span class="nf">doRecord</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -350,16 +350,16 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 
 <p>服务提供方需要声明一个提供服务的方法，用 <code class="language-plaintext highlighter-rouge">@ServiceProvider</code> 注解标记，并需要实现接口 <code class="language-plaintext highlighter-rouge">IServiceProvider</code>。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 <span class="c1">// 类名不限定，任意名字都行</span>
 <span class="c1">// 所有的 ServiceProvider 必须实现 IServiceProvider 接口</span>
 <span class="c1">// 多次添加重复serviceName，框架会保证安全，在编译时报错</span>
-<span class="nd">@ServiceProvider</span><span class="o">({</span> <span class="nl">serviceName:</span> <span class="nc">BaseConstant</span><span class="o">.</span><span class="na">CLASS_SERVICE</span><span class="o">,</span> <span class="nl">singleton:</span> <span class="kc">true</span> <span class="o">})</span>
-<span class="n">export</span> <span class="kd">class</span> <span class="nc">CustomService</span> <span class="kd">implements</span> <span class="nc">IRecordService</span><span class="o">,</span> <span class="nc">IServiceProvider</span> <span class="o">{</span>
+<span class="p">@</span><span class="nd">ServiceProvider</span><span class="p">({</span> <span class="na">serviceName</span><span class="p">:</span> <span class="nx">BaseConstant</span><span class="p">.</span><span class="nx">CLASS_SERVICE</span><span class="p">,</span> <span class="na">singleton</span><span class="p">:</span> <span class="kc">true</span> <span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nc">CustomService</span> <span class="k">implements</span> <span class="nx">IRecordService</span><span class="p">,</span> <span class="nx">IServiceProvider</span> <span class="p">{</span>
 
-  <span class="n">doRecord</span><span class="o">():</span> <span class="kt">void</span> <span class="o">{</span>
-  <span class="o">}</span>
-<span class="o">}</span>
+  <span class="nf">doRecord</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
 </code></pre></div></div>
 
@@ -387,16 +387,16 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 
 <p>声明一个 Action：</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// action建议遵循一定的格式</span>
-<span class="kd">const</span> <span class="n">readonly</span> <span class="no">ACTION</span> <span class="o">=</span> <span class="s">"therouter://action/xxx"</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// action建议遵循一定的格式</span>
+<span class="kd">const</span> <span class="k">readonly</span> <span class="nx">ACTION</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">therouter://action/xxx</span><span class="dl">"</span>
 
 <span class="c1">// action既可以放在ServiceProvider里面，也可以单独放在任意类中，但不能是top-level函数，这一点与Android不同</span>
 <span class="c1">// action函数允许有返回值，可以做耗时操作</span>
 <span class="c1">// 多次添加重复action，每个action的方法都会执行，但最终只会返回优先级最高的方法的返回值</span>
-<span class="nd">@Action</span><span class="o">({</span> <span class="nl">action:</span> <span class="no">ACTION</span> <span class="o">})</span>
-<span class="kd">public</span> <span class="nf">test</span><span class="o">(</span><span class="nl">par:</span> <span class="n">string</span><span class="o">):</span> <span class="n">string</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="s">"返回入参："</span> <span class="o">+</span> <span class="n">par</span><span class="o">;</span>
-<span class="o">}</span>
+<span class="p">@</span><span class="nd">Action</span><span class="p">({</span> <span class="na">action</span><span class="p">:</span> <span class="nx">ACTION</span> <span class="p">})</span>
+<span class="k">public</span> <span class="nf">test</span><span class="p">(</span><span class="nx">par</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="kr">string</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="dl">"</span><span class="s2">返回入参：</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">par</span><span class="p">;</span>
+<span class="p">}</span>
 
 </code></pre></div></div>
 
@@ -404,14 +404,14 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 
 <p>执行一个 Action：</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// action建议遵循一定的格式</span>
-<span class="kd">const</span> <span class="n">val</span> <span class="no">ACTION</span> <span class="o">=</span> <span class="s">"therouter://action/xxx"</span>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// action建议遵循一定的格式</span>
+<span class="kd">const</span> <span class="nx">val</span> <span class="nx">ACTION</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">therouter://action/xxx</span><span class="dl">"</span>
 
 <span class="c1">// 如果执行了一个没有被声明的Action，则不会有任何动作</span>
 <span class="c1">// 这里的"hello"字符串，是根据action定义时有一个入参，所以调用时需要传入这个参数</span>
-<span class="nc">TheRouter</span><span class="o">.</span><span class="na">action</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;(</span><span class="no">ACTION</span><span class="o">,</span> <span class="s">"hello"</span><span class="o">).</span><span class="na">then</span><span class="o">((</span><span class="n">str</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="o">{</span>
-    <span class="k">this</span><span class="o">.</span><span class="na">text</span> <span class="o">=</span> <span class="n">str</span><span class="o">;</span>
-<span class="o">})</span>
+<span class="nx">TheRouter</span><span class="p">.</span><span class="nx">action</span><span class="o">&lt;</span><span class="kr">string</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">ACTION</span><span class="p">,</span> <span class="dl">"</span><span class="s2">hello</span><span class="dl">"</span><span class="p">).</span><span class="nf">then</span><span class="p">((</span><span class="nx">str</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">text</span> <span class="o">=</span> <span class="nx">str</span><span class="p">;</span>
+<span class="p">})</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -433,7 +433,7 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 
 <p><strong>如果与服务端链路打通</strong>，这个能力其实是需要整个公司的配合，比如有一套类似智慧大脑的方案，可以基于客户端过去的一些埋点数据，智能推断出用户下一步要做的事情，然后通过长连接直接向客户端下发指令做某些事情。那么通过客户端预埋的页面跳转、弹窗、清缓存、退出登录等等操作，就可以通过服务端指令进行操作，则就是一套完整的动态化方案。</p>
 
-<p><img src="https://cdn.kymjs.com:8843/qiniu/therouter/actionmanager.png" class="blog-img" /></p>
+<p><img src="https://cdn.kymjs.com:8843/therouter_assets/img/actionmanager.png" class="blog-img" /></p>
 
 <p><br /></p>
 
@@ -537,7 +537,7 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 
 <p>更多问题请加群沟通：<br />
 <br />
-<img src="https://cdn.kymjs.com:8843/qiniu/therouter/therouter_wx_group.png" class="blog-img" /></p>
+<img src="https://cdn.kymjs.com:8843/therouter_assets/img/therouter_wx_group.png" class="blog-img" /></p>
 
 <p><br /></p>
 

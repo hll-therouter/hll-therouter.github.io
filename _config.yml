@@ -4,6 +4,7 @@ description: TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发�
 baseurl: "" 
 url: ""
 permalink: /docs/:year/:month/:day/:title 
+cdn: https://cdn.kymjs.com:8843/therouter_assets
 
 company_name: 货拉拉
 
