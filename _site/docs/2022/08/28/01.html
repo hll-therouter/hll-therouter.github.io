@@ -330,6 +330,8 @@
     <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
         <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
         <span class="c1">// 使用注解接收对象时，必须调用这一句，建议直接在 Base 中统一调用。</span>
+        <span class="c1">// onNewIntent()中如果有逻辑时，需要再次调用，以保证数据重新注入。</span>
+        <span class="c1">// 参见 https://github.com/HuolalaTech/hll-wp-therouter-android/issues/66</span>
         <span class="nc">TheRouter</span><span class="o">.</span><span class="na">inject</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
         <span class="c1">// 当然如果不嫌麻烦，也是允许自己手动解析的，但是只能解析成String，因为传的时候都是以String类型传递</span>
         <span class="nc">String</span> <span class="n">key1</span> <span class="o">=</span> <span class="n">activity</span><span class="o">.</span><span class="na">getIntent</span><span class="o">().</span><span class="na">getStringExtra</span><span class="o">(</span><span class="s">"key1"</span><span class="o">);</span>
