@@ -521,6 +521,12 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
       <td>✖️</td>
       <td>✖️</td>
     </tr>
+    <tr>
+      <td>onBackPress()自定义逻辑</td>
+      <td>✔️(完全默认语法，无限制)</td>
+      <td>✔️(全局回调实现，无法调用原struct页面内方法和变量)</td>
+      <td>✖️(只能在外部页面上做逻辑，内部嵌套不支持)</td>
+    </tr>
   </tbody>
 </table>
 
