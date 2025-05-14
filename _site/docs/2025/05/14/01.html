@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <!-- meta data & title -->
+  <meta charset="utf-8">
+  <title>跨模块服务调用的设计与使用</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。">
+  <meta name="author" content="TheRouter">
+  <meta name="keyword"
+      content="跨模块服务调用的设计与使用,android,kotlin,arouter,TheRouter">
+
+  <meta name="keywords"
+      content="跨模块服务调用的设计与使用,android,kotlin,arouter,therouter,studio,优质开发技术">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/style2.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/kymjs1.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.kymjs.com:8843/therouter_assets/css/prism.css">
+
+  <script type="text/javascript" src="https://cdn.kymjs.com:8843/therouter_assets/js/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</head>
+  <script type="text/javascript" src="https://cdn.kymjs.com:8843/therouter_assets/js/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.kymjs.com:8843/therouter_assets/js/wow.min.js"></script>
+<script>
+  new WOW().init();
+</script>
+  
+  <body>
+    <div class="container">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <img src="https://cdn.kymjs.com:8843/therouter_assets/img/logo/logo4.png" width="170px">
+    </a>
+
+    <ul class="nav nav-pills">
+      
+      <li class="nav-item">
+        
+          <a href="/" class="nav-link header-color" aria-current="page">首页</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/doc" class="nav-link header-color">Android</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/harmony" class="nav-link active header-color">Harmony</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/ios" class="nav-link header-color">iOS</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/docs/2022/08/24/01" class="nav-link header-color">社区</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/about" class="nav-link header-color">关于</a>
+         
+      </li>
+    </ul>
+  </header>
+</div>
+
+
+<!-- End Header -->
+  	
+  		<h2 class="blog-title" align="center">跨模块服务调用的设计与使用</h2>
+      <br>
+  	
+    <!-- Main Container -->
+<div class="container">
+	<div class="blog-post">
+		<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，支持动态路由下发、编译时安全检查、路由Path一对多等高度动态能力。</p>
+
+<p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
+官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
+
+<p><br /></p>
+
+<h2 id="serviceprovider-的使用">ServiceProvider 的使用</h2>
+
+<p>对于模块化开发中跨模块的调用，我们推荐采用 <a href="https://zh.m.wikipedia.org/zh-cn/%E9%9D%A2%E5%90%91%E6%9C%8D%E5%8A%A1%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">SOA(面向服务架构)</a> 的设计方式，服务调用方与使用方完全隔离，调用模块外的能力不需要关注能力的提供者是谁。<br />
+<code class="language-plaintext highlighter-rouge">ServiceProvider</code> 的核心设计思想也是这样的，目前服务间的调用协议采用接口的方式。当然，也可以兼容不通过接口下沉而是直接调用的情况。</p>
+
+<p><img src="https://cdn.kymjs.com:8843/qiniu/images/blog_image/therouter/3.jpeg" class="blog-img" /></p>
+
+<ul>
+  <li>服务提供方负责提供服务，不需要关心调用方是谁会在何时调用自己。</li>
+  <li>服务的使用方只关注服务本身，不需要关心这个服务是谁提供的，只需要只能服务能提供哪些能力即可。</li>
+</ul>
+
+<p>例如上面的图片：拉拉需要使用录音的服务，小货则向外提供一个录音的服务，由<code class="language-plaintext highlighter-rouge">TheRouter</code>的<code class="language-plaintext highlighter-rouge">ServiceProvider</code>负责撮合。</p>
+
+<p><br /></p>
+
+<h4 id="41-服务使用方拉拉">4.1 服务使用方：拉拉</h4>
+
+<p>她无需关心，<code class="language-plaintext highlighter-rouge">IRecordService</code> 这个接口服务是谁提供的，他只需要知道自己需要使用这样的一个服务就行了。<br />
+注：如果没有提供服务的提供方，<code class="language-plaintext highlighter-rouge">TheRouter.get()</code> 可能返回 <code class="language-plaintext highlighter-rouge">undefined</code></p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">TheRouter</span><span class="p">.</span><span class="kd">get</span><span class="o">&lt;</span><span class="nx">IRecordService</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">BaseConstant</span><span class="p">.</span><span class="nx">CLASS_SERVICE</span><span class="p">)?.</span><span class="nf">doRecord</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h4 id="42-服务提供方小货">4.2 服务提供方：小货</h4>
+
+<p>服务提供方需要声明一个提供服务的方法，用 <code class="language-plaintext highlighter-rouge">@ServiceProvider</code> 注解标记，并需要实现接口 <code class="language-plaintext highlighter-rouge">IServiceProvider</code>。</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">// 类名不限定，任意名字都行</span>
+<span class="c1">// 所有的 ServiceProvider 必须实现 IServiceProvider 接口</span>
+<span class="c1">// 多次添加重复serviceName，框架会保证安全，在编译时报错</span>
+<span class="p">@</span><span class="nd">ServiceProvider</span><span class="p">({</span> <span class="na">serviceName</span><span class="p">:</span> <span class="nx">BaseConstant</span><span class="p">.</span><span class="nx">CLASS_SERVICE</span><span class="p">,</span> <span class="na">singleton</span><span class="p">:</span> <span class="kc">true</span> <span class="p">})</span>
+<span class="k">export</span> <span class="kd">class</span> <span class="nc">CustomService</span> <span class="k">implements</span> <span class="nx">IRecordService</span><span class="p">,</span> <span class="nx">IServiceProvider</span> <span class="p">{</span>
+
+  <span class="nf">doRecord</span><span class="p">():</span> <span class="k">void</span> <span class="p">{</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><strong>@ServiceProvider 参数释义</strong></p>
+
+<ul>
+  <li><strong>serviceName</strong>: 服务名 【必传】。 <br />
+ 服务的唯一标识。如果重复，在编译期会直接报错。</li>
+  <li><strong>singleton</strong>: 默认false【可选】。<br />
+ 服务提供方提供出的服务是否为单例。</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="serviceprovider-的设计原理">ServiceProvider 的设计原理</h2>
+
+<p>跨模块调用分为两部分，服务的提供方和服务的使用方</p>
+
+<h3 id="服务的提供方">服务的提供方</h3>
+
+<p>与 Android 的设计思路一致，在编译时，通过解析注解 <code class="language-plaintext highlighter-rouge">@ServiceProvider</code> 获取到添加注解的类或方法。</p>
+
+<p>因为鸿蒙编译时的限制，不能像 Android 那样，通过动态修改某个指定类达到修改代码的目的。所以在鸿蒙里面，是将这些编译时的信息都记录到了路由表里面。因此你可以看到，TheRouter在编译以后的路由表，所有服务相关的调用前，都加了<code class="language-plaintext highlighter-rouge">__service_provider__</code> 这样的前缀，就是用来区分这个 path 是一个页面还是一个服务提供者。</p>
+
+<p>再当应用启动的时候，通过解析路由表，就可以拿到这些服务提供者的类、方法、接口名等等一系列信息了，并将这些信息序列化成对象，存在一个内存Map中。</p>
+
+<h3 id="服务的使用方">服务的使用方</h3>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cm">/**
+   * 获取指定服务提供者提供的服务
+   * @param serviceProvider
+   * @returns
+   */</span>
+  <span class="k">static</span> <span class="kd">get</span><span class="o">&lt;</span><span class="nx">T</span> <span class="kd">extends</span> <span class="nx">IServiceProvider</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">serviceProvider</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nx">T</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">RouterInject</span><span class="p">.</span><span class="nf">getInstance</span><span class="p">().</span><span class="nx">getService</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">serviceProvider</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>当调用 <code class="language-plaintext highlighter-rouge">TheRouter.get()</code>时，其实就是去到了上面服务提供方的那个Map里面，找到本次需要调用的服务提供者，再去调用服务提供者对应的服务即可。</p>
+
+<p>然后<code class="language-plaintext highlighter-rouge">TheRouter</code>顺带还对服务提供者，做了单例、缓存、无缓存的设计，用来对应不同的业务场景需求。其实这些设计也都是对这个缓存Map做不同的处理而已。</p>
+
+<h2 id="问题排查万能公式">问题排查万能公式</h2>
+
+<p>在使用过程中，如果发现服务无法调用，或返回为空的时候。通常的排查方式都是以下三步：</p>
+
+<ol>
+  <li>首先观察接入环境。插件是否和依赖库版本一致，插件是否生效了。在我们内部使用的过程中，经常发现，<code class="language-plaintext highlighter-rouge">oh-package.json5</code> 中引入的明明是新版本，但是实际编译时使用的还是老版本，猜测应该是构建工具的问题。在<code class="language-plaintext highlighter-rouge">TheRouter</code>编译时，日志的第一行就会有当前编译实际使用的版本号，如果和你预期不一致时，需要再执行一下命令行：</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 引入代码库依赖
+ohpm i @therouter/library   
+
+// 引入插件依赖
+npm i @therouter/plugin
+</code></pre></div></div>
+
+<p>2.上一步排查完依然无法调用时，就要考虑一下是不是代码使用姿势问题了。比如添加<code class="language-plaintext highlighter-rouge">@ServiceProvider</code>的服务提供者必须实现<code class="language-plaintext highlighter-rouge">IServiceProvider</code>接口。服务提供者注解参数里面的<code class="language-plaintext highlighter-rouge">serviceName</code>是不是和使用方传入的一致。注：如果多次添加重复serviceName，框架会保证安全，在编译时报错。</p>
+
+<p>3.如果上两步都不能解决你的问题，那就需要进源码通过断点调试进一步明确问题出在哪里了。首先从<code class="language-plaintext highlighter-rouge">TheRouter.init()</code>开始找，看看路由表读取是否正确，再看服务Map里面是否有记录成功，再看调用的时候传入的是否正确，一步一步排查。</p>
+
+
+	</div>
+  
+  
+  
+    
+    
+    
+  
+    
+  
+    
+    
+
+    
+      <h3>相关推荐：</h3>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    
+    
+    <div class="col">
+      <div class="card shadow-sm">
+        <a href=/docs/2025/03/23/01>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>从零接入鸿蒙路由 TheRouter</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">从零接入鸿蒙路由 TheRouter</text></svg>
+        </a>
+
+        <div class="card-body">
+          <p class="card-text">
+            
+              TheRouter 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用...
+            
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href=/docs/2025/03/23/01>
+                <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
+              </a>
+            </div>
+            <small class="text-muted">9 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+    
+    
+
+    
+    
+    <div class="col">
+      <div class="card shadow-sm">
+        <a href=/docs/2024/10/31/01>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>为 TheRouter 的 AGP8 编译加个速</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">为 TheRouter 的 AGP8 编译加个速</text></svg>
+        </a>
+
+        <div class="card-body">
+          <p class="card-text">
+            
+              内容请见：
+
+《为 TheRouter 的 AGP8 编译加个速》
+https://kymjs.com/code/2024/10/31/01/
+
+            
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href=/docs/2024/10/31/01>
+                <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
+              </a>
+            </div>
+            <small class="text-muted">1 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+    
+    
+
+    
+    
+    <div class="col">
+      <div class="card shadow-sm">
+        <a href=/docs/2024/07/22/01>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>新版本编译改动</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">新版本编译改动</text></svg>
+        </a>
+
+        <div class="card-body">
+          <p class="card-text">
+            
+              从`1.2.3-rc1`版本开始，我们对`TheRouter`编译过程做了大量优化，同时适配了`Gradle`的`4.x-8.x`全部版本，理论上更新的版本或更老的版本也能支持，只是没有去测试。
+            
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href=/docs/2024/07/22/01>
+                <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
+              </a>
+            </div>
+            <small class="text-muted">6 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+    
+    
+
+    
+      
+  
+    </div>
+  
+
+</div>
+<!--End Main Container -->
+
+  </body>
+
+  <!-- Footer -->
+<footer> 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3><i class="bi bi-link-45deg bi-footer"></i> 友情链接</h3>
+        <p><a href="https://www.huolala.cn/"> 货拉拉</a></p>
+        <p><a href="https://www.huolala.cn/house_move.html"> 无忧搬家</a></p>
+        <p><a href="https://www.xiaolachuxing.com/"> 小拉出行</a></p>
+      </div>
+      <div class="col-md-4">
+        <h3><i class="bi bi-slack bi-footer"></i> 社区</h3>
+        <p><a href="https://kymjs.com/therouter/wx/"> 官方微信群</a></p>
+        <p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android"> GitHub </a></p>
+        <p><a href="https://juejin.cn/user/1768489241815070/posts"> 技术博客 </a></p> 
+      </div>
+      <div class="col-md-4">
+        <h3><i class="bi bi-postcard-heart bi-footer"></i> 关于</h3>
+        <p><a href="https://juejin.cn/user/1768489241815070/posts"> 货拉拉移动技术团队</a></p>
+        <p><a href="https://kymjs.com"> 开源实验室</a></p>
+      </div>    
+    </div>
+  </div>
+
+  <div class="copyright text center">
+    <p>&copy; Copyright 2025, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
+  </div>
+</footer>
+</html>
