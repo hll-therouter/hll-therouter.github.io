@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-14T14:12:05+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">跨模块服务调用的设计与使用</title><link href="http://localhost:4000/docs/2025/05/14/01" rel="alternate" type="text/html" title="跨模块服务调用的设计与使用" /><published>2025-05-14T00:00:00+08:00</published><updated>2025-05-14T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/05/14/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/05/14/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，支持动态路由下发、编译时安全检查、路由Path一对多等高度动态能力。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-14T14:14:20+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">跨模块服务调用的设计与使用</title><link href="http://localhost:4000/docs/2025/05/14/01" rel="alternate" type="text/html" title="跨模块服务调用的设计与使用" /><published>2025-05-14T00:00:00+08:00</published><updated>2025-05-14T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/05/14/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/05/14/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，支持动态路由下发、编译时安全检查、路由Path一对多等高度动态能力。</p>
 
 <p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
 官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
@@ -65,6 +65,8 @@
 
 <p>跨模块调用分为两部分，服务的提供方和服务的使用方</p>
 
+<p><br /></p>
+
 <h3 id="服务的提供方">服务的提供方</h3>
 
 <p>与 Android 的设计思路一致，在编译时，通过解析注解 <code class="language-plaintext highlighter-rouge">@ServiceProvider</code> 获取到添加注解的类或方法。</p>
@@ -72,6 +74,8 @@
 <p>因为鸿蒙编译时的限制，不能像 Android 那样，通过动态修改某个指定类达到修改代码的目的。所以在鸿蒙里面，是将这些编译时的信息都记录到了路由表里面。因此你可以看到，TheRouter在编译以后的路由表，所有服务相关的调用前，都加了<code class="language-plaintext highlighter-rouge">__service_provider__</code> 这样的前缀，就是用来区分这个 path 是一个页面还是一个服务提供者。</p>
 
 <p>再当应用启动的时候，通过解析路由表，就可以拿到这些服务提供者的类、方法、接口名等等一系列信息了，并将这些信息序列化成对象，存在一个内存Map中。</p>
+
+<p><br /></p>
 
 <h3 id="服务的使用方">服务的使用方</h3>
 
@@ -89,6 +93,8 @@
 
 <p>然后<code class="language-plaintext highlighter-rouge">TheRouter</code>顺带还对服务提供者，做了单例、缓存、无缓存的设计，用来对应不同的业务场景需求。其实这些设计也都是对这个缓存Map做不同的处理而已。</p>
 
+<p><br /><br /></p>
+
 <h2 id="问题排查万能公式">问题排查万能公式</h2>
 
 <p>在使用过程中，如果发现服务无法调用，或返回为空的时候。通常的排查方式都是以下三步：</p>
@@ -104,7 +110,11 @@ ohpm i @therouter/library
 npm i @therouter/plugin
 </code></pre></div></div>
 
+<p><br /></p>
+
 <p>2.上一步排查完依然无法调用时，就要考虑一下是不是代码使用姿势问题了。比如添加<code class="language-plaintext highlighter-rouge">@ServiceProvider</code>的服务提供者必须实现<code class="language-plaintext highlighter-rouge">IServiceProvider</code>接口。服务提供者注解参数里面的<code class="language-plaintext highlighter-rouge">serviceName</code>是不是和使用方传入的一致。注：如果多次添加重复serviceName，框架会保证安全，在编译时报错。</p>
+
+<p><br /></p>
 
 <p>3.如果上两步都不能解决你的问题，那就需要进源码通过断点调试进一步明确问题出在哪里了。首先从<code class="language-plaintext highlighter-rouge">TheRouter.init()</code>开始找，看看路由表读取是否正确，再看服务Map里面是否有记录成功，再看调用的时候传入的是否正确，一步一步排查。</p>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry><entry><title type="html">Harmony 动态路由框架：TheRouter 开源</title><link href="http://localhost:4000/docs/2025/03/24/01" rel="alternate" type="text/html" title="Harmony 动态路由框架：TheRouter 开源" /><published>2025-03-24T00:00:00+08:00</published><updated>2025-03-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/24/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是一个用于移动端APP，包括 Android、iOS、Harmony 三端的模块化、组件化开发的一整套解决方案框架。提供了三端高一致性，对移动端开发者更友好，让开发人员更适应，使用起来也更顺手。在鸿蒙上， TheRouter 基于HMRouter做了深度定制，不仅支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，还提供了编译时安全检查、支持动态路由下发与修改、路由 Path 一对多等高度动态能力。</p>
 
