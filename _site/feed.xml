@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-04-30T10:18:23+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">Harmony 动态路由框架：TheRouter 即将开源</title><link href="http://localhost:4000/docs/2025/03/24/01" rel="alternate" type="text/html" title="Harmony 动态路由框架：TheRouter 即将开源" /><published>2025-03-24T00:00:00+08:00</published><updated>2025-03-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/24/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是一个用于移动端APP，包括 Android、iOS、Harmony 三端的模块化、组件化开发的一整套解决方案框架。提供了三端高一致性，对移动端开发者更友好，让开发人员更适应，使用起来也更顺手。在鸿蒙上， TheRouter 基于HMRouter做了深度定制，不仅支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，还提供了编译时安全检查、支持动态路由下发与修改、路由 Path 一对多等高度动态能力。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-14T10:13:15+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">Harmony 动态路由框架：TheRouter 即将开源</title><link href="http://localhost:4000/docs/2025/03/24/01" rel="alternate" type="text/html" title="Harmony 动态路由框架：TheRouter 即将开源" /><published>2025-03-24T00:00:00+08:00</published><updated>2025-03-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/24/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是一个用于移动端APP，包括 Android、iOS、Harmony 三端的模块化、组件化开发的一整套解决方案框架。提供了三端高一致性，对移动端开发者更友好，让开发人员更适应，使用起来也更顺手。在鸿蒙上， TheRouter 基于HMRouter做了深度定制，不仅支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，还提供了编译时安全检查、支持动态路由下发与修改、路由 Path 一对多等高度动态能力。</p>
 
 <p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
 官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
@@ -461,7 +461,7 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 <br />
 <img src="https://cdn.kymjs.com:8843/therouter_assets/img/therouter_wx_group.png" width="320" /></p>
 
-<p><br /></p>]]></content><author><name></name></author><category term="news" /><category term="news" /><summary type="html"><![CDATA[TheRouter 鸿蒙动态路由框架即将开源。]]></summary></entry><entry><title type="html">接入鸿蒙 TheRouter</title><link href="http://localhost:4000/docs/2025/03/23/01" rel="alternate" type="text/html" title="接入鸿蒙 TheRouter" /><published>2025-03-23T00:00:00+08:00</published><updated>2025-03-23T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/23/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/23/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，支持动态路由下发、编译时安全检查、路由Path一对多等高度动态能力。</p>
+<p><br /></p>]]></content><author><name></name></author><category term="news" /><category term="news" /><summary type="html"><![CDATA[TheRouter 鸿蒙动态路由框架即将开源。]]></summary></entry><entry><title type="html">从零接入鸿蒙路由 TheRouter</title><link href="http://localhost:4000/docs/2025/03/23/01" rel="alternate" type="text/html" title="从零接入鸿蒙路由 TheRouter" /><published>2025-03-23T00:00:00+08:00</published><updated>2025-03-23T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/23/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/23/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，支持动态路由下发、编译时安全检查、路由Path一对多等高度动态能力。</p>
 
 <p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
 官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
@@ -485,10 +485,10 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 <p>在工程根目录命令行引入依赖库和插件库（必须全部依赖，不能只使用其中一个）。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 引入代码库依赖
-ohpm i @hll/therouter   
+ohpm i @therouter/library   
 
 // 引入插件依赖
-npm i therouter-plugin
+npm i @therouter/plugin
 </code></pre></div></div>
 
 <p><br /><br /></p>
@@ -496,25 +496,25 @@ npm i therouter-plugin
 <h3 id="第一步接入编译插件">第一步：接入编译插件</h3>
 
 <ol>
-  <li>打开项目根目录的 <code class="language-plaintext highlighter-rouge">hvigor/hvigor-config.json5</code>，检查 <code class="language-plaintext highlighter-rouge">dependencies</code> 中是否已经加入了依赖，一般为 <code class="language-plaintext highlighter-rouge">"therouter-plugin": "x.x.x"</code>。</li>
+  <li>打开项目根目录的 <code class="language-plaintext highlighter-rouge">hvigor/hvigor-config.json5</code>，检查 <code class="language-plaintext highlighter-rouge">dependencies</code> 中是否已经加入了依赖，一般为 <code class="language-plaintext highlighter-rouge">"@therouter/plugin": "x.x.x"</code>。</li>
   <li>打开工程 <strong>所有</strong> 模块（hsp、hap、har）的 <code class="language-plaintext highlighter-rouge">hvigorfile.ts</code> 文件。</li>
   <li>在 <code class="language-plaintext highlighter-rouge">plugins</code> 中加入如下对应的依赖</li>
 </ol>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 如果是 hap，则类似如下依赖</span>
-<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"therouter-plugin"</span><span class="o">;</span>
+<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"@therouter/plugin"</span><span class="o">;</span>
 <span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
   <span class="nl">plugins:</span> <span class="o">[</span><span class="n">hapPlugin</span><span class="o">()]</span>
 <span class="o">}</span>
 
 <span class="c1">// 如果是 har，则类似如下依赖</span>
-<span class="kn">import</span> <span class="err">{</span> <span class="nn">harPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"therouter-plugin"</span><span class="o">;</span>
+<span class="kn">import</span> <span class="err">{</span> <span class="nn">harPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"@therouter/plugin"</span><span class="o">;</span>
 <span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
   <span class="nl">plugins:</span> <span class="o">[</span><span class="n">harPlugin</span><span class="o">()]</span>
 <span class="o">}</span>
 
 <span class="c1">// 如果是 hap，则类似如下依赖</span>
-<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"therouter-plugin"</span><span class="o">;</span>
+<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"@therouter/plugin"</span><span class="o">;</span>
 <span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
   <span class="nl">plugins:</span> <span class="o">[</span><span class="n">hapPlugin</span><span class="o">()]</span>
 <span class="o">}</span>
@@ -526,7 +526,7 @@ npm i therouter-plugin
 
 <ol>
   <li>打开 <strong>工程根目录</strong> 的 <code class="language-plaintext highlighter-rouge">oh-package.json5</code> 文件。</li>
-  <li>检查 <code class="language-plaintext highlighter-rouge">dependencies</code> 中，是否已经加入了依赖，一般为：<code class="language-plaintext highlighter-rouge">"@hll/therouter": "x.x.x"</code></li>
+  <li>检查 <code class="language-plaintext highlighter-rouge">dependencies</code> 中，是否已经加入了依赖，一般为：<code class="language-plaintext highlighter-rouge">"@therouter/library": "x.x.x"</code></li>
 </ol>
 
 <p><br /><br /></p>
@@ -548,7 +548,7 @@ npm i therouter-plugin
 
 <p>TheRouter 按照华为推荐方案，基于系统 Navigation 实现，所以必须在页面中定义一个容器项 <code class="language-plaintext highlighter-rouge">TheRouterPage</code>，建议创建一个完全新的类作为入口并在 <code class="language-plaintext highlighter-rouge">/resources/base/profile/main_pages.json</code> 中配置这个类，复制如下代码：</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="err">{</span> <span class="nn">TheRouterPage</span> <span class="o">}</span> <span class="n">from</span> <span class="err">'</span><span class="nd">@hll</span><span class="o">/</span><span class="n">therouter</span><span class="err">'</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="err">{</span> <span class="nn">TheRouterPage</span> <span class="o">}</span> <span class="n">from</span> <span class="err">'</span><span class="nd">@therouter</span><span class="o">/</span><span class="n">library</span><span class="err">'</span><span class="o">;</span>
 
 <span class="nd">@Entry</span>
 <span class="nd">@Component</span>
@@ -1338,7 +1338,7 @@ AGP Version：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/b
 <p>TheRouter 采用Apache2.0协议，详情参考<a href="LICENSE">LICENSE</a></p>
 
 <h2 id="交流沟通群">交流沟通群</h2>
-<p><img src="https://cdn.kymjs.com:8843/therouter_assets/wx/wx_ios_group.jpg" class="blog-img" /></p>]]></content><author><name></name></author><category term="docs" /><category term="框架简介" /><summary type="html"><![CDATA[TheRouterSwift是货拉拉TheRouter系列开源框架的Swift版本，为日益增多的Swift开发者提供一高可用路由框架。TheRouterSwift用于模块间解耦和通信，基于Swift协议进行动态懒加载注册路由与打开路由的工具。同时支持通过Service-Protocol寻找对应的模块，并用 protocol进行依赖注入和模块通信。]]></summary></entry><entry><title type="html">TheRouter iOS 路由介绍</title><link href="http://localhost:4000/docs/2023/07/24/01" rel="alternate" type="text/html" title="TheRouter iOS 路由介绍" /><published>2023-07-24T00:00:00+08:00</published><updated>2023-07-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/07/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/07/24/01"><![CDATA[<h2 id="功能介绍">功能介绍</h2>
+<p><img src="https://cdn.kymjs.com:8843/therouter_assets/qiniu/image/wx_ios_group.jpg" class="blog-img" /></p>]]></content><author><name></name></author><category term="docs" /><category term="框架简介" /><summary type="html"><![CDATA[TheRouterSwift是货拉拉TheRouter系列开源框架的Swift版本，为日益增多的Swift开发者提供一高可用路由框架。TheRouterSwift用于模块间解耦和通信，基于Swift协议进行动态懒加载注册路由与打开路由的工具。同时支持通过Service-Protocol寻找对应的模块，并用 protocol进行依赖注入和模块通信。]]></summary></entry><entry><title type="html">TheRouter iOS 路由介绍</title><link href="http://localhost:4000/docs/2023/07/24/01" rel="alternate" type="text/html" title="TheRouter iOS 路由介绍" /><published>2023-07-24T00:00:00+08:00</published><updated>2023-07-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/07/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/07/24/01"><![CDATA[<h2 id="功能介绍">功能介绍</h2>
 
 <p>TheRouter 是货拉拉打造的一款同时支持 <a href="https://github.com/HuolalaTech/hll-wp-therouter-android">Android</a> 及 <a href="https://github.com/HuolalaTech/hll-wp-therouter-ios">iOS</a> 的轻量级路由中间件，在iOS端吸取了其他其他语言的特性，支持<a href="https://juejin.cn/post/6999484997782470669">注解</a>功能，极大提升了路由在iOS端的使用体感。摒弃了传统 iOSer 的 target-action 或 protocol 理念，向更广的后台或 Android 应用对齐。</p>
 

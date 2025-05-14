@@ -4,15 +4,15 @@
   <head>
   <!-- meta data & title -->
   <meta charset="utf-8">
-  <title>接入鸿蒙 TheRouter</title>
+  <title>从零接入鸿蒙路由 TheRouter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。">
   <meta name="author" content="TheRouter">
   <meta name="keyword"
-      content="接入鸿蒙 TheRouter,android,kotlin,arouter,TheRouter">
+      content="从零接入鸿蒙路由 TheRouter,android,kotlin,arouter,TheRouter">
 
   <meta name="keywords"
-      content="接入鸿蒙 TheRouter,android,kotlin,arouter,therouter,studio,优质开发技术">
+      content="从零接入鸿蒙路由 TheRouter,android,kotlin,arouter,therouter,studio,优质开发技术">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -76,7 +76,7 @@
 
 <!-- End Header -->
   	
-  		<h2 class="blog-title" align="center">接入鸿蒙 TheRouter</h2>
+  		<h2 class="blog-title" align="center">从零接入鸿蒙路由 TheRouter</h2>
       <br>
   	
     <!-- Main Container -->
@@ -106,10 +106,10 @@
 <p>在工程根目录命令行引入依赖库和插件库（必须全部依赖，不能只使用其中一个）。</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 引入代码库依赖
-ohpm i @hll/therouter   
+ohpm i @therouter/library   
 
 // 引入插件依赖
-npm i therouter-plugin
+npm i @therouter/plugin
 </code></pre></div></div>
 
 <p><br /><br /></p>
@@ -117,25 +117,25 @@ npm i therouter-plugin
 <h3 id="第一步接入编译插件">第一步：接入编译插件</h3>
 
 <ol>
-  <li>打开项目根目录的 <code class="language-plaintext highlighter-rouge">hvigor/hvigor-config.json5</code>，检查 <code class="language-plaintext highlighter-rouge">dependencies</code> 中是否已经加入了依赖，一般为 <code class="language-plaintext highlighter-rouge">"therouter-plugin": "x.x.x"</code>。</li>
+  <li>打开项目根目录的 <code class="language-plaintext highlighter-rouge">hvigor/hvigor-config.json5</code>，检查 <code class="language-plaintext highlighter-rouge">dependencies</code> 中是否已经加入了依赖，一般为 <code class="language-plaintext highlighter-rouge">"@therouter/plugin": "x.x.x"</code>。</li>
   <li>打开工程 <strong>所有</strong> 模块（hsp、hap、har）的 <code class="language-plaintext highlighter-rouge">hvigorfile.ts</code> 文件。</li>
   <li>在 <code class="language-plaintext highlighter-rouge">plugins</code> 中加入如下对应的依赖</li>
 </ol>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 如果是 hap，则类似如下依赖</span>
-<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"therouter-plugin"</span><span class="o">;</span>
+<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"@therouter/plugin"</span><span class="o">;</span>
 <span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
   <span class="nl">plugins:</span> <span class="o">[</span><span class="n">hapPlugin</span><span class="o">()]</span>
 <span class="o">}</span>
 
 <span class="c1">// 如果是 har，则类似如下依赖</span>
-<span class="kn">import</span> <span class="err">{</span> <span class="nn">harPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"therouter-plugin"</span><span class="o">;</span>
+<span class="kn">import</span> <span class="err">{</span> <span class="nn">harPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"@therouter/plugin"</span><span class="o">;</span>
 <span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
   <span class="nl">plugins:</span> <span class="o">[</span><span class="n">harPlugin</span><span class="o">()]</span>
 <span class="o">}</span>
 
 <span class="c1">// 如果是 hap，则类似如下依赖</span>
-<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"therouter-plugin"</span><span class="o">;</span>
+<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"@therouter/plugin"</span><span class="o">;</span>
 <span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
   <span class="nl">plugins:</span> <span class="o">[</span><span class="n">hapPlugin</span><span class="o">()]</span>
 <span class="o">}</span>
@@ -147,7 +147,7 @@ npm i therouter-plugin
 
 <ol>
   <li>打开 <strong>工程根目录</strong> 的 <code class="language-plaintext highlighter-rouge">oh-package.json5</code> 文件。</li>
-  <li>检查 <code class="language-plaintext highlighter-rouge">dependencies</code> 中，是否已经加入了依赖，一般为：<code class="language-plaintext highlighter-rouge">"@hll/therouter": "x.x.x"</code></li>
+  <li>检查 <code class="language-plaintext highlighter-rouge">dependencies</code> 中，是否已经加入了依赖，一般为：<code class="language-plaintext highlighter-rouge">"@therouter/library": "x.x.x"</code></li>
 </ol>
 
 <p><br /><br /></p>
@@ -169,7 +169,7 @@ npm i therouter-plugin
 
 <p>TheRouter 按照华为推荐方案，基于系统 Navigation 实现，所以必须在页面中定义一个容器项 <code class="language-plaintext highlighter-rouge">TheRouterPage</code>，建议创建一个完全新的类作为入口并在 <code class="language-plaintext highlighter-rouge">/resources/base/profile/main_pages.json</code> 中配置这个类，复制如下代码：</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="err">{</span> <span class="nn">TheRouterPage</span> <span class="o">}</span> <span class="n">from</span> <span class="err">'</span><span class="nd">@hll</span><span class="o">/</span><span class="n">therouter</span><span class="err">'</span><span class="o">;</span>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="err">{</span> <span class="nn">TheRouterPage</span> <span class="o">}</span> <span class="n">from</span> <span class="err">'</span><span class="nd">@therouter</span><span class="o">/</span><span class="n">library</span><span class="err">'</span><span class="o">;</span>
 
 <span class="nd">@Entry</span>
 <span class="nd">@Component</span>
