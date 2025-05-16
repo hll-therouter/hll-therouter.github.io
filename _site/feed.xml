@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-16T10:15:54+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">鸿蒙路由源码调试步骤</title><link href="http://localhost:4000/docs/2025/05/14/01" rel="alternate" type="text/html" title="鸿蒙路由源码调试步骤" /><published>2025-05-14T00:00:00+08:00</published><updated>2025-05-14T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/05/14/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/05/14/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，支持动态路由下发、编译时安全检查、路由Path一对多等高度动态能力。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-16T10:37:52+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">鸿蒙路由源码调试步骤</title><link href="http://localhost:4000/docs/2025/05/14/01" rel="alternate" type="text/html" title="鸿蒙路由源码调试步骤" /><published>2025-05-14T00:00:00+08:00</published><updated>2025-05-14T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/05/14/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/05/14/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，支持动态路由下发、编译时安全检查、路由Path一对多等高度动态能力。</p>
 
 <p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
 官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
@@ -668,10 +668,10 @@ npm i @therouter/plugin
   <span class="nl">plugins:</span> <span class="o">[</span><span class="n">harPlugin</span><span class="o">()]</span>
 <span class="o">}</span>
 
-<span class="c1">// 如果是 hap，则类似如下依赖</span>
-<span class="kn">import</span> <span class="err">{</span> <span class="nn">hapPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"@therouter/plugin"</span><span class="o">;</span>
+<span class="c1">// 如果是 hsp，则类似如下依赖</span>
+<span class="kn">import</span> <span class="err">{</span> <span class="nn">hspPlugin</span> <span class="o">}</span> <span class="n">from</span> <span class="s">"@therouter/plugin"</span><span class="o">;</span>
 <span class="n">export</span> <span class="k">default</span> <span class="o">{</span>
-  <span class="nl">plugins:</span> <span class="o">[</span><span class="n">hapPlugin</span><span class="o">()]</span>
+  <span class="nl">plugins:</span> <span class="o">[</span><span class="n">hspPlugin</span><span class="o">()]</span>
 <span class="o">}</span>
 </code></pre></div></div>
 
