@@ -4,15 +4,15 @@
   <head>
   <!-- meta data & title -->
   <meta charset="utf-8">
-  <title>Harmony 动态路由框架：TheRouter 开源</title>
+  <title>鸿蒙动态路由框架：TheRouter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。">
   <meta name="author" content="TheRouter">
   <meta name="keyword"
-      content="Harmony 动态路由框架：TheRouter 开源,android,kotlin,arouter,TheRouter">
+      content="鸿蒙动态路由框架：TheRouter,android,kotlin,arouter,TheRouter">
 
   <meta name="keywords"
-      content="Harmony 动态路由框架：TheRouter 开源,android,kotlin,arouter,therouter,studio,优质开发技术">
+      content="鸿蒙动态路由框架：TheRouter,android,kotlin,arouter,therouter,studio,优质开发技术">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
@@ -76,7 +76,7 @@
 
 <!-- End Header -->
   	
-  		<h2 class="blog-title" align="center">Harmony 动态路由框架：TheRouter 开源</h2>
+  		<h2 class="blog-title" align="center">鸿蒙动态路由框架：TheRouter</h2>
       <br>
   	
     <!-- Main Container -->
@@ -146,7 +146,7 @@
 
 <p>无论哪个平台，路由的本质就是一个 Map，或者说是字典。其中 key 是，页面的 path，value 是路由项。对于 Action、ServiceProvider，也都是一样。<br />
 所以在鸿蒙上最核心的重点，是实现在编译期将注解 path 关联到具体的路由项，使其产生一个一对多或一对一的对应关系。其次就是要考虑如何与系统自带的路由表兼容，遵循系统方案而不是完全打造一套，否则可能引起将来的不确定性。  <br />
-在 TheRouter 中，通过编译期的 <code class="language-plaintext highlighter-rouge">hvigor</code> 插件，解析全部的注解关键字，并将获取到的内容保存下来，在应用编译完成后，参照系统的路由表格式，生成一份增量的路由表，聚合到系统的路由表内。正是因为这样，才能做到兼容第三方SDK，正常跳转到第三方页面。既然第三方都能跳转，那么其他的二方、或自己的独立模块自然也就可以正常跳转了。</p>
+在 <code class="language-plaintext highlighter-rouge">TheRouter</code> 中，通过编译期的 <code class="language-plaintext highlighter-rouge">hvigor</code> 插件，解析全部的注解关键字，并将获取到的内容保存下来，在应用编译完成后，参照系统的路由表格式，生成一份增量的路由表，聚合到系统的路由表内。正是因为这样，才能做到兼容第三方 SDK，正常跳转到第三方页面。既然第三方都能跳转，那么其他的二方、或自己的独立模块自然也就可以正常跳转了。</p>
 
 <p><br /></p>
 
@@ -210,9 +210,7 @@
 根据如下顺序，如果相同，后者可以覆盖前者的路由表规则。</p>
 
 <ol>
-  <li>编译期解析注解生成路由表</li>
-  <li>首先取 <code class="language-plaintext highlighter-rouge">业务模块(har/hap)</code> 中的路由表</li>
-  <li>再取 主<code class="language-plaintext highlighter-rouge">hsp module</code> 代码中的路由表</li>
+  <li>编译期解析源码注解生成路由表。注：<strong>与Android编译不同，鸿蒙中所有的模块<code class="language-plaintext highlighter-rouge">har/hap/hsp</code>都是单独的构建单元，都可以有对应的模块路由表</strong>。</li>
   <li>最后取 <code class="language-plaintext highlighter-rouge">resources/base/profile/RouteMap.json</code> 文件中声明的路由表。
     <ul>
       <li>如果编译期没有这个文件，会生成一份默认路由表放在这个目录内（编译完成后如果没有配置保留，会自动删掉）；如果有，会将路由表合并。</li>
@@ -231,7 +229,7 @@
 
 <h4 id="34-动态路由表的设计与使用">3.4 动态路由表的设计与使用</h4>
 
-<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 的路由表是动态添加的，项目每次编译后，会在 app 内生成一份当前模块的全量路由表。这个路由表也可以后续通过远程下发的方式使用，例如远端可以针对不同的APP版本，下发不同的路由表达到配置目的。这样如果将来线上某些页面发生Crash，可以通过将这个页面的落地页替换为H5的方式，临时解决这类问题。  <br />
+<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 的路由表是动态添加的，项目每次编译后，会在 app 内生成一份当前模块的全量路由表。这个路由表也可以后续通过远程下发的方式使用，例如远端可以针对不同的 APP 版本，下发不同的路由表达到配置目的。这样如果将来线上某些页面发生 Crash，可以通过将这个页面的落地页替换为 H5 的方式，临时解决这类问题。  <br />
 <br /></p>
 
 <p>有两种推荐的远程下发方式可供使用方选择：</p>
@@ -308,15 +306,24 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 <span class="k">public</span> <span class="nf">setRouterInterceptor</span><span class="p">(</span><span class="nx">interceptor</span><span class="p">:</span> <span class="p">(</span><span class="nx">route</span><span class="p">:</span> <span class="nx">RouteItem</span><span class="p">,</span> <span class="nx">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">route</span><span class="p">:</span> <span class="nx">RouteItem</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">);</span>
 </code></pre></div></div>
 
-<h4 id="36-高级用法">3.6 高级用法</h4>
+<h4 id="36-跳转结果回调">3.6 跳转结果回调</h4>
 
-<p>TheRouter同时支持更多页面跳转能力：</p>
+<p>TheRouter 同时支持对所有页面跳转和某一次页面跳转做回调监听能力：</p>
 
-<ul>
-  <li>为第三方库里面的页面添加路由表，达到对某些页面降级替换的目的；</li>
-  <li>跳转过程拦截器（总共四层，可根据实际需求使用）；</li>
-  <li>跳转结果回调；</li>
-</ul>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * 自定义全局路由跳转结果回调
+ *
+ * 如果使用TheRouter跳转，传入了一个不识别的的path，则不会有任何处理。你也可以定义一个默认的全局回调，来处理跳转情况。
+ * 当然，跳转结果的回调不止这一个用途，可以根据业务有自己的处理。
+ * 回调也可以单独为某一次跳转设置，navigation()方法有重载可以传入设置。
+ */</span>
+<span class="k">export</span> <span class="kr">interface</span> <span class="nx">NavigationCallback</span> <span class="p">{</span>
+  <span class="nl">onResult</span><span class="p">?:</span> <span class="p">(</span><span class="nx">routeItem</span><span class="p">:</span> <span class="nx">RouteItem</span><span class="p">,</span> <span class="nx">popInfo</span><span class="p">:</span> <span class="nx">PopInfo</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nl">onArrival</span><span class="p">?:</span> <span class="p">(</span><span class="nb">navigator</span><span class="p">:</span> <span class="nx">Navigator</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+  <span class="nl">onLost</span><span class="p">?:</span> <span class="p">(</span><span class="nb">navigator</span><span class="p">:</span> <span class="nx">Navigator</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="k">void</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
 
 <p><br /></p>
 
@@ -375,6 +382,34 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 </ul>
 
 <p><br /></p>
+
+<h4 id="serviceprovider-的设计原理">ServiceProvider 的设计原理</h4>
+
+<p>跨模块调用分为两部分，服务的提供方和服务的使用方</p>
+
+<p>服务的提供方与 Android 的设计思路一致，在编译时，通过解析注解 <code class="language-plaintext highlighter-rouge">@ServiceProvider</code> 获取到添加注解的类或方法。</p>
+
+<p>因为鸿蒙编译时的限制，不能像 Android 那样，通过动态修改某个指定类达到修改代码的目的。所以在鸿蒙里面，是将这些编译时的信息都记录到了路由表里面。因此你可以看到，TheRouter 在编译以后的路由表，所有服务相关的调用前，都加了 <code class="language-plaintext highlighter-rouge">__service_provider__</code> 这样的前缀，就是用来区分这个 path 是一个页面还是一个服务提供者。</p>
+
+<p>再当应用启动的时候，通过解析路由表，就可以拿到这些服务提供者的类、方法、接口名等等一系列信息了，并将这些信息序列化成对象，存在一个内存Map中。</p>
+
+<p><br /></p>
+
+<p>对于服务的使用方，重点在于这个方法。</p>
+
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cm">/**
+   * 获取指定服务提供者提供的服务
+   * @param serviceProvider
+   * @returns
+   */</span>
+  <span class="k">static</span> <span class="kd">get</span><span class="o">&lt;</span><span class="nx">T</span> <span class="kd">extends</span> <span class="nx">IServiceProvider</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">serviceProvider</span><span class="p">:</span> <span class="kr">string</span><span class="p">):</span> <span class="nx">T</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">RouterInject</span><span class="p">.</span><span class="nf">getInstance</span><span class="p">().</span><span class="nx">getService</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">serviceProvider</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+
+<p>当调用 <code class="language-plaintext highlighter-rouge">TheRouter.get()</code> 时，其实就是去到了上面服务提供方的那个 Map 里面，找到本次需要调用的服务提供者，再去调用服务提供者对应的服务即可。</p>
+
+<p>然后<code class="language-plaintext highlighter-rouge">TheRouter</code>顺带还对服务提供者，做了单例、缓存、无缓存的设计，用来对应不同的业务场景需求。其实这些设计也都是对这个缓存 Map 做不同的处理而已。</p>
 
 <h3 id="五动态化能力-action-的设计">五、动态化能力 Action 的设计</h3>
 
@@ -439,11 +474,23 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
 
 <h3 id="六从其他路由迁移至-therouter">六、从其他路由迁移至 TheRouter</h3>
 
-<h4 id="61-迁移工具一键迁移">6.1 迁移工具一键迁移？</h4>
+<h4 id="61-ide-插件工具">6.1 IDE 插件工具</h4>
 
 <p><code class="language-plaintext highlighter-rouge">TheRouter</code> 在 Android 项目上提供了图形化界面的迁移工具，可以一键从其他路由迁移到<code class="language-plaintext highlighter-rouge">TheRouter</code>。</p>
 
-<p>鸿蒙当然也提供了相同的能力，你可以在插件市场搜索，直接安装。安装好以后，点击 IDE 顶部的 Tool 菜单，找到迁移工具。</p>
+<p>鸿蒙当然也提供了相同的能力，你可以在<code class="language-plaintext highlighter-rouge">JetBrains</code>插件市场搜索，直接安装。由于<code class="language-plaintext highlighter-rouge">Dev-Eco Studio</code>中无法直接搜索，建议去 <code class="language-plaintext highlighter-rouge">JetBrains</code> 官网搜索插件下载，使用本地安装的方式。安装好以后，点击 IDE 顶部的 Tool 菜单，找到迁移工具。</p>
+
+<p>插件地址：<a href="https://plugins.jetbrains.com/plugin/20047-therouter/">https://plugins.jetbrains.com/plugin/20047-therouter/</a></p>
+
+<p><img src="https://cdn.kymjs.com:8843/therouter_assets/img/image/TheRouterIdeaPlugin23.png" class="blog-img" /></p>
+
+<p><br /></p>
+
+<p>IDE 插件除了可以实现一键迁移，同时还可以随时查看当前路由的最新版本、方便的 IDE 代码导航跳转。</p>
+
+<p><img src="https://cdn.kymjs.com:8843/therouter_assets/img/image/TheRouterIdeaPlugin21.png" class="blog-img" /></p>
+
+<p><img src="https://cdn.kymjs.com:8843/therouter_assets/img/image/TheRouterIdeaPlugin22.png" class="blog-img" /></p>
 
 <p><br /></p>
 
@@ -474,7 +521,7 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
       <td>✖️</td>
     </tr>
     <tr>
-      <td>路由path支持正则表达式</td>
+      <td>路由 Path 支持正则表达式</td>
       <td>✔️</td>
       <td>✔️</td>
       <td>✖️</td>
@@ -516,13 +563,13 @@ Harmony 路由与 Android 路由的拦截器使用完全一致，可以直接参
       <td>✖️</td>
     </tr>
     <tr>
-      <td>支持使用路由打开第三方SDK页面</td>
+      <td>支持使用路由打开第三方 SDK 页面</td>
       <td>✔️</td>
       <td>✖️</td>
       <td>✖️</td>
     </tr>
     <tr>
-      <td>onBackPress()自定义逻辑</td>
+      <td>onBackPress()等生命周期自定义逻辑</td>
       <td>✔️(完全默认语法，无限制)</td>
       <td>✔️(全局回调实现，无法调用原struct页面内方法和变量)</td>
       <td>✖️(只能在外部页面上做逻辑，内部嵌套不支持)</td>

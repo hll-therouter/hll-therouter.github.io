@@ -248,6 +248,30 @@ npm i @therouter/plugin
 
 <p><br /><br /></p>
 
+<h2 id="问题排查万能公式">问题排查万能公式</h2>
+
+<p>在使用过程中，如果发现服务无法调用，或返回为空的时候。通常的排查方式都是以下三步：</p>
+
+<ol>
+  <li>首先观察接入环境。插件是否和依赖库版本一致，插件是否生效了。在我们内部使用的过程中，经常发现，<code class="language-plaintext highlighter-rouge">oh-package.json5</code> 中引入的明明是新版本，但是实际编译时使用的还是老版本，猜测应该是构建工具的问题。在<code class="language-plaintext highlighter-rouge">TheRouter</code>编译时，日志的第一行就会有当前编译实际使用的版本号，如果和你预期不一致时，需要再执行一下命令行：</li>
+</ol>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 引入代码库依赖
+ohpm i @therouter/library   
+
+// 引入插件依赖
+npm i @therouter/plugin
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>2.上一步排查完依然无法调用时，就要考虑一下是不是代码使用姿势问题了。比如添加<code class="language-plaintext highlighter-rouge">@ServiceProvider</code>的服务提供者必须实现<code class="language-plaintext highlighter-rouge">IServiceProvider</code>接口。服务提供者注解参数里面的<code class="language-plaintext highlighter-rouge">serviceName</code>是不是和使用方传入的一致。注：如果多次添加重复serviceName，框架会保证安全，在编译时报错。</p>
+
+<p><br /></p>
+
+<p>3.如果上两步都不能解决你的问题，那就需要进源码通过断点调试进一步明确问题出在哪里了。首先从<code class="language-plaintext highlighter-rouge">TheRouter.init()</code>开始找，看看路由表读取是否正确，再看服务Map里面是否有记录成功，再看调用的时候传入的是否正确，一步一步排查。</p>
+
+
 	</div>
   
   
@@ -263,7 +287,7 @@ npm i @therouter/plugin
     <div class="col">
       <div class="card shadow-sm">
         <a href=/docs/2025/05/14/01>
-          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>跨模块服务调用的设计与使用</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">跨模块服务调用的设计与使用</text></svg>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>鸿蒙路由源码调试步骤</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">鸿蒙路由源码调试步骤</text></svg>
         </a>
 
         <div class="card-body">
