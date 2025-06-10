@@ -12,3 +12,8 @@ markdown: kramdown
     
 plugins:
   - jekyll-feed
+
+exclude:  
+  - vendor # 排除整个 vendor 目录  
+  - Gemfile  
+  - Gemfile.lock
