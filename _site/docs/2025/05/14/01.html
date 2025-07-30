@@ -82,115 +82,7 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
-		<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，支持动态路由下发、编译时安全检查、路由Path一对多等高度动态能力。</p>
-
-<p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
-官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
-
-<p><br /></p>
-
-<h2 id="第一步clone-仓库">第一步：clone 仓库</h2>
-
-<p>使用命令行：</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:HuolalaTech/hll-wp-therouter-harmony.git
-</code></pre></div></div>
-
-<h2 id="第二步创建-build-profile">第二步：创建 build-profile</h2>
-
-<p>在项目根目录中，新建一个名为 <code class="language-plaintext highlighter-rouge">build-profile.json5</code> 的文件，文件内加入如下内容。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "app": {
-    "signingConfigs": [ 
-    // 签名部分需要手动从官网获取自己的开发者信息
-     ],
-    "products": [
-      {
-        "name": "default",
-        "signingConfig": "xxxxx填上面的签名信息",
-        "compatibleSdkVersion": "可根据自己SDK情况填写",
-        "runtimeOS": "HarmonyOS",
-        "buildOption": {
-          "strictMode": {
-            "caseSensitiveCheck": true,
-            "useNormalizedOHMUrl": true
-          }
-        }
-      }
-    ],
-    "buildModeSet": [
-      {
-        "name": "debug",
-      },
-      {
-        "name": "release"
-      }
-    ]
-  },
-  "modules": [
-    {
-      "name": "entry",
-      "srcPath": "./entry",
-      "targets": [
-        {
-          "name": "default",
-          "applyToProducts": [
-            "default"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "therouter",
-      "srcPath": "./therouter"
-    },
-    {
-      "name": "business_a",
-      "srcPath": "./business_a"
-    },
-    {
-      "name": "business_b",
-      "srcPath": "./business_b"
-    },
-    {
-      "name": "base",
-      "srcPath": "./base"
-    }
-  ]
-}
-</code></pre></div></div>
-
-<h2 id="第三步创建-hvigor-构建环境">第三步：创建 hvigor 构建环境</h2>
-
-<p>在工程根目录新建一个名为 <code class="language-plaintext highlighter-rouge">hvigor</code> 的文件夹<br />
-文件夹内新建一个名为 <code class="language-plaintext highlighter-rouge">hvigor-config.json5</code> 的文件，文件内加入如下内容：</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "modelVersion": "根据实际情况填写版本号",
-  "dependencies": {
-    "@therouter/plugin": "根据实际情况填写版本号"  
-  },
-  "execution": {
-    // "analyze": "normal",                     /* Define the build analyze mode. Value: [ "normal" | "advanced" | false ]. Default: "normal" */
-    // "daemon": true,                          /* Enable daemon compilation. Value: [ true | false ]. Default: true */
-    // "incremental": true,                     /* Enable incremental compilation. Value: [ true | false ]. Default: true */
-    // "parallel": true,                        /* Enable parallel compilation. Value: [ true | false ]. Default: true */
-    // "typeCheck": false,                      /* Enable typeCheck. Value: [ true | false ]. Default: false */
-  },
-  "logging": {
-    // "level": "info"                          /* Define the log level. Value: [ "debug" | "info" | "warn" | "error" ]. Default: "info" */
-  },
-  "debugging": {
-    // "stacktrace": false                      /* Disable stacktrace compilation. Value: [ true | false ]. Default: false */
-  },
-  "nodeOptions": {
-    // "maxOldSpaceSize": 8192                  /* Enable nodeOptions maxOldSpaceSize compilation. Unit M. Used for the daemon process. Default: 8192*/
-    // "exposeGC": true                         /* Enable to trigger garbage collection explicitly. Default: true*/
-  }
-}
-
-</code></pre></div></div>
+		<p>本文已迁移至：https://kymjs.com/code/2025/03/23/01/</p>
 
 
 	</div>
@@ -295,7 +187,7 @@ https://kymjs.com/code/2024/10/31/01/
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">6 mins</small>
+            <small class="text-muted">7 mins</small>
           </div>
         </div>
       </div>
@@ -329,14 +221,14 @@ https://kymjs.com/code/2024/10/31/01/
       </div>
       <div class="col-md-4">
         <h3><i class="bi bi-slack bi-footer"></i> 社区</h3>
-        <p><a href="https://kymjs.com/therouter/wx/"> 官方微信群</a></p>
-        <p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android"> GitHub </a></p>
-        <p><a href="https://juejin.cn/user/1768489241815070/posts"> 技术博客 </a></p> 
+        <p><a href="https://therouter.cn/docs/2022/08/24/01"> 官方微信群 </a></p>
+        <p><a href="https://kymjs.com"> 开源实验室</a></p>
+        <p><a href="https://1-0.top"> 零一开源 </a></p>
       </div>
       <div class="col-md-4">
         <h3><i class="bi bi-postcard-heart bi-footer"></i> 关于</h3>
         <p><a href="https://juejin.cn/user/1768489241815070/posts"> 货拉拉移动技术团队</a></p>
-        <p><a href="https://kymjs.com"> 开源实验室</a></p>
+        <p><a href="https://github.com/HuolalaTech"> GitHub </a></p>
       </div>    
     </div>
   </div>

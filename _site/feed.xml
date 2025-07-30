@@ -1,112 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-06-10T16:07:15+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">鸿蒙路由源码调试步骤</title><link href="http://localhost:4000/docs/2025/05/14/01" rel="alternate" type="text/html" title="鸿蒙路由源码调试步骤" /><published>2025-05-14T00:00:00+08:00</published><updated>2025-05-14T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/05/14/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/05/14/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，支持动态路由下发、编译时安全检查、路由Path一对多等高度动态能力。</p>
-
-<p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
-官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
-
-<p><br /></p>
-
-<h2 id="第一步clone-仓库">第一步：clone 仓库</h2>
-
-<p>使用命令行：</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone git@github.com:HuolalaTech/hll-wp-therouter-harmony.git
-</code></pre></div></div>
-
-<h2 id="第二步创建-build-profile">第二步：创建 build-profile</h2>
-
-<p>在项目根目录中，新建一个名为 <code class="language-plaintext highlighter-rouge">build-profile.json5</code> 的文件，文件内加入如下内容。</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "app": {
-    "signingConfigs": [ 
-    // 签名部分需要手动从官网获取自己的开发者信息
-     ],
-    "products": [
-      {
-        "name": "default",
-        "signingConfig": "xxxxx填上面的签名信息",
-        "compatibleSdkVersion": "可根据自己SDK情况填写",
-        "runtimeOS": "HarmonyOS",
-        "buildOption": {
-          "strictMode": {
-            "caseSensitiveCheck": true,
-            "useNormalizedOHMUrl": true
-          }
-        }
-      }
-    ],
-    "buildModeSet": [
-      {
-        "name": "debug",
-      },
-      {
-        "name": "release"
-      }
-    ]
-  },
-  "modules": [
-    {
-      "name": "entry",
-      "srcPath": "./entry",
-      "targets": [
-        {
-          "name": "default",
-          "applyToProducts": [
-            "default"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "therouter",
-      "srcPath": "./therouter"
-    },
-    {
-      "name": "business_a",
-      "srcPath": "./business_a"
-    },
-    {
-      "name": "business_b",
-      "srcPath": "./business_b"
-    },
-    {
-      "name": "base",
-      "srcPath": "./base"
-    }
-  ]
-}
-</code></pre></div></div>
-
-<h2 id="第三步创建-hvigor-构建环境">第三步：创建 hvigor 构建环境</h2>
-
-<p>在工程根目录新建一个名为 <code class="language-plaintext highlighter-rouge">hvigor</code> 的文件夹<br />
-文件夹内新建一个名为 <code class="language-plaintext highlighter-rouge">hvigor-config.json5</code> 的文件，文件内加入如下内容：</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-  "modelVersion": "根据实际情况填写版本号",
-  "dependencies": {
-    "@therouter/plugin": "根据实际情况填写版本号"  
-  },
-  "execution": {
-    // "analyze": "normal",                     /* Define the build analyze mode. Value: [ "normal" | "advanced" | false ]. Default: "normal" */
-    // "daemon": true,                          /* Enable daemon compilation. Value: [ true | false ]. Default: true */
-    // "incremental": true,                     /* Enable incremental compilation. Value: [ true | false ]. Default: true */
-    // "parallel": true,                        /* Enable parallel compilation. Value: [ true | false ]. Default: true */
-    // "typeCheck": false,                      /* Enable typeCheck. Value: [ true | false ]. Default: false */
-  },
-  "logging": {
-    // "level": "info"                          /* Define the log level. Value: [ "debug" | "info" | "warn" | "error" ]. Default: "info" */
-  },
-  "debugging": {
-    // "stacktrace": false                      /* Disable stacktrace compilation. Value: [ true | false ]. Default: false */
-  },
-  "nodeOptions": {
-    // "maxOldSpaceSize": 8192                  /* Enable nodeOptions maxOldSpaceSize compilation. Unit M. Used for the daemon process. Default: 8192*/
-    // "exposeGC": true                         /* Enable to trigger garbage collection explicitly. Default: true*/
-  }
-}
-
-</code></pre></div></div>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry><entry><title type="html">鸿蒙动态路由框架：TheRouter</title><link href="http://localhost:4000/docs/2025/03/24/01" rel="alternate" type="text/html" title="鸿蒙动态路由框架：TheRouter" /><published>2025-03-24T00:00:00+08:00</published><updated>2025-03-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/24/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是一个用于移动端APP，包括 Android、iOS、Harmony 三端的模块化、组件化开发的一整套解决方案框架。提供了三端高一致性，对移动端开发者更友好，让开发人员更适应，使用起来也更顺手。在鸿蒙上， TheRouter 基于HMRouter做了深度定制，不仅支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，还提供了编译时安全检查、支持动态路由下发与修改、路由 Path 一对多等高度动态能力。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-30T15:06:00+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">鸿蒙路由源码调试步骤</title><link href="http://localhost:4000/docs/2025/05/14/01" rel="alternate" type="text/html" title="鸿蒙路由源码调试步骤" /><published>2025-05-14T00:00:00+08:00</published><updated>2025-05-14T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/05/14/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/05/14/01"><![CDATA[<p>本文已迁移至：https://kymjs.com/code/2025/03/23/01/</p>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry><entry><title type="html">鸿蒙动态路由框架：TheRouter</title><link href="http://localhost:4000/docs/2025/03/24/01" rel="alternate" type="text/html" title="鸿蒙动态路由框架：TheRouter" /><published>2025-03-24T00:00:00+08:00</published><updated>2025-03-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/24/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是一个用于移动端APP，包括 Android、iOS、Harmony 三端的模块化、组件化开发的一整套解决方案框架。提供了三端高一致性，对移动端开发者更友好，让开发人员更适应，使用起来也更顺手。在鸿蒙上， TheRouter 基于HMRouter做了深度定制，不仅支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，还提供了编译时安全检查、支持动态路由下发与修改、路由 Path 一对多等高度动态能力。</p>
 
 <p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
 官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
@@ -811,19 +703,22 @@ npm i @therouter/plugin
 
 <p><br /><br /></p>
 
-<h2 id="130版本改动">1.3.0版本改动</h2>
+<h2 id="一提升-jdk-版本">一、提升 JDK 版本</h2>
 
-<ol>
-  <li>由于新版本 Android Studio 强制使用 Java 17，TheRouter 从 1.3.0 开始全部使用 JDK17 编译，你需要更新编译 JDK 版本。</li>
-  <li>新增编译选项（请在理解<a href="https://kymjs.com/code/2024/10/31/01/">增量实现原理</a>的前提下使用）：
-    <ul>
-      <li><strong>forceIncremental</strong>：bool值, 强制开启增量编译。增量编译默认只在debug模式并且有缓存时开启，如果强制开启增量编译，不论debug还是release都会启用增量。</li>
-      <li><strong>incrementalCachePath</strong>：String值, 增量编译缓存路径。取工程根目录的相对路径，例如配置incrementalCachePath = “test”，则会在工程中新建一个名为test的文件夹。如不配置，默认是在app/build/目录下。   <strong>强烈建议 ：如果开启了强制增量编译，把缓存路径设置到工程目录下，并随git一起提交缓存数据，否则prd集成打包时，由于没有缓存又强制开启增量，会造成无法插入增量内容，运行时被降级为反射。</strong></li>
-    </ul>
-  </li>
-</ol>
+<p>由于新版本 Android Studio 强制使用 Java 17，TheRouter 从 1.3.0 开始全部使用 JDK17 编译，你需要更新编译 JDK 版本。</p>
 
-<h2 id="编译期选项">编译期选项</h2>
+<p><br /><br /></p>
+
+<h2 id="二废弃编译插件-cntherouteragp8">二、废弃编译插件 cn.therouter.agp8</h2>
+
+<p>从<code class="language-plaintext highlighter-rouge">1.3.0-rc1</code>版本开始，得益于采用Java 17编译，无需再区分agp8和agp7了，接入方式全部统一成：</p>
+
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter'</span> <span class="n">version</span> <span class="s1">'1.3.x'</span> <span class="n">apply</span> <span class="kc">false</span>
+</code></pre></div></div>
+
+<p><br /><br /></p>
+
+<h2 id="三编译期选项">三、编译期选项</h2>
 
 <p>老版本的<code class="language-plaintext highlighter-rouge">TheRouter</code>提供了不少编译期选项，可以通过手动在<code class="language-plaintext highlighter-rouge">local.properties</code>或<code class="language-plaintext highlighter-rouge">gradle.properties</code>文件中配置。从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，这些配置全部迁移到了app module的 <code class="language-plaintext highlighter-rouge">build.gradle</code> 内。你可以使用如下方式配置编译选项：</p>
 
@@ -839,33 +734,45 @@ npm i @therouter/plugin
     <span class="c1">// 图形化输出当前的 FlowTask 依赖图，不配则不输出</span>
     <span class="n">showFlowDepend</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
     
-    <span class="c1">// 1.3.0新增，强制开启增量编译，详情见上方描述</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="n">forceIncremental</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
-    <span class="c1">// 1.3.0新增，自定义增量编译缓存路径，详情见上方描述</span>
-    <span class="kd">public</span> <span class="n">String</span> <span class="n">incrementalCachePath</span> <span class="o">=</span> <span class="s2">""</span><span class="o">;</span>
+    <span class="c1">// 1.3.0-rc1新增，bool 值，强制开启增量编译，详情见下方描述</span>
+    <span class="n">forceIncremental</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="c1">// 1.3.0-rc1新增，string 值，自定义增量编译缓存路径，取工程根目录的相对路径，详情见下方描述</span>
+    <span class="n">incrementalCachePath</span> <span class="o">=</span> <span class="s2">""</span><span class="o">;</span>
+    <span class="c1">// 1.3.0-rc6新增，数组字段，自定义过滤编译 class，使用方式如下</span>
+    <span class="n">removeClass</span> <span class="o">=</span> <span class="o">[</span><span class="s2">"com/therouter/app/R$anim.class"</span><span class="o">,</span> <span class="s2">"xxxxxx"</span><span class="o">];</span>
 <span class="o">}</span>
 
 </code></pre></div></div>
 
+<p>v1.3.0 新增编译选项（请在理解<a href="https://kymjs.com/code/2024/10/31/01/">增量实现原理</a>的前提下使用）：</p>
+
+<ul>
+  <li><strong>forceIncremental</strong>：bool值, 强制开启增量编译。增量编译默认只在debug模式并且有缓存时开启，如果强制开启增量编译，不论debug还是release都会启用增量。</li>
+  <li><strong>incrementalCachePath</strong>：String值, 增量编译缓存路径。取工程根目录的相对路径，例如配置incrementalCachePath = “test”，则会在工程中新建一个名为test的文件夹。如不配置，默认是在app/build/目录下。   <strong>强烈建议 ：如果开启了强制增量编译，把缓存路径设置到工程目录下，并随git一起提交缓存数据，否则prd集成打包时，由于没有缓存又强制开启增量，会造成无法插入增量内容，运行时被降级为反射。</strong></li>
+  <li><strong>removeClass</strong> 在编译期要被干掉的类（只对 jar 包生效，源码不过滤)，可以用这个功能替换一些 jar 包中的类（在自己项目中新增一个同包名类名的 class，替换 jar 包中的），或删除不需要的 class。</li>
+</ul>
+
 <p><br /><br /></p>
 
-<h2 id="编译缓存">编译缓存</h2>
+<h2 id="四编译缓存">四、编译缓存</h2>
 
 <p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，所有编译均采用增量编译，且不再依赖<code class="language-plaintext highlighter-rouge">Gradle</code>的增量配置，所有增量均由框架内部实现，每次编译时会校验编译<code class="language-plaintext highlighter-rouge">jar</code>包与缓存数据是否一致，如果不一致才会去扫描有变更的<code class="language-plaintext highlighter-rouge">jar</code>包。因此，才能做到编译速度大幅提升。 <br />
 缓存路径在：/app/build/therouter目录下。</p>
 
-<p><strong>注：编译缓存仅在<code class="language-plaintext highlighter-rouge">debug</code>模式才会启用，你需要在 <code class="language-plaintext highlighter-rouge">build.gradle</code> 中开启调试模式（见步骤一）</strong></p>
+<p>从<code class="language-plaintext highlighter-rouge">1.3.0-rc1</code>版本开始，你也可以修改缓存路径。</p>
+
+<p><strong>注：1.2.3版本编译缓存仅在<code class="language-plaintext highlighter-rouge">debug</code>模式才会启用，你需要在 <code class="language-plaintext highlighter-rouge">build.gradle</code> 中开启调试模式。1.3.0 开始全模式启用。</strong></p>
 
 <p><br /><br /></p>
 
-<h2 id="默认服务提供者">默认服务提供者</h2>
+<h2 id="五默认服务提供者">五、默认服务提供者</h2>
 
 <p>老版本的<code class="language-plaintext highlighter-rouge">TheRouter</code>，如果使用了一个不存在<code class="language-plaintext highlighter-rouge">ServiceProvider</code>的<code class="language-plaintext highlighter-rouge">Service</code>接口时，会默认创建一个接口的空实现类来避免空指针。但实际应用起来发现，并不能降低空指针的概率，反倒将原本应该在开发阶段就发现的问题延到了线上才发现。 <br />
 从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>开始，如果没有声明<code class="language-plaintext highlighter-rouge">@ServiceProvider</code>的接口，调用<code class="language-plaintext highlighter-rouge">TheRouter.get()</code>时，将会直接返回<code class="language-plaintext highlighter-rouge">null</code>。</p>
 
 <p><br /><br /></p>
 
-<h2 id="优化-ksp-编译速度">优化 KSP 编译速度</h2>
+<h2 id="六优化-ksp-编译速度">六、优化 KSP 编译速度</h2>
 
 <p>从<code class="language-plaintext highlighter-rouge">1.2.3-rc1</code>版本开始，使用<code class="language-plaintext highlighter-rouge">KSP</code>处理注解也支持增量编译了。二次编译时，不会再次遍历全部类，而是只处理变更文件。 <br />
 本优化由 <a href="https://github.com/hust-twj"><strong>@hust-twj</strong></a> 提供，详情查看：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/pull/184">https://github.com/HuolalaTech/hll-wp-therouter-android/pull/184</a></p>
@@ -879,7 +786,7 @@ ksp.incremental.intermodule=true
 
 <p><br /><br /></p>
 
-<h2 id="ksp不再兼容agp4">KSP不再兼容AGP4</h2>
+<h2 id="七ksp不再兼容agp4">七、KSP不再兼容AGP4</h2>
 
 <p>由于使用了<code class="language-plaintext highlighter-rouge">1.9.21-1.0.16</code>版本的KSP（已经是能支持增量编译的最低版本），必须将Kotlin版本也升级到<code class="language-plaintext highlighter-rouge">1.9.21</code>，因此无法再兼容<code class="language-plaintext highlighter-rouge">AGP4</code>的编译。   <br />
 推荐你采用项目demo一致的 Gradle 版本号和 AGP 版本号。</p>
@@ -889,7 +796,7 @@ AGP Version：<a href="https://github.com/HuolalaTech/hll-wp-therouter-android/b
 
 <p><br /></p>
 
-<h2 id="agp8-编译提速">AGP8 编译提速</h2>
+<h2 id="八agp8-编译提速">八、AGP8 编译提速</h2>
 
 <p>老版本的 TheRouter 采用了 Gradle 标准 API，在插件内会将所有的 jar 和 class 聚合成一个，造成编译速度非常慢。</p>
 
@@ -1857,6 +1764,14 @@ TheRouter 也支持这样的使用场景：</p>
 <p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/121">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/121</a></p>
 
 <p><a href="https://therouter.cn/docs/2022/11/23/01">https://therouter.cn/docs/2022/11/23/01</a></p>
+
+<hr />
+
+<h4 id="q17编译报错与-bouncycastle-共用冲突">Q17：编译报错，与 <code class="language-plaintext highlighter-rouge">bouncycastle</code> 共用冲突</h4>
+
+<p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android/issues/222">https://github.com/HuolalaTech/hll-wp-therouter-android/issues/222</a></p>
+
+<p><a href="https://therouter.cn/docs/2024/07/22/01">https://therouter.cn/docs/2024/07/22/01</a></p>
 
 <hr />]]></content><author><name></name></author><category term="top" /><category term="框架简介" /><summary type="html"><![CDATA[前人踩过的坑，希望后人能跳过去。]]></summary></entry><entry><title type="html">TheRouter 使用 KSP 处理注解</title><link href="http://localhost:4000/docs/2023/05/15/01" rel="alternate" type="text/html" title="TheRouter 使用 KSP 处理注解" /><published>2023-05-15T00:00:00+08:00</published><updated>2023-05-15T00:00:00+08:00</updated><id>http://localhost:4000/docs/2023/05/15/01</id><content type="html" xml:base="http://localhost:4000/docs/2023/05/15/01"><![CDATA[<p>TheRouter 在<code class="language-plaintext highlighter-rouge">1.1.4-rc2</code>开始，已经将<code class="language-plaintext highlighter-rouge">KSP</code>能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 <code class="language-plaintext highlighter-rouge">KSP</code>。</p>
 

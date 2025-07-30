@@ -98,36 +98,25 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 
 <p>TheRouter 的版本分为两种，稳定版和 rc版，一般不追求新功能我们就用稳定版就行，可以在官网看到最新的版本号和各种版本的说明：<a href="https://therouter.cn/docs/2022/09/06/01">https://therouter.cn/docs/2022/09/06/01</a></p>
 
+<p><br /><br /></p>
+
 <h2 id="接入">接入</h2>
 
 <p>新建一个<code class="language-plaintext highlighter-rouge">Demo</code>工程，打开<code class="language-plaintext highlighter-rouge">Demo</code>的根目录<code class="language-plaintext highlighter-rouge">build.gradle</code>。</p>
 
 <h3 id="第一步接入classpath">第一步：接入classpath</h3>
 
-<h4 id="8x-及以后版本-gradle">8.X 及以后版本 Gradle</h4>
-
-<p><strong>注</strong>：<code class="language-plaintext highlighter-rouge">TheRouter 1.3.x</code>开始，可直接看<code class="language-plaintext highlighter-rouge">Gradle 7.x</code> 的接入方式，原因如下：</p>
-
-<p>由于 8.X 版本的 Gradle，必须使用<code class="language-plaintext highlighter-rouge">Java 17</code>的环境，并且不兼容老<code class="language-plaintext highlighter-rouge">JDK</code>编译的<code class="language-plaintext highlighter-rouge">class</code>，所以对于新版本需要使用专为<code class="language-plaintext highlighter-rouge">Java 17</code>编译的插件。</p>
-
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter.agp8'</span> <span class="n">version</span> <span class="s1">'1.2.4'</span> <span class="n">apply</span> <span class="kc">false</span>
-</code></pre></div></div>
-
-<p><img src="https://cdn.kymjs.com:8843/therouter_assets/img/image/1.png" class="blog-img" /></p>
-
-<p><strong>20250228更新</strong>：从<code class="language-plaintext highlighter-rouge">1.3.x</code>开始，TheRouter 已经全部使用<code class="language-plaintext highlighter-rouge">Java 17</code>编译，也可以使用如下id引用：</p>
-
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter'</span> <span class="n">version</span> <span class="s1">'1.3.x'</span> <span class="n">apply</span> <span class="kc">false</span>
-</code></pre></div></div>
-
-<h4 id="7x-版本-gradle">7.X 版本 Gradle</h4>
+<h4 id="7x-及以后版本的-gradle">7.x 及以后版本的 Gradle</h4>
 
 <p>7.X 的 Gradle，<code class="language-plaintext highlighter-rouge">classpath</code>已经改为用<code class="language-plaintext highlighter-rouge">plugins</code>的方式引入，只需要在闭包内加这一句就行了</p>
 
-<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">id</span> <span class="s1">'cn.therouter'</span> <span class="n">version</span> <span class="s1">'1.3.0'</span> <span class="n">apply</span> <span class="kc">false</span>
+<div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 注意，如果使用 TheRouter 1.2.x 版本，则需要将这里的cn.therouter改成cn.therouter.agp8</span>
+<span class="n">id</span> <span class="s1">'cn.therouter'</span> <span class="n">version</span> <span class="s1">'1.3.0'</span> <span class="n">apply</span> <span class="kc">false</span>
 </code></pre></div></div>
 
 <p><img src="https://cdn.kymjs.com:8843/therouter_assets/img/image/2.jpg" class="blog-img" /></p>
+
+<p><br /></p>
 
 <h4 id="6x-及之前的老版本-gradle">6.x 及之前的老版本 Gradle</h4>
 
@@ -137,6 +126,8 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 </code></pre></div></div>
 
 <p><img src="https://cdn.kymjs.com:8843/therouter_assets/img/image/3.jpg" class="blog-img" /></p>
+
+<p><br /><br /></p>
 
 <h3 id="第二步引入插件">第二步：引入插件</h3>
 
@@ -150,6 +141,8 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 
 <p><img src="https://cdn.kymjs.com:8843/therouter_assets/img/image/4.jpg" class="blog-img" /></p>
 
+<p><br /></p>
+
 <h4 id="6x-及之前的老版本-gradle-1">6.x 及之前的老版本 Gradle</h4>
 
 <p>找到项目里全部的app模块（一般只会有一个，特殊项目会有多个）。也就是整个工程的所有<code class="language-plaintext highlighter-rouge">build.gradle</code>文件里面，只要是有<code class="language-plaintext highlighter-rouge">com.android.application</code>这个的模块，都要加上如下代码</p>
@@ -159,6 +152,8 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 </code></pre></div></div>
 
 <p><img src="https://cdn.kymjs.com:8843/therouter_assets/img/image/5.jpg" class="blog-img" /></p>
+
+<p><br /><br /></p>
 
 <h3 id="第三步引入注解处理器">第三步：引入注解处理器</h3>
 
@@ -177,6 +172,8 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 <div class="language-groovy highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">annotationProcessor</span> <span class="s2">"cn.therouter:apt:1.3.0"</span>
 </code></pre></div></div>
 
+<p><br /><br /></p>
+
 <h3 id="第四步引入路由库">第四步：引入路由库</h3>
 
 <p>在需要使用路由功能的模块的<code class="language-plaintext highlighter-rouge">build.gradle</code>，(不像kapt，这个是可以使用传递依赖的)，加入如下依赖</p>
@@ -184,7 +181,16 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dependencies {
     implementation "cn.therouter:router:1.3.0"
 }
+
+// 采用 toml 时，推荐如下定义方式
+
+therouter = { module = "cn.therouter:router", version.ref = "therouter_version" }
+therouter_apt = { module = "cn.therouter:apt", version.ref = "therouter_version" }
+// gradle &gt;= 8 且仅在 1.2.x 时，使用 cn.therouter:plugin-agp8 作为 module
+therouter_plugin = { module = "cn.therouter:plugin", version.ref = "therouter_version" }
 </code></pre></div></div>
+
+<p><br /><br /></p>
 
 <h2 id="使用">使用</h2>
 
@@ -229,6 +235,8 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
 <span class="o">}</span>
 </code></pre></div></div>
 
+<p><br /><br /></p>
+
 <h2 id="agp-8x-使用">AGP 8.X 使用</h2>
 
 <p>从1.2.1开始，beta版本已经全部合入rc版本，无需再特殊关注beta版本进度。</p>
@@ -258,7 +266,9 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
         <div class="card-body">
           <p class="card-text">
             
-              `TheRouter` 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化...
+              本文已迁移至：https://kymjs.com/code/2025/03/23/01/
+
+
             
           </p>
           <div class="d-flex justify-content-between align-items-center">
@@ -267,7 +277,7 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">3 mins</small>
+            <small class="text-muted">1 mins</small>
           </div>
         </div>
       </div>
@@ -368,14 +378,14 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
       </div>
       <div class="col-md-4">
         <h3><i class="bi bi-slack bi-footer"></i> 社区</h3>
-        <p><a href="https://kymjs.com/therouter/wx/"> 官方微信群</a></p>
-        <p><a href="https://github.com/HuolalaTech/hll-wp-therouter-android"> GitHub </a></p>
-        <p><a href="https://juejin.cn/user/1768489241815070/posts"> 技术博客 </a></p> 
+        <p><a href="https://therouter.cn/docs/2022/08/24/01"> 官方微信群 </a></p>
+        <p><a href="https://kymjs.com"> 开源实验室</a></p>
+        <p><a href="https://1-0.top"> 零一开源 </a></p>
       </div>
       <div class="col-md-4">
         <h3><i class="bi bi-postcard-heart bi-footer"></i> 关于</h3>
         <p><a href="https://juejin.cn/user/1768489241815070/posts"> 货拉拉移动技术团队</a></p>
-        <p><a href="https://kymjs.com"> 开源实验室</a></p>
+        <p><a href="https://github.com/HuolalaTech"> GitHub </a></p>
       </div>    
     </div>
   </div>
