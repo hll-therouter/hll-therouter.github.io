@@ -1,0 +1,18 @@
+跨模块依赖注入用于跨模块通信使用，例如当前有两个模块：A订单模块、B登录模块，下单需要获取用户信息。  
+这个业务场景就是，A需要使用获取用户信息的服务，B需要向外提供一个获取用户信息的服务。		参考链接：https://therouter.cn/docs/2022/08/27/01
+依赖注入使用，包括声明接口服务，服务使用方，服务提供方，自定义服务拦截器，服务缓存		参考链接：https://therouter.cn/docs/2022/08/27/01
+服务提供方运行对提供的服务做配置，对于无状态的服务，尽可能使用缓存方式减少对象创建次数，而有状态的服务，则每次创建新对象保证多次调用有不会互相污染状态（例如订单状态管理、商品销售状态等服务）			参考链接：https://therouter.cn/docs/2022/08/27/01
+ServiceProvider相关问题		参考链接：https://therouter.cn/docs/2022/08/27/01
+业务节点订阅(自动初始化)能力介绍	参考链接：https://therouter.cn/docs/2022/08/26/01
+模块化开发时，可能每个模块都有自己需要初始化的一些代码。以前的做法是把这些代码都在Application里声明，但是这样可能随着业务变动每次都需要修改Application所在模块。TheRouter的单模块自动初始化能力就是为了解决这样的情况，可以只在当前模块声明初始化方法后，将会在业务场景时自动被调用。		参考链接：https://therouter.cn/docs/2022/08/26/01
+FlowTask	参考链接：https://therouter.cn/docs/2022/08/26/01
+框架默认支持了部分生命周期类任务，可在使用时直接引用TheRouterFlowTask.APP_ONCREATE/TheRouterFlowTask.APP_ONSPLASH/TheRouterFlowTask. BEFORE_THEROUTER _INITIALIZATION/TheRouterFlowTask.THEROUTER_INITIALIZATION		参考链接：https://therouter.cn/docs/2022/08/26/01
+自定义业务节点初始化		参考链接：https://therouter.cn/docs/2022/08/26/01
+在编译期，如果想知道当前APP中，总共有哪些FlowTask，他们之间的依赖关系是怎样的，可以通过在local.properties配置编译期属性即可。			参考链接：https://therouter.cn/docs/2022/08/26/01
+Action		参考链接：https://therouter.cn/docs/2022/08/25/01
+动态化能力支持：ActionManager		参考链接：https://therouter.cn/docs/2022/08/25/01
+Action 本质是一个全局的系统回调，主要用于预埋的一系列操作，例如：弹窗、上传日志、清理缓存。
+与 Android 系统自带的广播通知类似，你可以在任何地方声明动作与处理方式。并且所有 Action 都是可以被跟踪的，只要你愿意，可以在日志中将所有的动作调用栈输出，以方便调试使用。	参考链接：https://therouter.cn/docs/2022/08/26/01
+Action 用途		参考链接：https://therouter.cn/docs/2022/08/25/01
+Action 使用/响应流程	参考链接：https://therouter.cn/docs/2022/08/25/01
+

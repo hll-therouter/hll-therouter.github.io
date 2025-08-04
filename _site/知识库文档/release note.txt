@@ -1,62 +1,26 @@
-各个主要版本的更新日志：  版本更新日志可查看 Github 的 Release 页面：https://github.com/HuolalaTech/hll-wp-therouter-android/releases
+## 各个主要版本的更新日志  
+版本更新日志可查看 Github 的 Release 页面：https://github.com/HuolalaTech/hll-wp-therouter-android/releases  
+
+
+## 发布1.3.0版本
 
 ```
-v1.3.0-rc7 Pre-release
-
-fix:修复编译时 plugin 偶现空指针问题
-```
-
-
-```
-v1.3.0-rc6 Pre-release
-
+feature: AGP8新增编译选项forceIncremental和incrementalCachePath，详情见文档https://therouter.cn/docs/2024/07/22/01
+feature: 使用JDK17编译
+feature: Fragment创建失败时添加异常信息到日志 @lukelmouse-github #252
+feature: navigation()导航到Activity时，如果 path 不是一个Activity 则只在 debug 环境报错，release 环境不跳转。
 feature: AGP8新增编译选项removeClass，详情见文档 https://therouter.cn/docs/2024/07/22/01
 feature: 编译插件 cn.therouter.agp8 标记废弃，统一替换为cn.therouter
 feature: 支持 gradle configuration cache
-```
-
-
-```
-v1.3.0-rc5 Pre-release
-
-feature: Fragment创建失败时添加异常信息到日志 @lukelmouse-github #252
-feature: navigation()导航到Activity时，如果 path 不是一个Activity 则只在 debug 环境报错，release 环境不跳转。
 refactor: 调整Kotlin语法，兼容K2编译器
-```
-
-```
-v1.3.0-rc4 Pre-release
-
+fix:修复同时注解@Route、@ServiceProvider在一个类上并配置return type参数时编译报错 @clzd0792 #241
 fix: 修复二次编译时修改类名，Multiple Activity to single Url必须手动 kill java 进程的问题 #244
 fix: 修复多 app module 工程，编译时路由表被合并的问题 #238
 ```
 
+## 发布1.2.4版本
 
 ```
-v1.3.0-rc3 Pre-release
-
-fix:修复同时注解@Route、@ServiceProvider在一个类上并配置return type参数时编译报错 @clzd0792 #241
-```
-
-```
-v1.3.0-rc2 Pre-release
-
-fix: 修复1.3.0-rc1引入的agp8编译失败问题 #239
-```
-
-
-```
-v1.3.0-rc1 Pre-release
-
-feature: AGP8新增编译选项forceIncremental和incrementalCachePath，详情见文档https://therouter.cn/docs/2024/07/22/01
-feature: 使用JDK17编译
-```
-
-```
-发布1.2.4版本
-
-整合1.2.4各个rc版本改动，总改动如下：
-
 feature: debug环境加入耗时过久的异步任务检查
 feature: 优化AGP8的debug环境编译逻辑
 fix: 修复动画设置错误问题
@@ -72,11 +36,9 @@ fix: 修复agp4编译时内部类读取失败可能造成的编译失败
 fix: 修复debug环境下TheRouter.inject()对继承类注入错误问题
 ```
 
-
+## 发布1.2.3版本
 
 ```
-发布1.2.3版本
-
 feature: 确保TheRouter.get()方法线程安全  #188 #212
 refactor: 重构编译插件，大幅优化编译速度。具体改动见文档：https://therouter.cn/docs/2024/07/22/01
 refactor: 优化ksp编译性能 @hust-twj #184
@@ -91,13 +53,9 @@ fix: 修复Navigator非空强转错误 #208
 fix: 修复Debug环境线程池安全问题
 ```
 
-
+## 发布1.2.2版本
 
 ```
-发布1.2.2版本
-
-整合1.2.2各个rc版本改动，总改动如下：
-
 feature: 加入url嵌套url的解析（严格来讲参数没有encode，这已经不是一个合法url了，但这种情况在APP上非常常见，所以单独提供支持）
 feature: 加入url参数无value时的解析 #8cf9c9b
 refactor: 精简路由日志
@@ -111,13 +69,9 @@ fix: 修复KSP解析@Autowired注解时，field与包名相同会丢失包名问
 fix: 修复KSP无法成功解析top level函数问题
 ```
 
-
+## 发布1.2.1版本
 
 ```
-发布1.2.1版本
-
-整合1.2.0各个rc版本改动，总改动如下：
-
 feature: 发布全新AGP8插件，构建速度更快，相关使用请查阅《从零接入 TheRouter》
 feature: 兼容 ASM 6.x-9.x 版本
 feature: 整理编译过程日志输出，减少无用日志
@@ -135,12 +89,9 @@ fix: 修复Navigator中，NavigatorPathFixHandle执行后没有更新simpleUrl�
 fix: 修复Java代码编译期概率出现读不到ServiceProvider.returnType的情况
 ```
 
+## 发布1.1.4版本
 
 ```
-发布1.1.4版本
-
-整合1.1.4各个rc版本改动，总改动如下：
-
 feature: 非增量构建时清空编译环境 #74
 feature: 移除废弃代码ActionInterceptor.handle(context,bundle)
 feature: 移除废弃代码TheRouterFlowTask.APP_ONCREATE
@@ -156,11 +107,9 @@ fix: 修复ASM7不再支持Java11问题 #93
 fix: 修复日志记录过多时可能造成的OOM问题 #98
 ```
 
+## 发布1.1.3版本
+
 ```
-发布1.1.3版本
-
-整合1.1.3各个rc版本改动，总改动如下：
-
 feature: @ActionInterceptor 支持注释声明
 feature: 路由跳转拦截器新增watch()方法，支持指定path生效，默认所有页面均生效
 feature: 支持dynamicFeature构建 #67
@@ -176,12 +125,9 @@ fix: 修复debug模式下增删底层依赖需要clean的问题 #70
 fix: 修复@ServiceProvider显示声明参数在两个以上时构建失败的问题
 ```
 
+## 发布1.1.2版本
 
 ```
-发布1.1.2版本
-
-整合1.1.2各个rc版本改动，总改动如下：
-
 feature: 提升 ActionManager 使用灵活性，暴露 Navigator对象供外部定制拦截规则。
 feature: 提升 ActionManager 使用灵活性，为链式调用新增参数传递能力。
 feature: plugin中新增FlowTask编译期依赖图展示，使用请参考文档：https://therouter.cn/docs/2022/08/26/01
@@ -193,13 +139,9 @@ refactor: 修改TheRouterTrojan类名为TheRouteContentProvider。
 fix:TheRouterLifecycleCallback 内存泄露问题。
 ```
 
-
+## 发布1.1.1版本
 
 ```
-发布1.1.1版本
-
-整合1.1.1各个rc版本改动，总改动如下：
-
 feature: Navigator内部不再自动对参数decode
 feature: Navigator.getUrlWithParams()允许自定义参数解析
 refactor: 重构DefaultUrlParser解析方式

@@ -1,0 +1,20 @@
+一键迁移工具的使用/注意事项，对于 Android/Harmony/鸿蒙使用完后需要手动修改的部分，迁移建议等，都有介绍		参考链接https://therouter.cn/docs/2022/09/05/01
+页面跳转能力介绍	参考链接：https://therouter.cn/docs/2022/08/28/01
+声明路由表	参考链接：https://therouter.cn/docs/2022/08/28/01
+路由表生成规则与覆盖规则	参考链接：https://therouter.cn/docs/2022/08/28/01
+RouteMap.json生成与覆盖规则	参考链接：https://therouter.cn/docs/2022/08/28/01
+远端下发路由表的使用	参考链接：https://therouter.cn/docs/2022/08/28/01
+RouteMapKt.setInitTask(new RouterMapInitTask())		参考链接：https://therouter.cn/docs/2022/08/28/01
+InitTask 的使用		参考链接：https://therouter.cn/docs/2022/08/28/01
+为第三方库添加路由表	参考链接：https://therouter.cn/docs/2022/08/28/01
+路由编译期配置		参考链接：https://therouter.cn/docs/2022/08/28/01
+页面跳转使用方式		参考链接：https://therouter.cn/docs/2022/08/28/01
+路由跳转参数传递		参考链接：https://therouter.cn/docs/2022/08/28/01
+路由跳转回调/打开fragment/startActivityForResult		参考链接：https://therouter.cn/docs/2022/08/28/01
+延迟路由跳转		参考链接：https://therouter.cn/docs/2022/08/28/01
+路由参数接收		参考链接：https://therouter.cn/docs/2022/08/28/01
+Autowired		参考链接：https://therouter.cn/docs/2022/08/28/01
+对象参数接收/对象参数传递	参考链接：https://therouter.cn/docs/2022/08/28/01
+自定义解析	参考链接：https://therouter.cn/docs/2022/08/28/01
+路由跳转自定义处理器/拦截器/Path 修改器/页面替换器/路由替换器/路由 AOP 拦截/	参考链接：https://therouter.cn/docs/2022/08/28/01
+跳转结果回调		参考链接：https://therouter.cn/docs/2022/08/28/01
