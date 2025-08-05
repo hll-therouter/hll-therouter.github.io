@@ -39,17 +39,17 @@
         {% endif %} 
       </li>
       <li class="nav-item">
-        {% if page.url contains "/docs/2022/08/24/01" %}
-          <a href="/docs/2022/08/24/01" class="nav-link active header-color">求助</a>
+        {% if page.url contains "/ai" %}
+          <a href="/ai" class="nav-link active header-color">求助</a>
         {% else %}
-          <a href="/docs/2022/08/24/01" class="nav-link header-color">支持</a>
+          <a href="/ai" class="nav-link header-color">求助</a>
         {% endif %} 
       </li>
       <li class="nav-item">
-        {% if page.url == "/about" %}
-          <a href="/about" class="nav-link active header-color">关于</a>
+        {% if page.url contains "/docs/2022/08/24/01" %}
+          <a href="/docs/2022/08/24/01" class="nav-link active header-color">关于</a>
         {% else %}
-          <a href="/about" class="nav-link header-color">关于</a>
+          <a href="/docs/2022/08/24/01" class="nav-link header-color">关于</a>
         {% endif %} 
       </li>
     </ul>
