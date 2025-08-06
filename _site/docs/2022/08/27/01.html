@@ -156,7 +156,13 @@ A无需关心，<code class="language-plaintext highlighter-rouge">IUserService<
 <p><strong>注</strong>：每个服务只能有一个服务提供方，类似<code class="language-plaintext highlighter-rouge">ARouter</code>那种多个接口实现类，我们认为是不符合面向服务设计规范的。如果你一定要有多个服务，并且由使用方决定在什么时间使用哪个服务，建议选择如下改造方案：</p>
 
 <ul>
-  <li>推荐做法：将不同的服务提供方定义为不同的接口。</li>
+  <li>推荐做法 1：将不同的服务提供方定义为不同的接口。</li>
+  <li>推荐做法 2：查看下文，通过自定义服务拦截器实现。</li>
+</ul>
+
+<p>其他更简单的特殊实现(改动量会更小)：</p>
+
+<ul>
   <li>如果两个不同的服务在同一个模块：自定义一个服务提供者方法，由这个方法控制返回哪个服务。</li>
   <li>对于单向的服务(不依赖接口方法返回值的业务)：使用<code class="language-plaintext highlighter-rouge">ActionManager</code>替换实现。</li>
 </ul>
