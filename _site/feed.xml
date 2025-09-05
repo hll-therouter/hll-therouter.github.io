@@ -1,4 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-08-08T10:00:01+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">鸿蒙路由源码调试步骤</title><link href="http://localhost:4000/docs/2025/05/14/01" rel="alternate" type="text/html" title="鸿蒙路由源码调试步骤" /><published>2025-05-14T00:00:00+08:00</published><updated>2025-05-14T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/05/14/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/05/14/01"><![CDATA[<p>本文已迁移至：https://kymjs.com/code/2025/03/23/01/</p>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry><entry><title type="html">鸿蒙动态路由框架：TheRouter</title><link href="http://localhost:4000/docs/2025/03/24/01" rel="alternate" type="text/html" title="鸿蒙动态路由框架：TheRouter" /><published>2025-03-24T00:00:00+08:00</published><updated>2025-03-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/24/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是一个用于移动端APP，包括 Android、iOS、Harmony 三端的模块化、组件化开发的一整套解决方案框架。提供了三端高一致性，对移动端开发者更友好，让开发人员更适应，使用起来也更顺手。在鸿蒙上， TheRouter 基于HMRouter做了深度定制，不仅支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，还提供了编译时安全检查、支持动态路由下发与修改、路由 Path 一对多等高度动态能力。</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-09-05T11:26:44+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">TheRouter - 移动端模块化解决方案</title><subtitle>TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。</subtitle><entry><title type="html">Compose 使用介绍</title><link href="http://localhost:4000/docs/2025/09/01/01" rel="alternate" type="text/html" title="Compose 使用介绍" /><published>2025-09-01T00:00:00+08:00</published><updated>2025-09-01T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/09/01/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/09/01/01"><![CDATA[<p>本文不介绍引入框架依赖部分，如不了解如何引入依赖，请查看文档【从零接入 TheRouter】：<a href="https://therouter.cn/docs/2022/11/23/01">https://therouter.cn/docs/2022/11/23/01</a></p>
+
+<p>本文介绍的完整使用 demo 可以参考：<a href="https://github.com/kymjs/TheRouterComposeDemo">https://github.com/kymjs/TheRouterComposeDemo</a></p>
+
+<p>从 1.3.1-rc1 版本开始，TheRouter 也支持 Jetpack Compose 了。  <br />
+需要引入 compose 依赖：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>implementation "cn.therouter:compose:1.3.1-rc1"
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="10-初始化">1.0 初始化</h3>
+
+<p>框架内部包含自动初始化功能，详见<a href="https://therouter.cn/docs/2022/08/26/01">单模块自动初始化能力</a>
+无需任何初始化代码。但推荐你根据业务设置否为<code class="language-plaintext highlighter-rouge">Debug</code>环境，用以查看日志信息。<br />
+<code class="language-plaintext highlighter-rouge">Application.attachBaseContext()</code> 方法中尽可能早设置当前是否为<code class="language-plaintext highlighter-rouge">Debug</code>环境。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">attachBaseContext</span><span class="o">(</span><span class="nc">Context</span> <span class="n">base</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">setDebug</span><span class="o">(</span><span class="kc">true</span> <span class="n">or</span> <span class="kc">false</span><span class="o">);</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">attachBaseContext</span><span class="o">(</span><span class="n">base</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="11-声明-composable-页面screen">1.1 声明 @Composable 页面(Screen)</h3>
+
+<p>关于注解<code class="language-plaintext highlighter-rouge">@Route</code>的参数含义，请查看文档：<a href="https://therouter.cn/docs/2022/08/28/01">页面导航跳转能力</a></p>
+
+<p>⚠️<strong>注</strong>：<strong>@Composable页面必须是 top-level 级别函数</strong>。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Route</span><span class="p">(</span><span class="n">path</span> <span class="p">=</span> <span class="nc">PathIndex</span><span class="p">.</span><span class="nc">EMPTY_PAGE</span><span class="p">,</span> <span class="n">description</span> <span class="p">=</span> <span class="s">"空白页面"</span><span class="p">)</span>
+<span class="nd">@Composable</span>
+<span class="k">fun</span> <span class="nf">EmptyComingSoon</span><span class="p">(</span><span class="n">modifier</span><span class="p">:</span> <span class="nc">Modifier</span> <span class="p">=</span> <span class="nc">Modifier</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// xxxxx</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>@Composable 页面的函数定义允许有参数声明。   <br />
+⚠️<strong>函数的参数有几个特殊注意点</strong>：</p>
+
+<ol>
+  <li>如果参数是带泛型类型的，需要显示传递类型给TheRouter</li>
+  <li>如果参数是 lambda 表达式，需要显示传递类型给TheRouter</li>
+  <li>允许自定义函数参数的接收key（对应跳转页面时的传参）</li>
+</ol>
+
+<p>前两点限制的主要原因是因为目前的 KSP 无法取到泛型类型的具体值(lambda 的本质也是一个泛型接口类)，因此只能手动传入，在未来的版本也许能解决。</p>
+
+<p><br /></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Route</span><span class="p">(</span><span class="n">path</span> <span class="p">=</span> <span class="nc">PathIndex</span><span class="p">.</span><span class="nc">MAIN_PAGE</span><span class="p">,</span> <span class="n">description</span> <span class="p">=</span> <span class="s">"主页"</span><span class="p">)</span>
+<span class="nd">@Composable</span>
+<span class="k">fun</span> <span class="nf">ReplyInboxScreen</span><span class="p">(</span>
+    <span class="c1">// 普通对象或基本数据类型不需要做任何处理，默认接收key就是变量名</span>
+    <span class="n">contentType</span><span class="p">:</span> <span class="nc">ReplyContentType</span><span class="p">,</span>
+    
+    <span class="c1">// 可以通过注解修改参数的接收 key</span>
+    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">name</span> <span class="p">=</span> <span class="s">"hello_key"</span><span class="p">)</span>
+    <span class="n">hello</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+    
+    <span class="c1">// 如果参数是带泛型类型的，需要显示传递类型给TheRouter</span>
+    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">args</span> <span class="p">=</span> <span class="s">"List&lt;androidx.window.layout.DisplayFeature&gt;"</span><span class="p">)</span>
+    <span class="n">displayFeatures</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">DisplayFeature</span><span class="p">&gt;,</span>
+    
+    <span class="c1">// 如果参数是 lambda 表达式，需要显示传递类型给TheRouter</span>
+    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">args</span> <span class="p">=</span> <span class="s">"(Long) -&gt; Unit"</span><span class="p">)</span>
+    <span class="n">toggleSelectedEmail</span><span class="p">:</span> <span class="p">(</span><span class="nc">Long</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nc">Unit</span><span class="p">,</span>
+    
+    <span class="c1">// 有默认值的普通对象，或基本数据类型参数也不需要特殊处理</span>
+    <span class="n">modifier</span><span class="p">:</span> <span class="nc">Modifier</span> <span class="p">=</span> <span class="nc">Modifier</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{</span>
+<span class="c1">//xxxxxxx</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="12-打开一个-composable-页面screen">1.2 打开一个 @Composable 页面(Screen)</h3>
+
+<p>与原多 <code class="language-plaintext highlighter-rouge">Activity</code> 模式的跳转没有任何区别，只是结尾跳转的方法名变成了<code class="language-plaintext highlighter-rouge">compose()</code></p>
+
+<p>compose() 函数本身也添加了 <code class="language-plaintext highlighter-rouge">@Composable</code> 注解，也就是说你可以将<code class="language-plaintext highlighter-rouge">TheRouter</code>与传统的 <code class="language-plaintext highlighter-rouge">NavHost</code> 混用(虽然不推荐)，而没有任何问题。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="nc">PathIndex</span><span class="p">.</span><span class="nc">MAIN_PAGE</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withObject</span><span class="p">(</span><span class="s">"contentType"</span><span class="p">,</span> <span class="n">contentType</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withString</span><span class="p">(</span><span class="s">"hello_key"</span><span class="p">,</span><span class="err">“</span><span class="n">hello_key</span><span class="err">”</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withObject</span><span class="p">(</span><span class="s">"displayFeatures"</span><span class="p">,</span> <span class="n">list</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withObject</span><span class="p">(</span><span class="s">"toggleSelectedEmail"</span><span class="p">,</span> <span class="p">{</span><span class="n">arg-</span><span class="p">&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">arg</span><span class="p">)})</span>
+    <span class="p">.</span><span class="nf">compose</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>传递一个 @Composable 参数</p>
+
+<p><br /></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="nc">PathIndex</span><span class="p">.</span><span class="nc">SCREEN</span><span class="p">)</span>
+	<span class="c1">// 入参已经声明过 @Composable ，可以直接使用</span>
+    <span class="p">.</span><span class="nf">withComposableObject</span><span class="p">(</span><span class="s">"content"</span><span class="p">){</span>
+        <span class="c1">// xxxxxx</span>
+    <span class="p">}.</span><span class="nf">compose</span><span class="p">()</span>
+
+<span class="nd">@Composable</span>
+<span class="nd">@Route</span><span class="p">(</span><span class="n">path</span> <span class="p">=</span> <span class="nc">PathIndex</span><span class="p">.</span><span class="nc">SCREEN</span><span class="p">)</span>
+<span class="k">fun</span> <span class="nf">ContrastAwareReplyTheme</span><span class="p">(</span><span class="n">dynamicColor</span><span class="p">:</span> <span class="nc">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
+    <span class="c1">// 如果参数是 lambda 表达式，需要显示传递类型给TheRouter</span>
+    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">args</span> <span class="p">=</span> <span class="s">"() -&gt; Unit"</span><span class="p">)</span> 
+    <span class="n">content</span><span class="p">:</span> <span class="nd">@Composable</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nc">Unit</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// xxxxx</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="动态-ui-应用">动态 UI 应用</h3>
+
+<p>利用 TheRouter 的远端路由下发和路由表的动态性，可以做到线上环境千人千面，以及做到类似低代码UI的效果。</p>
+
+<ul>
+  <li>
+    <p>客户端：提前预定义好各种UI模板（例如Column/Row/FrameLayout/以及 RecycleView 的各种 item），并将 UI 对应的 path 与后端统一。</p>
+  </li>
+  <li>
+    <p>服务端：定义一套路由表与具体业务的模版。根据业务，对不同的人下发不同的 UI 组合。</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p>由于 Compose 支持嵌套，也就是一个 Compose Screen 作为另一个 Screen 的参数。用 TheRouter 来实现以后，也就是一个 path 允许关联多个子 path。 而这些 path 的关系靠后端维护，前端只负责渲染。  后端只需要对不同的人，返回不同的预定义 UI 模板的 json 即可。</p>]]></content><author><name></name></author><category term="docs" /><category term="初级能力介绍" /><summary type="html"><![CDATA[现在也能支持 Compose 啦。从 1.3.1-rc1 版本开始，TheRouter 也支持 Jetpack Compose 了。 需要引入 compose 依赖：]]></summary></entry><entry><title type="html">鸿蒙路由源码调试步骤</title><link href="http://localhost:4000/docs/2025/05/14/01" rel="alternate" type="text/html" title="鸿蒙路由源码调试步骤" /><published>2025-05-14T00:00:00+08:00</published><updated>2025-05-14T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/05/14/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/05/14/01"><![CDATA[<p>本文已迁移至：https://kymjs.com/code/2025/03/23/01/</p>]]></content><author><name></name></author><category term="docs" /><category term="入门教程" /><summary type="html"><![CDATA[新手零基础入门教程。]]></summary></entry><entry><title type="html">鸿蒙动态路由框架：TheRouter</title><link href="http://localhost:4000/docs/2025/03/24/01" rel="alternate" type="text/html" title="鸿蒙动态路由框架：TheRouter" /><published>2025-03-24T00:00:00+08:00</published><updated>2025-03-24T00:00:00+08:00</updated><id>http://localhost:4000/docs/2025/03/24/01</id><content type="html" xml:base="http://localhost:4000/docs/2025/03/24/01"><![CDATA[<p><code class="language-plaintext highlighter-rouge">TheRouter</code> 是一个用于移动端APP，包括 Android、iOS、Harmony 三端的模块化、组件化开发的一整套解决方案框架。提供了三端高一致性，对移动端开发者更友好，让开发人员更适应，使用起来也更顺手。在鸿蒙上， TheRouter 基于HMRouter做了深度定制，不仅支持平台化应用实现组件化、跨模块调用、动态化等功能的集成等功能基础上，还提供了编译时安全检查、支持动态路由下发与修改、路由 Path 一对多等高度动态能力。</p>
 
 <p>Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-harmony/">https://github.com/HuolalaTech/hll-wp-therouter-harmony/</a> <br />
 官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
@@ -1835,7 +1971,4 @@ KSP 是基于语法分析的注解解析，严格来讲，他不仅仅可以用�
     <span class="n">id</span> <span class="s">"com.google.devtools.ksp"</span> <span class="n">version</span> <span class="err">'</span><span class="n">xxx</span><span class="o">-</span><span class="n">xxx</span><span class="err">'</span> <span class="n">apply</span> <span class="kc">false</span>
 <span class="o">}</span>
 
-</code></pre></div></div>]]></content><author><name></name></author><category term="docs" /><category term="基础能力介绍" /><summary type="html"><![CDATA[TheRouter 在1.1.4-rc2开始，已经将KSP能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 KSP。]]></summary></entry><entry><title type="html">动态路由 TheRouter 的设计与实践</title><link href="http://localhost:4000/docs/2022/12/23/01" rel="alternate" type="text/html" title="动态路由 TheRouter 的设计与实践" /><published>2022-12-23T00:00:00+08:00</published><updated>2022-12-23T00:00:00+08:00</updated><id>http://localhost:4000/docs/2022/12/23/01</id><content type="html" xml:base="http://localhost:4000/docs/2022/12/23/01"><![CDATA[<p>内容请见：</p>
-
-<p>《动态路由 TheRouter 的设计与实践》<br />
-<a href="https://kymjs.com/session/2022/11/23/01/">https://kymjs.com/session/2022/11/23/01/</a></p>]]></content><author><name>张涛</name></author><category term="session" /><category term="原理与项目实践讲解" /><summary type="html"><![CDATA[详细讲解 TheRouter 框架内部实现原理，以及在完整企业级项目中使用的实践效果。这篇文章是我在 2022【GIAC 全球互联网架构大会】分享时所讲内容的文字版本，修改删减了演讲时的冗余言语，现开放给大家阅读，希望能给买不到票参加分享的 开源实验室 读者带来帮助。]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="docs" /><category term="基础能力介绍" /><summary type="html"><![CDATA[TheRouter 在1.1.4-rc2开始，已经将KSP能力合并至主分支，不再是单独的功能分支了，下面介绍一下如何使用 KSP。]]></summary></entry></feed>

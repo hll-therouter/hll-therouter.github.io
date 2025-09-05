@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <!-- meta data & title -->
+  <meta charset="utf-8">
+  <title>Compose 使用介绍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。">
+  <meta name="author" content="TheRouter">
+  <meta name="keyword"
+      content="Compose 使用介绍,android,kotlin,arouter,TheRouter">
+
+  <meta name="keywords"
+      content="Compose 使用介绍,android,kotlin,arouter,therouter,studio,优质开发技术">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/animate.min.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/style2.css">
+  <link rel="stylesheet" href="https://cdn.kymjs.com:8843/therouter_assets/css/kymjs1.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.kymjs.com:8843/therouter_assets/css/prism.css">
+
+  <script type="text/javascript" src="https://cdn.kymjs.com:8843/therouter_assets/js/prism.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</head>
+  <script type="text/javascript" src="https://cdn.kymjs.com:8843/therouter_assets/js/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.kymjs.com:8843/therouter_assets/js/wow.min.js"></script>
+<script>
+  new WOW().init();
+</script>
+  
+  <body>
+    <div class="container">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <img src="https://cdn.kymjs.com:8843/therouter_assets/img/logo/logo4.png" width="170px">
+    </a>
+
+    <ul class="nav nav-pills">
+      
+      <li class="nav-item">
+        
+          <a href="/" class="nav-link header-color" aria-current="page">首页</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          
+            <a href="/doc" class="nav-link active header-color">Android</a>
+           
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/harmony" class="nav-link header-color">Harmony</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/ios" class="nav-link header-color">iOS</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/ai" class="nav-link header-color">求助</a>
+         
+      </li>
+      <li class="nav-item">
+        
+          <a href="/docs/2022/08/24/01" class="nav-link header-color">关于</a>
+         
+      </li>
+    </ul>
+  </header>
+</div>
+
+
+<!-- End Header -->
+  	
+  		<h2 class="blog-title" align="center">Compose 使用介绍</h2>
+      <br>
+  	
+    <!-- Main Container -->
+<div class="container">
+	<div class="blog-post">
+		<p>本文不介绍引入框架依赖部分，如不了解如何引入依赖，请查看文档【从零接入 TheRouter】：<a href="https://therouter.cn/docs/2022/11/23/01">https://therouter.cn/docs/2022/11/23/01</a></p>
+
+<p>本文介绍的完整使用 demo 可以参考：<a href="https://github.com/kymjs/TheRouterComposeDemo">https://github.com/kymjs/TheRouterComposeDemo</a></p>
+
+<p>从 1.3.1-rc1 版本开始，TheRouter 也支持 Jetpack Compose 了。  <br />
+需要引入 compose 依赖：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>implementation "cn.therouter:compose:1.3.1-rc1"
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="10-初始化">1.0 初始化</h3>
+
+<p>框架内部包含自动初始化功能，详见<a href="https://therouter.cn/docs/2022/08/26/01">单模块自动初始化能力</a>
+无需任何初始化代码。但推荐你根据业务设置否为<code class="language-plaintext highlighter-rouge">Debug</code>环境，用以查看日志信息。<br />
+<code class="language-plaintext highlighter-rouge">Application.attachBaseContext()</code> 方法中尽可能早设置当前是否为<code class="language-plaintext highlighter-rouge">Debug</code>环境。</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">attachBaseContext</span><span class="o">(</span><span class="nc">Context</span> <span class="n">base</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">setDebug</span><span class="o">(</span><span class="kc">true</span> <span class="n">or</span> <span class="kc">false</span><span class="o">);</span>
+    <span class="kd">super</span><span class="o">.</span><span class="na">attachBaseContext</span><span class="o">(</span><span class="n">base</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="11-声明-composable-页面screen">1.1 声明 @Composable 页面(Screen)</h3>
+
+<p>关于注解<code class="language-plaintext highlighter-rouge">@Route</code>的参数含义，请查看文档：<a href="https://therouter.cn/docs/2022/08/28/01">页面导航跳转能力</a></p>
+
+<p>⚠️<strong>注</strong>：<strong>@Composable页面必须是 top-level 级别函数</strong>。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Route</span><span class="p">(</span><span class="n">path</span> <span class="p">=</span> <span class="nc">PathIndex</span><span class="p">.</span><span class="nc">EMPTY_PAGE</span><span class="p">,</span> <span class="n">description</span> <span class="p">=</span> <span class="s">"空白页面"</span><span class="p">)</span>
+<span class="nd">@Composable</span>
+<span class="k">fun</span> <span class="nf">EmptyComingSoon</span><span class="p">(</span><span class="n">modifier</span><span class="p">:</span> <span class="nc">Modifier</span> <span class="p">=</span> <span class="nc">Modifier</span><span class="p">)</span> <span class="p">{</span>
+ <span class="c1">// xxxxx</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>@Composable 页面的函数定义允许有参数声明。   <br />
+⚠️<strong>函数的参数有几个特殊注意点</strong>：</p>
+
+<ol>
+  <li>如果参数是带泛型类型的，需要显示传递类型给TheRouter</li>
+  <li>如果参数是 lambda 表达式，需要显示传递类型给TheRouter</li>
+  <li>允许自定义函数参数的接收key（对应跳转页面时的传参）</li>
+</ol>
+
+<p>前两点限制的主要原因是因为目前的 KSP 无法取到泛型类型的具体值(lambda 的本质也是一个泛型接口类)，因此只能手动传入，在未来的版本也许能解决。</p>
+
+<p><br /></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Route</span><span class="p">(</span><span class="n">path</span> <span class="p">=</span> <span class="nc">PathIndex</span><span class="p">.</span><span class="nc">MAIN_PAGE</span><span class="p">,</span> <span class="n">description</span> <span class="p">=</span> <span class="s">"主页"</span><span class="p">)</span>
+<span class="nd">@Composable</span>
+<span class="k">fun</span> <span class="nf">ReplyInboxScreen</span><span class="p">(</span>
+    <span class="c1">// 普通对象或基本数据类型不需要做任何处理，默认接收key就是变量名</span>
+    <span class="n">contentType</span><span class="p">:</span> <span class="nc">ReplyContentType</span><span class="p">,</span>
+    
+    <span class="c1">// 可以通过注解修改参数的接收 key</span>
+    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">name</span> <span class="p">=</span> <span class="s">"hello_key"</span><span class="p">)</span>
+    <span class="n">hello</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
+    
+    <span class="c1">// 如果参数是带泛型类型的，需要显示传递类型给TheRouter</span>
+    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">args</span> <span class="p">=</span> <span class="s">"List&lt;androidx.window.layout.DisplayFeature&gt;"</span><span class="p">)</span>
+    <span class="n">displayFeatures</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">DisplayFeature</span><span class="p">&gt;,</span>
+    
+    <span class="c1">// 如果参数是 lambda 表达式，需要显示传递类型给TheRouter</span>
+    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">args</span> <span class="p">=</span> <span class="s">"(Long) -&gt; Unit"</span><span class="p">)</span>
+    <span class="n">toggleSelectedEmail</span><span class="p">:</span> <span class="p">(</span><span class="nc">Long</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nc">Unit</span><span class="p">,</span>
+    
+    <span class="c1">// 有默认值的普通对象，或基本数据类型参数也不需要特殊处理</span>
+    <span class="n">modifier</span><span class="p">:</span> <span class="nc">Modifier</span> <span class="p">=</span> <span class="nc">Modifier</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{</span>
+<span class="c1">//xxxxxxx</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="12-打开一个-composable-页面screen">1.2 打开一个 @Composable 页面(Screen)</h3>
+
+<p>与原多 <code class="language-plaintext highlighter-rouge">Activity</code> 模式的跳转没有任何区别，只是结尾跳转的方法名变成了<code class="language-plaintext highlighter-rouge">compose()</code></p>
+
+<p>compose() 函数本身也添加了 <code class="language-plaintext highlighter-rouge">@Composable</code> 注解，也就是说你可以将<code class="language-plaintext highlighter-rouge">TheRouter</code>与传统的 <code class="language-plaintext highlighter-rouge">NavHost</code> 混用(虽然不推荐)，而没有任何问题。</p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="nc">PathIndex</span><span class="p">.</span><span class="nc">MAIN_PAGE</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withObject</span><span class="p">(</span><span class="s">"contentType"</span><span class="p">,</span> <span class="n">contentType</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withString</span><span class="p">(</span><span class="s">"hello_key"</span><span class="p">,</span><span class="err">“</span><span class="n">hello_key</span><span class="err">”</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withObject</span><span class="p">(</span><span class="s">"displayFeatures"</span><span class="p">,</span> <span class="n">list</span><span class="p">)</span>
+    <span class="p">.</span><span class="nf">withObject</span><span class="p">(</span><span class="s">"toggleSelectedEmail"</span><span class="p">,</span> <span class="p">{</span><span class="n">arg-</span><span class="p">&gt;</span> <span class="nf">println</span><span class="p">(</span><span class="n">arg</span><span class="p">)})</span>
+    <span class="p">.</span><span class="nf">compose</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>传递一个 @Composable 参数</p>
+
+<p><br /></p>
+
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">TheRouter</span><span class="p">.</span><span class="nf">build</span><span class="p">(</span><span class="nc">PathIndex</span><span class="p">.</span><span class="nc">SCREEN</span><span class="p">)</span>
+	<span class="c1">// 入参已经声明过 @Composable ，可以直接使用</span>
+    <span class="p">.</span><span class="nf">withComposableObject</span><span class="p">(</span><span class="s">"content"</span><span class="p">){</span>
+        <span class="c1">// xxxxxx</span>
+    <span class="p">}.</span><span class="nf">compose</span><span class="p">()</span>
+
+<span class="nd">@Composable</span>
+<span class="nd">@Route</span><span class="p">(</span><span class="n">path</span> <span class="p">=</span> <span class="nc">PathIndex</span><span class="p">.</span><span class="nc">SCREEN</span><span class="p">)</span>
+<span class="k">fun</span> <span class="nf">ContrastAwareReplyTheme</span><span class="p">(</span><span class="n">dynamicColor</span><span class="p">:</span> <span class="nc">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
+    <span class="c1">// 如果参数是 lambda 表达式，需要显示传递类型给TheRouter</span>
+    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">args</span> <span class="p">=</span> <span class="s">"() -&gt; Unit"</span><span class="p">)</span> 
+    <span class="n">content</span><span class="p">:</span> <span class="nd">@Composable</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nc">Unit</span><span class="p">,</span>
+<span class="p">)</span> <span class="p">{</span>
+	<span class="c1">// xxxxx</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h3 id="动态-ui-应用">动态 UI 应用</h3>
+
+<p>利用 TheRouter 的远端路由下发和路由表的动态性，可以做到线上环境千人千面，以及做到类似低代码UI的效果。</p>
+
+<ul>
+  <li>
+    <p>客户端：提前预定义好各种UI模板（例如Column/Row/FrameLayout/以及 RecycleView 的各种 item），并将 UI 对应的 path 与后端统一。</p>
+  </li>
+  <li>
+    <p>服务端：定义一套路由表与具体业务的模版。根据业务，对不同的人下发不同的 UI 组合。</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p>由于 Compose 支持嵌套，也就是一个 Compose Screen 作为另一个 Screen 的参数。用 TheRouter 来实现以后，也就是一个 path 允许关联多个子 path。 而这些 path 的关系靠后端维护，前端只负责渲染。  后端只需要对不同的人，返回不同的预定义 UI 模板的 json 即可。</p>
+
+	</div>
+  
+  
+  
+    
+    
+    
+  
+    
+    
+
+    
+      <h3>相关推荐：</h3>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    
+    
+    <div class="col">
+      <div class="card shadow-sm">
+        <a href=/docs/2025/05/14/01>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>鸿蒙路由源码调试步骤</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">鸿蒙路由源码调试步骤</text></svg>
+        </a>
+
+        <div class="card-body">
+          <p class="card-text">
+            
+              本文已迁移至：https://kymjs.com/code/2025/03/23/01/
+
+
+            
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href=/docs/2025/05/14/01>
+                <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
+              </a>
+            </div>
+            <small class="text-muted">1 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+    
+  
+    
+    
+
+    
+    
+    <div class="col">
+      <div class="card shadow-sm">
+        <a href=/docs/2025/03/23/01>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>从零接入鸿蒙路由 TheRouter</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">从零接入鸿蒙路由 TheRouter</text></svg>
+        </a>
+
+        <div class="card-body">
+          <p class="card-text">
+            
+              TheRouter 是货拉拉基于HMRouter深度定制的开源路由框架，提供了 Android、iOS、Harmony 三端高一致性使用，在支持平台化应用...
+            
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href=/docs/2025/03/23/01>
+                <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
+              </a>
+            </div>
+            <small class="text-muted">10 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+    
+    
+
+    
+    
+    <div class="col">
+      <div class="card shadow-sm">
+        <a href=/docs/2024/10/31/01>
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="125" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>为 TheRouter 的 AGP8 编译加个速</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="5%" y="50%" fill="#eceeef" dy=".3em">为 TheRouter 的 AGP8 编译加个速</text></svg>
+        </a>
+
+        <div class="card-body">
+          <p class="card-text">
+            
+              内容请见：
+
+《为 TheRouter 的 AGP8 编译加个速》
+https://kymjs.com/code/2024/10/31/01/
+
+            
+          </p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <a href=/docs/2024/10/31/01>
+                <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
+              </a>
+            </div>
+            <small class="text-muted">1 mins</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+    
+    
+
+    
+      
+  
+    </div>
+  
+
+</div>
+<!--End Main Container -->
+
+  </body>
+
+  <!-- Footer -->
+<footer> 
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h3><i class="bi bi-link-45deg bi-footer"></i> 友情链接</h3>
+        <p><a href="https://www.huolala.cn/"> 货拉拉</a></p>
+        <p><a href="https://www.huolala.cn/house_move.html"> 无忧搬家</a></p>
+        <p><a href="https://www.xiaolachuxing.com/"> 小拉出行</a></p>
+      </div>
+      <div class="col-md-4">
+        <h3><i class="bi bi-slack bi-footer"></i> 社区</h3>
+        <p><a href="https://therouter.cn/docs/2022/08/24/01"> 官方微信群 </a></p>
+        <p><a href="https://kymjs.com"> 开源实验室</a></p>
+        <p><a href="https://1-0.top"> 零一开源 </a></p>
+      </div>
+      <div class="col-md-4">
+        <h3><i class="bi bi-postcard-heart bi-footer"></i> 关于</h3>
+        <p><a href="https://juejin.cn/user/1768489241815070/posts"> 货拉拉移动技术团队</a></p>
+        <p><a href="https://github.com/HuolalaTech"> GitHub </a></p>
+      </div>    
+    </div>
+  </div>
+
+  <div class="copyright text center">
+    <p>&copy; Copyright 2025, <a href="#">TheRouter</a>. <br>Theme ported by <a href="https://melvinchng.github.io/" target="_blank">Melvin Ch'ng</a></p>
+  </div>
+</footer>
+</html>
