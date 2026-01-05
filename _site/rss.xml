@@ -4,8 +4,8 @@
     <title><![CDATA[ TheRouter - 移动端模块化解决方案]]></title>
     <description><![CDATA[TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。]]></description>
     <link><![CDATA[ https://therouter.cn/]]></link>
-    <pubDate><![CDATA[2025-11-24]]></pubDate>
-    <lastBuildDate><![CDATA[2025-11-24]]></lastBuildDate>
+    <pubDate><![CDATA[2026-01-05]]></pubDate>
+    <lastBuildDate><![CDATA[2026-01-05]]></lastBuildDate>
     
     <item>
         <title><![CDATA[Compose 使用介绍]]></title>
@@ -2557,6 +2557,8 @@ Harmony：&lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-harmo
 &lt;p&gt;稳定版的版本号格式为 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x.y.z&lt;/code&gt;，最新的稳定版本会有绿色的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Latest&lt;/code&gt; 标记。&lt;/p&gt;
 
 &lt;h3 id=&quot;预览版&quot;&gt;预览版&lt;/h3&gt;
+
+&lt;p&gt;预览版总是在 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dev&lt;/code&gt; 分支打包发布，最新的预览版就是&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dev&lt;/code&gt;分支的最新代码。&lt;/p&gt;
 
 &lt;p&gt;预览版为一段时间的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Feature&lt;/code&gt; 和 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bugfix&lt;/code&gt; 整合，表示即将被合并到 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; 分支的代码。&lt;/p&gt;
 
