@@ -84,6 +84,8 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
+    本站文档最后更新于：2026-01-13
+    <hr>
 		<p>本文不介绍引入框架依赖部分，如不了解如何引入依赖，请查看文档【从零接入 TheRouter】：<a href="https://therouter.cn/docs/2022/11/23/01">https://therouter.cn/docs/2022/11/23/01</a></p>
 
 <p>本文介绍的完整使用 demo 可以参考：<a href="https://github.com/kymjs/TheRouterComposeDemo">https://github.com/kymjs/TheRouterComposeDemo</a></p>
@@ -91,7 +93,22 @@
 <p>从 1.3.1-rc1 版本开始，TheRouter 也支持 Jetpack Compose 了。  <br />
 需要引入 compose 依赖：</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>implementation "cn.therouter:compose:1.3.1-rc1"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>implementation "cn.therouter:compose:1.3.1-rc5"
+</code></pre></div></div>
+
+<p>如果是使用的 <code class="language-plaintext highlighter-rouge">libs.versions.toml</code> 建议如下方式引入</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[versions]
+therouter="1.3.1-rc5"
+
+[libraries]
+therouter-router = { module = "cn.therouter:router", version.ref = "therouter" }
+therouter-compose = { module = "cn.therouter:compose", version.ref = "therouter" }
+therouter-apt = { module = "cn.therouter:apt", version.ref = "therouter" }
+
+[plugins]
+therouter-classpath = { id = "cn.therouter", version.ref = "therouter" }
+therouter-plugin = { id = "therouter"}
 </code></pre></div></div>
 
 <p><br /></p>
@@ -102,11 +119,10 @@
 无需任何初始化代码。但推荐你根据业务设置否为<code class="language-plaintext highlighter-rouge">Debug</code>环境，用以查看日志信息。<br />
 <code class="language-plaintext highlighter-rouge">Application.attachBaseContext()</code> 方法中尽可能早设置当前是否为<code class="language-plaintext highlighter-rouge">Debug</code>环境。</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
-<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">attachBaseContext</span><span class="o">(</span><span class="nc">Context</span> <span class="n">base</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">TheRouter</span><span class="o">.</span><span class="na">setDebug</span><span class="o">(</span><span class="kc">true</span> <span class="n">or</span> <span class="kc">false</span><span class="o">);</span>
-    <span class="kd">super</span><span class="o">.</span><span class="na">attachBaseContext</span><span class="o">(</span><span class="n">base</span><span class="o">);</span>
-<span class="o">}</span>
+<div class="language-kotlin highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">override</span> <span class="k">fun</span> <span class="nf">attachBaseContext</span><span class="p">(</span><span class="n">base</span><span class="p">:</span> <span class="nc">Context</span><span class="p">?)</span> <span class="p">{</span>
+    <span class="nc">TheRouter</span><span class="p">.</span><span class="n">isDebug</span> <span class="p">=</span> <span class="k">false</span> <span class="c1">// or true</span>
+    <span class="k">super</span><span class="p">.</span><span class="nf">attachBaseContext</span><span class="p">(</span><span class="n">base</span><span class="p">)</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <p><br /></p>
@@ -126,16 +142,8 @@
 
 <p><br /></p>
 
-<p>@Composable 页面的函数定义允许有参数声明。   <br />
-⚠️<strong>函数的参数有几个特殊注意点</strong>：</p>
-
-<ol>
-  <li>如果参数是带泛型类型的，需要显示传递类型给TheRouter</li>
-  <li>如果参数是 lambda 表达式，需要显示传递类型给TheRouter</li>
-  <li>允许自定义函数参数的接收key（对应跳转页面时的传参）</li>
-</ol>
-
-<p>前两点限制的主要原因是因为目前的 KSP 无法取到泛型类型的具体值(lambda 的本质也是一个泛型接口类)，因此只能手动传入，在未来的版本也许能解决。</p>
+<p>@Composable 页面的函数定义允许有参数声明。 <br />
+也允许自定义函数参数的接收key（对应跳转页面时的传参）</p>
 
 <p><br /></p>
 
@@ -149,12 +157,8 @@
     <span class="nd">@Autowired</span><span class="p">(</span><span class="n">name</span> <span class="p">=</span> <span class="s">"hello_key"</span><span class="p">)</span>
     <span class="n">hello</span><span class="p">:</span> <span class="nc">String</span><span class="p">,</span>
     
-    <span class="c1">// 如果参数是带泛型类型的，需要显示传递类型给TheRouter</span>
-    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">args</span> <span class="p">=</span> <span class="s">"List&lt;androidx.window.layout.DisplayFeature&gt;"</span><span class="p">)</span>
     <span class="n">displayFeatures</span><span class="p">:</span> <span class="nc">List</span><span class="p">&lt;</span><span class="nc">DisplayFeature</span><span class="p">&gt;,</span>
     
-    <span class="c1">// 如果参数是 lambda 表达式，需要显示传递类型给TheRouter</span>
-    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">args</span> <span class="p">=</span> <span class="s">"(Long) -&gt; Unit"</span><span class="p">)</span>
     <span class="n">toggleSelectedEmail</span><span class="p">:</span> <span class="p">(</span><span class="nc">Long</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nc">Unit</span><span class="p">,</span>
     
     <span class="c1">// 有默认值的普通对象，或基本数据类型参数也不需要特殊处理</span>
@@ -195,8 +199,6 @@
 <span class="nd">@Composable</span>
 <span class="nd">@Route</span><span class="p">(</span><span class="n">path</span> <span class="p">=</span> <span class="nc">PathIndex</span><span class="p">.</span><span class="nc">SCREEN</span><span class="p">)</span>
 <span class="k">fun</span> <span class="nf">ContrastAwareReplyTheme</span><span class="p">(</span><span class="n">dynamicColor</span><span class="p">:</span> <span class="nc">Boolean</span> <span class="p">=</span> <span class="k">false</span><span class="p">,</span>
-    <span class="c1">// 如果参数是 lambda 表达式，需要显示传递类型给TheRouter</span>
-    <span class="nd">@Autowired</span><span class="p">(</span><span class="n">args</span> <span class="p">=</span> <span class="s">"() -&gt; Unit"</span><span class="p">)</span> 
     <span class="n">content</span><span class="p">:</span> <span class="nd">@Composable</span> <span class="p">()</span> <span class="p">-&gt;</span> <span class="nc">Unit</span><span class="p">,</span>
 <span class="p">)</span> <span class="p">{</span>
 	<span class="c1">// xxxxx</span>
@@ -205,7 +207,7 @@
 
 <p><br /></p>
 
-<h3 id="动态-ui-应用">动态 UI 应用</h3>
+<h3 id="13-动态-ui-应用">1.3 动态 UI 应用</h3>
 
 <p>利用 TheRouter 的远端路由下发和路由表的动态性，可以做到线上环境千人千面，以及做到类似低代码UI的效果。</p>
 
@@ -221,6 +223,94 @@
 <p><br /></p>
 
 <p>由于 Compose 支持嵌套，也就是一个 Compose Screen 作为另一个 Screen 的参数。用 TheRouter 来实现以后，也就是一个 path 允许关联多个子 path。 而这些 path 的关系靠后端维护，前端只负责渲染。  后端只需要对不同的人，返回不同的预定义 UI 模板的 json 即可。</p>
+
+<p>这样做了以后，相当于把所有的页面 UI 也模块化了，每个 UI 模块只需要提前定义好 UI 样式，让后端返回不同的 path，客户端只负责渲染。看下面一个例子：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 定义一个 UI，此处简单写一个 Text
+@Route(path = "text1")
+@Composable
+fun ui(str: String) {
+    Text(
+        modifier = Modifier.padding(start = 10.dp, end = 10.dp),
+        text = str,
+        style = MaterialTheme.typography.titleMedium,
+    )
+}
+
+// 定义另一个 UI，此处简单写一个 Text
+@Route(path = "text2")
+@Composable
+fun ui(str: String) {
+    Text(
+        modifier = Modifier.padding(start = 5.dp, top = 5.dp, end = 5.dp),
+        text = str,
+        style = MaterialTheme.typography.titleMedium,
+    )
+}
+</code></pre></div></div>
+
+<p>此时根据后端返回不同的 json，客户端可以展示不同的 Text 样式</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>val path = "来自服务端返回的 json 中解析到要展示的 path"
+
+TheRouter.build(path).withObject("str", text).compose()
+</code></pre></div></div>
+
+<h3 id="14-动态-ui-定义数据源">1.4 动态 UI 定义数据源</h3>
+
+<p>在上面的例子中，每个 Text 要展示的文案是需要在路由构建时就传入的，不同的 UI 有可能会有不同的数据类型，如果全部要在跳转时写好，明显不利于动态性。我们可以对不同的 UI 模块定义不同的数据来源。甚至你可以对同一个 UI 模块定义多个动态来源，比如从网络/本地缓存/内存缓存 中获取，TheRouter 会根据你定义的优先级，依次获取，如果高优先级没有数据，就从低一级再次获取，直到获取到数据为止。</p>
+
+<p><br /></p>
+
+<p>还是接 1.3 的例子，比如我们现在想让 Text1 和 Text2 的数据来源不同。需要给每一个需要定义数据源的 UI 写一个数据提供者方法，方法名可以随意。</p>
+
+<p>⚠️ 注：</p>
+
+<ul>
+  <li>方法必须且只能有一个参数，参数必须是 Navigator 类型。</li>
+  <li>方法必须是 top level 函数</li>
+  <li>方法需要加上注解 <code class="language-plaintext highlighter-rouge">@DataProvider</code></li>
+</ul>
+
+<p>注解参数解释：</p>
+
+<ul>
+  <li>path: 必传，数据源对应的 UI 模块的 path</li>
+  <li>fieldName: 如果 UI 模块只有一个参数，则可以缺省。如果 UI 模块的函数形参名是形参类型的小写(例如string: String，user: User)，也可以省略。有多个参数的时候，必须显式声明，且必须与 UI 模块的形参完全一致。</li>
+  <li>priority: 可选，数据源优先级，数字越大优先级越高，默认值 0</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 定义一个 UI，此处简单写一个 Text
+@Route(path = "text3")
+@Composable
+fun ui(hello: String,  user: User) {
+    Text(
+        modifier = Modifier.padding(start = 5.dp, end = 5.dp),
+        text = hello + user.name,
+        style = MaterialTheme.typography.titleMedium,
+    )
+}
+
+// 这里给 text3 定义数据源，因为 text3 有多个参数，且 hello 参数不是类型的小
+// 写，所以必须显式声明 fieldName，声明的 fieldName 必须和形参一致
+@DataProvider(path = "text3", fieldName = "hello")
+fun make1(navigator: Navigator): String {
+    return navigator.getUrlWithParams()
+}
+
+// 这里给 text3 定义另一个数据源，因为user参数名是类型的小写，所以即便 text3 有多个参数，也不必显式声明 fieldName
+@DataProvider(path = "text3")
+fun make2(navigator: Navigator): User {
+    return "自己创建 User 对象，示例就不写了"
+}
+
+</code></pre></div></div>
+
+<p>定义好数据源以后，在路由跳转的时候，不需要再传入数据了，框架会自动注入数据源</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TheRouter.build("text3").compose()
+</code></pre></div></div>
+
 
 	</div>
   

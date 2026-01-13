@@ -84,6 +84,8 @@
     <!-- Main Container -->
 <div class="container">
 	<div class="blog-post">
+    本站文档最后更新于：2026-01-13
+    <hr>
 		<p>TheRouter是货拉拉开源的路由框架，针对 Android 平台实现组件化、跨模块调用、动态化等功能的集成框架，基本上算当前最先进的路由库了。 <br />
 Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https://github.com/HuolalaTech/hll-wp-therouter-android/</a> <br />
 官网：<a href="http://therouter.cn/">http://therouter.cn/</a></p>
@@ -184,12 +186,19 @@ Github: <a href="https://github.com/HuolalaTech/hll-wp-therouter-android/">https
     implementation "cn.therouter:compose:1.3.1-rc1"
 }
 
-// 采用 toml 时，推荐如下定义方式
+// 如果是 libs.versions.toml 时，推荐如下定义方式
+[versions]
+therouter="xxxxxx"  // 改为最新版本号
 
-therouter = { module = "cn.therouter:router", version.ref = "therouter_version" }
-therouter_apt = { module = "cn.therouter:apt", version.ref = "therouter_version" }
-// gradle &gt;= 8 且仅在 1.2.x 时，使用 cn.therouter:plugin-agp8 作为 module
-therouter_plugin = { module = "cn.therouter:plugin", version.ref = "therouter_version" }
+[libraries]
+therouter-router = { module = "cn.therouter:router", version.ref = "therouter" }
+therouter-compose = { module = "cn.therouter:compose", version.ref = "therouter" }
+therouter-apt = { module = "cn.therouter:apt", version.ref = "therouter" }
+
+[plugins]
+therouter-classpath = { id = "cn.therouter", version.ref = "therouter" }
+therouter-plugin = { id = "therouter"}
+
 </code></pre></div></div>
 
 <p><br /><br /></p>
@@ -277,7 +286,7 @@ therouter_plugin = { module = "cn.therouter:plugin", version.ref = "therouter_ve
                 <button type="button" class="btn btn-sm btn-outline-secondary">阅读</button>
               </a>
             </div>
-            <small class="text-muted">3 mins</small>
+            <small class="text-muted">5 mins</small>
           </div>
         </div>
       </div>

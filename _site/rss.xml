@@ -4,8 +4,8 @@
     <title><![CDATA[ TheRouter - 移动端模块化解决方案]]></title>
     <description><![CDATA[TheRouter 是一个 Kotlin 编写，用于 Android 模块化开发的一整套解决方案框架。]]></description>
     <link><![CDATA[ https://therouter.cn/]]></link>
-    <pubDate><![CDATA[2026-01-05]]></pubDate>
-    <lastBuildDate><![CDATA[2026-01-05]]></lastBuildDate>
+    <pubDate><![CDATA[2026-01-13]]></pubDate>
+    <lastBuildDate><![CDATA[2026-01-13]]></lastBuildDate>
     
     <item>
         <title><![CDATA[Compose 使用介绍]]></title>
@@ -33,7 +33,22 @@
 &lt;p&gt;从 1.3.1-rc1 版本开始，TheRouter 也支持 Jetpack Compose 了。  &lt;br /&gt;
 需要引入 compose 依赖：&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;implementation &quot;cn.therouter:compose:1.3.1-rc1&quot;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;implementation &quot;cn.therouter:compose:1.3.1-rc5&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;如果是使用的 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;libs.versions.toml&lt;/code&gt; 建议如下方式引入&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[versions]
+therouter=&quot;1.3.1-rc5&quot;
+
+[libraries]
+therouter-router = { module = &quot;cn.therouter:router&quot;, version.ref = &quot;therouter&quot; }
+therouter-compose = { module = &quot;cn.therouter:compose&quot;, version.ref = &quot;therouter&quot; }
+therouter-apt = { module = &quot;cn.therouter:apt&quot;, version.ref = &quot;therouter&quot; }
+
+[plugins]
+therouter-classpath = { id = &quot;cn.therouter&quot;, version.ref = &quot;therouter&quot; }
+therouter-plugin = { id = &quot;therouter&quot;}
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -44,11 +59,10 @@
 无需任何初始化代码。但推荐你根据业务设置否为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Debug&lt;/code&gt;环境，用以查看日志信息。&lt;br /&gt;
 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Application.attachBaseContext()&lt;/code&gt; 方法中尽可能早设置当前是否为&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Debug&lt;/code&gt;环境。&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;attachBaseContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Context&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nc&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setDebug&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;attachBaseContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;div class=&quot;language-kotlin highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;attachBaseContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nc&quot;&gt;TheRouter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isDebug&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// or true&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;attachBaseContext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -68,16 +82,8 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;@Composable 页面的函数定义允许有参数声明。   &lt;br /&gt;
-⚠️&lt;strong&gt;函数的参数有几个特殊注意点&lt;/strong&gt;：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;如果参数是带泛型类型的，需要显示传递类型给TheRouter&lt;/li&gt;
-  &lt;li&gt;如果参数是 lambda 表达式，需要显示传递类型给TheRouter&lt;/li&gt;
-  &lt;li&gt;允许自定义函数参数的接收key（对应跳转页面时的传参）&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;前两点限制的主要原因是因为目前的 KSP 无法取到泛型类型的具体值(lambda 的本质也是一个泛型接口类)，因此只能手动传入，在未来的版本也许能解决。&lt;/p&gt;
+&lt;p&gt;@Composable 页面的函数定义允许有参数声明。 &lt;br /&gt;
+也允许自定义函数参数的接收key（对应跳转页面时的传参）&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -91,12 +97,8 @@
     &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;hello_key&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     
-    &lt;span class=&quot;c1&quot;&gt;// 如果参数是带泛型类型的，需要显示传递类型给TheRouter&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;List&amp;lt;androidx.window.layout.DisplayFeature&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;displayFeatures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DisplayFeature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;,&lt;/span&gt;
     
-    &lt;span class=&quot;c1&quot;&gt;// 如果参数是 lambda 表达式，需要显示传递类型给TheRouter&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;(Long) -&amp;gt; Unit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;toggleSelectedEmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Long&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
     
     &lt;span class=&quot;c1&quot;&gt;// 有默认值的普通对象，或基本数据类型参数也不需要特殊处理&lt;/span&gt;
@@ -137,8 +139,6 @@
 &lt;span class=&quot;nd&quot;&gt;@Composable&lt;/span&gt;
 &lt;span class=&quot;nd&quot;&gt;@Route&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PathIndex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SCREEN&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ContrastAwareReplyTheme&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dynamicColor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Boolean&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;// 如果参数是 lambda 表达式，需要显示传递类型给TheRouter&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;() -&amp;gt; Unit&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
     &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;@Composable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Unit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 	&lt;span class=&quot;c1&quot;&gt;// xxxxx&lt;/span&gt;
@@ -147,7 +147,7 @@
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;动态-ui-应用&quot;&gt;动态 UI 应用&lt;/h3&gt;
+&lt;h3 id=&quot;13-动态-ui-应用&quot;&gt;1.3 动态 UI 应用&lt;/h3&gt;
 
 &lt;p&gt;利用 TheRouter 的远端路由下发和路由表的动态性，可以做到线上环境千人千面，以及做到类似低代码UI的效果。&lt;/p&gt;
 
@@ -163,6 +163,94 @@
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;由于 Compose 支持嵌套，也就是一个 Compose Screen 作为另一个 Screen 的参数。用 TheRouter 来实现以后，也就是一个 path 允许关联多个子 path。 而这些 path 的关系靠后端维护，前端只负责渲染。  后端只需要对不同的人，返回不同的预定义 UI 模板的 json 即可。&lt;/p&gt;
+
+&lt;p&gt;这样做了以后，相当于把所有的页面 UI 也模块化了，每个 UI 模块只需要提前定义好 UI 样式，让后端返回不同的 path，客户端只负责渲染。看下面一个例子：&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 定义一个 UI，此处简单写一个 Text
+@Route(path = &quot;text1&quot;)
+@Composable
+fun ui(str: String) {
+    Text(
+        modifier = Modifier.padding(start = 10.dp, end = 10.dp),
+        text = str,
+        style = MaterialTheme.typography.titleMedium,
+    )
+}
+
+// 定义另一个 UI，此处简单写一个 Text
+@Route(path = &quot;text2&quot;)
+@Composable
+fun ui(str: String) {
+    Text(
+        modifier = Modifier.padding(start = 5.dp, top = 5.dp, end = 5.dp),
+        text = str,
+        style = MaterialTheme.typography.titleMedium,
+    )
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;此时根据后端返回不同的 json，客户端可以展示不同的 Text 样式&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;val path = &quot;来自服务端返回的 json 中解析到要展示的 path&quot;
+
+TheRouter.build(path).withObject(&quot;str&quot;, text).compose()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;14-动态-ui-定义数据源&quot;&gt;1.4 动态 UI 定义数据源&lt;/h3&gt;
+
+&lt;p&gt;在上面的例子中，每个 Text 要展示的文案是需要在路由构建时就传入的，不同的 UI 有可能会有不同的数据类型，如果全部要在跳转时写好，明显不利于动态性。我们可以对不同的 UI 模块定义不同的数据来源。甚至你可以对同一个 UI 模块定义多个动态来源，比如从网络/本地缓存/内存缓存 中获取，TheRouter 会根据你定义的优先级，依次获取，如果高优先级没有数据，就从低一级再次获取，直到获取到数据为止。&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;还是接 1.3 的例子，比如我们现在想让 Text1 和 Text2 的数据来源不同。需要给每一个需要定义数据源的 UI 写一个数据提供者方法，方法名可以随意。&lt;/p&gt;
+
+&lt;p&gt;⚠️ 注：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;方法必须且只能有一个参数，参数必须是 Navigator 类型。&lt;/li&gt;
+  &lt;li&gt;方法必须是 top level 函数&lt;/li&gt;
+  &lt;li&gt;方法需要加上注解 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@DataProvider&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;注解参数解释：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;path: 必传，数据源对应的 UI 模块的 path&lt;/li&gt;
+  &lt;li&gt;fieldName: 如果 UI 模块只有一个参数，则可以缺省。如果 UI 模块的函数形参名是形参类型的小写(例如string: String，user: User)，也可以省略。有多个参数的时候，必须显式声明，且必须与 UI 模块的形参完全一致。&lt;/li&gt;
+  &lt;li&gt;priority: 可选，数据源优先级，数字越大优先级越高，默认值 0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// 定义一个 UI，此处简单写一个 Text
+@Route(path = &quot;text3&quot;)
+@Composable
+fun ui(hello: String,  user: User) {
+    Text(
+        modifier = Modifier.padding(start = 5.dp, end = 5.dp),
+        text = hello + user.name,
+        style = MaterialTheme.typography.titleMedium,
+    )
+}
+
+// 这里给 text3 定义数据源，因为 text3 有多个参数，且 hello 参数不是类型的小
+// 写，所以必须显式声明 fieldName，声明的 fieldName 必须和形参一致
+@DataProvider(path = &quot;text3&quot;, fieldName = &quot;hello&quot;)
+fun make1(navigator: Navigator): String {
+    return navigator.getUrlWithParams()
+}
+
+// 这里给 text3 定义另一个数据源，因为user参数名是类型的小写，所以即便 text3 有多个参数，也不必显式声明 fieldName
+@DataProvider(path = &quot;text3&quot;)
+fun make2(navigator: Navigator): User {
+    return &quot;自己创建 User 对象，示例就不写了&quot;
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;定义好数据源以后，在路由跳转的时候，不需要再传入数据了，框架会自动注入数据源&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;TheRouter.build(&quot;text3&quot;).compose()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 ]]></content>
     </item>
     
@@ -2360,12 +2448,19 @@ Github: &lt;a href=&quot;https://github.com/HuolalaTech/hll-wp-therouter-android
     implementation &quot;cn.therouter:compose:1.3.1-rc1&quot;
 }
 
-// 采用 toml 时，推荐如下定义方式
+// 如果是 libs.versions.toml 时，推荐如下定义方式
+[versions]
+therouter=&quot;xxxxxx&quot;  // 改为最新版本号
 
-therouter = { module = &quot;cn.therouter:router&quot;, version.ref = &quot;therouter_version&quot; }
-therouter_apt = { module = &quot;cn.therouter:apt&quot;, version.ref = &quot;therouter_version&quot; }
-// gradle &amp;gt;= 8 且仅在 1.2.x 时，使用 cn.therouter:plugin-agp8 作为 module
-therouter_plugin = { module = &quot;cn.therouter:plugin&quot;, version.ref = &quot;therouter_version&quot; }
+[libraries]
+therouter-router = { module = &quot;cn.therouter:router&quot;, version.ref = &quot;therouter&quot; }
+therouter-compose = { module = &quot;cn.therouter:compose&quot;, version.ref = &quot;therouter&quot; }
+therouter-apt = { module = &quot;cn.therouter:apt&quot;, version.ref = &quot;therouter&quot; }
+
+[plugins]
+therouter-classpath = { id = &quot;cn.therouter&quot;, version.ref = &quot;therouter&quot; }
+therouter-plugin = { id = &quot;therouter&quot;}
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
